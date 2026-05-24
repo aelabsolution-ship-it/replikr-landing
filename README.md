@@ -49,38 +49,43 @@ npm run build
 npm start
 ```
 
-## Déploiement Vercel
+## Déploiement Railway
 
-### Une seule fois — création du projet Vercel
+Cohérence avec `replikr.io` (multicanal) : tout sur Railway, région
+`europe-west4` (Amsterdam). Config dans `railway.json`.
 
-1. Pousser le projet sur GitHub (nouveau repo `replikr-landing`) :
-   ```bash
-   cd "f:/Claude code/replikr-landing"
-   git init
-   git add .
-   git commit -m "Initial commit : landing Next.js"
-   gh repo create aelabsolution-ship-it/replikr-landing --public --source=. --push
-   ```
+### Une seule fois — création du service Railway
 
-2. Aller sur https://vercel.com/new
-3. Importer le repo `replikr-landing`
-4. Framework auto-détecté : **Next.js**, aucune config à toucher
-5. Cliquer **Deploy** — premier déploiement en ~90s
+1. Le repo est déjà sur GitHub : https://github.com/aelabsolution-ship-it/replikr-landing
+2. Aller sur https://railway.app/new
+3. Choisir **Deploy from GitHub repo** → sélectionner `replikr-landing`
+4. Railway détecte automatiquement Next.js via Nixpacks
+5. Variables d'environnement : aucune nécessaire pour la landing publique
+6. Premier déploiement automatique (~3 min : build Docker + npm install + next build)
+7. URL temporaire fournie : `replikr-landing-production.up.railway.app`
 
 ### Configuration du domaine `replikr.app`
 
-1. Dans le projet Vercel : **Settings → Domains**
-2. Add `replikr.app` et `www.replikr.app`
-3. Suivre les instructions DNS chez ton registrar
-   (probablement Hostinger) : ajouter un `A` record sur `@` vers
-   l'IP fournie par Vercel + un `CNAME` sur `www` vers `cname.vercel-dns.com`
-4. Vercel provisionne automatiquement le certificat SSL Let's Encrypt
-5. Une fois propagé (5 min à 1h), la landing est en ligne
+1. Dans le service Railway : **Settings → Networking → Custom Domain**
+2. Add `replikr.app` (et `www.replikr.app` séparément si besoin)
+3. Railway fournit un `CNAME` cible (genre `xxxxx.up.railway.app`)
+4. Chez le registrar du domaine `replikr.app` :
+   - `CNAME` `@` → la cible Railway
+   - `CNAME` `www` → la cible Railway
+   - (Si le registrar interdit CNAME sur `@`, utiliser un `ALIAS`/`ANAME`)
+5. SSL Let's Encrypt auto-provisionné par Railway
+6. Propagation 5 min à 1h, vérifier avec `dig replikr.app`
 
 ### Déploiements suivants
 
 Chaque `git push origin main` redéploie automatiquement la production.
-Les PR génèrent un preview deploy (URL `replikr-landing-<sha>.vercel.app`).
+Build durée ~3 min sur Railway (peut être plus rapide si le cache des
+dépendances est chaud).
+
+### Spécificités du `package.json` pour Railway
+
+Le script `start` est `next start -p ${PORT:-3000}` : Railway injecte
+sa propre variable `PORT`, on l'utilise. En local, fallback sur 3000.
 
 ## Variables d'environnement
 
