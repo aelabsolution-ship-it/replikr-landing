@@ -1,0 +1,40 @@
+import { ThreadsIcon } from "./PlatformIcons";
+
+/**
+ * Mockup Threads — format texte court (max 500 chars), ton conversationnel.
+ */
+export default function ThreadsPost() {
+  return (
+    <article className="w-full bg-surface rounded-xl border border-line p-5 text-left">
+      <header className="flex items-center gap-3 mb-3">
+        <div className="w-10 h-10 rounded-full bg-ink flex items-center justify-center text-cream text-xs font-medium">
+          LN
+        </div>
+        <div className="flex-1 min-w-0">
+          <p className="text-[13px] font-medium text-ink leading-tight truncate">
+            ludovicnedelec
+          </p>
+          <p className="text-[11px] text-graphite leading-tight">2h</p>
+        </div>
+        <ThreadsIcon size={16} />
+      </header>
+
+      <p className="text-[13px] text-ink leading-[1.55] mb-2">
+        L&apos;IA ne va pas remplacer votre business.
+      </p>
+      <p className="text-[13px] text-ink leading-[1.55] mb-3">
+        Elle va remplacer ceux qui n&apos;y touchent pas.
+      </p>
+      <p className="text-[12.5px] text-graphite leading-[1.55] mb-3">
+        Les infopreneurs qui cartonnent en 2026 ont tous un point commun : ils
+        ont automatisé leur création de contenu sans perdre leur voix.
+      </p>
+
+      <div className="flex items-center gap-5 pt-3 border-t border-line text-[11px] text-graphite">
+        <span className="flex items-center gap-1">♥ 89</span>
+        <span>💬 14</span>
+        <span>↻ 6</span>
+      </div>
+    </article>
+  );
+}
