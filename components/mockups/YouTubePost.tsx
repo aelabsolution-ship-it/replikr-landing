@@ -21,9 +21,11 @@ export default function YouTubePost() {
       {/* Title + meta */}
       <div className="p-4">
         <div className="flex gap-3">
-          <div className="w-9 h-9 rounded-full bg-ink flex-shrink-0 flex items-center justify-center text-cream text-[10px] font-medium">
-            LN
-          </div>
+          <img
+            src="/profil_ludo.png"
+            alt="Ludovic Nédélec"
+            className="w-9 h-9 rounded-full object-cover flex-shrink-0"
+          />
           <div className="flex-1 min-w-0">
             <h3 className="text-[13.5px] font-medium text-ink leading-snug line-clamp-2">
               Comment l&apos;IA va remplacer ceux qui n&apos;y touchent pas

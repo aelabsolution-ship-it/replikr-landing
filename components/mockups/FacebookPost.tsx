@@ -9,9 +9,11 @@ export default function FacebookPost() {
   return (
     <article className="w-full bg-surface rounded-xl border border-line p-5 text-left">
       <header className="flex items-center gap-3 mb-3">
-        <div className="w-10 h-10 rounded-full bg-ink flex items-center justify-center text-cream text-xs font-medium">
-          LN
-        </div>
+        <img
+          src="/profil_ludo.png"
+          alt="Ludovic Nédélec"
+          className="w-10 h-10 rounded-full object-cover"
+        />
         <div className="flex-1 min-w-0">
           <p className="text-[13px] font-medium text-ink leading-tight truncate">
             Ludovic Nédélec

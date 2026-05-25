@@ -10,9 +10,11 @@ export default function InstagramPost() {
       {/* Header */}
       <header className="flex items-center gap-3 p-3.5">
         <div className="w-8 h-8 rounded-full bg-gradient-to-br from-violet via-[#E4405F] to-[#F0AD4E] p-[2px]">
-          <div className="w-full h-full rounded-full bg-ink flex items-center justify-center text-cream text-[10px] font-medium">
-            LN
-          </div>
+          <img
+            src="/profil_ludo.png"
+            alt="Ludovic Nédélec"
+            className="w-full h-full rounded-full object-cover"
+          />
         </div>
         <div className="flex-1 min-w-0">
           <p className="text-[12.5px] font-medium text-ink leading-tight truncate">

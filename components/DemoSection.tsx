@@ -31,18 +31,18 @@ import FacebookPost from "./mockups/FacebookPost";
 
 // Position cible des 7 cards depuis le centre.
 // Layout : 3 cards à gauche, 3 cards à droite, 1 card au-dessus de la vidéo.
-// Unités en % du conteneur (translateX/Y depuis le centre).
+// Unités en pixels absolus pour rester dans le viewport sur 1024+.
 const FINAL_POSITIONS = [
   // Colonne gauche
-  { x: "-150%", y: "-110%", rotate: -3 }, // LinkedIn  (haut-gauche)
-  { x: "-160%", y: "0%",    rotate: -1 }, // Instagram (gauche-centre)
-  { x: "-150%", y: "110%",  rotate: 2  }, // Threads   (bas-gauche)
+  { x: "-285px", y: "-260px", rotate: -3 }, // LinkedIn  (haut-gauche)
+  { x: "-305px", y: "0px",    rotate: -1 }, // Instagram (gauche-centre)
+  { x: "-285px", y: "260px",  rotate: 2  }, // Threads   (bas-gauche)
   // Colonne droite
-  { x: "150%",  y: "-110%", rotate: 3  }, // X         (haut-droite)
-  { x: "160%",  y: "0%",    rotate: 1  }, // YouTube   (droite-centre)
-  { x: "150%",  y: "110%",  rotate: -2 }, // TikTok    (bas-droite)
+  { x: "285px",  y: "-260px", rotate: 3  }, // X         (haut-droite)
+  { x: "305px",  y: "0px",    rotate: 1  }, // YouTube   (droite-centre)
+  { x: "285px",  y: "260px",  rotate: -2 }, // TikTok    (bas-droite)
   // Centre-haut (au-dessus de la vidéo)
-  { x: "0%",    y: "-170%", rotate: 1  }, // Facebook  (haut-centre)
+  { x: "0px",    y: "-340px", rotate: 1  }, // Facebook  (haut-centre)
 ];
 
 export default function DemoSection() {
@@ -191,7 +191,7 @@ export default function DemoSection() {
               ref={(el) => {
                 cardsRef.current[i] = el;
               }}
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[280px] z-10 origin-center"
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[240px] z-10 origin-center"
               style={{ willChange: "transform, opacity" }}
             >
               <Comp />
