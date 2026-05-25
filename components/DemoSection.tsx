@@ -216,7 +216,9 @@ export default function DemoSection() {
           className="absolute bottom-6 left-1/2 -translate-x-1/2 text-center px-6 z-30 bg-cream/95 backdrop-blur-sm py-2 rounded-lg"
         >
           <p className="font-serif text-2xl md:text-3xl text-ink leading-tight">
-            Une idée forte. Sept déclinaisons travaillées.
+            Une idée forte.
+            <br />
+            Sept déclinaisons travaillées.
             <br />
             <span className="text-violet">Publiées sans vous.</span>
           </p>
