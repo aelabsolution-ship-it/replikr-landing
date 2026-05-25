@@ -23,11 +23,11 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://replikr.io"),
   title: "Replikr · Pense une fois. Publie dix fois.",
   description:
-    "Une vidéo. Sept réseaux. Votre voix sur chacun. Replikr décline vos vidéos longues en posts natifs LinkedIn, X, Instagram, Threads, TikTok, YouTube, Facebook, sans perdre votre style.",
+    "Replikr décline votre vidéo YouTube en 7 posts natifs (LinkedIn, X, Instagram, Threads, TikTok, Shorts, Facebook) et publie automatiquement à votre place. Beta fermée — 50 places.",
   openGraph: {
     title: "Replikr · Pense une fois. Publie dix fois.",
     description:
-      "Une vidéo. Sept réseaux. Votre voix sur chacun.",
+      "Une vidéo YouTube. Sept réseaux. Publiés automatiquement. Sans vous.",
     type: "website",
     locale: "fr_FR",
     url: "https://replikr.io",
@@ -36,7 +36,8 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
     title: "Replikr · Pense une fois. Publie dix fois.",
-    description: "Une vidéo. Sept réseaux. Votre voix sur chacun.",
+    description:
+      "Une vidéo YouTube. Sept réseaux. Publiés automatiquement. Sans vous.",
   },
   robots: {
     index: true,

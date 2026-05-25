@@ -18,8 +18,8 @@ const STEPS = [
   },
   {
     n: "03",
-    title: "Vous validez. Replikr publie ou programme.",
-    sub: "Calendrier éditorial intégré, publication directe sur 7 réseaux.",
+    title: "Replikr publie. Vous reprenez votre vie de créateur.",
+    sub: "Publication automatique sur 7 réseaux aux meilleurs créneaux. Mode autopilot ou validation rapide depuis le mobile. Vous ne touchez plus jamais aux interfaces natives.",
   },
 ];
 

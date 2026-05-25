@@ -34,15 +34,15 @@ import FacebookPost from "./mockups/FacebookPost";
 // Unités en pixels absolus pour rester dans le viewport sur 1024+.
 const FINAL_POSITIONS = [
   // Colonne gauche
-  { x: "-285px", y: "-260px", rotate: -3 }, // LinkedIn  (haut-gauche)
+  { x: "-285px", y: "-250px", rotate: -3 }, // LinkedIn  (haut-gauche)
   { x: "-305px", y: "0px",    rotate: -1 }, // Instagram (gauche-centre)
-  { x: "-285px", y: "260px",  rotate: 2  }, // Threads   (bas-gauche)
+  { x: "-285px", y: "220px",  rotate: 2  }, // Threads   (bas-gauche)
   // Colonne droite
-  { x: "285px",  y: "-260px", rotate: 3  }, // X         (haut-droite)
+  { x: "285px",  y: "-250px", rotate: 3  }, // X         (haut-droite)
   { x: "305px",  y: "0px",    rotate: 1  }, // YouTube   (droite-centre)
-  { x: "285px",  y: "260px",  rotate: -2 }, // TikTok    (bas-droite)
+  { x: "285px",  y: "220px",  rotate: -2 }, // TikTok    (bas-droite)
   // Centre-haut (au-dessus de la vidéo)
-  { x: "0px",    y: "-340px", rotate: 1  }, // Facebook  (haut-centre)
+  { x: "0px",    y: "-330px", rotate: 1  }, // Facebook  (haut-centre)
 ];
 
 export default function DemoSection() {
@@ -199,15 +199,16 @@ export default function DemoSection() {
           ))}
         </div>
 
-        {/* Caption finale qui apparaît à la fin de la timeline */}
+        {/* Caption finale qui apparaît à la fin de la timeline.
+            z-30 et fond cream pour passer DEVANT les cards qui débordent. */}
         <div
           ref={captionRef}
-          className="absolute bottom-16 left-1/2 -translate-x-1/2 text-center px-6"
+          className="absolute bottom-6 left-1/2 -translate-x-1/2 text-center px-6 z-30 bg-cream/95 backdrop-blur-sm py-2 rounded-lg"
         >
-          <p className="font-serif text-2xl md:text-4xl text-ink leading-tight">
-            Une vidéo. Sept réseaux.
+          <p className="font-serif text-2xl md:text-3xl text-ink leading-tight">
+            Une idée forte. Sept déclinaisons travaillées.
             <br />
-            <span className="text-violet">Votre voix sur chacun.</span>
+            <span className="text-violet">Publiées sans vous.</span>
           </p>
         </div>
       </div>

@@ -28,14 +28,15 @@ export default function ThreadsPost() {
         Elle va remplacer ceux qui n&apos;y touchent pas.
       </p>
       <p className="text-[12.5px] text-graphite leading-[1.55] mb-3">
-        Les infopreneurs qui cartonnent en 2026 ont tous un point commun : ils
-        ont automatisé leur création de contenu sans perdre leur voix.
+        Les créateurs qui cartonnent en 2026 ont tous un point commun : ils ont
+        automatisé leur création de contenu sans perdre leur voix.
       </p>
 
-      <div className="flex items-center gap-5 pt-3 border-t border-line text-[11px] text-graphite">
-        <span className="flex items-center gap-1">♥ 89</span>
-        <span>💬 14</span>
-        <span>↻ 6</span>
+      <div className="flex items-center gap-5 pt-3 border-t border-line text-graphite">
+        <span aria-hidden className="text-[13px]">♥</span>
+        <span aria-hidden className="text-[13px]">💬</span>
+        <span aria-hidden className="text-[13px]">↻</span>
+        <span aria-hidden className="text-[13px]">↗</span>
       </div>
     </article>
   );

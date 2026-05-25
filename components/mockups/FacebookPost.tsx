@@ -37,20 +37,10 @@ export default function FacebookPost() {
         contenu. Sans perdre leur voix. Sans publier de la bouillie générique.
       </p>
 
-      <div className="flex items-center justify-between pt-3 border-t border-line text-[11px] text-graphite">
-        <span className="flex items-center gap-1.5">
-          <span className="w-4 h-4 rounded-full bg-[#1877F2] flex items-center justify-center text-cream text-[9px]">
-            👍
-          </span>
-          <span className="w-4 h-4 rounded-full bg-[#F33E58] flex items-center justify-center text-cream text-[9px]">
-            ♥
-          </span>
-          <span className="ml-1 font-medium">312</span>
-        </span>
-        <span className="flex items-center gap-4">
-          <span>48 commentaires</span>
-          <span>9 partages</span>
-        </span>
+      <div className="flex items-center gap-5 pt-3 border-t border-line text-graphite">
+        <span aria-hidden className="text-[13px]">👍</span>
+        <span aria-hidden className="text-[13px]">💬</span>
+        <span aria-hidden className="text-[13px]">↗</span>
       </div>
     </article>
   );

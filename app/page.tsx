@@ -1,6 +1,7 @@
 import Nav from "@/components/Nav";
 import HeroSection from "@/components/HeroSection";
 import DemoSection from "@/components/DemoSection";
+import AutopilotSection from "@/components/AutopilotSection";
 import ContrastSection from "@/components/ContrastSection";
 import HowSection from "@/components/HowSection";
 import CtaSection from "@/components/CtaSection";
@@ -20,6 +21,7 @@ export default function HomePage() {
       <main>
         <HeroSection />
         <DemoSection />
+        <AutopilotSection />
         <ContrastSection />
         <HowSection />
         <CtaSection />

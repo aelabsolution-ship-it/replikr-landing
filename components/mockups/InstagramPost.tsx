@@ -36,11 +36,13 @@ export default function InstagramPost() {
         </span>
       </div>
 
-      {/* Caption + métriques */}
+      {/* Actions Instagram (sans compteurs) + caption */}
       <div className="p-3.5">
-        <p className="text-[11px] text-graphite mb-1">
-          <span className="text-ink font-medium">258 j&apos;aime</span>
-        </p>
+        <div className="flex items-center gap-4 mb-2 text-ink">
+          <span aria-hidden className="text-[16px]">♥</span>
+          <span aria-hidden className="text-[16px]">💬</span>
+          <span aria-hidden className="text-[16px]">↗</span>
+        </div>
         <p className="text-[12px] text-ink leading-[1.45]">
           <span className="font-medium">ludovicnedelec</span> L&apos;IA ne va pas
           remplacer votre business. Elle va remplacer ceux qui n&apos;y touchent

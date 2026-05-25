@@ -14,17 +14,27 @@ export default function CtaSection() {
           <span className="text-violet">dix fois ?</span>
         </h2>
 
-        <p className="text-graphite text-lg max-w-md mx-auto mb-12 leading-relaxed rk-reveal">
-          Beta gratuite. Compte Google suffisant. Aucune carte bancaire
-          demandée pour démarrer.
-        </p>
+        <div className="text-graphite text-base md:text-lg max-w-xl mx-auto mb-12 leading-relaxed rk-reveal space-y-2">
+          <p className="text-ink font-medium">
+            Beta accompagnée — 50 youtubeurs entrepreneurs maximum.
+          </p>
+          <p>
+            Tarif fondateur{" "}
+            <span className="text-violet font-medium">29 €/mois</span>,
+            verrouillé à vie.
+          </p>
+          <p>Compte Google suffisant. Aucune carte bancaire pour démarrer.</p>
+          <p className="text-[15px] text-graphite/80 italic">
+            Quand les 50 places sont prises, c&apos;est terminé.
+          </p>
+        </div>
 
         <div className="rk-reveal">
           <a
             href="https://app.replikr.io"
             className="rk-btn-primary text-base md:text-lg !px-8 !py-4"
           >
-            Essayer Replikr <span aria-hidden="true">→</span>
+            Réserver ma place beta <span aria-hidden="true">→</span>
           </a>
         </div>
       </div>

@@ -39,18 +39,44 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1.0, ease: [0.16, 1, 0.3, 1] }}
-            className="text-graphite text-base md:text-lg max-w-md mt-8 mb-10 leading-relaxed"
+            className="text-graphite text-base md:text-lg max-w-xl mt-8 mb-8 leading-relaxed"
           >
-            Une vidéo. Sept réseaux. Votre voix sur chacun.
+            Vous montez votre prochaine vidéo YouTube. Replikr publie l&apos;actuelle
+            sur LinkedIn, X, Instagram, Threads, TikTok et Facebook à votre
+            place. Avec votre voix. Sans vous.
           </motion.p>
+
+          <motion.ul
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 1.1, ease: [0.16, 1, 0.3, 1] }}
+            className="space-y-2.5 mb-10 max-w-xl"
+          >
+            {[
+              "Replikr apprend votre style à partir de vos vidéos passées.",
+              "Génère 7 posts natifs, adaptés à chaque réseau.",
+              "Publie automatiquement aux meilleures heures. Vous validez en 12 minutes, ou pas du tout.",
+            ].map((bullet, i) => (
+              <li
+                key={i}
+                className="flex items-start gap-3 text-[14.5px] text-ink leading-snug"
+              >
+                <span
+                  aria-hidden
+                  className="mt-[7px] w-1.5 h-1.5 rounded-full bg-violet flex-shrink-0"
+                />
+                <span>{bullet}</span>
+              </li>
+            ))}
+          </motion.ul>
 
           <motion.div
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 1.15, ease: [0.16, 1, 0.3, 1] }}
+            transition={{ duration: 0.6, delay: 1.25, ease: [0.16, 1, 0.3, 1] }}
           >
             <a href="https://app.replikr.io" className="rk-btn-primary">
-              Essayer Replikr <span aria-hidden="true">→</span>
+              Réserver ma place beta <span aria-hidden="true">→</span>
             </a>
           </motion.div>
         </div>

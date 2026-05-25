@@ -38,15 +38,12 @@ export default function LinkedInPost() {
         contenu. Pas pour publier plus. Pour publier mieux, sans s&apos;épuiser.
       </p>
 
-      {/* CTA + métriques */}
-      <div className="flex items-center gap-4 pt-3 border-t border-line text-[11px] text-graphite">
-        <span className="flex items-center gap-1">
-          <span className="w-3 h-3 rounded-full bg-violet inline-block" />
-          <span className="w-3 h-3 rounded-full bg-[#FF6B6B] inline-block -ml-2" />
-          <span className="font-medium">147</span>
-        </span>
-        <span>32 commentaires</span>
-        <span>18 reposts</span>
+      {/* Actions LinkedIn sans compteurs */}
+      <div className="flex items-center gap-5 pt-3 border-t border-line text-graphite">
+        <span aria-hidden className="text-[13px]">👍</span>
+        <span aria-hidden className="text-[13px]">💬</span>
+        <span aria-hidden className="text-[13px]">↻</span>
+        <span aria-hidden className="text-[13px]">↗</span>
       </div>
     </article>
   );

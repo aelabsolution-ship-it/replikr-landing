@@ -22,16 +22,17 @@ export default function TikTokPost() {
           </p>
         </div>
 
-        {/* Actions latérales TikTok */}
-        <div className="absolute right-2 bottom-12 flex flex-col gap-3 items-center text-cream">
+        {/* Actions latérales TikTok (sans compteurs) */}
+        <div className="absolute right-2 bottom-12 flex flex-col gap-4 items-center text-cream">
           <div className="w-7 h-7 rounded-full bg-cream/20 flex items-center justify-center text-[12px]">
             ♥
           </div>
-          <span className="text-[10px] font-medium">42K</span>
           <div className="w-7 h-7 rounded-full bg-cream/20 flex items-center justify-center text-[12px]">
             💬
           </div>
-          <span className="text-[10px] font-medium">1.2K</span>
+          <div className="w-7 h-7 rounded-full bg-cream/20 flex items-center justify-center text-[12px]">
+            ↗
+          </div>
         </div>
 
         {/* Caption en bas */}
@@ -40,7 +41,7 @@ export default function TikTokPost() {
             @ludovicnedelec
           </p>
           <p className="text-[11px] leading-tight opacity-90">
-            #infopreneur #ia #automatisation
+            #createur #youtube #ia
           </p>
         </div>
 

@@ -31,12 +31,8 @@ export default function YouTubePost() {
               Comment l&apos;IA va remplacer ceux qui n&apos;y touchent pas
               (et comment ne pas en faire partie)
             </h3>
-            <p className="text-[11px] text-graphite mt-1">
-              Ludovic Nédélec · 5,7K abonnés
-            </p>
-            <p className="text-[11px] text-graphite">
-              2,4K vues · il y a 2 heures
-            </p>
+            <p className="text-[11px] text-graphite mt-1">Ludovic Nédélec</p>
+            <p className="text-[11px] text-graphite">il y a 2 heures</p>
           </div>
           <YouTubeIcon size={16} />
         </div>

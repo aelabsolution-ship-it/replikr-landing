@@ -27,10 +27,11 @@ export default function XPost() {
         Elle remplacera ceux qui n&apos;y touchent pas.
       </p>
 
-      <div className="flex items-center gap-5 text-[11px] text-graphite">
-        <span>42 reposts</span>
-        <span>218 likes</span>
-        <span>12K vues</span>
+      <div className="flex items-center gap-6 text-graphite">
+        <span aria-hidden className="text-[13px]">💬</span>
+        <span aria-hidden className="text-[13px]">↻</span>
+        <span aria-hidden className="text-[13px]">♥</span>
+        <span aria-hidden className="text-[13px]">↗</span>
       </div>
     </article>
   );
