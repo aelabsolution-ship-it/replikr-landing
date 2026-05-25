@@ -12,7 +12,7 @@ export default function YouTubePost() {
       {/* Vidéo verticale 9:16 fond noir */}
       <div
         className="relative bg-ink mx-auto"
-        style={{ aspectRatio: "9 / 16", maxHeight: "260px" }}
+        style={{ aspectRatio: "9 / 16", maxHeight: "220px" }}
       >
         {/* Badge "Shorts" en haut */}
         <div className="absolute top-2 left-2 z-10 flex items-center gap-1 bg-[#FF0000] text-cream text-[10px] font-medium px-1.5 py-0.5 rounded">

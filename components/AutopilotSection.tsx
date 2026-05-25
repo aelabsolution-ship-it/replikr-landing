@@ -106,15 +106,13 @@ export default function AutopilotSection() {
             })}
           </svg>
 
-          {/* Hub central : favicon Replikr + label */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 flex flex-col items-center gap-2.5">
-            <div className="w-24 h-24 rounded-2xl bg-ink flex items-center justify-center shadow-[0_18px_44px_-18px_rgba(26,22,18,0.45)] p-3">
-              <img
-                src="/logo.png"
-                alt="Replikr"
-                className="w-full h-full object-contain"
-              />
-            </div>
+          {/* Hub central : logo Replikr sur fond transparent + label */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 flex flex-col items-center gap-3">
+            <img
+              src="/logo.png"
+              alt="Replikr"
+              className="w-20 h-20 object-contain"
+            />
             <span className="text-[11px] tracking-[0.18em] uppercase text-graphite text-center leading-tight">
               Replikr
               <br />

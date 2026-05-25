@@ -9,7 +9,7 @@ export default function TikTokPost() {
       {/* Vidéo verticale 9:16 */}
       <div
         className="relative bg-ink mx-auto"
-        style={{ aspectRatio: "9 / 16", maxHeight: "260px" }}
+        style={{ aspectRatio: "9 / 16", maxHeight: "220px" }}
       >
         {/* Texte impact centré */}
         <div className="absolute inset-0 flex items-center justify-center px-4">

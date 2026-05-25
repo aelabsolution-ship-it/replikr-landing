@@ -30,20 +30,28 @@ import FacebookPost from "./mockups/FacebookPost";
  */
 
 // Position cible des 7 cards depuis le centre, en pixels absolus.
-// Vidéo en arrière-plan (440px), cards en avant-plan (z-10) qui passent
-// par-dessus pour suggérer l'essaim de publications qui émergent.
-// Layout : 3 gauche / 3 droite / 1 haut-centre.
+// Layout asymétrique 3x3 + 1 :
+//   Haut    : LinkedIn (-320,-240)  Facebook (0,-300)  X (320,-240)
+//   Milieu  : Instagram (-360, 60)                     YouTube (360, 60)
+//   Bas     : Threads (-300, 310)                      TikTok (300, 310)
+// Cards w-[200px], YouTube/TikTok contraints à maxHeight 220 pour rester
+// sur la même hauteur que les cards paysage.
+// Vidéo en arrière-plan (440px, opacity 55%, z-0), cards z-10 par-dessus.
 const FINAL_POSITIONS = [
-  // Colonne gauche
-  { x: "-280px", y: "-200px", rotate: -3 }, // LinkedIn  (haut-gauche)
-  { x: "-300px", y: "20px",   rotate: -1 }, // Instagram (gauche-centre)
-  { x: "-280px", y: "230px",  rotate: 2  }, // Threads   (bas-gauche)
-  // Colonne droite
-  { x: "280px",  y: "-200px", rotate: 3  }, // X         (haut-droite)
-  { x: "295px",  y: "20px",   rotate: 1  }, // YouTube   (droite-centre, Short vertical)
-  { x: "280px",  y: "230px",  rotate: -2 }, // TikTok    (bas-droite)
-  // Centre-haut (au-dessus de la vidéo, qui est plus large)
-  { x: "0px",    y: "-310px", rotate: 1  }, // Facebook  (haut-centre)
+  // Rangée haute
+  { x: "-320px", y: "-240px", rotate: -3 }, // LinkedIn  (haut-gauche)
+  // Rangée milieu
+  { x: "-360px", y: "60px",   rotate: -1 }, // Instagram (gauche-centre)
+  // Rangée basse
+  { x: "-300px", y: "310px",  rotate: 2  }, // Threads   (bas-gauche)
+  // Rangée haute droite
+  { x: "320px",  y: "-240px", rotate: 3  }, // X         (haut-droite)
+  // Rangée milieu droite
+  { x: "360px",  y: "60px",   rotate: 1  }, // YouTube   (droite-centre, Short vertical)
+  // Rangée basse droite
+  { x: "300px",  y: "310px",  rotate: -2 }, // TikTok    (bas-droite)
+  // Centre-haut (au-dessus de la vidéo en arrière-plan)
+  { x: "0px",    y: "-300px", rotate: 1  }, // Facebook  (haut-centre)
 ];
 
 export default function DemoSection() {
@@ -193,7 +201,7 @@ export default function DemoSection() {
               ref={(el) => {
                 cardsRef.current[i] = el;
               }}
-              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[240px] z-10 origin-center"
+              className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[200px] z-10 origin-center"
               style={{ willChange: "transform, opacity" }}
             >
               <Comp />
