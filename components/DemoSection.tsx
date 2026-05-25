@@ -29,20 +29,21 @@ import FacebookPost from "./mockups/FacebookPost";
  * nativement. Framer le fait aussi mais avec plus de boilerplate.
  */
 
-// Position cible des 7 cards depuis le centre.
-// Layout : 3 cards à gauche, 3 cards à droite, 1 card au-dessus de la vidéo.
-// Unités en pixels absolus pour rester dans le viewport sur 1024+.
+// Position cible des 7 cards depuis le centre, en pixels absolus.
+// Vidéo en arrière-plan (440px), cards en avant-plan (z-10) qui passent
+// par-dessus pour suggérer l'essaim de publications qui émergent.
+// Layout : 3 gauche / 3 droite / 1 haut-centre.
 const FINAL_POSITIONS = [
   // Colonne gauche
-  { x: "-285px", y: "-250px", rotate: -3 }, // LinkedIn  (haut-gauche)
-  { x: "-305px", y: "0px",    rotate: -1 }, // Instagram (gauche-centre)
-  { x: "-285px", y: "220px",  rotate: 2  }, // Threads   (bas-gauche)
+  { x: "-280px", y: "-200px", rotate: -3 }, // LinkedIn  (haut-gauche)
+  { x: "-300px", y: "20px",   rotate: -1 }, // Instagram (gauche-centre)
+  { x: "-280px", y: "230px",  rotate: 2  }, // Threads   (bas-gauche)
   // Colonne droite
-  { x: "285px",  y: "-250px", rotate: 3  }, // X         (haut-droite)
-  { x: "305px",  y: "0px",    rotate: 1  }, // YouTube   (droite-centre)
-  { x: "285px",  y: "220px",  rotate: -2 }, // TikTok    (bas-droite)
-  // Centre-haut (au-dessus de la vidéo)
-  { x: "0px",    y: "-330px", rotate: 1  }, // Facebook  (haut-centre)
+  { x: "280px",  y: "-200px", rotate: 3  }, // X         (haut-droite)
+  { x: "295px",  y: "20px",   rotate: 1  }, // YouTube   (droite-centre, Short vertical)
+  { x: "280px",  y: "230px",  rotate: -2 }, // TikTok    (bas-droite)
+  // Centre-haut (au-dessus de la vidéo, qui est plus large)
+  { x: "0px",    y: "-310px", rotate: 1  }, // Facebook  (haut-centre)
 ];
 
 export default function DemoSection() {
@@ -147,30 +148,31 @@ export default function DemoSection() {
       >
         {/* ── Conteneur central : vidéo (centre) + 7 cards (positions finales) ── */}
         <div className="relative w-full h-full flex items-center justify-center">
-          {/* Vidéo centrale : sticky, point d'émergence des cards.
-              Background = photo de Ludo, overlay sombre, play button au centre. */}
+          {/* Vidéo centrale : GROS et en arrière-plan (z-0 + opacity réduite)
+              pour que les cards émergent visuellement par-dessus. Background
+              = photo de Ludo, overlay sombre, play button au centre. */}
           <div
-            className="relative z-20 w-[260px] aspect-video rounded-2xl overflow-hidden flex items-center justify-center shadow-[0_24px_72px_-24px_rgba(26,22,18,0.35)] bg-ink"
+            className="absolute z-0 w-[440px] aspect-video rounded-2xl overflow-hidden flex items-center justify-center shadow-[0_24px_72px_-24px_rgba(26,22,18,0.25)] bg-ink opacity-55"
             style={{
               backgroundImage: "url('/profil_ludo.png')",
               backgroundSize: "cover",
               backgroundPosition: "center",
+              top: "50%",
+              left: "50%",
+              transform: "translate(-50%, -50%)",
             }}
             aria-hidden="true"
           >
             <div className="absolute inset-0 bg-ink/35" />
-            <span className="relative z-10 w-16 h-16 rounded-full bg-cream/95 flex items-center justify-center shadow-lg">
+            <span className="relative z-10 w-20 h-20 rounded-full bg-cream/95 flex items-center justify-center shadow-lg">
               <span
                 className="ml-1.5 inline-block w-0 h-0"
                 style={{
-                  borderLeft: "16px solid #1A1612",
-                  borderTop: "11px solid transparent",
-                  borderBottom: "11px solid transparent",
+                  borderLeft: "20px solid #1A1612",
+                  borderTop: "14px solid transparent",
+                  borderBottom: "14px solid transparent",
                 }}
               />
-            </span>
-            <span className="absolute -bottom-9 left-1/2 -translate-x-1/2 text-[11px] tracking-[0.18em] uppercase text-graphite z-20">
-              Votre vidéo
             </span>
           </div>
 

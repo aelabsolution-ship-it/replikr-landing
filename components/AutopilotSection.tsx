@@ -40,7 +40,10 @@ export default function AutopilotSection() {
   const RADIUS = 150;
 
   return (
-    <section id="autopilot" className="rk-section bg-cream">
+    <section
+      id="autopilot"
+      className="bg-cream px-6 md:px-12 py-24 md:py-32"
+    >
       <div className="max-w-page mx-auto w-full grid md:grid-cols-2 gap-16 md:gap-20 items-center">
         {/* ── Colonne texte ───────────────────────────────────────── */}
         <div>
@@ -103,12 +106,13 @@ export default function AutopilotSection() {
             })}
           </svg>
 
-          {/* Hub central */}
+          {/* Hub central : favicon Replikr + label */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 flex flex-col items-center gap-2.5">
-            <div className="w-24 h-24 rounded-2xl bg-ink flex items-center justify-center shadow-[0_18px_44px_-18px_rgba(26,22,18,0.45)]">
-              <span
-                aria-hidden="true"
-                className="w-7 h-7 bg-violet rotate-45"
+            <div className="w-24 h-24 rounded-2xl bg-ink flex items-center justify-center shadow-[0_18px_44px_-18px_rgba(26,22,18,0.45)] p-3">
+              <img
+                src="/logo.png"
+                alt="Replikr"
+                className="w-full h-full object-contain"
               />
             </div>
             <span className="text-[11px] tracking-[0.18em] uppercase text-graphite text-center leading-tight">

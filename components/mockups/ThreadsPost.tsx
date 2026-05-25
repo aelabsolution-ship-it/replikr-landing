@@ -27,10 +27,6 @@ export default function ThreadsPost() {
       <p className="text-[13px] text-ink leading-[1.55] mb-3">
         Elle va remplacer ceux qui n&apos;y touchent pas.
       </p>
-      <p className="text-[12.5px] text-graphite leading-[1.55] mb-3">
-        Les créateurs qui cartonnent en 2026 ont tous un point commun : ils ont
-        automatisé leur création de contenu sans perdre leur voix.
-      </p>
 
       <div className="flex items-center gap-5 pt-3 border-t border-line text-graphite">
         <span aria-hidden className="text-[13px]">♥</span>

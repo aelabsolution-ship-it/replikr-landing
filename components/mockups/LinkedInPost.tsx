@@ -25,17 +25,12 @@ export default function LinkedInPost() {
         <LinkedInIcon size={18} />
       </header>
 
-      {/* Corps long-format */}
+      {/* Corps court (format compact pour la card de demo) */}
       <p className="text-[13px] text-ink leading-[1.55] mb-2">
         L&apos;IA ne va pas remplacer votre business.
       </p>
-      <p className="text-[13px] text-ink leading-[1.55] mb-2">
+      <p className="text-[13px] text-ink leading-[1.55] mb-3">
         Elle va remplacer ceux qui n&apos;y touchent pas.
-      </p>
-      <p className="text-[12.5px] text-graphite leading-[1.55] mb-3">
-        J&apos;ai accompagné 14 créateurs YouTube ces 6 derniers mois. Ceux qui
-        cartonnent ont un point commun : ils ont automatisé leur création de
-        contenu. Pas pour publier plus. Pour publier mieux, sans s&apos;épuiser.
       </p>
 
       {/* Actions LinkedIn sans compteurs */}
