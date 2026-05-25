@@ -33,7 +33,7 @@ export default function LinkedInPost() {
         Elle va remplacer ceux qui n&apos;y touchent pas.
       </p>
       <p className="text-[12.5px] text-graphite leading-[1.55] mb-3">
-        J&apos;ai accompagné 14 infopreneurs ces 6 derniers mois. Ceux qui
+        J&apos;ai accompagné 14 créateurs YouTube ces 6 derniers mois. Ceux qui
         cartonnent ont un point commun : ils ont automatisé leur création de
         contenu. Pas pour publier plus. Pour publier mieux, sans s&apos;épuiser.
       </p>
