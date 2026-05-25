@@ -9,6 +9,7 @@ import InstagramPost from "./mockups/InstagramPost";
 import YouTubePost from "./mockups/YouTubePost";
 import TikTokPost from "./mockups/TikTokPost";
 import ThreadsPost from "./mockups/ThreadsPost";
+import FacebookPost from "./mockups/FacebookPost";
 
 /**
  * Section 2 — La démonstration · 200vh (sticky scroll)
@@ -28,8 +29,8 @@ import ThreadsPost from "./mockups/ThreadsPost";
  * nativement. Framer le fait aussi mais avec plus de boilerplate.
  */
 
-// Position cible des 6 cards depuis le centre.
-// Layout : 2 colonnes de 3 cards autour de la vidéo centrale.
+// Position cible des 7 cards depuis le centre.
+// Layout : 3 cards à gauche, 3 cards à droite, 1 card au-dessus de la vidéo.
 // Unités en % du conteneur (translateX/Y depuis le centre).
 const FINAL_POSITIONS = [
   // Colonne gauche
@@ -40,6 +41,8 @@ const FINAL_POSITIONS = [
   { x: "150%",  y: "-110%", rotate: 3  }, // X         (haut-droite)
   { x: "160%",  y: "0%",    rotate: 1  }, // YouTube   (droite-centre)
   { x: "150%",  y: "110%",  rotate: -2 }, // TikTok    (bas-droite)
+  // Centre-haut (au-dessus de la vidéo)
+  { x: "0%",    y: "-170%", rotate: 1  }, // Facebook  (haut-centre)
 ];
 
 export default function DemoSection() {
@@ -142,33 +145,38 @@ export default function DemoSection() {
         ref={stickyRef}
         className="sticky top-0 h-screen w-full overflow-hidden flex flex-col items-center justify-center"
       >
-        {/* Eyebrow visible dès le début de la section */}
-        <div className="absolute top-24 left-1/2 -translate-x-1/2 text-center">
-          <span className="rk-eyebrow">02 · La démonstration</span>
-        </div>
-
-        {/* ── Conteneur central : vidéo (centre) + 6 cards (positions finales) ── */}
+        {/* ── Conteneur central : vidéo (centre) + 7 cards (positions finales) ── */}
         <div className="relative w-full h-full flex items-center justify-center">
-          {/* Vidéo centrale : sticky, point d'émergence des cards */}
+          {/* Vidéo centrale : sticky, point d'émergence des cards.
+              Background = photo de Ludo, overlay sombre, play button au centre. */}
           <div
-            className="relative z-20 w-[260px] aspect-video bg-ink rounded-2xl flex items-center justify-center shadow-[0_24px_72px_-24px_rgba(26,22,18,0.35)]"
+            className="relative z-20 w-[260px] aspect-video rounded-2xl overflow-hidden flex items-center justify-center shadow-[0_24px_72px_-24px_rgba(26,22,18,0.35)] bg-ink"
+            style={{
+              backgroundImage: "url('/profil_ludo.png')",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+            }}
             aria-hidden="true"
           >
-            <span
-              className="ml-2 inline-block w-0 h-0"
-              style={{
-                borderLeft: "28px solid #F4EFE6",
-                borderTop: "20px solid transparent",
-                borderBottom: "20px solid transparent",
-              }}
-            />
-            <span className="absolute -bottom-9 left-1/2 -translate-x-1/2 text-[11px] tracking-[0.18em] uppercase text-graphite">
+            <div className="absolute inset-0 bg-ink/35" />
+            <span className="relative z-10 w-16 h-16 rounded-full bg-cream/95 flex items-center justify-center shadow-lg">
+              <span
+                className="ml-1.5 inline-block w-0 h-0"
+                style={{
+                  borderLeft: "16px solid #1A1612",
+                  borderTop: "11px solid transparent",
+                  borderBottom: "11px solid transparent",
+                }}
+              />
+            </span>
+            <span className="absolute -bottom-9 left-1/2 -translate-x-1/2 text-[11px] tracking-[0.18em] uppercase text-graphite z-20">
               Votre vidéo
             </span>
           </div>
 
-          {/* Les 6 cards : positionnées en absolute, transform animé par GSAP.
-              Initial = superposées sur la vidéo (x=0, y=0, opacity=0, scale=0.4) */}
+          {/* Les 7 cards : positionnées en absolute, transform animé par GSAP.
+              Initial = superposées sur la vidéo (x=0, y=0, opacity=0, scale=0.4).
+              L'ordre doit correspondre à FINAL_POSITIONS. */}
           {[
             { Comp: LinkedInPost, label: "LinkedIn" },
             { Comp: InstagramPost, label: "Instagram" },
@@ -176,6 +184,7 @@ export default function DemoSection() {
             { Comp: XPost, label: "X" },
             { Comp: YouTubePost, label: "YouTube" },
             { Comp: TikTokPost, label: "TikTok" },
+            { Comp: FacebookPost, label: "Facebook" },
           ].map(({ Comp, label }, i) => (
             <div
               key={label}
@@ -196,7 +205,7 @@ export default function DemoSection() {
           className="absolute bottom-16 left-1/2 -translate-x-1/2 text-center px-6"
         >
           <p className="font-serif text-2xl md:text-4xl text-ink leading-tight">
-            Une vidéo. Six réseaux.
+            Une vidéo. Sept réseaux.
             <br />
             <span className="text-violet">Votre voix sur chacun.</span>
           </p>

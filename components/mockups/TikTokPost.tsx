@@ -16,7 +16,7 @@ export default function TikTokPost() {
           <p className="font-serif italic text-cream text-xl text-center leading-tight">
             POV : tu publies
             <br />
-            6 réseaux
+            7 réseaux
             <br />
             en 12 minutes.
           </p>

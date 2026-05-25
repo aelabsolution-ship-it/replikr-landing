@@ -11,8 +11,6 @@ export default function ContrastSection() {
       className="rk-section bg-cream"
     >
       <div className="max-w-page mx-auto w-full">
-        <div className="rk-eyebrow mb-12 rk-reveal">03 · Le contraste</div>
-
         <div className="space-y-16 md:space-y-24 max-w-4xl">
           <p
             className="font-serif text-[clamp(1.75rem,4vw,3rem)] leading-[1.15] text-ink rk-reveal"

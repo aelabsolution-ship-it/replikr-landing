@@ -50,7 +50,7 @@ export default function HeroSection() {
             transition={{ duration: 0.6, delay: 1.0, ease: [0.16, 1, 0.3, 1] }}
             className="text-graphite text-base md:text-lg max-w-md mt-8 mb-10 leading-relaxed"
           >
-            Une vidéo. Six réseaux. Votre voix sur chacun.
+            Une vidéo. Sept réseaux. Votre voix sur chacun.
           </motion.p>
 
           <motion.div
@@ -84,7 +84,7 @@ export default function HeroSection() {
             />
           </div>
 
-          {/* 6 micro-cards posts : haut-gauche, haut-droite, bas-gauche, bas-droite, haut-centre, bas-centre */}
+          {/* 7 micro-cards posts : 4 coins + haut-centre + bas-centre + Facebook côté gauche */}
           <MicroCard
             position="top-0 left-0"
             color="#0A66C2"
@@ -119,6 +119,12 @@ export default function HeroSection() {
             position="bottom-2 left-1/2 -translate-x-1/2 !w-[68px] !aspect-square"
             color="#1A1612"
             iconPath="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.03-3.579.879-6.43 2.525-8.482C5.845 1.205 8.6.024 12.18 0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.29 2.858 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015-2.91.022-5.11.936-6.54 2.717C4.307 6.504 3.616 8.914 3.589 12c.027 3.086.718 5.496 2.057 7.164 1.43 1.781 3.631 2.695 6.54 2.717 2.623-.02 4.358-.631 5.8-2.045 1.647-1.613 1.618-3.593 1.09-4.798-.31-.71-.873-1.3-1.634-1.75-.192 1.352-.622 2.446-1.284 3.272-.886 1.102-2.14 1.704-3.73 1.79-1.202.065-2.361-.218-3.259-.801-1.063-.689-1.685-1.74-1.752-2.964-.065-1.19.408-2.285 1.33-3.082.88-.76 2.119-1.207 3.583-1.291a13.853 13.853 0 013.02.142c-.126-.742-.375-1.332-.74-1.757-.504-.586-1.288-.883-2.327-.89h-.029c-.834 0-1.965.23-2.686 1.302l-1.692-1.136c.97-1.434 2.546-2.225 4.378-2.225h.044c3.063.019 4.888 1.881 5.07 5.126.103.061.227.124.337.187 1.469.835 2.498 2.085 3.018 3.694.546 1.626.526 3.674-.07 5.62l2.043.65c.673-2.245.7-4.624.073-6.531z"
+            iconOnly
+          />
+          <MicroCard
+            position="top-1/2 left-1 -translate-y-1/2 !w-[60px] !aspect-square"
+            color="#1877F2"
+            iconPath="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
             iconOnly
           />
         </motion.div>

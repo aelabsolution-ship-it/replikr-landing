@@ -20,23 +20,23 @@ const newsreader = Newsreader({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://replikr.app"),
+  metadataBase: new URL("https://replikr.io"),
   title: "Replikr · Pense une fois. Publie dix fois.",
   description:
-    "Une vidéo. Six réseaux. Votre voix sur chacun. Replikr décline vos vidéos longues en posts natifs LinkedIn, X, Instagram, Threads, TikTok, YouTube — sans perdre votre style.",
+    "Une vidéo. Sept réseaux. Votre voix sur chacun. Replikr décline vos vidéos longues en posts natifs LinkedIn, X, Instagram, Threads, TikTok, YouTube, Facebook, sans perdre votre style.",
   openGraph: {
     title: "Replikr · Pense une fois. Publie dix fois.",
     description:
-      "Une vidéo. Six réseaux. Votre voix sur chacun.",
+      "Une vidéo. Sept réseaux. Votre voix sur chacun.",
     type: "website",
     locale: "fr_FR",
-    url: "https://replikr.app",
+    url: "https://replikr.io",
     siteName: "Replikr",
   },
   twitter: {
     card: "summary_large_image",
     title: "Replikr · Pense une fois. Publie dix fois.",
-    description: "Une vidéo. Six réseaux. Votre voix sur chacun.",
+    description: "Une vidéo. Sept réseaux. Votre voix sur chacun.",
   },
   robots: {
     index: true,

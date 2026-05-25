@@ -9,7 +9,7 @@ const STEPS = [
   {
     n: "01",
     title: "Vous déposez votre vidéo.",
-    sub: "YouTube, MP4, Loom, fichier local — Replikr l'accepte.",
+    sub: "YouTube, MP4, Loom, fichier local. Replikr l'accepte.",
   },
   {
     n: "02",
@@ -19,7 +19,7 @@ const STEPS = [
   {
     n: "03",
     title: "Vous validez. Replikr publie ou programme.",
-    sub: "Calendrier éditorial intégré, publication directe sur 6 réseaux.",
+    sub: "Calendrier éditorial intégré, publication directe sur 7 réseaux.",
   },
 ];
 
@@ -30,8 +30,6 @@ export default function HowSection() {
       className="rk-section bg-cream"
     >
       <div className="max-w-page mx-auto w-full">
-        <div className="rk-eyebrow mb-8 rk-reveal">04 · Comment ça marche</div>
-
         <h2 className="font-serif text-[clamp(2.5rem,6vw,5.5rem)] leading-[1.05] text-ink mb-20 max-w-4xl rk-reveal">
           Trois étapes.
           <br />

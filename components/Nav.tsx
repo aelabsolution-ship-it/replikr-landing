@@ -32,7 +32,7 @@ export default function Nav() {
         <a
           href="/"
           className="inline-flex items-center gap-2.5 text-ink"
-          aria-label="Replikr — accueil"
+          aria-label="Replikr · accueil"
         >
           <span className="rk-logo-square" aria-hidden="true" />
           <span className="text-[15px] font-medium tracking-tight">replikr</span>

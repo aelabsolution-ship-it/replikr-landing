@@ -8,8 +8,6 @@ export default function CtaSection() {
       className="rk-section bg-cream text-center"
     >
       <div className="max-w-3xl mx-auto w-full flex flex-col items-center">
-        <span className="rk-eyebrow mb-8 rk-reveal">05 · Démarrer</span>
-
         <h2 className="font-serif text-[clamp(3rem,8vw,7rem)] leading-[1.02] text-ink mb-12 rk-reveal">
           Prêt à publier
           <br />
