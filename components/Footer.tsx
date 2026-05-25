@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
           {/* Logo */}
           <div className="flex items-center gap-2.5">
-            <span className="rk-logo-square" aria-hidden="true" />
+            <img src="/logo.png" alt="" aria-hidden="true" className="w-7 h-7" />
             <span className="text-[15px] font-medium tracking-tight text-ink">
               replikr
             </span>
@@ -21,7 +21,7 @@ export default function Footer() {
           {/* Liens utilitaires */}
           <nav aria-label="Liens utilitaires" className="flex flex-wrap gap-x-8 gap-y-2 text-[13px]">
             <a
-              href="https://replikr.io"
+              href="https://app.replikr.io"
               className="rk-link-underline"
             >
               Se connecter

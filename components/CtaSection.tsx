@@ -21,7 +21,7 @@ export default function CtaSection() {
 
         <div className="rk-reveal">
           <a
-            href="https://replikr.io"
+            href="https://app.replikr.io"
             className="rk-btn-primary text-base md:text-lg !px-8 !py-4"
           >
             Essayer Replikr <span aria-hidden="true">→</span>

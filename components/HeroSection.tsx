@@ -27,16 +27,7 @@ export default function HeroSection() {
       <div className="max-w-page mx-auto w-full grid md:grid-cols-[1.4fr_1fr] gap-12 md:gap-20 items-center">
         {/* ── Colonne texte (gauche) ─────────────────────────────── */}
         <div>
-          <motion.span
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-            className="rk-eyebrow"
-          >
-            Replikr · Beta privée
-          </motion.span>
-
-          <h1 className="font-serif text-[clamp(3.5rem,9vw,10rem)] leading-[0.98] tracking-[-0.035em] text-ink mt-6 mb-0">
+          <h1 className="font-serif text-[clamp(3.5rem,9vw,10rem)] leading-[0.98] tracking-[-0.035em] text-ink mb-0">
             <AnimatedLine text={h1Line1} delay={0.15} />
             <br />
             <span className="text-violet">
@@ -58,7 +49,7 @@ export default function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1.15, ease: [0.16, 1, 0.3, 1] }}
           >
-            <a href="https://replikr.io" className="rk-btn-primary">
+            <a href="https://app.replikr.io" className="rk-btn-primary">
               Essayer Replikr <span aria-hidden="true">→</span>
             </a>
           </motion.div>

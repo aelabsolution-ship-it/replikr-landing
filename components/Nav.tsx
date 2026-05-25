@@ -28,19 +28,19 @@ export default function Nav() {
       }`}
     >
       <div className="max-w-page mx-auto px-6 md:px-12 h-16 flex items-center justify-between">
-        {/* Logo : carré violet rotaté 45° + wordmark */}
+        {/* Logo Replikr (favicon) + wordmark */}
         <a
           href="/"
           className="inline-flex items-center gap-2.5 text-ink"
           aria-label="Replikr · accueil"
         >
-          <span className="rk-logo-square" aria-hidden="true" />
+          <img src="/logo.png" alt="" aria-hidden="true" className="w-7 h-7" />
           <span className="text-[15px] font-medium tracking-tight">replikr</span>
         </a>
 
-        {/* Lien discret pour les clients existants — redirige vers l'app. */}
+        {/* Lien discret pour les clients existants : redirige vers l'app. */}
         <a
-          href="https://replikr.io"
+          href="https://app.replikr.io"
           className="rk-link-underline text-[13px] font-normal"
         >
           Déjà client <span aria-hidden="true">→</span>
