@@ -14,19 +14,33 @@ export default function CtaSection() {
           <span className="text-violet">dix fois ?</span>
         </h2>
 
-        <div className="text-graphite text-base md:text-lg max-w-xl mx-auto mb-12 leading-relaxed rk-reveal space-y-2">
-          <p className="text-ink font-medium">
-            Beta accompagnée — 50 youtubeurs entrepreneurs maximum.
-          </p>
-          <p>
-            Tarif fondateur{" "}
-            <span className="text-violet font-medium">29 €/mois</span>,
-            verrouillé à vie.
-          </p>
-          <p>Compte Google suffisant. Aucune carte bancaire pour démarrer.</p>
-          <p className="text-[15px] text-graphite/80 italic">
-            Quand les 50 places sont prises, c&apos;est terminé.
-          </p>
+        <div className="text-graphite text-base md:text-lg max-w-xl mx-auto mb-12 leading-relaxed rk-reveal space-y-6 text-left md:text-center">
+          <div className="space-y-2">
+            <p className="text-ink font-medium text-lg md:text-xl">
+              Essai gratuit immédiat.
+            </p>
+            <p>
+              Crédits offerts pour décliner 1 vidéo YouTube en 7 posts. Soit
+              une semaine complète de publication multi-réseaux.
+            </p>
+            <p className="text-[15px] text-graphite/80">
+              Sans carte bancaire. Sans engagement.
+            </p>
+          </div>
+
+          <div className="space-y-2 pt-2 border-t border-line">
+            <p className="text-ink font-medium text-lg md:text-xl">
+              Et si vous voulez continuer&nbsp;?
+            </p>
+            <p>
+              Tarif fondateur{" "}
+              <span className="text-violet font-medium">29 €/mois</span>,
+              verrouillé à vie.
+            </p>
+            <p className="text-[15px] text-graphite/80 italic">
+              Réservé aux 50 premiers comptes qui passent payant.
+            </p>
+          </div>
         </div>
 
         <div className="rk-reveal">
@@ -34,7 +48,7 @@ export default function CtaSection() {
             href="https://app.replikr.io"
             className="rk-btn-primary text-base md:text-lg !px-8 !py-4"
           >
-            Réserver ma place beta <span aria-hidden="true">→</span>
+            Démarrer gratuitement <span aria-hidden="true">→</span>
           </a>
         </div>
       </div>

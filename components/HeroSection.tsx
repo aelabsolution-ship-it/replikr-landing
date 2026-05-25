@@ -55,7 +55,7 @@ export default function HeroSection() {
             {[
               "Replikr apprend votre style à partir de vos vidéos passées.",
               "Génère 7 posts natifs, adaptés à chaque réseau.",
-              "Publie automatiquement aux meilleures heures. Vous validez en 12 minutes, ou pas du tout.",
+              "Publie automatiquement aux meilleures heures. Validation mobile en 12 minutes, ou mode autopilot.",
             ].map((bullet, i) => (
               <li
                 key={i}
@@ -74,10 +74,14 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1.25, ease: [0.16, 1, 0.3, 1] }}
+            className="flex flex-col items-start gap-2.5"
           >
             <a href="https://app.replikr.io" className="rk-btn-primary">
-              Réserver ma place beta <span aria-hidden="true">→</span>
+              Démarrer gratuitement <span aria-hidden="true">→</span>
             </a>
+            <p className="text-[12px] text-graphite/70 leading-snug">
+              Sans carte bancaire. Crédits offerts pour 1 vidéo complète.
+            </p>
           </motion.div>
         </div>
 

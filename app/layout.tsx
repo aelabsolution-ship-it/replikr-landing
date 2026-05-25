@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://replikr.io"),
   title: "Replikr · Pense une fois. Publie dix fois.",
   description:
-    "Replikr décline votre vidéo YouTube en 7 posts natifs (LinkedIn, X, Instagram, Threads, TikTok, Shorts, Facebook) et publie automatiquement à votre place. Beta fermée — 50 places.",
+    "Replikr décline votre vidéo YouTube en 7 posts natifs (LinkedIn, X, Instagram, Threads, TikTok, Shorts, Facebook) et publie automatiquement à votre place. Essai gratuit sans carte bancaire.",
   openGraph: {
     title: "Replikr · Pense une fois. Publie dix fois.",
     description:

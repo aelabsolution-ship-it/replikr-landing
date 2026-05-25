@@ -4,6 +4,7 @@ import DemoSection from "@/components/DemoSection";
 import AutopilotSection from "@/components/AutopilotSection";
 import ContrastSection from "@/components/ContrastSection";
 import HowSection from "@/components/HowSection";
+import PricingPathSection from "@/components/PricingPathSection";
 import CtaSection from "@/components/CtaSection";
 import Footer from "@/components/Footer";
 import RevealOnScroll from "@/components/RevealOnScroll";
@@ -24,6 +25,7 @@ export default function HomePage() {
         <AutopilotSection />
         <ContrastSection />
         <HowSection />
+        <PricingPathSection />
         <CtaSection />
       </main>
 
