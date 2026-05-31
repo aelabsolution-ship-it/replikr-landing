@@ -25,19 +25,17 @@ export default function LinkedInPost() {
         <LinkedInIcon size={18} />
       </header>
 
-      {/* Corps : hook + extrait du retour d'expérience. La suite serait
-          tronquée visuellement sur la card de 180px (Ludovic mai 2026 :
-          version optimisée des textes officiels). */}
+      {/* Corps : hook poétique sur l'adaptation cross-réseaux (Ludovic
+          mai 2026). Court par design — c'est l'aphorisme qui frappe. */}
       <p className="text-[13px] text-ink leading-[1.55] mb-2">
-        L&apos;IA ne va pas remplacer votre business.
+        Adapter un contenu, c&apos;est pas le trahir.
       </p>
-      <p className="text-[13px] text-ink leading-[1.55] mb-2">
-        Elle va remplacer ceux qui n&apos;y touchent pas.
+      <p className="text-[13px] text-ink leading-[1.55] mb-3">
+        C&apos;est le traduire.
       </p>
       <p className="text-[12.5px] text-graphite leading-[1.55] mb-3">
-        J&apos;ai accompagné 14 entrepreneurs cette année. Ceux qui
-        cartonnent ont arrêté de choisir entre publier vite et publier
-        bien.
+        Un carrousel LinkedIn et une vidéo YouTube disent la même chose.
+        Juste dans deux langues différentes.
       </p>
 
       {/* Actions LinkedIn sans compteurs */}

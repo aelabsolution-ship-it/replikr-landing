@@ -6,7 +6,6 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import LinkedInPost from "./mockups/LinkedInPost";
 import XPost from "./mockups/XPost";
 import InstagramPost from "./mockups/InstagramPost";
-import YouTubePost from "./mockups/YouTubePost";
 import TikTokPost from "./mockups/TikTokPost";
 import ThreadsPost from "./mockups/ThreadsPost";
 import FacebookPost from "./mockups/FacebookPost";
@@ -37,37 +36,23 @@ import FacebookPost from "./mockups/FacebookPost";
 // Cards w-[200px], YouTube/TikTok contraints à maxHeight 220 pour rester
 // sur la même hauteur que les cards paysage.
 // Vidéo en arrière-plan (440px, opacity 55%, z-0), cards z-10 par-dessus.
-// Disposition « constellation » (mai 2026, itération 3 Ludovic).
-//
-// Contraintes :
-//   - Viewport laptop typique = 1280×800. Sticky stage = 100vh, donc le
-//     stage est ±400 px autour du centre.
-//   - Vidéo centrale = 460×260 (réduite de 480 → 460 pour ces calculs).
-//     Bords vidéo à x=±230, y=±130.
-//   - Cards mockup = 180×~240 px (réduites de 200 → 180 pour respirer).
-//   - Caption « Une idée forte… » en bottom-6 → occupe y=+316 à +376.
-//
-// 3 cards par colonne (gauche + droite) à 3 niveaux y, + 1 card Facebook
-// glissée entre vidéo et caption. Chevauchements x volontairement
-// limités : centre cards |x| ≥ 320 (= 230 vidéo + 90 marge) ; Facebook
-// est large mais centre x=0 et y choisi pour ne pas toucher la vidéo en
-// y (top Facebook à +130 = pile sous le bord vidéo) et ne pas être
-// avalée par la caption (bottom Facebook à +320, caption top à +316,
-// marge 4 px — l'overlap visuel est masqué par le backdrop-blur de la
-// caption qui passe par-dessus).
+// Disposition « constellation » 6 cards (mai 2026, itération 7 Ludovic :
+// schéma coloré décodé — LinkedIn HC penché, X HD, Insta MG, TikTok MD,
+// Threads BG penché, Facebook BC/BD). Layout asymétrique organique, pas
+// de grille. Calé viewport laptop 1280×800 (centre 640, vidéo 480×270).
 const FINAL_POSITIONS = [
-  // Colonne gauche (haut → bas)
-  { x: "-340px", y: "-220px", rotate: -3 }, // LinkedIn  (haut-gauche)
-  { x: "-360px", y: "0px",    rotate: -1 }, // Instagram (milieu-gauche)
-  { x: "-330px", y: "220px",  rotate: 2  }, // Threads   (bas-gauche)
-  // Colonne droite (haut → bas)
-  { x: "340px",  y: "-220px", rotate: 3  }, // X         (haut-droite)
-  { x: "360px",  y: "0px",    rotate: 1  }, // YouTube   (milieu-droite, Short)
-  { x: "330px",  y: "220px",  rotate: -2 }, // TikTok    (bas-droite)
-  // Facebook : glissé entre le bord bas de la vidéo (y=+130) et la
-  // caption (top y=+316). Centre y=+220, hauteur ~240 → top y=+100,
-  // bottom y=+340. Léger chevauchement caption résolu par backdrop-blur.
-  { x: "0px",    y: "230px",  rotate: 0  }, // Facebook  (bas-centre)
+  // Bleu → LinkedIn : haut-centre, penché vers la gauche
+  { x: "-60px",  y: "-280px", rotate: -8 }, // LinkedIn  (haut-centre penché)
+  // Jaune → Instagram : gauche, vertical long, légèrement plus bas
+  { x: "-440px", y: "-30px",  rotate: -2 }, // Instagram (milieu-gauche)
+  // Vert → Threads : bas-gauche, penché vers la droite
+  { x: "-300px", y: "240px",  rotate: 6  }, // Threads   (bas-gauche penché)
+  // Violet → X : haut-droite, légèrement penché
+  { x: "440px",  y: "-220px", rotate: 3  }, // X         (haut-droite)
+  // Orange → Facebook : bas-droite/centre, peu de rotation
+  { x: "180px",  y: "240px",  rotate: 2  }, // Facebook  (bas-droite)
+  // Marron → TikTok : milieu-droite, vertical long
+  { x: "440px",  y: "70px",   rotate: 2  }, // TikTok    (milieu-droite)
 ];
 
 export default function DemoSection() {
@@ -75,65 +60,31 @@ export default function DemoSection() {
   const stickyRef = useRef<HTMLDivElement>(null);
   const cardsRef = useRef<(HTMLDivElement | null)[]>([]);
   const captionRef = useRef<HTMLDivElement>(null);
-  const iframeRef = useRef<HTMLIFrameElement>(null);
-  // État UI play/mute pour les boutons overlay (controls natifs YouTube
-  // sont cachés via `controls=0` pour épurer le rendu — on reconstruit
-  // juste les 2 boutons qui comptent pour l'user).
-  const [playing, setPlaying] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  // État UI play/mute pour les boutons overlay (on cache les controls
+  // natifs HTML5 et on reconstruit juste les 2 boutons qui comptent).
+  // `playing` part à `true` car la vidéo est en autoplay au mount.
+  const [playing, setPlaying] = useState(true);
   const [muted, setMuted] = useState(true);
 
-  const sendYTCommand = useCallback((func: string, args: unknown[] = []) => {
-    iframeRef.current?.contentWindow?.postMessage(
-      JSON.stringify({ event: "command", func, args }),
-      "*",
-    );
+  const togglePlay = useCallback(() => {
+    const v = videoRef.current;
+    if (!v) return;
+    if (v.paused) {
+      v.play().catch(() => {});
+      setPlaying(true);
+    } else {
+      v.pause();
+      setPlaying(false);
+    }
   }, []);
 
-  const togglePlay = useCallback(() => {
-    if (playing) {
-      sendYTCommand("pauseVideo");
-      setPlaying(false);
-    } else {
-      sendYTCommand("playVideo");
-      setPlaying(true);
-    }
-  }, [playing, sendYTCommand]);
-
   const toggleMute = useCallback(() => {
-    if (muted) {
-      sendYTCommand("unMute");
-      setMuted(false);
-    } else {
-      sendYTCommand("mute");
-      setMuted(true);
-    }
-  }, [muted, sendYTCommand]);
-
-  // Autoplay (muet) de la vidéo dès que la section entre dans le viewport.
-  // Mute obligatoire : les navigateurs bloquent tout autoplay avec son
-  // sans interaction utilisateur préalable (Chrome autoplay policy 2018+).
-  // L'user peut activer le son d'un clic sur le bouton son. Idempotent :
-  // on ne déclenche play qu'UNE fois, sinon la lecture redémarrerait à
-  // chaque sortie/entrée du viewport (pénible si l'user scroll back).
-  useEffect(() => {
-    const iframe = iframeRef.current;
-    if (!iframe) return;
-    let played = false;
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting && entry.intersectionRatio > 0.3 && !played) {
-            played = true;
-            sendYTCommand("playVideo");
-            setPlaying(true);
-          }
-        });
-      },
-      { threshold: [0, 0.3, 0.6, 1] },
-    );
-    observer.observe(iframe);
-    return () => observer.disconnect();
-  }, [sendYTCommand]);
+    const v = videoRef.current;
+    if (!v) return;
+    v.muted = !v.muted;
+    setMuted(v.muted);
+  }, []);
 
   useEffect(() => {
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -232,23 +183,27 @@ export default function DemoSection() {
         ref={stickyRef}
         className="sticky top-0 h-screen w-full overflow-hidden flex flex-col items-center justify-center"
       >
-        {/* ── Conteneur central : vidéo (centre) + 7 cards (positions finales) ── */}
+        {/* ── Conteneur central : vidéo (centre) + 6 cards (positions finales) ── */}
         <div className="relative w-full h-full flex items-center justify-center">
-          {/* Vidéo centrale : iframe YouTube AU-DESSUS des cards (z-20).
-              Les cards émergent depuis le centre et se déploient AUTOUR.
-              `controls=0` cache toute l'UI YouTube native (timeline,
-              titre, avatar chaîne, logo YouTube, fullscreen) — on
-              reconstruit juste les 2 boutons qui servent : play/pause
-              et son. `pointer-events-none` sur l'iframe pour que nos
-              boutons overlay reçoivent les clics. */}
+          {/* Vidéo centrale : <video> HTML5 native AU-DESSUS des cards
+              (z-20). Pas d'iframe YouTube : on sert directement le
+              .mp4 web-optimisé hébergé sur Vercel. Avantages : autoplay
+              fiable (pas de postMessage), pas de UI YouTube parasite,
+              pas de RGPD/cookies à gérer. Les boutons custom play/mute
+              utilisent les méthodes natives `.play()` / `.muted`. */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 w-[480px] max-w-[82vw] aspect-video rounded-2xl overflow-hidden shadow-[0_24px_72px_-24px_rgba(26,22,18,0.35)] bg-ink group">
-            <iframe
-              ref={iframeRef}
-              className="w-full h-full pointer-events-none"
-              src="https://www.youtube-nocookie.com/embed/iLbyJmJ36ds?enablejsapi=1&controls=0&rel=0&modestbranding=1&mute=1&playsinline=1&iv_load_policy=3&disablekb=1&fs=0&loop=1&playlist=iLbyJmJ36ds"
-              title="Teaser Replikr — Pense une fois. Publie dix fois."
-              loading="lazy"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            <video
+              ref={videoRef}
+              src="/presentation.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="auto"
+              onPlay={() => setPlaying(true)}
+              onPause={() => setPlaying(false)}
+              className="w-full h-full object-cover pointer-events-none"
+              aria-label="Teaser Replikr — Pense une fois. Publie dix fois."
             />
 
             {/* Overlay clic = toggle play/pause. Couvre toute la zone
@@ -298,7 +253,7 @@ export default function DemoSection() {
             </button>
           </div>
 
-          {/* Les 7 cards : positionnées en absolute, transform animé par GSAP.
+          {/* Les 6 cards : positionnées en absolute, transform animé par GSAP.
               Initial = superposées sur la vidéo (x=0, y=0, opacity=0, scale=0.4).
               L'ordre doit correspondre à FINAL_POSITIONS. */}
           {[
@@ -306,9 +261,8 @@ export default function DemoSection() {
             { Comp: InstagramPost, label: "Instagram" },
             { Comp: ThreadsPost, label: "Threads" },
             { Comp: XPost, label: "X" },
-            { Comp: YouTubePost, label: "YouTube" },
-            { Comp: TikTokPost, label: "TikTok" },
             { Comp: FacebookPost, label: "Facebook" },
+            { Comp: TikTokPost, label: "TikTok" },
           ].map(({ Comp, label }, i) => (
             <div
               key={label}
@@ -332,7 +286,7 @@ export default function DemoSection() {
           <p className="font-serif text-2xl md:text-3xl text-ink leading-tight">
             Une idée forte.
             <br />
-            Sept déclinaisons travaillées.
+            Six déclinaisons travaillées.
             <br />
             <span className="text-violet">Publiées sans vous.</span>
           </p>
