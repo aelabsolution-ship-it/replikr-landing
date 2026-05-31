@@ -36,23 +36,27 @@ import FacebookPost from "./mockups/FacebookPost";
 // Cards w-[200px], YouTube/TikTok contraints à maxHeight 220 pour rester
 // sur la même hauteur que les cards paysage.
 // Vidéo en arrière-plan (440px, opacity 55%, z-0), cards z-10 par-dessus.
-// Disposition « constellation » 6 cards (mai 2026, itération 7 Ludovic :
-// schéma coloré décodé — LinkedIn HC penché, X HD, Insta MG, TikTok MD,
-// Threads BG penché, Facebook BC/BD). Layout asymétrique organique, pas
-// de grille. Calé viewport laptop 1280×800 (centre 640, vidéo 480×270).
+// Disposition « collage » 6 cards, calée sur la référence Hero standalone
+// (mai 2026) : scatter délibéré autour de la vidéo, cartes inclinées qui se
+// chevauchent légèrement comme un moodboard. Agencement de la référence :
+//   Instagram gauche (vertical) · Threads haut-gauche · X haut-droite ·
+//   TikTok droite (vertical) · LinkedIn bas-gauche · Facebook bas-droite.
+// Positions = centre de carte / centre vidéo. Ajustées aux mockups enrichis
+// (Instagram carrousel + Facebook image+post + LinkedIn = cards plus hautes
+// que la réf) pour rester dans le viewport laptop 1280×800 (vidéo 480×270).
 const FINAL_POSITIONS = [
-  // Bleu → LinkedIn : haut-centre, penché vers la gauche
-  { x: "-60px",  y: "-280px", rotate: -8 }, // LinkedIn  (haut-centre penché)
-  // Jaune → Instagram : gauche, vertical long, légèrement plus bas
-  { x: "-440px", y: "-30px",  rotate: -2 }, // Instagram (milieu-gauche)
-  // Vert → Threads : bas-gauche, penché vers la droite
-  { x: "-300px", y: "240px",  rotate: 6  }, // Threads   (bas-gauche penché)
-  // Violet → X : haut-droite, légèrement penché
-  { x: "440px",  y: "-220px", rotate: 3  }, // X         (haut-droite)
-  // Orange → Facebook : bas-droite/centre, peu de rotation
-  { x: "180px",  y: "240px",  rotate: 2  }, // Facebook  (bas-droite)
-  // Marron → TikTok : milieu-droite, vertical long
-  { x: "440px",  y: "70px",   rotate: 2  }, // TikTok    (milieu-droite)
+  // LinkedIn : bas-gauche, penché vers la droite (chevauche le bas d'Insta)
+  { x: "-245px", y: "150px",  rotate: 6  }, // LinkedIn  (bas-gauche)
+  // Instagram : gauche, vertical long (carrousel)
+  { x: "-370px", y: "0px",    rotate: -7 }, // Instagram (gauche vertical)
+  // Threads : haut-gauche, penché vers la gauche
+  { x: "-230px", y: "-195px", rotate: -7 }, // Threads   (haut-gauche penché)
+  // X : haut-droite, légèrement penché
+  { x: "355px",  y: "-170px", rotate: 6  }, // X         (haut-droite)
+  // Facebook : bas-droite (image+post)
+  { x: "250px",  y: "160px",  rotate: -5 }, // Facebook  (bas-droite)
+  // TikTok : droite, vertical long
+  { x: "425px",  y: "15px",   rotate: 7  }, // TikTok    (droite vertical)
 ];
 
 export default function DemoSection() {
@@ -99,6 +103,12 @@ export default function DemoSection() {
         if (!card) return;
         const pos = FINAL_POSITIONS[i];
         gsap.set(card, {
+          // xPercent/yPercent : recentrage en % de la taille COURANTE de la
+          // carte (pas en px figés). Indispensable car les mockups à image
+          // (carrousel Insta, image+post FB, avatar X) grandissent après le
+          // chargement des images : sans ça, ils dérivent vers le bas.
+          xPercent: -50,
+          yPercent: -50,
           x: pos.x,
           y: pos.y,
           rotate: pos.rotate,
@@ -113,7 +123,7 @@ export default function DemoSection() {
     // ── État initial : toutes les cards superposées sur la vidéo, invisibles
     cardsRef.current.forEach((card) => {
       if (!card) return;
-      gsap.set(card, { x: 0, y: 0, opacity: 0, scale: 0.4, rotate: 0 });
+      gsap.set(card, { xPercent: -50, yPercent: -50, x: 0, y: 0, opacity: 0, scale: 0.4, rotate: 0 });
     });
     if (captionRef.current) gsap.set(captionRef.current, { opacity: 0 });
 
