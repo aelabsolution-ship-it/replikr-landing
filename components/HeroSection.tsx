@@ -93,7 +93,8 @@ export default function HeroSection() {
           className="relative w-full aspect-square max-w-[440px] mx-auto"
           aria-hidden="true"
         >
-          {/* Vidéo centrale : rectangle noir avec triangle play */}
+          {/* Vidéo centrale : rectangle noir avec triangle play (teasing
+              statique — la vraie vidéo est jouable en section Démo). */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[40%] aspect-[16/10] bg-ink rounded-xl flex items-center justify-center z-10 shadow-[0_8px_32px_-8px_rgba(26,22,18,0.25)]">
             <span
               className="ml-1 inline-block w-0 h-0"
