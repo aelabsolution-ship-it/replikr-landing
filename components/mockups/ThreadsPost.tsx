@@ -22,10 +22,13 @@ export default function ThreadsPost() {
       </header>
 
       <p className="text-[13px] text-ink leading-[1.55] mb-2">
-        L&apos;IA va vraiment remplacer votre business&nbsp;?
+        L&apos;IA ne va pas remplacer votre business.
       </p>
-      <p className="text-[13px] text-ink leading-[1.55] mb-3">
-        Ou juste ceux qui n&apos;y touchent pas&nbsp;?
+      <p className="text-[13px] text-ink leading-[1.55] mb-2">
+        Elle va remplacer ceux qui n&apos;y touchent pas.
+      </p>
+      <p className="text-[12.5px] text-graphite leading-[1.55] mb-3">
+        C&apos;est pour ça que j&apos;ai construit Replikr.
       </p>
 
       <div className="flex items-center gap-5 pt-3 border-t border-line text-graphite">

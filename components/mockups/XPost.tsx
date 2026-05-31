@@ -27,7 +27,8 @@ export default function XPost() {
         Elle remplacera ceux qui n&apos;y touchent pas.
       </p>
       <p className="text-[12.5px] text-graphite leading-[1.5] mb-3">
-        Une idée, dix posts, votre style. Présentation Replikr en réponse.
+        Replikr, c&apos;est l&apos;outil pour y toucher. Présentation en
+        réponse.
       </p>
 
       <div className="flex items-center gap-6 text-graphite">

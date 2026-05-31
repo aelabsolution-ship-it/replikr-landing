@@ -14,11 +14,13 @@ export default function TikTokPost() {
         {/* Texte impact centré */}
         <div className="absolute inset-0 flex items-center justify-center px-4">
           <p className="font-serif italic text-cream text-xl text-center leading-tight">
-            POV : tu publies
+            POV : Replikr
+            <br />
+            publie sur tes
             <br />
             7 réseaux
             <br />
-            en 12 minutes.
+            en 12 min.
           </p>
         </div>
 

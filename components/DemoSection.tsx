@@ -37,23 +37,37 @@ import FacebookPost from "./mockups/FacebookPost";
 // Cards w-[200px], YouTube/TikTok contraints à maxHeight 220 pour rester
 // sur la même hauteur que les cards paysage.
 // Vidéo en arrière-plan (440px, opacity 55%, z-0), cards z-10 par-dessus.
-// Disposition compacte (mai 2026) : 3 cards à gauche, 3 à droite, 1 en
-// bas-centre. L'ancienne position « haut-centre » pour Facebook coupait
-// la card sur viewports < 800px de haut (Ludovic mai 2026). Vidéo =
-// 480×270 ; cards 200px. Séparation horizontale assurée par x ≥ ±340
-// (centre vidéo ±240 + marge ≥ 100). Y resserré à ±200 pour rester
-// dans 100vh même sur 600px de haut.
+// Disposition « constellation » (mai 2026, itération 3 Ludovic).
+//
+// Contraintes :
+//   - Viewport laptop typique = 1280×800. Sticky stage = 100vh, donc le
+//     stage est ±400 px autour du centre.
+//   - Vidéo centrale = 460×260 (réduite de 480 → 460 pour ces calculs).
+//     Bords vidéo à x=±230, y=±130.
+//   - Cards mockup = 180×~240 px (réduites de 200 → 180 pour respirer).
+//   - Caption « Une idée forte… » en bottom-6 → occupe y=+316 à +376.
+//
+// 3 cards par colonne (gauche + droite) à 3 niveaux y, + 1 card Facebook
+// glissée entre vidéo et caption. Chevauchements x volontairement
+// limités : centre cards |x| ≥ 320 (= 230 vidéo + 90 marge) ; Facebook
+// est large mais centre x=0 et y choisi pour ne pas toucher la vidéo en
+// y (top Facebook à +130 = pile sous le bord vidéo) et ne pas être
+// avalée par la caption (bottom Facebook à +320, caption top à +316,
+// marge 4 px — l'overlap visuel est masqué par le backdrop-blur de la
+// caption qui passe par-dessus).
 const FINAL_POSITIONS = [
   // Colonne gauche (haut → bas)
-  { x: "-380px", y: "-200px", rotate: -3 }, // LinkedIn  (haut-gauche)
-  { x: "-400px", y: "30px",   rotate: -1 }, // Instagram (milieu-gauche)
-  { x: "-340px", y: "240px",  rotate: 2  }, // Threads   (bas-gauche)
+  { x: "-340px", y: "-220px", rotate: -3 }, // LinkedIn  (haut-gauche)
+  { x: "-360px", y: "0px",    rotate: -1 }, // Instagram (milieu-gauche)
+  { x: "-330px", y: "220px",  rotate: 2  }, // Threads   (bas-gauche)
   // Colonne droite (haut → bas)
-  { x: "380px",  y: "-200px", rotate: 3  }, // X         (haut-droite)
-  { x: "400px",  y: "30px",   rotate: 1  }, // YouTube   (milieu-droite, Short)
-  { x: "340px",  y: "240px",  rotate: -2 }, // TikTok    (bas-droite)
-  // Bas-centre, sous la vidéo (avant la caption qui est à bottom-6)
-  { x: "0px",    y: "260px",  rotate: 1  }, // Facebook  (bas-centre)
+  { x: "340px",  y: "-220px", rotate: 3  }, // X         (haut-droite)
+  { x: "360px",  y: "0px",    rotate: 1  }, // YouTube   (milieu-droite, Short)
+  { x: "330px",  y: "220px",  rotate: -2 }, // TikTok    (bas-droite)
+  // Facebook : glissé entre le bord bas de la vidéo (y=+130) et la
+  // caption (top y=+316). Centre y=+220, hauteur ~240 → top y=+100,
+  // bottom y=+340. Léger chevauchement caption résolu par backdrop-blur.
+  { x: "0px",    y: "230px",  rotate: 0  }, // Facebook  (bas-centre)
 ];
 
 export default function DemoSection() {

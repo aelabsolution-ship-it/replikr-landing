@@ -20,15 +20,14 @@ export default function YouTubePost() {
           <span>Shorts</span>
         </div>
 
-        {/* Texte impact centré : titre + sous-titre tranchant. */}
-        <div className="absolute inset-0 flex flex-col items-center justify-center px-4 gap-2">
+        {/* Texte impact centré : titre Replikr-first. */}
+        <div className="absolute inset-0 flex items-center justify-center px-4">
           <p className="font-serif italic text-cream text-xl text-center leading-tight">
-            L&apos;IA ne va pas
+            Replikr publie
             <br />
-            vous remplacer.
-          </p>
-          <p className="text-cream/85 text-[11px] text-center leading-snug px-2">
-            Mais elle va remplacer ceux qui n&apos;y touchent pas.
+            pour vous sur
+            <br />
+            7 réseaux.
           </p>
         </div>
 
