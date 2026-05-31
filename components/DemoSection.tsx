@@ -37,26 +37,23 @@ import FacebookPost from "./mockups/FacebookPost";
 // Cards w-[200px], YouTube/TikTok contraints à maxHeight 220 pour rester
 // sur la même hauteur que les cards paysage.
 // Vidéo en arrière-plan (440px, opacity 55%, z-0), cards z-10 par-dessus.
-// Positions élargies (mai 2026) pour ne PAS chevaucher la vidéo qui est
-// maintenant z-20 (au-dessus des cards). Vidéo = 480px large × 270px haut
-// (16:9). Les cards font 200px ; il faut donc x ≥ 380 (= 240+100+marge)
-// pour qu'elles soient pleinement visibles côté droit/gauche, et y ≥ 220
-// pour qu'elles ne touchent pas la bordure haute/basse de la vidéo.
+// Disposition compacte (mai 2026) : 3 cards à gauche, 3 à droite, 1 en
+// bas-centre. L'ancienne position « haut-centre » pour Facebook coupait
+// la card sur viewports < 800px de haut (Ludovic mai 2026). Vidéo =
+// 480×270 ; cards 200px. Séparation horizontale assurée par x ≥ ±340
+// (centre vidéo ±240 + marge ≥ 100). Y resserré à ±200 pour rester
+// dans 100vh même sur 600px de haut.
 const FINAL_POSITIONS = [
-  // Rangée haute
-  { x: "-400px", y: "-260px", rotate: -3 }, // LinkedIn  (haut-gauche)
-  // Rangée milieu
-  { x: "-420px", y: "40px",   rotate: -1 }, // Instagram (gauche-centre)
-  // Rangée basse
-  { x: "-360px", y: "300px",  rotate: 2  }, // Threads   (bas-gauche)
-  // Rangée haute droite
-  { x: "400px",  y: "-260px", rotate: 3  }, // X         (haut-droite)
-  // Rangée milieu droite
-  { x: "420px",  y: "40px",   rotate: 1  }, // YouTube   (droite-centre, Short vertical)
-  // Rangée basse droite
-  { x: "360px",  y: "300px",  rotate: -2 }, // TikTok    (bas-droite)
-  // Centre-haut (au-dessus de la vidéo)
-  { x: "0px",    y: "-310px", rotate: 1  }, // Facebook  (haut-centre)
+  // Colonne gauche (haut → bas)
+  { x: "-380px", y: "-200px", rotate: -3 }, // LinkedIn  (haut-gauche)
+  { x: "-400px", y: "30px",   rotate: -1 }, // Instagram (milieu-gauche)
+  { x: "-340px", y: "240px",  rotate: 2  }, // Threads   (bas-gauche)
+  // Colonne droite (haut → bas)
+  { x: "380px",  y: "-200px", rotate: 3  }, // X         (haut-droite)
+  { x: "400px",  y: "30px",   rotate: 1  }, // YouTube   (milieu-droite, Short)
+  { x: "340px",  y: "240px",  rotate: -2 }, // TikTok    (bas-droite)
+  // Bas-centre, sous la vidéo (avant la caption qui est à bottom-6)
+  { x: "0px",    y: "260px",  rotate: 1  }, // Facebook  (bas-centre)
 ];
 
 export default function DemoSection() {
@@ -214,7 +211,7 @@ export default function DemoSection() {
       id="demo"
       ref={sectionRef}
       className="relative bg-cream"
-      style={{ height: "250vh" }}
+      style={{ height: "170vh" }}
     >
       {/* Stage sticky : pin pendant le scroll, contient vidéo + cards */}
       <div

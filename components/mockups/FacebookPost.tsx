@@ -31,11 +31,6 @@ export default function FacebookPost() {
       <p className="text-[13px] text-ink leading-[1.55] mb-3">
         Elle remplacera ceux qui ne s&apos;y mettent pas.
       </p>
-      <p className="text-[12.5px] text-graphite leading-[1.55] mb-4">
-        Petit retour d&apos;expérience après 14 entrepreneurs accompagnés cette
-        année. Ceux qui cartonnent ont tous automatisé leur création de
-        contenu. Sans perdre leur voix. Sans publier de la bouillie générique.
-      </p>
 
       <div className="flex items-center gap-5 pt-3 border-t border-line text-graphite">
         <span aria-hidden className="text-[13px]">👍</span>

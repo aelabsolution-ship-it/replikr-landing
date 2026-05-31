@@ -21,10 +21,13 @@ export default function XPost() {
         <XIcon size={16} />
       </header>
 
-      <p className="text-[13.5px] text-ink leading-[1.5] mb-3">
+      <p className="text-[13.5px] text-ink leading-[1.5] mb-2">
         L&apos;IA ne remplacera pas votre business.
         <br />
         Elle remplacera ceux qui n&apos;y touchent pas.
+      </p>
+      <p className="text-[12.5px] text-graphite leading-[1.5] mb-3">
+        Une idée, dix posts, votre style. Présentation Replikr en réponse.
       </p>
 
       <div className="flex items-center gap-6 text-graphite">

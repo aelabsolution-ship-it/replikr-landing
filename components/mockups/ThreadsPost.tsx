@@ -22,10 +22,10 @@ export default function ThreadsPost() {
       </header>
 
       <p className="text-[13px] text-ink leading-[1.55] mb-2">
-        L&apos;IA ne va pas remplacer votre business.
+        L&apos;IA va vraiment remplacer votre business&nbsp;?
       </p>
       <p className="text-[13px] text-ink leading-[1.55] mb-3">
-        Elle va remplacer ceux qui n&apos;y touchent pas.
+        Ou juste ceux qui n&apos;y touchent pas&nbsp;?
       </p>
 
       <div className="flex items-center gap-5 pt-3 border-t border-line text-graphite">

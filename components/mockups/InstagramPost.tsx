@@ -46,7 +46,8 @@ export default function InstagramPost() {
         <p className="text-[12px] text-ink leading-[1.45]">
           <span className="font-medium">ludovicnedelec</span> L&apos;IA ne va pas
           remplacer votre business. Elle va remplacer ceux qui n&apos;y touchent
-          pas. <span className="text-graphite">... plus</span>
+          pas. Une idée forte, pensée une fois, publiée partout.{" "}
+          <span className="text-graphite">... plus</span>
         </p>
       </div>
     </article>

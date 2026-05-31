@@ -25,7 +25,8 @@ export default function LinkedInPost() {
         <LinkedInIcon size={18} />
       </header>
 
-      {/* Corps court (format compact pour la card de demo) */}
+      {/* Corps court — hook seul, le reste serait tronqué visuellement
+          sur une card de 200px (Ludovic mai 2026 : pas de pavés). */}
       <p className="text-[13px] text-ink leading-[1.55] mb-2">
         L&apos;IA ne va pas remplacer votre business.
       </p>
