@@ -11,9 +11,9 @@ export default function ContrastSection() {
       className="rk-section bg-cream"
     >
       <div className="max-w-page mx-auto w-full">
-        <div className="space-y-16 md:space-y-24 max-w-4xl">
+        <div className="space-y-10 md:space-y-16 max-w-4xl">
           <p
-            className="font-serif text-[clamp(1.75rem,4vw,3rem)] leading-[1.15] text-ink rk-reveal"
+            className="font-serif text-[clamp(1.4rem,2.8vw,2.25rem)] leading-[1.2] text-ink rk-reveal"
             style={{ transitionDelay: "0ms" }}
           >
             Avant Replikr, vous passiez vos{" "}
@@ -22,7 +22,7 @@ export default function ContrastSection() {
           </p>
 
           <p
-            className="font-serif text-[clamp(1.75rem,4vw,3rem)] leading-[1.15] text-ink rk-reveal"
+            className="font-serif text-[clamp(1.4rem,2.8vw,2.25rem)] leading-[1.2] text-ink rk-reveal"
             style={{ transitionDelay: "200ms" }}
           >
             Après Replikr, vous validez en{" "}
@@ -31,7 +31,7 @@ export default function ContrastSection() {
           </p>
 
           <p
-            className="font-serif text-[clamp(1.75rem,4vw,3rem)] leading-[1.15] text-ink rk-reveal"
+            className="font-serif text-[clamp(1.4rem,2.8vw,2.25rem)] leading-[1.2] text-ink rk-reveal"
             style={{ transitionDelay: "400ms" }}
           >
             Toujours votre voix. Jamais le copier-coller générique d&apos;un
