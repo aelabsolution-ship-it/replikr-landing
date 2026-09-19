@@ -31,7 +31,7 @@ summary.faq__question::-webkit-details-marker { display: none; }
 .rk-card--featured { background: #232d45; color: #fff; box-shadow: 0 8px 24px #101c3020; }
 .rk-pricing :where(.rk-card) p { max-width: none; margin: 0; font-family: var(--font-ui); color: inherit; }
 .rk-pricing .rk-card__price { display: flex; align-items: baseline; gap: 7px; font-size: 3.2rem; font-weight: 600; line-height: 1.15; letter-spacing: -.06em; font-variant-numeric: lining-nums tabular-nums; }
-.rk-card__price span { font-size: 1.5rem; font-weight: 400; letter-spacing: 0; }
+.rk-card__price span { font-size: 1rem; font-weight: 400; letter-spacing: 0; }
 .rk-card h3 { min-height: 3.1rem; margin: 1.4rem 0 .55rem; font-family: var(--font-ui); color: inherit; font-size: 1.2rem; font-weight: 600; line-height: 1.35; letter-spacing: -.025em; }
 .rk-pricing .rk-card__description { min-height: 4.8rem; font-size: .875rem; line-height: 1.6; color: #576070; }
 .rk-pricing .rk-card--featured .rk-card__description { color: #c5ccda; }
@@ -74,3 +74,6 @@ summary.faq__question::-webkit-details-marker { display: none; }
 .rk-pricing .rk-card__recharge { display: flex; justify-content: space-between; flex-wrap: wrap; gap: .3rem .6rem; margin-top: auto; padding: 1rem 0; font-size: .75rem; }
 .rk-card__recharge span { opacity: .75; }
 .rk-card__recharge strong { font-weight: 600; }
+.rk-pricing .rk-card__annual { margin-top: .8rem; font-size: .85rem; line-height: 1.6; }
+.rk-card__annual strong { font-weight: 600; }
+.rk-card__annual span { display: block; min-height: 2.8em; margin-top: .2rem; font-size: .75rem; opacity: .75; }

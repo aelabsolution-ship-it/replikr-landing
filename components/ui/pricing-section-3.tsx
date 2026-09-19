@@ -1,18 +1,18 @@
 const plans = [
   {
-    name: "Replikr", price: "29", credits: "410 crédits", recharge: 110,
+    name: "Replikr", price: "35", annual: "348", annualMonthly: "29", credits: "410 crédits", recharge: 110,
     description: "Pour créer vos contenus et les exporter librement.",
     features: ["Créer vos contenus", "Copier et télécharger"],
     note: "Sans publication intégrée.", featured: false,
   },
   {
-    name: "Replikr + publication", price: "55", credits: "660 crédits", recharge: 150,
+    name: "Replikr + publication", price: "66", annual: "660", annualMonthly: "55", credits: "660 crédits", recharge: 150,
     description: "De la création à la publication sur vos réseaux.",
     features: ["Créer, copier et télécharger", "Publier sur les réseaux", "Programmer vos publications"],
     note: "", featured: true,
   },
   {
-    name: "Agence", price: "299", credits: "4 470 crédits", recharge: 190,
+    name: "Agence", price: "359", annual: "3 588", annualMonthly: "299", credits: "4 470 crédits", recharge: 190,
     description: "Pour accompagner plusieurs marques avec Replikr.",
     features: ["10 marques", "4 470 crédits pour vos contenus"],
     note: "", featured: false,
@@ -31,11 +31,12 @@ export default function PricingSection() {
           {plans.map((plan) => (
             <article key={plan.name} className={`rk-card${plan.featured ? " rk-card--featured" : ""}`}>
               <div className="rk-card__head">
-                <p className="rk-card__price">{plan.price}<span>€</span></p>
+                <p className="rk-card__price">{plan.price}<span>€/mois</span></p>
+                <p className="rk-card__annual">Ou <strong>{plan.annual} €/an</strong><span>soit {plan.annualMonthly} €/mois, facturés annuellement</span></p>
                 <h3>{plan.name}</h3>
                 <p className="rk-card__description">{plan.description}</p>
               </div>
-              <p className="rk-card__credits">{plan.credits}</p>
+              <p className="rk-card__credits">{plan.credits} par mois</p>
               <ul className="rk-card__features">
                 {plan.features.map((feature) => <li key={feature}><span aria-hidden="true" className="rk-card__check">✓</span>{feature}</li>)}
               </ul>
