@@ -77,3 +77,10 @@ summary.faq__question::-webkit-details-marker { display: none; }
 .rk-pricing .rk-card__annual { margin-top: .8rem; font-size: .85rem; line-height: 1.6; }
 .rk-card__annual strong { font-weight: 600; }
 .rk-card__annual span { display: block; min-height: 2.8em; margin-top: .2rem; font-size: .75rem; opacity: .75; }
+.rk-pricing__switch { display: flex; width: fit-content; gap: 4px; margin: 2rem auto 0; padding: 5px; border: 1px solid #ffffff30; border-radius: 999px; background: #ffffff0a; }
+.rk-pricing__switch button { border: 0; border-radius: 999px; padding: .7rem 1.6rem; background: transparent; color: #c5ccda; font-family: var(--font-ui); font-size: .9rem; font-weight: 600; cursor: pointer; transition: background .2s, color .2s; }
+.rk-pricing__switch button[aria-pressed="true"] { background: #eeede9; color: #152237; box-shadow: 0 2px 5px #0002; }
+.rk-pricing__switch button:hover { color: #fff; }
+.rk-pricing__switch button[aria-pressed="true"]:hover { color: #152237; }
+.rk-pricing__switch + .rk-pricing__grid { margin-top: 2rem; }
+.rk-pricing .rk-card__annual { min-height: 1.6em; font-size: .8rem; opacity: .75; }
