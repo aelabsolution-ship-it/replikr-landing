@@ -79,8 +79,19 @@ summary.faq__question::-webkit-details-marker { display: none; }
 .rk-card__annual span { display: block; min-height: 2.8em; margin-top: .2rem; font-size: .75rem; opacity: .75; }
 .rk-pricing__switch { display: flex; width: fit-content; gap: 4px; margin: 2rem auto 0; padding: 5px; border: 1px solid #ffffff30; border-radius: 999px; background: #ffffff0a; }
 .rk-pricing__switch button { border: 0; border-radius: 999px; padding: .7rem 1.6rem; background: transparent; color: #c5ccda; font-family: var(--font-ui); font-size: .9rem; font-weight: 600; cursor: pointer; transition: background .2s, color .2s; }
-.rk-pricing__switch button[aria-pressed="true"] { background: #eeede9; color: #152237; box-shadow: 0 2px 5px #0002; }
+.rk-pricing__switch button { position: relative; }
+/* La pastille active glisse d'un bouton à l'autre (framer-motion, layoutId). */
+.rk-pricing__pill { position: absolute; inset: 0; border-radius: 999px; background: #eeede9; box-shadow: 0 2px 5px #0002; }
+.rk-pricing__switch-label { position: relative; display: inline-flex; align-items: center; gap: .45rem; }
+.rk-pricing__switch button[aria-pressed="true"] { color: #152237; }
+.rk-pricing__save { border-radius: 999px; padding: .1rem .45rem; background: #d8d3ff; color: #20283e; font-size: .72rem; font-weight: 700; }
+.rk-pricing__switch button[aria-pressed="false"] .rk-pricing__save { background: #ffffff1f; color: #e7e4ff; }
 .rk-pricing__switch button:hover { color: #fff; }
 .rk-pricing__switch button[aria-pressed="true"]:hover { color: #152237; }
 .rk-pricing__switch + .rk-pricing__grid { margin-top: 2rem; }
 .rk-pricing .rk-card__annual { min-height: 1.6em; font-size: .8rem; opacity: .75; }
+/* Le chiffre animé garde la taille du prix (les autres span y sont à 1rem). */
+.rk-pricing .rk-card__price .rk-card__amount { font-size: inherit; font-weight: inherit; letter-spacing: inherit; }
+/* Le montant animé est lu par les lecteurs d'écran, jamais affiché. */
+.rk-card__amount-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.rk-card__badge { display: inline-block; margin-bottom: .9rem; border-radius: 999px; padding: .2rem .7rem; background: #ffffff1f; color: #e7e4ff; font-family: var(--font-ui); font-size: .72rem; font-weight: 700; letter-spacing: .02em; }
