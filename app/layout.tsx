@@ -12,7 +12,7 @@ const uiFont = DM_Sans({ subsets: ["latin"], variable: "--font-dm-sans", display
 const monoFont = IBM_Plex_Mono({ subsets: ["latin"], weight: ["400", "500", "600"], variable: "--font-ibm-plex", display: "swap" });
 
 const title = "Replikr · Votre notebook de création de contenu";
-const description = "Vidéos, documents et notes vocales : Replikr transforme votre matière en publications, visuels et formats courts, dans votre voix. 500 crédits d’essai offerts.";
+const description = "Vidéos, documents et notes vocales : Replikr transforme votre matière en publications, visuels et formats courts, dans votre voix. 30 crédits d’essai offerts.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://replikr.io"), title, description,
