@@ -23,6 +23,7 @@ summary.faq__question::-webkit-details-marker { display: none; }
 .footer__contact a { overflow-wrap: anywhere; }
 .footer__brand > p { margin-top: 1.25rem; }
 .footer__bottom p { opacity: .75; }
+.oi-cta .oi-cta__after { margin: 1.75rem auto 0; }
 .oi-cta__after strong { color: inherit; }
 @media (max-width: 1024px) {
   .nav__cta { display: inline-flex; margin-left: auto; }
