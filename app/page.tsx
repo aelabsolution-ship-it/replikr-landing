@@ -1,36 +1,13 @@
-import Nav from "@/components/Nav";
-import HeroSection from "@/components/HeroSection";
-import DemoSection from "@/components/DemoSection";
-import AutopilotSection from "@/components/AutopilotSection";
-import ContrastSection from "@/components/ContrastSection";
-import HowSection from "@/components/HowSection";
-import PricingPathSection from "@/components/PricingPathSection";
-import CtaSection from "@/components/CtaSection";
-import Footer from "@/components/Footer";
-import RevealOnScroll from "@/components/RevealOnScroll";
+import { readFileSync } from "node:fs";
+import path from "node:path";
+import LandingEnhancements from "@/components/LandingEnhancements";
 import CookieBanner from "@/components/CookieBanner";
 
+export const dynamic = "force-static";
+
+// Reviewed, repository-owned HTML; read at build time, with no visitor input.
+const landing = readFileSync(path.join(process.cwd(), "content/replikr.html"), "utf8");
+
 export default function HomePage() {
-  return (
-    <>
-      {/* IntersectionObserver pour les .rk-reveal — un script unique pour
-          toute la page, monté côté client. */}
-      <RevealOnScroll />
-
-      <Nav />
-
-      <main>
-        <HeroSection />
-        <DemoSection />
-        <AutopilotSection />
-        <ContrastSection />
-        <HowSection />
-        <PricingPathSection />
-        <CtaSection />
-      </main>
-
-      <Footer />
-      <CookieBanner />
-    </>
-  );
+  return <><div dangerouslySetInnerHTML={{ __html: landing }} /><LandingEnhancements /><CookieBanner /></>;
 }

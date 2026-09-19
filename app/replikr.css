@@ -1,0 +1,41 @@
+/* Small SaaS adaptations to the Aelab reference, loaded after its styles. */
+.oi-page {
+  --font-titre: var(--font-source-serif), Georgia, serif;
+  --font-corps: var(--font-lora), Georgia, serif;
+  --font-ui: var(--font-dm-sans), system-ui, sans-serif;
+  --font-mono: var(--font-ibm-plex), monospace;
+}
+section[id] { scroll-margin-top: 90px; }
+a:focus-visible, button:focus-visible, summary:focus-visible, [tabindex]:focus-visible {
+  outline: 3px solid var(--bleu-violet);
+  outline-offset: 5px;
+}
+.replikr-brand { display: inline-flex; align-items: center; gap: .65rem; color: white; font-family: var(--font-ui); font-size: 1.3rem; font-weight: 600; }
+.replikr-brand img { width: 34px; height: 34px; object-fit: contain; }
+.nav__cta { margin-right: 0; }
+.nav__mobile[hidden] { display: none; }
+.replikr-trial { margin-top: 1rem; color: rgba(255,255,255,.75); font-family: var(--font-ui); font-size: .875rem; }
+.oi-hero__proof { color: rgba(255,255,255,.7); }
+details.faq__item[open] .faq__answer { max-height: none; padding-bottom: 1.25rem; }
+details.faq__item[open] .faq__icon { transform: rotate(45deg); }
+summary.faq__question { list-style: none; cursor: pointer; }
+summary.faq__question::-webkit-details-marker { display: none; }
+.footer__contact a { overflow-wrap: anywhere; }
+.footer__brand > p { margin-top: 1.25rem; }
+.footer__bottom p { opacity: .75; }
+.oi-cta__after strong { color: inherit; }
+@media (max-width: 1024px) {
+  .nav__cta { display: inline-flex; margin-left: auto; }
+  .nav__burger { margin-left: 0; }
+}
+@media (max-width: 620px) {
+  .nav { gap: .75rem; padding: 1rem; }
+  .replikr-brand { font-size: 1.1rem; gap: .4rem; }
+  .nav__cta { padding: .6rem .8rem; font-size: .8rem; }
+  .oi-hero__frame { transform: none !important; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .oi-hero__frame { transform: none !important; }
+  .hero__orb, .hero__beam { animation: none !important; }
+}

@@ -1,0 +1,858 @@
+/* =============================================
+   AELAB SOLUTION · lofi-tokens.css
+   Couche lo-fi / éditoriale / artisanale
+   À importer APRÈS styles.css
+   Modifie uniquement via ce fichier.
+============================================= */
+
+/* ===================================================
+   1. TOKENS · Variables lo-fi (overrides :root)
+=================================================== */
+:root {
+    /* Palette désaturée lo-fi */
+    --bleu-violet:    #8082d4;   /* was #8789ff · moins néon, plus encre */
+    --cta-violet:     #6264b4;   /* blanc lisible sur les boutons, accent conservé ailleurs */
+    --cta-violet-hover: #51539c;
+    --rose:           #b85870;   /* was #d4537e · plus bordeaux, moins candy */
+    --off-white:      #f7f4ef;   /* légèrement plus chaud */
+
+    /* Nouvelles couleurs papier */
+    --lofi-papier:    #f5f1e8;   /* fond crème/vergé */
+    --lofi-encre:     #1a1410;   /* noir chaud (remplace noir pur) */
+
+    /* Typographie lo-fi */
+    --font-titre:     'Source Serif 4', Georgia, serif;   /* serif sobre, lettres nettes (f, j, g) */
+    --font-mono:      'IBM Plex Mono', 'Courier New', monospace;
+
+    /* Grain renforcé */
+    --grain-opacity:  0.045;
+
+    /* Rayons irréguliers */
+    --radius-lofi-xs: 2px;
+    --radius-lofi-sm: 4px;
+    --radius-lofi-md: 7px;
+    --radius-stamp:   2px;
+
+    /* Rotations cartouches */
+    --rot-neg:   -1.2deg;
+    --rot-pos:   1.5deg;
+    --rot-light: -0.6deg;
+
+    /* Ombres lo-fi (chaudes) */
+    --shadow-lofi:      3px 5px 18px rgba(26, 20, 16, 0.12);
+    --shadow-stamp:     2px 2px 0 rgba(26, 20, 16, 0.12);
+    --shadow-polaroid:  4px 8px 28px rgba(26, 20, 16, 0.2), 0 0 0 1px rgba(26, 20, 16, 0.05);
+
+    /* Tampons */
+    --stamp-ink:    #2a5080;
+    --stamp-bg:     rgba(42, 80, 128, 0.07);
+    --stamp-border: 1.5px solid rgba(42, 80, 128, 0.28);
+
+    /* Soulignements feutre */
+    --feutre-rose:   rgba(184, 88, 112, 0.35);
+    --feutre-violet: rgba(128, 130, 212, 0.3);
+    --feutre-size:   3px;
+
+    /* Annotations */
+    --annotation-color: rgba(128, 130, 212, 0.6);
+}
+
+/* ===================================================
+   2. TYPOGRAPHIE · Hiérarchie éditoriale
+   Titres : Fraunces (serif optique)
+   Corps  : Lora (inchangé)
+   Labels : IBM Plex Mono
+=================================================== */
+
+/* Eyebrows → mono */
+.eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+}
+
+/* Numéros d'étape → mono */
+.step-num { font-family: var(--font-mono); }
+
+/* Stats héro → mono (chiffres mécaniques) */
+.stat__number {
+    font-family: var(--font-mono);
+    font-size: 1.8rem;
+    letter-spacing: -0.02em;
+}
+.stat__label { font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.03em; }
+
+/* Tags Canva → mono */
+.tag--new,
+.tag--pro { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.04em; }
+
+/* Badge IA flow → mono */
+.flow__ai-badge { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.08em; }
+
+/* Liens des cards → mono */
+.card__link { font-family: var(--font-mono); font-size: 0.74rem; letter-spacing: 0.04em; }
+
+/* Plateforme stats → mono */
+.platform__stat { font-family: var(--font-mono); font-size: 0.8rem; }
+
+/* Output flow → mono */
+.flow__output { font-family: var(--font-mono); font-size: 0.78rem; }
+
+/* Scroll hint → mono */
+.hero__scroll-hint span { font-family: var(--font-mono); font-size: 0.56rem; letter-spacing: 0.2em; }
+
+/* Tag héro → mono */
+.hero__tag { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.1em; }
+
+/* Footer bas de page → mono */
+.footer__bottom p { font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.02em; }
+
+/* FAQ icône → mono */
+.faq__icon { font-family: var(--font-mono); font-weight: 400; }
+
+/* ===================================================
+   3. PORTRAIT · Filtre argentique + cadre polaroïd
+=================================================== */
+
+.about__image-wrapper {
+    background: #fff;
+    padding: 0.7rem 0.7rem 2.4rem;
+    border-radius: var(--radius-lofi-xs);
+    box-shadow: var(--shadow-polaroid);
+    transform: rotate(var(--rot-neg));
+    transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.about__image-wrapper:hover { transform: rotate(0deg) scale(1.01); }
+
+/* Sur telephone, le cadre polaroid coute 38px de blanc sous la photo et
+   11px tout autour, pour un portrait deja reduit. On garde la photo et
+   son ombre, on retire le cadre et l'inclinaison. */
+@media (max-width: 620px) {
+    .about__image-wrapper { padding: 0; transform: none; border-radius: var(--radius-lg); }
+    .about__image-wrapper:hover { transform: none; }
+}
+
+.about__image img {
+    border-radius: var(--radius-lofi-xs) !important;
+    filter: grayscale(14%) sepia(8%) contrast(1.04) brightness(0.97);
+}
+
+/* Badge se redresse par rapport au wrapper tourné */
+.about__badge {
+    transform: rotate(var(--rot-pos));
+    background: var(--lofi-papier);
+    border: var(--stamp-border);
+    box-shadow: var(--shadow-stamp);
+}
+.about__badge strong {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--stamp-ink);
+}
+.about__badge small {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--stamp-ink);
+    opacity: 0.7;
+}
+
+/* ===================================================
+   4. SECTIONS · Numéros marginaux (SEO hidden)
+   Présents dans le DOM pour les crawlers,
+   invisibles visuellement.
+=================================================== */
+
+.lofi-section-num {
+    display: block;
+    height: 0;
+    overflow: hidden;
+    font-size: 0;
+    line-height: 0;
+    margin: 0;
+    padding: 0;
+    pointer-events: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+/* ===================================================
+   5. COMPOSANTS LO-FI RÉUTILISABLES
+=================================================== */
+
+/* Tampon générique */
+.lofi-stamp {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: var(--font-mono);
+    font-size: 0.58rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--stamp-ink);
+    background: var(--stamp-bg);
+    border: var(--stamp-border);
+    border-radius: var(--radius-stamp);
+    padding: 0.28rem 0.7rem;
+    box-shadow: var(--shadow-stamp);
+    white-space: nowrap;
+}
+.lofi-stamp--rotate { transform: rotate(var(--rot-light)); }
+.lofi-stamp--canva {
+    color: #7b2f9e;
+    background: rgba(123, 47, 158, 0.07);
+    border-color: rgba(123, 47, 158, 0.28);
+}
+
+/* Barre de tampons */
+.lofi-stamps {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+/* Soulignement façon feutre */
+.lofi-mark {
+    text-decoration: underline;
+    text-decoration-color: var(--feutre-rose);
+    text-decoration-thickness: var(--feutre-size);
+    text-underline-offset: 6px;
+    text-decoration-skip-ink: none;
+}
+.lofi-mark--violet {
+    text-decoration-color: var(--feutre-violet);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 5px;
+}
+
+/* Astérisque éditoriale */
+.lofi-asterisk {
+    font-family: var(--font-mono);
+    font-size: 0.55rem;
+    color: var(--annotation-color);
+    vertical-align: super;
+    letter-spacing: 0.02em;
+}
+
+/* Note de bas de section */
+.lofi-footnote {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    line-height: 1.7;
+    color: rgba(241, 239, 234, 0.28);
+    border-top: 1px dashed rgba(255, 255, 255, 0.1);
+    padding-top: 1rem;
+    margin-top: 2rem;
+    letter-spacing: 0.04em;
+    max-width: 640px;
+    margin-inline: auto;
+}
+.lofi-footnote--dark {
+    color: rgba(26, 20, 16, 0.38);
+    border-top-color: rgba(26, 20, 16, 0.1);
+}
+
+/* Flèche manuscrite SVG */
+.lofi-arrow-hint {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: var(--font-mono);
+    font-size: 0.58rem;
+    letter-spacing: 0.1em;
+    color: var(--annotation-color);
+    margin-top: 1rem;
+}
+
+/* ===================================================
+   6. GRAIN · Intensité et animation
+=================================================== */
+
+.grain { opacity: var(--grain-opacity); }
+
+/* ===================================================
+   7. ALTERNANCE SOMBRE / CLAIR · Vue d'ensemble
+   Hero      : sombre  (#071c34)
+   About     : blanc   (#fff)
+   Canva IA  : sombre  (#0c0622  violet profond · service premium)
+   Services  : clair   (papier crème · cartes sombres flottantes)
+   Multicanal: sombre  (#0c0622)
+   Réseaux   : clair   (papier crème · plateformes sur fond blanc)
+   YouTube   : sombre  (#071c34)
+   Processus : clair   (papier crème)
+   FAQ       : clair   (suite naturelle)
+   CTA       : sombre  (gradient)
+=================================================== */
+
+.section--light { background: var(--lofi-papier); }
+
+/* About : blanc pur (distinct du papier crème des sections light) */
+/* Le blanc pur suivait « La methode », posee sur le creme du corps :
+   1,1 de rapport de luminance, la separation ne se lisait pas. Un creme
+   plus profond la detache vraiment : 1,17. */
+.about.section { background: #eae3d4; }
+
+/* ===
+   Canva IA → section sombre (violet profond #0c0622)
+   Les textes de contenu passent en clair
+=== */
+.canva-ia.section--dark { background: var(--bleu-nuit); }
+
+.canva-ia.section--dark .canva-ia__content h2    { color: var(--blanc); }
+.canva-ia.section--dark .canva-ia__content > p   { color: rgba(255,255,255,0.68); }
+.canva-ia.section--dark .canva-ia__content strong { color: var(--blanc); }
+.canva-ia.section--dark .feature strong           { color: var(--blanc); font-family: var(--font-ui); }
+.canva-ia.section--dark .feature p               { color: rgba(255,255,255,0.6); }
+.canva-ia.section--dark .lofi-stamps .lofi-stamp {
+    background: rgba(255,255,255,0.07);
+    border-color: rgba(255,255,255,0.18);
+    color: rgba(255,255,255,0.75);
+}
+.canva-ia.section--dark .lofi-stamps .lofi-stamp--canva {
+    background: rgba(123,47,158,0.2);
+    border-color: rgba(123,47,158,0.4);
+    color: #d09cfa;
+}
+.canva-ia.section--dark .btn--primary {
+    background: var(--bleu-violet);
+    color: var(--blanc);
+}
+
+/* ===
+   Services → section claire
+   Cartes sombres solides sur fond crème · fond explicite requis
+   car .card--dark utilise rgba(255,255,255,0.03) conçu pour fond sombre
+=== */
+.services.section--light .section__header h2 { color: var(--bleu-nuit); }
+.services.section--light .section__header p  { color: rgba(7,28,52,0.62); opacity: 1; }
+.services.section--light .services__grid     { background: rgba(7,28,52,0.08); border-radius: var(--radius-lg); }
+
+.services.section--light .card--dark {
+    background-color: var(--bleu-nuit);
+    box-shadow: 0 6px 28px rgba(7,28,52,0.14);
+}
+.services.section--light .card--dark:hover {
+    background-color: rgba(12,6,34,0.96);
+}
+.services.section--light .card--featured {
+    background-color: var(--bleu-nuit);
+}
+.services.section--light .card--featured:hover {
+    background-color: rgba(12,6,34,0.96);
+}
+
+/* ===
+   Réseaux → section claire
+   Plateforme cards redessinées pour fond clair
+=== */
+.reseaux.section--light                              { border-top: none; }
+.reseaux.section--light .reseaux__content h2          { color: var(--bleu-nuit); }
+.reseaux.section--light .reseaux__content > p         { color: rgba(7,28,52,0.68); }
+.reseaux.section--light .reseaux__feature strong      { color: var(--bleu-nuit); }
+.reseaux.section--light .reseaux__feature p           { color: rgba(7,28,52,0.62); }
+.reseaux.section--light .reseaux__feature-icon        { background: rgba(128,130,212,0.12); }
+
+.reseaux.section--light .platform {
+    background: var(--blanc);
+    border: 1px solid rgba(7,28,52,0.08);
+    color: var(--bleu-nuit);
+    box-shadow: var(--shadow-card);
+}
+.reseaux.section--light .platform:hover {
+    background: var(--blanc);
+    border-color: rgba(128,130,212,0.3);
+}
+.reseaux.section--light .platform strong { color: var(--bleu-nuit); }
+.reseaux.section--light .platform small  { color: rgba(7,28,52,0.5); }
+.reseaux.section--light .platform__stat  { color: var(--bleu-violet); }
+
+/* ===
+   YouTube → sombre
+   Topics pills adaptées au fond sombre
+=== */
+.youtube .topic {
+    background: rgba(255,255,255,0.05);
+    border-color: rgba(255,255,255,0.1);
+    color: rgba(255,255,255,0.6);
+    box-shadow: none;
+}
+.youtube .topic:hover {
+    border-color: var(--bleu-violet);
+    color: var(--bleu-violet);
+}
+
+/* Wordmark Canva dans la carte · fond blanc, logo couleurs naturelles */
+.canva-wordmark {
+    height: 22px;
+    width: auto;
+    display: block;
+}
+
+/* ===================================================
+   8. HERO · Micro-détails lo-fi
+=================================================== */
+
+/* Séparateur stat hero → plus fin, lo-fi */
+.stat__divider { background: rgba(255, 255, 255, 0.08); }
+
+/* Sous-titre hero · légèrement moins opaque */
+.hero__subtitle { opacity: 0.58; }
+
+/* ===================================================
+   9. SERVICES · Featured card améliorée
+=================================================== */
+
+/* La carte vedette Canva a déjà ::before pour la bordure gauche.
+   On ajoute une note marginale via ::after du badge. */
+.card--featured .card__badge {
+    font-family: var(--font-mono);
+    font-size: 0.56rem;
+    letter-spacing: 0.12em;
+    transform: rotate(var(--rot-light));
+}
+
+/* ===================================================
+   10. FLOW MULTICANAL · Renforcement lo-fi
+=================================================== */
+
+.flow__source-label strong { font-family: var(--font-mono); font-size: 0.84rem; }
+.flow__source-label span   { font-family: var(--font-mono); font-size: 0.68rem; }
+
+/* ===================================================
+   11. CANVA STATS · Fix hover (texte ne disparaît plus)
+   Le fond hover précédent (rgba 0.06) rendait le texte
+   blanc invisible sur fond beige.
+=================================================== */
+
+.canva-stat:hover {
+    background: rgba(128, 130, 212, 0.22);
+}
+
+/* ===================================================
+   12. ACCESSIBILITÉ · Contrastes maintenus
+=================================================== */
+
+/* Assurer que les CTA restent très lisibles */
+.btn--primary { background: var(--cta-violet); }
+.btn--primary:hover { background: var(--cta-violet-hover); }
+.btn--primary.btn--glow::after { background: var(--cta-violet); }
+.btn--primary.btn--glow:hover::after { background: var(--cta-violet-hover); }
+
+/* Focus visible renforcé */
+:focus-visible { outline-color: var(--bleu-violet); }
+
+/* ===================================================
+   12. LOFI PLAYER · Mono cohérent
+=================================================== */
+
+.lofi-player__label { font-family: var(--font-mono); }
+.lofi-player__btn   { font-family: var(--font-mono); }
+
+/* ===================================================
+   13. VINYL PLAYER · Disque vinyle en haut à droite
+   Rotation pilotée par JS (requestAnimationFrame)
+=================================================== */
+
+.vinyl-wrap {
+    position: fixed;
+    top: 0;
+    right: 1.25rem;
+    height: calc(34px + 2.2rem); /* logo height + nav padding × 2 */
+    display: flex;
+    align-items: center;
+    z-index: 200;
+}
+
+.vinyl-btn {
+    display: block;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+    -webkit-tap-highlight-color: transparent;
+}
+.vinyl-btn:hover  { opacity: 0.82; }
+.vinyl-btn:focus-visible {
+    outline: 2px solid var(--bleu-violet);
+    outline-offset: 4px;
+}
+
+.vinyl-disc {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    will-change: transform;
+    overflow: hidden;
+}
+.vinyl-disc img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 50%;
+    pointer-events: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+/* Halo subtil quand la musique joue */
+.vinyl-btn.is-playing .vinyl-disc {
+    box-shadow:
+        0 0 18px rgba(128, 130, 212, 0.3),
+        0 2px 12px rgba(0, 0, 0, 0.45);
+}
+
+/* ===================================================
+   14. RESPONSIVE · Ajustements lo-fi mobile
+=================================================== */
+
+@media (max-width: 768px) {
+    .about__image-wrapper { transform: rotate(0deg); }
+    .about__badge { transform: rotate(0deg); }
+    .lofi-stamps { margin-bottom: 1rem; }
+
+    /* Le disque vinyle (fixed, top-right, z-index 200) recouvrait le burger
+       du menu mobile et captait le tap -> navigation inaccessible.
+       On le masque sur mobile ; il reste actif sur desktop. */
+    .vinyl-wrap { display: none; }
+}
+
+/* Grille fonctionnalités : 3 colonnes sur grand écran (6 cartes -> 3x2,
+   plus équilibré que le 4 colonnes auto-fit par défaut). */
+@media (min-width: 1025px) {
+    .services__grid--3 { grid-template-columns: repeat(3, 1fr); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .about__image-wrapper { transition: none; }
+}
+
+/* ===================================================
+   15. CAPTURE EMAIL · blocs lead magnet (opt-in)
+=================================================== */
+.capture__card {
+    display: flex;
+    align-items: center;
+    gap: 2.5rem;
+    max-width: 860px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-lg);
+    padding: 2.25rem 2.5rem;
+    box-shadow: var(--shadow-dark);
+}
+.capture__card--reverse { flex-direction: row-reverse; }
+.capture__cover { flex-shrink: 0; width: 190px; }
+.capture__cover img {
+    width: 100%;
+    height: auto;
+    border-radius: var(--radius);
+    box-shadow: 0 14px 38px rgba(0, 0, 0, 0.42);
+}
+.capture__body .eyebrow { display: block; color: var(--bleu-violet); margin-bottom: 0.6rem; }
+.capture__body h2 { color: var(--blanc); font-size: clamp(1.5rem, 2.6vw, 2.05rem); margin-bottom: 0.75rem; }
+.capture__body p { color: rgba(255, 255, 255, 0.66); margin-bottom: 1.4rem; }
+
+@media (max-width: 720px) {
+    .capture__card,
+    .capture__card--reverse { flex-direction: column; text-align: center; gap: 1.6rem; padding: 2rem 1.4rem; }
+    .capture__cover { width: 150px; }
+    .capture__body .btn { width: 100%; justify-content: center; }
+}
+
+/* ===================================================
+   16. PROGRAMME · note fondateur sous la grille
+=================================================== */
+.programme__note { max-width: 640px; margin: 2.75rem auto 0; text-align: center; }
+.programme__note .lofi-stamps { justify-content: center; }
+/* Deux sorties depuis la section « L'outil » : l'appel, et la page qui le
+   montre. Elles se posent l'une sous l'autre en dessous de 480px. */
+.programme__actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+.programme__note p { color: rgba(7, 28, 52, 0.7); margin-bottom: 1.6rem; }
+
+/* ===================================================
+   17. SECTION ENTREPRISE · B2B secondaire discret
+=================================================== */
+.b2b__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    flex-wrap: wrap;
+    background: var(--blanc);
+    border: 1px solid rgba(7, 28, 52, 0.08);
+    border-radius: var(--radius-lg);
+    padding: 2.25rem 2.5rem;
+    box-shadow: var(--shadow-card);
+}
+.b2b__text { flex: 1; min-width: 280px; }
+.b2b__logo { height: 26px; width: auto; display: block; margin-bottom: 1rem; }
+.b2b__text .eyebrow { display: block; color: var(--bleu-violet); margin-bottom: 0.5rem; }
+.b2b__text h2 { color: var(--bleu-nuit); font-size: clamp(1.3rem, 2.2vw, 1.7rem); margin-bottom: 0.6rem; }
+.b2b__text p { color: rgba(7, 28, 52, 0.66); margin-bottom: 0; }
+.b2b .btn { flex-shrink: 0; }
+
+@media (max-width: 720px) {
+    .b2b__inner { flex-direction: column; align-items: flex-start; padding: 1.8rem 1.4rem; }
+    .b2b .btn { width: 100%; justify-content: center; }
+}
+
+/* ===================================================
+   18. HERO · titre accent violet uniforme
+   Le dégradé faisait virer le bas de ligne vers un violet
+   plus clair (et rognait la jambe du "j"). On fige une
+   couleur pleine : tout le morceau accentué est identique.
+=================================================== */
+.hero__title .gradient-text {
+    background: none;
+    -webkit-background-clip: border-box;
+    background-clip: border-box;
+    -webkit-text-fill-color: #a39bf2;
+    color: #a39bf2;
+}
+
+/* ===================================================
+   19. ORBITE · hub central
+   Seul le logo YouTube reste rouge ; la bulle et le
+   libellé "FORMAT LONG" passent en blanc/neutre.
+=================================================== */
+.orbit-map__hub {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    color: #ff0000;                 /* le SVG YouTube hérite de currentColor */
+    box-shadow: 0 0 22px rgba(255, 255, 255, 0.12), 0 0 46px rgba(128, 130, 212, 0.16);
+}
+.orbit-hub__label { color: rgba(255, 255, 255, 0.72); }
+
+/* ===================================================
+   20. RYTHME DES FONDS · éviter deux sections identiques
+   collées (programme + processus beige, faq + cta sombres)
+=================================================== */
+/* processus : blanc (programme reste beige juste au-dessus) */
+.processus.section--light { background: var(--blanc); }
+
+/* cta final : passe en clair (faq sombre juste au-dessus) */
+.cta-final { background: var(--blanc); color: var(--bleu-nuit); }
+.cta-final h2 { color: var(--bleu-nuit); }
+.cta-final p  { color: rgba(7, 28, 52, 0.66); opacity: 1; }
+/* bouton ghost lisible sur fond clair (sinon texte blanc invisible) */
+.cta-final .btn--ghost {
+    color: var(--bleu-nuit);
+    border: 1.5px solid rgba(7, 28, 52, 0.22);
+    background: transparent;
+}
+.cta-final .btn--ghost:hover { border-color: var(--bleu-violet); color: var(--bleu-violet); }
+
+/* ===================================================
+   21. SECTION PROBLÈME · constat avant la méthode
+=================================================== */
+.probleme__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.25rem;
+    margin-top: 1rem;
+}
+.probleme__item {
+    background: var(--blanc);
+    border: 1px solid rgba(7, 28, 52, 0.08);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem;
+    box-shadow: var(--shadow-card);
+}
+.probleme__icon {
+    width: 42px; height: 42px;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 11px;
+    background: rgba(184, 88, 112, 0.12);
+    color: var(--rose);
+    margin-bottom: 1rem;
+}
+.probleme__item h3 { color: var(--bleu-nuit); margin-bottom: 0.5rem; font-size: 1.05rem; }
+.probleme__item p  { color: rgba(7, 28, 52, 0.66); font-size: 0.95rem; line-height: 1.6; margin: 0; }
+
+/* ===================================================
+   22. TITRES · Source Serif 4 (serif sobre)
+   Remplace Fraunces, dont les f/j/g trop typés ne
+   plaisaient pas. Optical sizing auto : rendu net a
+   toutes les tailles, poids gere par font-weight.
+=================================================== */
+h1, h2, h3, h4 { font-optical-sizing: auto; }
+
+/* ===================================================
+   23. ALTERNANCE STRICTE · une sombre / une claire
+   Ordre : hero(S) constat(C) methode(S) qui-je-suis(C)
+   programme(S) processus(C) faq(S) cta(C) entreprise(S)
+   youtube(C). Aucune section claire collee a une autre.
+=================================================== */
+
+/* programme : passe en sombre (cartes translucides d'origine) */
+.services.section--dark { background: var(--bleu-nuit); }
+.services.section--dark .programme__note p { color: rgba(255, 255, 255, 0.7); }
+
+/* entreprise (b2b) : passe en sombre */
+.b2b.section--dark { background: var(--bleu-nuit); }
+.b2b.section--dark .b2b__inner {
+    background: rgba(255, 255, 255, 0.04);
+    border-color: rgba(255, 255, 255, 0.1);
+    box-shadow: none;
+    align-items: flex-start;
+}
+.b2b.section--dark .b2b__text h2 { color: var(--blanc); }
+.b2b.section--dark .b2b__text p  { color: rgba(255, 255, 255, 0.66); }
+.b2b.section--dark .b2b__points li { color: rgba(255, 255, 255, 0.74); }
+/* Le bouton fantome est dessine pour le bleu nuit : sur creme il faut
+   lui rendre un trait et une couleur. */
+.b2b.section--light .btn--ghost { color: var(--bleu-nuit); border-color: rgba(7, 28, 52, 0.22); }
+.b2b.section--light .btn--ghost:hover { border-color: var(--bleu-violet); color: var(--violet-profond); }
+
+/* teaser enrichi : points couverts + credibilite + double CTA */
+.b2b__points {
+    list-style: none;
+    margin: 1.35rem 0 0;
+    padding: 0;
+    display: grid;
+    gap: 0.55rem;
+}
+.b2b__points li {
+    position: relative;
+    padding-left: 1.5rem;
+    color: rgba(7, 28, 52, 0.72);
+    font-size: 0.92rem;
+    line-height: 1.5;
+    font-family: var(--font-corps);
+}
+.b2b__points li::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 0.55em;
+    width: 7px; height: 7px;
+    border-radius: 50%;
+    background: var(--bleu-violet);
+}
+.b2b__meta { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.4rem; }
+.b2b.section--dark .b2b__meta .lofi-stamp {
+    background: rgba(255, 255, 255, 0.07);
+    border: 1.5px solid rgba(255, 255, 255, 0.18);
+    color: rgba(255, 255, 255, 0.78);
+}
+.b2b__cta-col {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    flex-shrink: 0;
+    align-self: center;
+}
+@media (max-width: 720px) {
+    .b2b__cta-col { width: 100%; }
+    .b2b__cta-col .btn { width: 100%; justify-content: center; }
+}
+
+/* youtube : passe en clair (derniere section avant le footer sombre) */
+.youtube { background: var(--blanc); color: var(--bleu-nuit); }
+.youtube .section__header h2 { color: var(--bleu-nuit); }
+.youtube .section__header p  { color: rgba(7, 28, 52, 0.62); }
+
+/* ===================================================
+   24. FIX · debordement horizontal mobile
+   Cause reelle : .multicanal etait repasse en overflow:visible
+   (styles.css l.1314, pour l'orbite), donc son ::before (cercle
+   de 600px a right:-200) debordait de 200px a droite sur mobile.
+   On clippe l'axe horizontal a la source (overflow-y reste libre
+   pour ne pas rogner l'orbite verticalement). Filet de securite
+   sur html en complement.
+=================================================== */
+.multicanal { overflow-x: clip; }
+html { overflow-x: hidden; }
+
+/* La section YouTube suivait le bloc formation, qui l'a quittee : elle se
+   retrouve blanche contre le CTA final, lui aussi blanc. Elle prend le
+   creme de la charte pour que la coupe se voie. */
+.youtube.section { background: var(--lofi-papier); }
+
+/* Formation et Replikr : parcours explicites, dans la charte existante. */
+.hero__cta .btn, .b2b .btn, .booking-paths .btn, .cta-final__buttons .btn {
+    white-space: normal;
+    justify-content: center;
+    min-height: 44px;
+    overflow-wrap: anywhere;
+}
+.b2b__text { min-width: 0; }
+.b2b__text p + p { margin-top: 1rem; }
+.b2b__cta-col { max-width: 100%; }
+.formation-outcomes, .formation-faq { margin: 3.5rem auto 0; max-width: 960px; }
+.formation-outcomes h3, .formation-faq h3 {
+    font-family: var(--font-titre);
+    font-size: clamp(1.3rem, 2.4vw, 1.7rem);
+    color: var(--bleu-nuit);
+    margin-bottom: 1rem;
+}
+.formation-outcomes > p { max-width: 65ch; color: #414955; }
+.formation-outcomes__list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.6rem 2.5rem;
+    margin-top: 1.75rem;
+}
+.formation-outcomes__list dt { font-family: var(--font-ui); font-weight: 600; color: var(--bleu-nuit); }
+.formation-outcomes__list dd { margin: 0.4rem 0 0; font-size: 1rem; line-height: 1.7; color: #414955; }
+.formation-faq .faq__list { max-width: none; }
+.formation-faq .faq__item, .formation-faq .faq__item:first-child { border-color: #c8c4be; }
+.formation-faq .faq__question { color: var(--bleu-nuit); }
+.formation-faq .faq__question:hover, .formation-faq .faq__icon { color: var(--cta-violet); }
+.formation-faq .faq__answer p { color: #414955; font-size: 1rem; }
+.faq__answer[hidden] { display: none; }
+
+.replikr-platforms { max-width: 560px; margin: 0 auto; text-align: center; }
+.replikr-platforms h3 { font-family: var(--font-titre); font-size: 1.65rem; margin-bottom: 1.5rem; }
+.replikr-platforms__logos { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 1.25rem; }
+.replikr-platforms__logos svg { width: 30px; height: 30px; flex: 0 0 30px; }
+/* Les logos sombres ont besoin de papier, même dans la section bleu nuit. */
+.replikr-platforms__logos { background: var(--lofi-papier); padding: 1.5rem; border-radius: var(--radius-lofi-md); }
+.replikr-platforms p { margin: 1.25rem 0 0; line-height: 1.7; font-size: 1rem; color: #e1e0eb; }
+
+.page-hero h1 { max-width: 24ch; margin-left: auto; margin-right: auto; }
+.booking-reassurance { margin-top: 1.25rem; font-family: var(--font-ui); font-size: 0.95rem; }
+.booking-topics { max-width: 720px; margin: 0 auto 2rem; padding-left: 1.5rem; }
+.booking-topics li { padding-left: 0.5rem; margin-bottom: 1.5rem; }
+.booking-topics h3 { font-size: 1.2rem; margin-bottom: 0.4rem; }
+.booking-topics p, .booking-note { color: #414955; line-height: 1.75; }
+.booking-note { max-width: 65ch; margin: 0 auto; text-align: center; }
+.booking-paths { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin: 0 auto 2rem; }
+.booking-paths .btn--ghost { color: var(--bleu-nuit); border-color: #7a8088; }
+.booking-paths .btn--ghost:hover { color: var(--cta-violet-hover); border-color: var(--cta-violet-hover); }
+.calendar-fallback { margin: 1.25rem auto 0; max-width: 65ch; text-align: center; font-size: 0.95rem; line-height: 1.7; color: #414955; }
+.calendar-fallback a { text-decoration: underline; text-underline-offset: 0.2em; }
+.calendar-fallback a:focus-visible { outline-offset: 4px; }
+.oi-cta .calendar-fallback, .oi-cta .oi-pricing { color: #eeeaf6; opacity: 1; font-size: 1rem; }
+.oi-cta .oi-pricing { max-width: 65ch; margin: 1.75rem auto; }
+.oi-mobile-demo { display: none; }
+@media (max-width: 620px) {
+    .formation-outcomes__list { grid-template-columns: minmax(0, 1fr); }
+    .booking-paths { flex-direction: column; }
+    .booking-paths .btn { width: 100%; }
+    .oi-mobile-demo {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        min-height: 44px;
+        margin-top: 1.25rem;
+        padding: 0.75rem 0;
+        color: var(--cta-violet-hover);
+        font-family: var(--font-ui);
+        font-size: 1rem;
+        text-decoration: underline;
+        text-underline-offset: 0.2em;
+    }
+    .oi-mobile-demo span { font-size: 0.85rem; }
+}

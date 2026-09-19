@@ -1,108 +1,33 @@
-# Replikr Landing
+# Replikr landing
 
-Landing page marketing pour **Replikr** (replikr.app) — visiteur froid uniquement.
-Le login client est un lien discret en haut à droite qui redirige vers l'app
-Streamlit (replikr.io).
+Landing publique de **https://replikr.io**. Les boutons de connexion et d’essai ouvrent **https://app.replikr.io**.
 
-## Stack
+## Base de la page
 
-- **Next.js 14** (App Router)
-- **TypeScript** strict
-- **Tailwind CSS** 3
-- **Framer Motion** — fade-in du H1 mot par mot
-- **GSAP + ScrollTrigger** — animation sticky de la Section 2 (vidéo → 6 posts)
-- **Fonts** : Newsreader Italic (serif titres) + Inter (sans body), via `next/font`
+La présentation reprend https://www.aelabsolution.com/replikr : structure, styles, captures et vidéos, avec des adaptations limitées à l’offre SaaS et au notebook.
 
-## Direction artistique (NE PAS dévier)
+- `content/replikr.html` : contenu HTML statique relu, rendu au moment du build par `app/page.tsx`. Aucune donnée de visiteur ni page distante n’est injectée.
+- `public/reference/` : styles et médias copiés de la référence, servis localement. Aucun téléchargement de la page Aelab n’est nécessaire au build ou à l’affichage.
+- `app/replikr.css` : adaptations SaaS et responsive, après les styles de référence.
+- `components/LandingEnhancements.tsx` : menu mobile et animations au défilement. La FAQ utilise des éléments HTML natifs ; les vidéos gardent leurs contrôles.
+- `app/layout.tsx` : métadonnées et polices de la référence, servies par Next.js.
 
-- Fond crème uniforme **#F4EFE6**
-- Texte principal **#1A1612**, secondaire **#5C5249**
-- Accent violet unique **#6B4FE8**
-- 2 graisses uniquement (400, 500)
-- Aucun gradient, aucune ombre portée, aucun glassmorphism
-- Beaucoup d'air entre sections (100vh chacune)
+Les anciens composants restent dans le dépôt, mais ne sont plus utilisés par la page d’accueil. Les dépendances et leur fichier de verrouillage sont conservés.
 
-## Structure (5 sections + nav + footer)
+## Développement et validation
 
-| # | Section | Comportement |
-|---|---|---|
-| 1 | **Hero** | H1 fade-in mot par mot · CTA noir · vidéo + thumbnails préview |
-| 2 | **Démo** | Sticky 250vh · GSAP ScrollTrigger · 6 cards posts émergent de la vidéo centrale (stagger 80ms, ease power3.out) |
-| 3 | **Contraste** | 3 lignes serif italiques avec respiration verticale |
-| 4 | **Comment** | 3 étapes numérotées (chiffres serif italique violet) |
-| 5 | **CTA final** | Centré plein écran · "Prêt à publier dix fois ?" + bouton |
+`npm ci`
 
-## Démarrage local
+`npm run dev`
 
-```bash
-cd "f:/Claude code/replikr-landing"
-npm install
-npm run dev
-```
+`npm run build`
 
-Ouvre http://localhost:3000.
+Pour prévisualiser la compilation sous Windows : `npx next start -p 3100`.
 
-## Build production
+Contrôler la page sur ordinateur et téléphone, le menu mobile, les réponses de FAQ, les vidéos et les liens vers l’application avant publication.
 
-```bash
-npm run build
-npm start
-```
+## Déploiement
 
-## Déploiement Railway
+La configuration Railway existante est conservée dans `railway.json`. Selon la configuration documentée précédemment dans ce dépôt, un push sur `main` déclenche le déploiement. Vérifier ensuite la fin du déploiement et la page publique ; un push réussi ne prouve pas à lui seul que le site est à jour.
 
-Cohérence avec `replikr.io` (multicanal) : tout sur Railway, région
-`europe-west4` (Amsterdam). Config dans `railway.json`.
-
-### Une seule fois — création du service Railway
-
-1. Le repo est déjà sur GitHub : https://github.com/aelabsolution-ship-it/replikr-landing
-2. Aller sur https://railway.app/new
-3. Choisir **Deploy from GitHub repo** → sélectionner `replikr-landing`
-4. Railway détecte automatiquement Next.js via Nixpacks
-5. Variables d'environnement : aucune nécessaire pour la landing publique
-6. Premier déploiement automatique (~3 min : build Docker + npm install + next build)
-7. URL temporaire fournie : `replikr-landing-production.up.railway.app`
-
-### Configuration du domaine `replikr.app`
-
-1. Dans le service Railway : **Settings → Networking → Custom Domain**
-2. Add `replikr.app` (et `www.replikr.app` séparément si besoin)
-3. Railway fournit un `CNAME` cible (genre `xxxxx.up.railway.app`)
-4. Chez le registrar du domaine `replikr.app` :
-   - `CNAME` `@` → la cible Railway
-   - `CNAME` `www` → la cible Railway
-   - (Si le registrar interdit CNAME sur `@`, utiliser un `ALIAS`/`ANAME`)
-5. SSL Let's Encrypt auto-provisionné par Railway
-6. Propagation 5 min à 1h, vérifier avec `dig replikr.app`
-
-### Déploiements suivants
-
-Chaque `git push origin main` redéploie automatiquement la production.
-Build durée ~3 min sur Railway (peut être plus rapide si le cache des
-dépendances est chaud).
-
-### Spécificités du `package.json` pour Railway
-
-Le script `start` est `next start -p ${PORT:-3000}` : Railway injecte
-sa propre variable `PORT`, on l'utilise. En local, fallback sur 3000.
-
-## Variables d'environnement
-
-Aucune n'est nécessaire pour la landing publique (pas d'API, pas de DB).
-
-## Anti-spec — ce qui est interdit
-
-- ❌ Feature grid avec icônes Lucide
-- ❌ "Trusted by" avec faux logos
-- ❌ Testimonials inventés
-- ❌ Gradient violet→rose (la v1 en avait, on l'a supprimé)
-- ❌ Stat cards "X% de temps gagné"
-- ❌ Cookie banner immédiat (RGPD géré en bandeau discret délai 2s)
-- ❌ Modal popup de sortie
-
-## Liens
-
-- App produit : https://replikr.io (Streamlit, repo `multicanal`)
-- Ancienne landing HTML : `f:/Claude code/replikr-landing-old/` (Netlify)
-- Contact : ludovic.nedelec@aelabsolution.com
+La landing n’exige aucune variable secrète ni base de données. Elle ne modifie pas le SaaS.

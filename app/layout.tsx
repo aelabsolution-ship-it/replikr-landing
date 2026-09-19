@@ -1,58 +1,27 @@
 import type { Metadata } from "next";
-import { Inter, Newsreader } from "next/font/google";
+import { Source_Serif_4, Lora, DM_Sans, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
+import "../public/reference/styles.css";
+import "../public/reference/styles/lofi-tokens.css";
+import "../public/reference/replikr.css";
+import "./replikr.css";
 
-// Inter pour body (2 graisses : 400 et 500, comme spécifié dans la DA)
-const inter = Inter({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-  variable: "--font-inter",
-  display: "swap",
-});
+const titleFont = Source_Serif_4({ subsets: ["latin"], variable: "--font-source-serif", display: "swap" });
+const bodyFont = Lora({ subsets: ["latin"], variable: "--font-lora", display: "swap" });
+const uiFont = DM_Sans({ subsets: ["latin"], variable: "--font-dm-sans", display: "swap" });
+const monoFont = IBM_Plex_Mono({ subsets: ["latin"], weight: ["400", "500", "600"], variable: "--font-ibm-plex", display: "swap" });
 
-// Newsreader Italic pour titres serif. On charge regular + medium en italique.
-const newsreader = Newsreader({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-  style: ["italic"],
-  variable: "--font-serif",
-  display: "swap",
-});
+const title = "Replikr · Votre notebook de création de contenu";
+const description = "Vidéos, documents et notes vocales : Replikr transforme votre matière en publications, visuels et formats courts, dans votre voix. 500 crédits d’essai offerts.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://replikr.io"),
-  title: "Replikr · Pense une fois. Publie dix fois.",
-  description:
-    "Replikr décline votre vidéo YouTube en 7 posts natifs (LinkedIn, X, Instagram, Threads, TikTok, Shorts, Facebook) et publie automatiquement à votre place. Essai gratuit sans carte bancaire.",
-  openGraph: {
-    title: "Replikr · Pense une fois. Publie dix fois.",
-    description:
-      "Une vidéo YouTube. Sept réseaux. Publiés automatiquement. Sans vous.",
-    type: "website",
-    locale: "fr_FR",
-    url: "https://replikr.io",
-    siteName: "Replikr",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Replikr · Pense une fois. Publie dix fois.",
-    description:
-      "Une vidéo YouTube. Sept réseaux. Publiés automatiquement. Sans vous.",
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
+  metadataBase: new URL("https://replikr.io"), title, description,
+  alternates: { canonical: "/" },
+  openGraph: { title, description, type: "website", locale: "fr_FR", url: "https://replikr.io", siteName: "Replikr" },
+  twitter: { card: "summary", title, description },
+  robots: { index: true, follow: true },
 };
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
-  return (
-    <html lang="fr" className={`${inter.variable} ${newsreader.variable}`}>
-      <body className="font-sans">{children}</body>
-    </html>
-  );
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return <html lang="fr" className={[titleFont.variable, bodyFont.variable, uiFont.variable, monoFont.variable].join(" ")}><body className="oi-page">{children}</body></html>;
 }

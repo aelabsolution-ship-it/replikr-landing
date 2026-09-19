@@ -1,0 +1,359 @@
+
+        /* ===============================================================
+           PAGE REPLIKR — styles locaux
+
+           RÈGLE D'ÉCRITURE : un bloc porte une idée. Un titre, deux
+           phrases, trois preuves en liste. Ce qui déborde va dans le
+           dépliant ou dans la FAQ.
+
+           RYTHME DE FOND : le bleu nuit ne sert qu'a deux moments,
+           l'ouverture et l'appel a l'action qui ferme la page. La bande
+           sombre de mi-page a saute avec le resserrage de septembre 2026 :
+           trois forces, la page est assez courte pour s'en passer. Le reste
+           alterne les deux cremes, papier et sable.
+           Tout le corps de page vit sur deux cremes proches, papier
+           #f5f1e8 et clair #fcfaf6, qui alternent en douceur. Pas de
+           blanc pur : a cote du creme il se lit comme une erreur.
+
+           AIR : 7rem en haut et en bas de chaque section.
+
+           ICONES : carre arrondi de 44px, fond violet translucide,
+           glyphe en trait de 1,5 — c'est le composant .card__icon du
+           reste du site, repris tel quel pour ne pas inventer un
+           deuxieme vocabulaire.
+           =============================================================== */
+
+        /* Respiration : le design system tient 5,5rem, cette page en
+           demande 7. Les captures ont besoin de marge autour d'elles. */
+        .oi-page {
+            --section-py: 7rem;
+            /* Deux niveaux d'ombre pour toute la page : pose et flottant.
+               Six recettes voisines ne se distinguaient pas a l'oeil mais
+               se voyaient a l'usage, en incoherence. */
+            --oi-pose: 0 1px 3px rgba(7,28,52,0.05);
+            --oi-flottant: 0 32px 72px -28px rgba(7,28,52,0.5), 0 4px 12px rgba(7,28,52,0.06);
+            --oi-flottant-nuit: 0 40px 90px -30px rgba(0,0,0,0.75);
+        }
+        @media (max-width: 900px) { .oi-page { --section-py: 4rem; } }
+
+        /* La texture du papier reste, son agitation s'arrete : un calque
+           fixe plein ecran en fondu qui se decale cinq fois par seconde
+           fait recomposer tout l'ecran en continu. Cette page fait deja
+           tourner cinq captures, le deplacement au scroll et le
+           redressement de la tablette. */
+        .oi-page .grain { animation: none; }
+
+        /* Les deux cremes du corps de page. Selecteur qualifie : le design
+           system met .about.section en blanc, il faut passer devant. */
+        /* Un seul creme pour toutes les sections claires. Les deux nuances
+           d'avant, #f5f1e8 et #fcfaf6, ne se distinguaient pas a l'oeil :
+           1,08 de rapport de luminance. L'alternance ne se voyait pas, il
+           n'en restait qu'une couture la ou deux sections se touchaient.
+           Le rythme est porte par les trois bandes bleu nuit. */
+        .oi-page section.oi-sec--papier { background: #f5f1e8; }
+        .oi-page section.oi-sec--sable   { background: #eae3d4; }
+        /* Deux sections claires qui se suivent additionnaient leurs marges :
+           128px de vide sur telephone. Le changement de ton fait la coupe,
+           la seconde n'a plus besoin de toute sa marge. */
+        .oi-page section.oi-sec--papier + section.oi-sec--sable,
+        .oi-page section.oi-sec--sable + section.oi-sec--papier { padding-top: calc(var(--section-py) * 0.6); }
+
+        /* Titres resserres : a partir de 2rem, le serif respire trop et
+           le titre part en banderole. */
+        .oi-page h1, .oi-page h2 { letter-spacing: -0.018em; }
+
+        /* Surcharges correctives du design system */
+        .oi-page .card--dark { background-attachment: scroll; }
+        /* 640px laissait « pas. » seul sur sa ligne dans deux titres. */
+        .oi-page .section__header { max-width: 760px; }
+        /* Le surtitre du design system tombe a 0,6rem et, en bleu-violet sur
+           creme, a 3,07 de contraste. Sur cette page il remonte a 0,74rem, et
+           passe au violet profond des qu'il est sur fond clair (8,4). */
+        .oi-page .eyebrow { font-size: 0.74rem; }
+        .oi-page .oi-sec--papier .eyebrow,
+        .oi-page .oi-sec--sable .eyebrow { color: var(--violet-profond); }
+
+        .oi-wide { max-width: 1320px; margin: 0 auto; padding: 0 1.5rem; }
+
+        /* --- Hero -----------------------------------------------------
+           Texte centre, enregistrement en pleine largeur dessous. */
+        .oi-hero { background: var(--bleu-nuit); color: var(--blanc); padding: 8.5rem 0 5.5rem; text-align: center; position: relative; overflow: hidden; }
+        /* Le decor de l'accueil : halos, grille et les deux faisceaux que
+           script.js fait courir. Les elements sont en absolu, il leur faut
+           ce cadre ; le contenu repasse devant. */
+        .oi-hero > .oi-wide { position: relative; z-index: 1; }
+        .oi-hero .hero__beam--1 { top: 12%; left: 4%; }
+        .oi-hero .hero__beam--2 { bottom: 22%; right: 5%; }
+        .oi-hero__intro { max-width: 760px; margin: 0 auto 2.25rem; }
+        .oi-hero .eyebrow { display: block; color: var(--bleu-violet); margin-bottom: 1.1rem; }
+        .oi-hero h1 { font-size: clamp(2.05rem, 4.2vw, 3.35rem); line-height: 1.12; margin-bottom: 1.35rem; }
+        /* La deuxieme ligne du titre porte l'accent : c'est la promesse,
+           pas le constat. */
+        .oi-hero h1 em { font-style: normal; color: var(--bleu-violet); }
+        /* La troisieme ligne de l'accroche se lit en plus petit : elle
+           termine la phrase sans peser autant que les deux premieres. */
+        .oi-hero__lead { font-family: var(--font-titre); font-size: clamp(1.15rem, 2.1vw, 1.5rem); line-height: 1.45; color: rgba(255,255,255,0.9); margin-bottom: 2rem; }
+        /* La ligne qui suit le titre porte la deuxieme moitie de l'accroche :
+           elle doit peser plus que le paragraphe d'explication, moins que le
+           titre. */
+        .oi-hero__actions { display: flex; gap: 0.9rem; justify-content: center; flex-wrap: wrap; }
+        /* Le bouton dit ce qu'on fait, la ligne dessous dit ce qui se passe :
+           le visiteur sait a quoi il s'engage avant de cliquer. */
+        /* Au doigt, deux boutons cote a cote finissent trop etroits pour
+           etre vises : ils s'empilent et prennent la largeur. */
+        @media (max-width: 620px) {
+            .oi-hero__actions { flex-direction: column; align-items: stretch; max-width: 330px; margin: 0 auto; }
+            .oi-hero__actions .btn, .oi-btn-ghost { width: 100%; justify-content: center; text-align: center; }
+        }
+        /* Bouton secondaire : contour clair sur le bleu nuit. */
+        .oi-btn-ghost { display: inline-flex; align-items: center; padding: 0.95rem 1.75rem; border-radius: var(--radius); border: 1px solid rgba(255,255,255,0.28); color: var(--blanc); font-family: var(--font-ui); font-weight: 600; font-size: 0.98rem; transition: background var(--transition), border-color var(--transition); }
+        .oi-btn-ghost:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.5); }
+        .oi-hero__proof { font-size: 0.92rem; line-height: 1.6; color: rgba(255,255,255,0.5); margin-top: 1.1rem; }
+        @media (max-width: 1024px) { .oi-hero { padding: 7rem 0 4rem; } }
+
+        /* La tablette entre couchee a 30 degres et se redresse a mesure
+           qu'on descend. La perspective est portee par le parent, pas par
+           la transformation : c'est ce qui donne une fuite constante quand
+           l'angle change. Le tilt est pose en JS ; les valeurs ci-dessous
+           servent de repli si le script ne tourne pas. */
+        .oi-hero__stage { perspective: 1000px; }
+        /* Etat de depart, avant que le script ne prenne la main : les memes
+           valeurs que le composant d'origine, 20 degres et 1,05. */
+        .oi-hero__frame { max-width: 1080px; margin: 0 auto; transform: rotateX(20deg) scale(1.05); transform-origin: 50% 50%; will-change: transform; }
+        @media (prefers-reduced-motion: reduce) { .oi-hero__frame { transform: none; } .oi-hero__intro { transform: none !important; } }
+        @media (max-width: 768px) { .oi-hero__frame { transform: rotateX(20deg) scale(1.05); } }
+
+        /* Chassis de tablette : cadre clair, corps sombre, ecran encastre.
+           C'est le cadre qui fait lire l'image comme un appareil pose sur
+           une table, et pas comme une capture collee sur le fond. */
+        .oi-device { background: #12283f; border: 4px solid #35506b; border-radius: 30px; padding: 1.15rem; box-shadow: var(--oi-flottant-nuit), 0 0 0 1px rgba(255,255,255,0.04); }
+        .oi-device .oi-frame { border-radius: 12px; box-shadow: none; border-color: rgba(7,28,52,0.2); }
+        @media (max-width: 780px) { .oi-device { border-radius: 20px; border-width: 3px; padding: 0.6rem; } }
+
+        /* Les trois points expliquent l'écran juste au-dessus. */
+
+
+        /* --- La methode : 3 cartes en ligne ----------------------------
+           Trois et non quatre : les tics d'IA interdits ont rejoint la voix,
+           dont ils sont la moitie negative. A trois elements la grille passe
+           a trois colonnes, sinon le dernier reste orphelin sur sa ligne.
+           Meme largeur et meme point de bascule que le panneau .oi-why, pour
+           que les deux forces se repondent. Le "et alors" de chaque point est
+           le second paragraphe, en violet, pour qu'un lecteur presse ne lise
+           que lui. */
+        .oi-meth { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 1.5rem; max-width: 1040px; margin: 0 auto; text-align: left; }
+        .oi-meth > div { border: 1px solid rgba(7,28,52,0.09); border-radius: 16px; padding: 1.9rem 1.7rem; background: #fdfcf9; box-shadow: var(--oi-pose); }
+        .oi-meth h3 { font-family: var(--font-ui); font-size: 1.02rem; font-weight: 600; color: var(--bleu-nuit); margin-bottom: 0.6rem; }
+        .oi-meth p { color: rgba(7,28,52,0.68); font-size: 0.96rem; line-height: 1.68; margin: 0; }
+        .oi-meth .oi-meth__so { margin-top: 0.85rem; color: var(--violet-profond); font-size: 0.93rem; }
+        @media (max-width: 880px) { .oi-meth { grid-template-columns: 1fr; max-width: 60ch; } }
+
+        /* Le garde-fou de relecture ferme la force : cale sur le panneau et
+           non centre comme un chapeau. */
+        .oi-meth__foot { max-width: 1040px; margin: 1.75rem auto 0; }
+        .oi-meth__foot .oi-truth { margin-top: 0; }
+        /* Un lien seul plutot qu'une bande sombre de plus au milieu. */
+        .oi-lien { text-align: center; margin: 2.75rem 0 0; }
+        .oi-lien a { font-family: var(--font-ui); font-weight: 600; font-size: 1rem; color: var(--violet-profond); border-bottom: 1px solid rgba(88,31,173,0.3); padding-bottom: 2px; transition: border-color var(--transition); }
+        .oi-lien a:hover { border-color: var(--violet-profond); }
+
+        /* Les formats secondaires, en note sous le fil des etapes. */
+        .oi-plus { font-family: var(--font-ui); font-size: 0.95rem; line-height: 1.75; color: rgba(7,28,52,0.6); text-align: center; max-width: 62ch; margin: 2.75rem auto 0; }
+        .oi-plus strong { color: var(--bleu-nuit); font-weight: 600; }
+        /* --- Cadre d'écran -------------------------------------------
+           L'ombre est large, basse et tres diffuse : la capture flotte
+           au-dessus du creme au lieu d'y etre collee. */
+        .oi-frame { border-radius: 16px; border: 1px solid rgba(7,28,52,0.08); background: var(--blanc); overflow: hidden; box-shadow: var(--oi-flottant); min-width: 0; max-width: 100%; }
+        .oi-hero .oi-frame { border-color: rgba(255,255,255,0.1); box-shadow: var(--oi-flottant-nuit); }
+        .oi-frame__bar { display: flex; align-items: center; gap: 0.45rem; padding: 0.6rem 0.9rem; border-bottom: 1px solid rgba(7,28,52,0.08); background: rgba(7,28,52,0.02); }
+        .oi-frame__dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(7,28,52,0.14); }
+        .oi-frame__title { font-family: var(--font-mono); font-size: 0.74rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(7,28,52,0.68); margin-left: 0.5rem; }
+        .oi-frame video { display: block; width: 100%; height: auto; }
+        /* Ces captures sont des ecrans d'ordinateur. Reduites a la largeur
+           d'un telephone, elles tombent a un quart de leur taille et plus
+           rien ne se lit. Sous 1024px on les tient a une echelle ou le
+           texte reste debout, et c'est le cadre qui glisse. */
+        .oi-frame__view { overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+        .oi-frame__view::-webkit-scrollbar { display: none; }
+        .oi-frame__view video { min-width: 100%; max-width: none; }
+        /* Jusqu'a 1279px la colonne de la capture descend sous 900px : sur
+           iPad, portrait comme paysage, elle passerait sous le seuil de
+           lisibilite comme sur telephone. */
+        @media (max-width: 1279px) { .oi-frame__view video { width: 900px; } }
+        .oi-frame.is-scrollable { position: relative; }
+        .oi-frame.is-scrollable::after {
+            content: ""; position: absolute; top: 0; right: 0; bottom: 0; width: 42px;
+            pointer-events: none; background: linear-gradient(to right, rgba(255,255,255,0), rgba(255,255,255,0.92));
+        }
+        .oi-frame__hint { display: none; font-family: var(--font-ui); font-size: 0.82rem; color: rgba(7,28,52,0.52); margin: 0.65rem 0 0; }
+        .oi-frame.is-scrollable + .oi-frame__hint { display: block; }
+        /* Au telephone, trois ecrans filmes a la verticale prennent la place
+           des captures d'ordinateur. Les deux autres proposent un lien
+           explicite vers la video, sans téléchargement automatique. */
+        .oi-frame__mob { display: none; width: 100%; height: auto; }
+        @media (max-width: 620px) {
+            .oi-frame__mob { display: block; }
+            .oi-frame--mobile .oi-frame__view { display: none; }
+            .oi-frame--sans-mobile, .oi-frame--sans-mobile + .oi-frame__hint { display: none; }
+        }
+
+        /* --- Icone en carre (composant du site) ----------------------- */
+        .oi-ico { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; background: rgba(88,31,173,0.09); color: var(--violet-profond); margin-bottom: 1.25rem; flex-shrink: 0; }
+
+
+        /* La rangee des destinations, juste sous le chapeau de la force 1 :
+           elle decorait la douleur, elle prouve maintenant la promesse et le
+           mot « sept » se verifie d'un coup d'oeil. Elle ne montre QUE les
+           reseaux que l'outil publie reellement (PLATFORMS dans
+           content_generator.py) : Pinterest et l'email en ont ete retires
+           en septembre 2026, ils n'ont jamais ete publiables et un prospect
+           qui les compte s'attend a les retrouver dans la demo. Logos
+           inertes, ce sont des destinations, pas des liens. Chaque marque
+           garde sa couleur officielle, Instagram son degrade : en aplat
+           unique il passerait pour une contrefacon. */
+        .oi-reseaux { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 1.75rem; max-width: 620px; margin: 2.25rem auto 0; }
+        .oi-reseaux svg { width: 25px; height: 25px; flex-shrink: 0; }
+        @media (max-width: 620px) { .oi-reseaux { gap: 0.9rem; max-width: 100%; } .oi-reseaux svg { width: 20px; height: 20px; } }
+
+        /* --- La solution en fil vertical ------------------------------
+           Le nom de l'etape reste en face du contenu pendant qu'on le
+           lit (sticky), relie au suivant par un filet. Une rangee =
+           un titre, un paragraphe, trois preuves, une capture. */
+        .oi-track { position: relative; max-width: 1140px; margin: 2rem auto 0; }
+        /* La piste : un filet mat, estompe aux deux bouts par un masque —
+           sans lui, le fil se coupe net en haut et en bas. */
+        .oi-track__rail { position: absolute; left: 19px; top: 0; bottom: 0; width: 2px; overflow: hidden;
+            background: linear-gradient(to bottom, transparent, rgba(7,28,52,0.16) 6%, rgba(7,28,52,0.16) 94%, transparent);
+            -webkit-mask-image: linear-gradient(to bottom, transparent 0%, #000 8%, #000 92%, transparent 100%);
+                    mask-image: linear-gradient(to bottom, transparent 0%, #000 8%, #000 92%, transparent 100%); }
+        /* Le suivi : cette barre grandit au rythme du scroll et marque ou
+           on en est dans les trois etapes. Le degrade la fait naitre du
+           bas au lieu de la faire apparaitre d'un bloc. */
+        .oi-track__fill { position: absolute; left: 0; top: 0; width: 2px; height: 0; opacity: 0;
+            background: linear-gradient(to top, var(--violet-profond) 0%, #7b3fe4 12%, rgba(123,63,228,0)); }
+        @media (prefers-reduced-motion: reduce) { .oi-track__fill { display: none; } }
+
+        .oi-track__row { display: grid; grid-template-columns: 300px 1fr; gap: 3.5rem; padding-bottom: 5.5rem; }
+        /* Sans ca, la capture tenue a 900px pousserait la colonne de la
+           grille a sa largeur au lieu de glisser dans son cadre. */
+        .oi-track__body { min-width: 0; }
+        .oi-frame__view { max-width: 100%; }
+        .oi-track__row:last-child { padding-bottom: 0; }
+        .oi-track__label { position: sticky; top: 130px; align-self: start; display: flex; align-items: center; gap: 1.1rem; z-index: 2; }
+        /* Le disque reprend le fond de la section : il perce le fil au lieu
+           de se poser dessus. */
+        .oi-track__dot { width: 40px; height: 40px; border-radius: 50%; background: #fcfaf6; box-shadow: 0 1px 4px rgba(7,28,52,0.12); display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: box-shadow 0.45s ease; }
+        .oi-track__dot::after { content: ""; width: 17px; height: 17px; border-radius: 50%; background: rgba(88,31,173,0.22); border: 1px solid var(--violet-profond); transition: background 0.45s ease; }
+        /* Allumage au passage : le centre se remplit et un halo tres pale
+           parait derriere. Pas de lueur coloree ni de changement de taille,
+           l'etape s'annonce, elle ne clignote pas. */
+        .oi-track__dot.is-on { box-shadow: 0 0 0 5px rgba(88,31,173,0.08), 0 1px 4px rgba(7,28,52,0.14); }
+        .oi-track__dot.is-on::after { background: var(--violet-profond); }
+        @media (prefers-reduced-motion: reduce) {
+            .oi-track__dot, .oi-track__dot::after { transition: none; }
+        }
+        /* 0,42 donnait 2,64 de contraste sur le creme clair : sous le seuil
+           des grands textes. 0,52 le remonte a 3,2 sans le faire remonter
+           au premier plan. */
+        .oi-track__label h3 { font-family: var(--font-titre); font-size: clamp(1.35rem, 2.4vw, 1.8rem); line-height: 1.2; color: rgba(7,28,52,0.52); margin: 0; }
+        .oi-track__body h2 { color: var(--bleu-nuit); font-size: clamp(1.5rem, 2.6vw, 2.1rem); line-height: 1.22; margin-bottom: 1rem; }
+        .oi-track__body > p { color: rgba(7,28,52,0.7); line-height: 1.72; font-size: 1.04rem; margin-bottom: 1.2rem; max-width: 62ch; }
+        .oi-track__body .oi-frame { margin-top: 2rem; position: relative; z-index: 1; }
+        /* Sur mobile le fil reste : c'est lui qui tient la lecture des
+           trois etapes. C'est le titre d'etape qui se fait petit et
+           s'aligne a cote de son point, au lieu de prendre une ligne de
+           titre pour lui seul. Le corps se decale de la gouttiere du fil. */
+        @media (max-width: 1000px) {
+            .oi-track { padding-left: 3.25rem; }
+            .oi-track__row { grid-template-columns: 1fr; gap: 1.1rem; padding-bottom: 4rem; }
+            .oi-track__label { position: static; margin-left: -3.25rem; gap: 0.85rem; }
+            .oi-track__label h3 { font-size: 1.15rem; color: rgba(7,28,52,0.62); }
+            .oi-track__dot { width: 40px; }
+            .oi-track__body h2 { font-size: 1.45rem; }
+            /* max-width: 100% du cadre plafonnait l'elargissement. */
+            .oi-track__body .oi-frame { margin-top: 1.5rem; margin-left: -3.25rem; width: calc(100% + 3.25rem); max-width: none; }
+            /* Sous cette largeur la capture traverse la gouttiere du fil. Un
+               trait continu lui passerait dessus, un trait passant derriere
+               serait hache par chaque capture : les deux se voient. On garde
+               les points, qui marquent les etapes, et on retire le trait.
+               visibility plutot que display : le script mesure le rail pour
+               savoir quel point allumer, il lui faut sa geometrie. */
+            .oi-track__rail { visibility: hidden; }
+        }
+
+
+        /* --- Bloc de vérité ------------------------------------------ */
+        .oi-truth { border-left: 2px solid var(--violet-profond); padding-left: 1.15rem; margin: 1.6rem 0 0; color: rgba(7,28,52,0.7); font-size: 1rem; line-height: 1.7; }
+        .oi-truth strong { color: var(--bleu-nuit); font-weight: 600; }
+
+
+        /* --- Ce que couvre l'accompagnement --------------------------- */
+        .oi-accompagnement { color: rgba(7,28,52,0.7); font-size: 1rem; line-height: 1.7; margin: 1.4rem 0 0; }
+        .oi-accompagnement strong { color: var(--bleu-nuit); font-weight: 600; }
+
+
+        /* --- Trois raisons -------------------------------------------- */
+        /* Les trois colonnes flottaient sur le creme, titres a gauche sous un
+           en-tete centre, et la phrase du bas tombait a un retrait qui ne
+           correspondait a aucune colonne. On les tient dans un seul panneau
+           separe par des filets, et le bas s'aligne sur ce panneau. */
+        .oi-why { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); max-width: 1040px; margin: 0 auto; background: #fdfcf9; border: 1px solid rgba(7,28,52,0.09); border-radius: 18px; box-shadow: var(--oi-pose); overflow: hidden; }
+        .oi-why > div { padding: 2.1rem 1.9rem; border-left: 1px solid rgba(7,28,52,0.08); }
+        .oi-why > div:first-child { border-left: 0; }
+        .oi-why__head { display: flex; align-items: center; gap: 0.85rem; margin-bottom: 0.85rem; }
+        .oi-why__head .oi-ico { width: 38px; height: 38px; border-radius: 10px; margin-bottom: 0; }
+        @media (max-width: 880px) {
+            .oi-why { grid-template-columns: 1fr; max-width: 60ch; }
+            .oi-why > div { border-left: 0; border-top: 1px solid rgba(7,28,52,0.08); }
+            .oi-why > div:first-child { border-top: 0; }
+        }
+        .oi-why h3 { font-family: var(--font-ui); font-size: 1.05rem; font-weight: 600; color: var(--bleu-nuit); margin: 0; }
+        .oi-why p { color: rgba(7,28,52,0.72); font-size: 0.98rem; line-height: 1.7; margin: 0; }
+        .oi-why__foot { max-width: 1040px; margin: 1.75rem auto 0; }
+        .oi-why__foot .oi-truth { margin-top: 0; }
+
+
+
+        /* --- Qui ------------------------------------------------------ */
+        .oi-who { display: flex; gap: 3rem; align-items: center; flex-wrap: wrap; max-width: 940px; margin: 0 auto; }
+        .oi-who__img { flex: 0 0 210px; }
+        .oi-who__img img { width: 100%; border-radius: var(--radius-lg); box-shadow: var(--shadow-polaroid); display: block; }
+        .oi-who__text { flex: 1; min-width: 290px; }
+        .oi-who__text .eyebrow { display: block; color: var(--violet-profond); margin-bottom: 0.8rem; }
+        .oi-who__text h2 { color: var(--bleu-nuit); margin-bottom: 1.1rem; }
+        .oi-who__text p { color: rgba(7,28,52,0.7); line-height: 1.7; }
+        /* Au telephone, « Qui est derriere Replikr » saute en entier. La
+           descente est deja longue avant le calendrier, et la page dit
+           partout que c'est moi qui installe et qui reponds. Le bloc reste
+           sur ecran large, ou il a la place de servir. La photo reste dans
+           le HTML et le navigateur la revalide quand meme, en-tetes seules :
+           masquer une section ne dispense pas de la telecharger. */
+        @media (max-width: 620px) {
+            #qui { display: none; }
+        }
+
+        /* --- CTA ------------------------------------------------------
+           Le seul bloc sombre de la fin de page : l'appel a l'action doit
+           etre le moment ou la page change de ton. */
+        .oi-cta { background: var(--bleu-nuit); text-align: center; }
+        .oi-cta .eyebrow { display: block; color: var(--bleu-violet); margin-bottom: 1.1rem; }
+        .oi-cta h2 { color: var(--blanc); font-size: clamp(1.7rem, 3.4vw, 2.6rem); margin-bottom: 1.1rem; }
+        .oi-cta p { color: rgba(255,255,255,0.7); max-width: 58ch; margin: 0 auto 1.1rem; line-height: 1.7; }
+        .oi-cta__after { font-size: 0.95rem; color: rgba(255,255,255,0.5); margin-top: 1.5rem; }
+        /* Le calendrier de appel.html, pose directement dans la page : un
+           creneau se choisit sans changer d'ecran. Meme cadre que la page
+           dediee, sur fond sombre cette fois. */
+        .oi-cal { max-width: 1000px; margin: 2.5rem auto 0; border-radius: var(--radius-lg); overflow: hidden; border: 1px solid rgba(128,130,212,0.28); box-shadow: 0 30px 70px -25px rgba(0,0,0,0.7); background: #ffffff; }
+        .oi-cal iframe { width: 100%; height: clamp(520px, 85vh, 780px); border: none; display: block; }
+        @media (max-width: 600px) { .oi-cal iframe { height: 860px; } }
+
+        /* --- FAQ en cartes détachées ---------------------------------- */
+        .oi-page #faq .faq__list { max-width: 820px; }
+        .oi-page #faq .faq__item { border: 1px solid rgba(7,28,52,0.09); border-radius: 12px; background: #fdfcf9; margin-bottom: 0.75rem; padding: 0 1.4rem; transition: box-shadow var(--transition); }
+        .oi-page #faq .faq__item:first-child { border-top: 1px solid rgba(7,28,52,0.09); }
+        .oi-page #faq .faq__item:hover { box-shadow: 0 10px 26px -18px rgba(7,28,52,0.4); }
+        .oi-page #faq .faq__question { color: var(--bleu-nuit); font-size: 1rem; padding: 1.3rem 0; }
+        .oi-page #faq .faq__question:hover { color: var(--violet-profond); }
+        .oi-page #faq .faq__icon { color: var(--violet-profond); }
+        .oi-page #faq .faq__item.open .faq__answer { max-height: 1200px; padding-bottom: 1.4rem; }
+        .oi-page #faq .faq__answer p { max-width: 62ch; color: rgba(7,28,52,0.7); font-size: 0.95rem; }
