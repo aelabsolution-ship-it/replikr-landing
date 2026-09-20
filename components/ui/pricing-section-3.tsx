@@ -49,6 +49,21 @@ function Amount({ value }: { value: number }) {
   );
 }
 
+// Ce qui distingue vraiment les offres — l'essai compris, pour qu'on voie tout
+// de suite ce qu'il permet et ce qu'il ne permet pas.
+const PLAN_NAMES = ["Essai", "Replikr", "+ publication", "Agence"];
+type Cell = string | boolean;
+const COMPARE: { label: string; values: Cell[] }[] = [
+  { label: "Crédits", values: ["60 une seule fois", "410 par mois", "660 par mois", "4 470 par mois"] },
+  { label: "Sources par note", values: ["3", "6", "6", "6"] },
+  { label: "Analyser une source", values: [true, true, true, true] },
+  { label: "Post avec image, infographie, script", values: [true, true, true, true] },
+  { label: "Carrousel illustré", values: [false, true, true, true] },
+  { label: "Publier et programmer", values: [false, false, true, true] },
+  { label: "Marques", values: ["1", "1", "1", "10"] },
+  { label: "Carte bancaire", values: ["non", "oui", "oui", "oui"] },
+];
+
 export default function PricingSection() {
   const [annual, setAnnual] = useState(false);
   const periods: { key: boolean; label: string }[] = [
@@ -110,6 +125,32 @@ export default function PricingSection() {
             </article>
           ))}
         </div>
+        <table className="rk-compare">
+          <caption>Ce qui change d’une offre à l’autre</caption>
+          <thead>
+            <tr>
+              <th scope="col">&nbsp;</th>
+              <th scope="col">Essai gratuit</th>
+              <th scope="col">Replikr</th>
+              <th scope="col">+ publication</th>
+              <th scope="col">Agence</th>
+            </tr>
+          </thead>
+          <tbody>
+            {COMPARE.map((row) => (
+              <tr key={row.label}>
+                <th scope="row">{row.label}</th>
+                {row.values.map((v, i) => (
+                  <td key={i} data-plan={PLAN_NAMES[i]}>
+                    {v === true ? <span className="rk-compare__yes" aria-label="Inclus">✓</span>
+                     : v === false ? <span className="rk-compare__no" aria-label="Non inclus">—</span>
+                     : v}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
         <p className="rk-pricing__caption">Commencez par l’essai gratuit. Choisissez votre offre ensuite.</p>
       </div>
     </section>

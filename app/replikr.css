@@ -46,6 +46,27 @@ summary.faq__question::-webkit-details-marker { display: none; }
 .rk-card__button:hover { background: #e0dfdc; }
 .rk-card--featured .rk-card__button { background: #d8d3ff; color: #20283e; border-color: #d8d3ff; }
 .rk-card--featured .rk-card__button:hover { background: #e7e4ff; }
+/* Tableau des différences : l'essai y figure en première colonne, sans carte
+   à part (le gratuit ne doit pas peser autant qu'une offre payante). */
+.rk-compare { width: 100%; max-width: 1060px; margin: 2.5rem auto 0; border-collapse: collapse;
+  font-family: var(--font-ui); font-size: .86rem; color: #dfe4ec; }
+.rk-compare caption { margin-bottom: .9rem; color: #c0c6d0; font-size: .8rem; letter-spacing: .04em;
+  text-transform: uppercase; }
+.rk-compare th, .rk-compare td { padding: .7rem .6rem; border-bottom: 1px solid #ffffff1a; text-align: center; }
+.rk-compare thead th { color: #fff; font-weight: 600; }
+.rk-compare tbody th { text-align: left; font-weight: 400; color: #c0c6d0; }
+.rk-compare__yes { color: #b9f2cf; font-weight: 700; }
+.rk-compare__no { color: #ffffff66; }
+@media (max-width: 760px) {
+  /* Sur mobile, chaque ligne devient un bloc : le nom de l'offre passe devant
+     la valeur, et rien ne déborde de l'écran. */
+  .rk-compare, .rk-compare tbody, .rk-compare tr, .rk-compare td, .rk-compare tbody th { display: block; width: 100%; }
+  .rk-compare thead { display: none; }
+  .rk-compare tr { padding: .5rem 0 .8rem; border-bottom: 1px solid #ffffff1a; }
+  .rk-compare tbody th { color: #fff; font-weight: 600; padding: .2rem 0 .4rem; border: 0; }
+  .rk-compare td { display: flex; justify-content: space-between; gap: 1rem; padding: .25rem 0; border: 0; text-align: right; }
+  .rk-compare td::before { content: attr(data-plan); color: #c0c6d0; }
+}
 .rk-pricing .rk-pricing__caption { margin: 1.5rem auto 0; font-family: var(--font-ui); font-size: .8rem; color: #c0c6d0; }
 @media (max-width: 760px) {
   .rk-pricing__grid { grid-template-columns: 1fr; max-width: 430px; border-radius: 24px; gap: 6px; }
