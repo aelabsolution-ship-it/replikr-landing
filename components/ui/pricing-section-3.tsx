@@ -62,7 +62,7 @@ export default function PricingSection() {
         <span className="eyebrow">Essayez Replikr</span>
         <h2 id="pricing-title">Ajoutez votre matière.<br />Regardez ce qui en sort.</h2>
         <p>Une vidéo, un document ou une note : commencez avec votre propre contenu et découvrez ce que Replikr vous aide à en faire.</p>
-        <p className="rk-pricing__trial"><strong>30 crédits d’essai offerts</strong><span>Sans carte bancaire et sans engagement.</span></p>
+        <p className="rk-pricing__trial"><strong>60 crédits d’essai offerts</strong><span>Sans carte bancaire et sans engagement.</span></p>
 
         <div className="rk-pricing__switch" role="group" aria-label="Période de facturation">
           {periods.map((p) => (
