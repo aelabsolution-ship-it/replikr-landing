@@ -61,7 +61,6 @@ const COMPARE: { label: string; values: Cell[] }[] = [
   { label: "Carrousel illustré", values: [false, true, true, true] },
   { label: "Publier et programmer", values: [false, false, true, true] },
   { label: "Marques", values: ["1", "1", "1", "10"] },
-  { label: "Carte bancaire", values: ["non", "oui", "oui", "oui"] },
 ];
 
 export default function PricingSection() {
