@@ -7,19 +7,19 @@ const plans = [
   {
     name: "Replikr", price: 35, annual: 348, annualMonthly: 29, credits: "410 crédits", recharge: 110,
     description: "Pour créer vos contenus et les exporter librement.",
-    features: ["Créer vos contenus", "Copier et télécharger"],
+    features: ["Créer vos contenus", "Copier et télécharger", "Filmer, monter et sous-titrer vos shorts"],
     note: "Sans publication intégrée.", featured: false,
   },
   {
     name: "Replikr + publication", price: 66, annual: 660, annualMonthly: 55, credits: "660 crédits", recharge: 150,
     description: "De la création à la publication sur vos réseaux.",
-    features: ["Créer, copier et télécharger", "Publier sur les réseaux", "Programmer vos publications"],
+    features: ["Créer, copier et télécharger", "Publier sur les réseaux", "Programmer vos publications", "Monter et sous-titrer vos shorts", "Conserver 2 vidéos par notebook"],
     note: "", featured: true,
   },
   {
     name: "Agence", price: 359, annual: 3588, annualMonthly: 299, credits: "4 470 crédits", recharge: 190,
     description: "Pour accompagner plusieurs marques avec Replikr.",
-    features: ["10 marques", "4 470 crédits pour vos contenus"],
+    features: ["10 marques", "4 470 crédits pour vos contenus", "Monter et sous-titrer vos shorts", "Conserver 2 vidéos par notebook"],
     note: "", featured: false,
   },
 ];
@@ -59,6 +59,9 @@ const COMPARE: { label: string; values: Cell[] }[] = [
   { label: "Analyser une source", values: [true, true, true, true] },
   { label: "Post avec image, infographie, script", values: [true, true, true, true] },
   { label: "Carrousel illustré", values: [false, true, true, true] },
+  { label: "Filmer et télécharger le rush brut", values: [true, true, true, true] },
+  { label: "Montage et sous-titres des shorts", values: [false, true, true, true] },
+  { label: "Vidéos conservées par notebook", values: ["Aucune", "Aucune", "2", "2"] },
   { label: "Publier et programmer", values: [false, false, true, true] },
   { label: "Marques", values: ["1", "1", "1", "10"] },
 ];
@@ -151,6 +154,7 @@ export default function PricingSection() {
           </tbody>
         </table>
         <p className="rk-pricing__caption">Commencez par l’essai gratuit. Choisissez votre offre ensuite.</p>
+        <p className="rk-pricing__caption">En gratuit, filmez et téléchargez le rush brut sur votre appareil, sans montage, sous-titres ni stockage dans Replikr.</p>
       </div>
     </section>
   );
