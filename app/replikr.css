@@ -116,3 +116,29 @@ summary.faq__question::-webkit-details-marker { display: none; }
 /* Le montant animé est lu par les lecteurs d'écran, jamais affiché. */
 .rk-card__amount-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 .rk-card__badge { display: inline-block; margin-bottom: .9rem; border-radius: 999px; padding: .2rem .7rem; background: #ffffff1f; color: #e7e4ff; font-family: var(--font-ui); font-size: .72rem; font-weight: 700; letter-spacing: .02em; }
+/* Des différences concrètes, un gratuit visible et une offre recommandée. */
+.rk-pricing__grid { grid-template-columns: repeat(4, minmax(0, 1fr)); max-width: 1240px; gap: 12px; padding: 0; background: transparent; }
+.rk-card { padding: 26px 20px; background: #fff; border: 1px solid #dcdde5; }
+.rk-card--free { background: #f3f2ef; }
+.rk-card--featured { background: linear-gradient(155deg, #50318c, #252943); border: 2px solid #a88ee9; box-shadow: 0 16px 45px #06051060; }
+.rk-card__badge { position: static; display: block; min-height: 32px; padding: 0; margin: 0 0 12px; background: transparent; font-size: .66rem; line-height: 1.5; letter-spacing: .04em; color: #646877; }
+.rk-card--featured .rk-card__badge { color: #e3d8ff; }
+.rk-pricing .rk-card__credits { display: flex; flex-direction: column; min-height: 96px; gap: 7px; font-size: 1.18rem; line-height: 1.4; }
+.rk-card__credits span { font-size: .8rem; color: #e4dcff; }
+.rk-card__features li { font-size: .9rem; line-height: 1.5; }
+.rk-card__features .rk-card__excluded { color: #737a86; }
+.rk-card__excluded > span:first-child { width: 18px; flex: 0 0 18px; text-align: center; }
+.rk-pricing .rk-card__recharge { display: flex; flex-direction: column; align-items: flex-start; gap: 7px; margin-top: auto; margin-bottom: 16px; padding: 15px; border-radius: 12px; background: #f1f0f7; color: #20283e; }
+.rk-card__recharge > span { font-size: .6rem; letter-spacing: .06em; opacity: 1; font-weight: 750; }
+.rk-card__recharge strong { font-size: 1.15rem; line-height: 1.4; font-weight: 800; }
+.rk-card__recharge small { font-size: .76rem; line-height: 1.5; }
+.rk-pricing .rk-card--featured .rk-card__recharge { background: #ffffff15; color: #fff; }
+.rk-card__button { font-size: .86rem; min-height: 48px; }
+.rk-sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; }
+.rk-pricing__value { margin: 32px auto 0; padding: 22px 26px; border: 1px solid #b39ae566; border-radius: 18px; background: linear-gradient(110deg, #533e7655, #352a5755); display: grid; grid-template-columns: 1.35fr .8fr 1fr 1.2fr; gap: 24px; max-width: 1240px; text-align: left; }
+.rk-pricing__value div { display: flex; flex-direction: column; gap: 7px; }
+.rk-pricing__value strong { color: #fff; font-size: 1.2rem; line-height: 1.35; }
+.rk-pricing__value span { color: #d4cce3; font-size: .85rem; line-height: 1.5; }
+.rk-pricing .rk-pricing__value-note { margin: 14px auto 0; color: #d4cce3; font-size: .85rem; font-family: var(--font-ui); }
+@media (min-width: 721px) and (max-width: 1150px) { .rk-pricing__grid { grid-template-columns: repeat(2, minmax(0,1fr)); } }
+@media (max-width: 720px) { .rk-pricing__grid { grid-template-columns: 1fr; max-width: 430px; } .rk-pricing__value { grid-template-columns: 1fr 1fr; gap: 20px; padding: 22px; } .rk-pricing__value div:first-child { grid-column: 1 / -1; } }
