@@ -7,27 +7,27 @@ const plans = [
   {
     name: "Gratuit", price: 0, annual: 0, annualMonthly: 0, credits: "60 crédits offerts", recharge: 0,
     description: "Testez sur vos propres contenus. Sans carte bancaire.",
-    features: ["1 marque", "3 sources par notebook", "Posts, images, infographies et scripts", "Tournage et téléchargement du rush brut"],
+    features: ["2 notebooks", "5 contenus par notebook", "1 marque", "3 sources par notebook", "Posts, images, infographies et scripts", "Tournage et téléchargement du rush brut"],
     excluded: ["Carrousels illustrés", "Montage et sous-titres", "Publication et programmation", "Stockage vidéo", "Recharge de crédits"],
     note: "Crédits offerts une seule fois, sans renouvellement.", featured: false, free: true,
   },
   {
     name: "Replikr", price: 35, annual: 348, annualMonthly: 29, credits: "410 crédits / mois", recharge: 110,
     description: "Créez vos contenus et téléchargez-les pour les publier vous-même.",
-    features: ["1 marque", "6 sources par notebook", "Tous les formats, dont les carrousels", "Montage et sous-titres des shorts", "Copier et télécharger"],
+    features: ["10 notebooks", "30 contenus par notebook", "1 marque", "6 sources par notebook", "Tous les formats, dont les carrousels", "Montage et sous-titres des shorts", "Copier et télécharger"],
     excluded: ["Publication et programmation", "Stockage vidéo"],
     note: "", featured: false, free: false,
   },
   {
     name: "Replikr + publication", price: 66, annual: 660, annualMonthly: 55, credits: "660 crédits / mois", recharge: 150,
     description: "Créez, programmez et publiez depuis un seul endroit.",
-    features: ["1 marque", "6 sources par notebook", "Tous les formats, montage et sous-titres", "Publication directe sur vos réseaux", "Programmation dans le calendrier", "2 vidéos conservées par notebook"],
+    features: ["30 notebooks", "50 contenus par notebook", "1 marque", "6 sources par notebook", "Tous les formats, montage et sous-titres", "Publication directe sur vos réseaux", "Programmation dans le calendrier", "2 vidéos conservées par notebook"],
     excluded: [], note: "", featured: true, free: false,
   },
   {
     name: "Agence", price: 359, annual: 3588, annualMonthly: 299, credits: "4 470 crédits / mois", recharge: 190,
     description: "Accompagnez plusieurs marques dans le même espace.",
-    features: ["10 marques", "6 sources par notebook", "Tous les formats, montage et sous-titres", "Publication et programmation", "2 vidéos conservées par notebook"],
+    features: ["100 notebooks", "100 contenus par notebook", "10 marques", "6 sources par notebook", "Tous les formats, montage et sous-titres", "Publication et programmation", "2 vidéos conservées par notebook"],
     excluded: [], note: "", featured: false, free: false,
   },
 ];
@@ -64,6 +64,8 @@ type Cell = string | boolean;
 const COMPARE: { label: string; values: Cell[] }[] = [
   { label: "Crédits", values: ["60 une seule fois", "410 par mois", "660 par mois", "4 470 par mois"] },
   { label: "Recharge de 5 €", values: [false, "110 crédits", "150 crédits", "190 crédits"] },
+  { label: "Notebooks conservés", values: ["2", "10", "30", "100"] },
+  { label: "Contenus par notebook", values: ["5", "30", "50", "100"] },
   { label: "Sources par notebook", values: ["3", "6", "6", "6"] },
   { label: "Analyser une source", values: [true, true, true, true] },
   { label: "Post avec image, infographie, script", values: [true, true, true, true] },
