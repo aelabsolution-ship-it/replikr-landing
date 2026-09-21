@@ -76,7 +76,7 @@ const COMPARE: { label: string; values: Cell[] }[] = [
 ];
 
 export default function PricingSection() {
-  const [annual, setAnnual] = useState(false);
+  const [annual, setAnnual] = useState(true);
   const periods: { key: boolean; label: string }[] = [
     { key: false, label: "Mensuel" },
     { key: true, label: "Annuel" },
