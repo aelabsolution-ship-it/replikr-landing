@@ -28,9 +28,30 @@ const plans = [
     name: "Agence", price: 359, annual: 3588, annualMonthly: 299, credits: "4 470 crédits / mois", recharge: 190,
     description: "Accompagnez plusieurs marques dans le même espace.",
     features: ["100 notebooks", "100 contenus par notebook", "10 marques", "6 sources par notebook", "Tous les formats, montage et sous-titres", "Publication et programmation", "2 vidéos conservées par notebook"],
-    excluded: [], note: "", featured: false, free: false,
+    excluded: [], note: "", featured: false, free: false, booking: true,
   },
 ];
+
+// Agenda de Ludovic : l'Agence peut en parler avant de payer, l'Entreprise
+// commence toujours par là (22 sept. 2026).
+const BOOKING_URL = "https://calendar.app.google/FMCaxhBxAvHCFKai9";
+
+const ENTERPRISE = {
+  kicker: "SUR MESURE",
+  name: "Entreprise",
+  price: "Sur devis",
+  description: "Replikr installé pour votre organisation : votre marque, vos gabarits, vos règles éditoriales, vos canaux.",
+  features: [
+    "Gabarits d’infographies et de carrousels dessinés à votre charte, validés avec vous",
+    "Une instance à votre marque, plusieurs marques ou équipes, un accès par personne",
+    "Méthode éditoriale calée sur vos prises de parole : ton, vocabulaire, interdits",
+    "Intégrations à vos outils et à vos canaux, publication comprise",
+    "Mise en route accompagnée et un interlocuteur dédié",
+    "Hébergement en Europe, données cloisonnées par compte",
+  ],
+  cta: "Prendre rendez-vous",
+  after: "Un échange de 30 minutes pour cadrer votre besoin, puis une proposition chiffrée.",
+};
 
 // Deux mois offerts : 348 € au lieu de 12 × 35 €.
 const SAVING = Math.round((1 - plans[1].annual / (plans[1].price * 12)) * 100);
@@ -145,9 +166,33 @@ export default function PricingSection() {
                  aria-label={plan.free ? "Commencer gratuitement" : `Choisir ${plan.name}`}>
                 {plan.free ? "Commencer gratuitement" : plan.featured ? "Choisir Créer + Publier" : "Choisir cette offre"}<span aria-hidden="true">↗</span>
               </a>
+              {"booking" in plan && plan.booking && (
+                <a className="rk-card__button rk-card__button--booking" href={BOOKING_URL}
+                   target="_blank" rel="noopener noreferrer" aria-label={`Prendre rendez-vous pour l’offre ${plan.name}`}>
+                  Prendre rendez-vous<span aria-hidden="true">↗</span>
+                </a>
+              )}
             </article>
           ))}
         </div>
+        <article className="rk-enterprise" aria-label="Offre Entreprise, sur devis">
+          <div className="rk-enterprise__pitch">
+            <span className="rk-card__badge">{ENTERPRISE.kicker}</span>
+            <h3>{ENTERPRISE.name}</h3>
+            <p className="rk-enterprise__price">{ENTERPRISE.price}</p>
+            <p className="rk-enterprise__description">{ENTERPRISE.description}</p>
+            <a className="rk-card__button rk-enterprise__button" href={BOOKING_URL}
+               target="_blank" rel="noopener noreferrer">
+              {ENTERPRISE.cta}<span aria-hidden="true">↗</span>
+            </a>
+            <p className="rk-enterprise__after">{ENTERPRISE.after}</p>
+          </div>
+          <ul className="rk-card__features rk-enterprise__features">
+            {ENTERPRISE.features.map((feature) => (
+              <li key={feature}><span aria-hidden="true" className="rk-card__check">✓</span>{feature}</li>
+            ))}
+          </ul>
+        </article>
         <table className="rk-compare">
           <caption>Ce qui change d’une offre à l’autre</caption>
           <thead>
