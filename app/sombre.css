@@ -64,7 +64,9 @@ html, body, .oi-page { background: var(--sb-fond) !important; color: var(--sb-te
 .oi-page .section__header p, .oi-page .oi-hero__lead, .oi-page .oi-cta p {
   color: var(--sb-texte-2) !important; font-family: var(--font-corps); }
 .oi-page .oi-hero__lead { font-size: clamp(1.05rem, 1.7vw, 1.25rem); line-height: 1.6; }
-.oi-page .oi-hero h1 em { color: var(--sb-texte-3); }
+/* La promesse en violet : c'est la seule phrase de la page qui porte la
+   couleur de marque en plein (Ludovic, 23 sept. 2026). */
+.oi-page .oi-hero h1 em { color: var(--sb-accent); font-style: normal; }
 .oi-page .replikr-trial, .oi-page .oi-hero__proof, .oi-page .oi-cta__after { color: var(--sb-texte-3) !important; }
 
 /* ── Cadres de capture ── */
@@ -157,3 +159,25 @@ html, body, .oi-page, .oi-page h1, .oi-page h2, .oi-page h3, .oi-page h4, .oi-pa
 .oi-page td, .oi-page th, .oi-page div { font-family: var(--font-ui) !important; }
 .oi-page .oi-frame__title, .oi-page code { font-family: var(--font-ibm-plex), ui-monospace, monospace !important; }
 .oi-page .footer__brand p { font-style: normal !important; }
+
+/* ── Touches violettes, très discrètes (Ludovic, 23 sept. 2026) ──────────
+   Même règle que dans l'app : le violet ne remplit rien, il souligne. Une
+   lueur à peine visible derrière le titre, un point devant chaque surtitre,
+   le fil du parcours, la sélection de texte, le focus clavier, le survol des
+   liens, la coche des tarifs mis en avant. */
+.oi-page .oi-hero { background:
+  radial-gradient(640px 320px at 18% -6%, rgba(169, 171, 232, .075), transparent 62%),
+  var(--sb-fond) !important; }
+.oi-page .eyebrow::before { content: ""; display: inline-block; width: 6px; height: 6px;
+  border-radius: 50%; background: var(--sb-accent); margin-right: 10px; vertical-align: middle;
+  position: relative; top: -1px; opacity: .85; }
+.oi-page .oi-track__fill { background: var(--sb-accent) !important; opacity: .55; }
+.oi-page ::selection { background: rgba(169, 171, 232, .3); color: var(--sb-texte); }
+.oi-page a:focus-visible, .oi-page button:focus-visible, .oi-page summary:focus-visible {
+  outline: 2px solid var(--sb-accent); outline-offset: 3px; border-radius: 6px; }
+.oi-page .oi-lien a:hover { color: var(--sb-accent) !important; border-bottom-color: var(--sb-accent) !important; }
+.oi-page .nav__links a:hover { color: var(--sb-accent); }
+.oi-page #faq .faq__item[open] .faq__icon { color: var(--sb-accent) !important; }
+.oi-page .oi-frame__dot:first-child { background: var(--sb-accent) !important; opacity: .7; }
+.rk-pricing .rk-card--featured .rk-card__check { color: var(--sb-accent) !important; }
+.oi-page .footer a:hover { color: var(--sb-accent) !important; }
