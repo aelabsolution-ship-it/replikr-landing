@@ -68,6 +68,12 @@ summary.faq__question::-webkit-details-marker { display: none; }
   .rk-compare td::before { content: attr(data-plan); color: #c0c6d0; }
 }
 .rk-pricing .rk-pricing__caption { margin: 1.5rem auto 0; font-family: var(--font-ui); font-size: .8rem; color: #c0c6d0; }
+/* Recharges de crédits : bloc discret tout en bas de la section prix. */
+.rk-pricing .rk-pricing__recharges { margin: 1.75rem auto 0; max-width: 1060px; text-align: left; font-family: var(--font-ui); }
+.rk-pricing__recharges-label { display: block; margin-bottom: .55rem; font-size: .7rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; color: #8f97a6; }
+.rk-pricing__recharges-list { display: flex; flex-wrap: wrap; gap: .35rem 1.6rem; list-style: none; margin: 0; padding: 0; font-size: .8rem; color: #c0c6d0; }
+.rk-pricing__recharges-list li { display: flex; align-items: baseline; gap: .4rem; }
+.rk-pricing__recharges-list strong { color: #e7e4ff; font-weight: 600; }
 @media (max-width: 760px) {
   .rk-pricing__grid { grid-template-columns: 1fr; max-width: 430px; border-radius: 24px; gap: 6px; }
   .rk-card { padding: 25px 22px; }
@@ -92,9 +98,6 @@ summary.faq__question::-webkit-details-marker { display: none; }
   .hero__orb, .hero__beam { animation: none !important; }
 }
 
-.rk-pricing .rk-card__recharge { display: flex; justify-content: space-between; flex-wrap: wrap; gap: .3rem .6rem; margin-top: auto; padding: 1rem 0; font-size: .75rem; }
-.rk-card__recharge span { opacity: .75; }
-.rk-card__recharge strong { font-weight: 600; }
 .rk-pricing .rk-card__annual { margin-top: .8rem; font-size: .85rem; line-height: 1.6; }
 .rk-card__annual strong { font-weight: 600; }
 .rk-card__annual span { display: block; min-height: 2.8em; margin-top: .2rem; font-size: .75rem; opacity: .75; }
@@ -128,11 +131,6 @@ summary.faq__question::-webkit-details-marker { display: none; }
 .rk-card__features li { font-size: .9rem; line-height: 1.5; }
 .rk-card__features .rk-card__excluded { color: #737a86; }
 .rk-card__excluded > span:first-child { width: 18px; flex: 0 0 18px; text-align: center; }
-.rk-pricing .rk-card__recharge { display: flex; flex-direction: column; align-items: flex-start; gap: 7px; margin-top: auto; margin-bottom: 16px; padding: 15px; border-radius: 12px; background: #f1f0f7; color: #20283e; }
-.rk-card__recharge > span { font-size: .6rem; letter-spacing: .06em; opacity: 1; font-weight: 750; }
-.rk-card__recharge strong { font-size: 1.15rem; line-height: 1.4; font-weight: 800; }
-.rk-card__recharge small { font-size: .76rem; line-height: 1.5; }
-.rk-pricing .rk-card--featured .rk-card__recharge { background: #ffffff15; color: #fff; }
 .rk-card__button { font-size: .86rem; min-height: 48px; }
 /* Agence : un rendez-vous en plus du paiement direct (22 sept. 2026). */
 .rk-card__button--booking { margin-top: 8px; background: transparent; border-style: dashed; }

@@ -161,7 +161,6 @@ export default function PricingSection() {
                 ))}
               </ul>
               {plan.note && <p className="rk-card__note">{plan.note}</p>}
-              <div className="rk-card__recharge"><span>RECHARGE DE CRÉDITS</span><strong>{plan.free ? "Non disponible" : `5 € = ${plan.recharge} crédits`}</strong>{plan.featured && <small>36 % de crédits en plus qu’avec Replikr</small>}</div>
               <a className="rk-card__button" href="https://app.replikr.io"
                  aria-label={plan.free ? "Commencer gratuitement" : `Choisir ${plan.name}`}>
                 {plan.free ? "Commencer gratuitement" : plan.featured ? "Choisir Créer + Publier" : "Choisir cette offre"}<span aria-hidden="true">↗</span>
@@ -221,6 +220,14 @@ export default function PricingSection() {
         </table>
         <p className="rk-pricing__caption">Commencez par l’essai gratuit. Choisissez votre offre ensuite.</p>
         <p className="rk-pricing__caption">En gratuit, filmez et téléchargez le rush brut sur votre appareil, sans montage, sous-titres ni stockage dans Replikr.</p>
+        <div className="rk-pricing__recharges" aria-label="Recharges de crédits disponibles">
+          <span className="rk-pricing__recharges-label">Recharge de crédits</span>
+          <ul className="rk-pricing__recharges-list">
+            {plans.filter((plan) => plan.recharge > 0).map((plan) => (
+              <li key={plan.name}><strong>{plan.name}</strong><span>5 € = {plan.recharge} crédits</span></li>
+            ))}
+          </ul>
+        </div>
       </div>
     </section>
   );

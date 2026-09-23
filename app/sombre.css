@@ -1,0 +1,159 @@
+/* ── Replikr, landing sombre (23 sept. 2026) ────────────────────────────────
+   Mêmes couleurs que l'app : fond presque noir, cartes anthracite, texte
+   blanc cassé, violet en toute petite touche. Typographie Inter (façon
+   Raycast). Chargée EN DERNIER : elle surcharge les feuilles d'origine sans
+   toucher à leur mise en page, ni à la structure de la page. */
+
+:root {
+  --sb-fond: #0b0b0c;
+  --sb-fond-2: #111113;
+  --sb-carte: #161618;
+  --sb-carte-2: #1c1c1f;
+  --sb-filet: #26262a;
+  --sb-filet-fort: #34343a;
+  --sb-texte: #ededed;
+  --sb-texte-2: #a1a1aa;
+  --sb-texte-3: #71717a;
+  --sb-accent: #a9abe8;
+
+  --font-titre: var(--font-inter), system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-corps: var(--font-inter), system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-ui: var(--font-inter), system-ui, -apple-system, "Segoe UI", sans-serif;
+  --bleu-nuit: var(--sb-texte);
+  --bleu-violet: var(--sb-accent);
+  --violet-profond: var(--sb-accent);
+  color-scheme: dark;
+}
+
+html, body, .oi-page { background: var(--sb-fond) !important; color: var(--sb-texte-2); }
+.oi-page { font-family: var(--font-ui); -webkit-font-smoothing: antialiased; }
+.oi-page h1, .oi-page h2, .oi-page h3, .oi-page h4 {
+  font-family: var(--font-titre); color: var(--sb-texte); letter-spacing: -0.03em; font-weight: 600; }
+.oi-page h1 { letter-spacing: -0.045em; }
+.oi-page p, .oi-page li { font-family: var(--font-corps); }
+.oi-page .eyebrow {
+  font-family: var(--font-ui); color: var(--sb-texte-3) !important; letter-spacing: .14em;
+  font-weight: 500; font-size: .72rem; }
+
+/* Décor retiré : grain, lueurs, grille, rayons. Élégant, sans fioriture. */
+.oi-page .grain, .oi-hero .hero__orb, .oi-hero .hero__grid, .oi-hero .hero__beam,
+.oi-hero .hero__bg { display: none !important; }
+
+/* ── En-tête ── */
+.oi-page .header { background: rgba(11, 11, 12, .82) !important;
+  backdrop-filter: saturate(140%) blur(14px); border-bottom: 1px solid var(--sb-filet); }
+.oi-page .nav__links a { color: var(--sb-texte-2); font-family: var(--font-ui); }
+.oi-page .nav__links a:hover { color: var(--sb-texte); }
+.oi-page .nav__mobile { background: var(--sb-fond-2); }
+
+/* ── Boutons : blanc sur noir, contour fin pour le secondaire ── */
+.oi-page .btn--primary, .oi-page .btn--primary.btn--glow {
+  background: var(--sb-texte) !important; color: #0b0b0c !important; border-color: var(--sb-texte) !important;
+  box-shadow: none !important; font-family: var(--font-ui); font-weight: 600; }
+.oi-page .btn--primary:hover { background: #ffffff !important; }
+.oi-page .btn--glow::before, .oi-page .btn--glow::after { display: none !important; }
+.oi-page .oi-btn-ghost { border-color: var(--sb-filet-fort); color: var(--sb-texte); }
+.oi-page .oi-btn-ghost:hover { background: var(--sb-carte); border-color: var(--sb-texte-3); }
+
+/* ── Sections : deux noirs qui alternent, un filet entre elles ── */
+.oi-page .oi-hero, .oi-page section.oi-sec--papier, .oi-page .oi-cta, .oi-page .rk-pricing {
+  background: var(--sb-fond) !important; }
+.oi-page section.oi-sec--sable { background: var(--sb-fond-2) !important; }
+.oi-page main > section + section, .oi-page main section + div > section,
+.oi-page main div + section { border-top: 1px solid var(--sb-filet); }
+.oi-page .section__header p, .oi-page .oi-hero__lead, .oi-page .oi-cta p {
+  color: var(--sb-texte-2) !important; font-family: var(--font-corps); }
+.oi-page .oi-hero__lead { font-size: clamp(1.05rem, 1.7vw, 1.25rem); line-height: 1.6; }
+.oi-page .oi-hero h1 em { color: var(--sb-texte-3); }
+.oi-page .replikr-trial, .oi-page .oi-hero__proof, .oi-page .oi-cta__after { color: var(--sb-texte-3) !important; }
+
+/* ── Cadres de capture ── */
+.oi-page .oi-frame { background: var(--sb-carte); border: 1px solid var(--sb-filet) !important;
+  border-radius: 14px; box-shadow: 0 40px 90px -40px rgba(0, 0, 0, .9) !important; overflow: hidden; }
+.oi-page .oi-frame__bar { background: var(--sb-carte) !important; border-bottom: 1px solid var(--sb-filet); }
+.oi-page .oi-frame__dot { background: var(--sb-filet-fort) !important; }
+.oi-page .oi-frame__title { color: var(--sb-texte-3) !important; }
+.oi-page .oi-frame__view--img { display: block; height: auto !important; max-height: none !important;
+  overflow: visible !important; background: var(--sb-fond); }
+.oi-page .oi-frame__view--img img { display: block; width: 100%; height: auto; }
+.oi-page .oi-device { background: transparent !important; border: 0 !important; box-shadow: none !important;
+  transform: none !important; padding: 0 !important; }
+.oi-page .oi-frame__hint, .oi-page .oi-mobile-demo { display: none !important; }
+
+/* ── Parcours en 4 étapes ── */
+.oi-page .oi-track__rail { background: var(--sb-filet) !important; }
+.oi-page .oi-track__fill { background: var(--sb-texte-3) !important; }
+.oi-page .oi-track__dot { background: var(--sb-fond) !important; border-color: var(--sb-filet-fort) !important;
+  box-shadow: none !important; }
+.oi-page .oi-track__label h3 { color: var(--sb-texte-3) !important; font-weight: 500; }
+.oi-page .oi-track__body p { color: var(--sb-texte-2); }
+.oi-page .oi-truth { border-left-color: var(--sb-accent) !important; color: var(--sb-texte-2) !important;
+  background: transparent !important; }
+.oi-page .oi-truth strong, .oi-page .oi-plus strong, .oi-page .oi-accompagnement strong { color: var(--sb-texte) !important; }
+.oi-page .oi-plus, .oi-page .oi-accompagnement { color: var(--sb-texte-2) !important; }
+.oi-page .oi-reseaux svg { filter: grayscale(1) brightness(1.7); opacity: .72; }
+
+/* ── Cartes (méthode, notebook, FAQ) ── */
+.oi-page .oi-meth > div, .oi-page .oi-why > div, .oi-page .oi-why {
+  background: var(--sb-carte) !important; border-color: var(--sb-filet) !important; box-shadow: none !important; }
+.oi-page .oi-why > div + div { border-left-color: var(--sb-filet) !important; }
+.oi-page .oi-meth h3, .oi-page .oi-why h3 { color: var(--sb-texte) !important; }
+.oi-page .oi-meth p, .oi-page .oi-why p { color: var(--sb-texte-2) !important; }
+.oi-page .oi-meth__so { color: var(--sb-texte) !important; }
+.oi-page .oi-lien a { color: var(--sb-texte) !important; border-bottom-color: var(--sb-filet-fort) !important; }
+.oi-page #faq .faq__item { background: var(--sb-carte) !important; border-color: var(--sb-filet) !important; }
+.oi-page #faq .faq__item:hover { box-shadow: none !important; border-color: var(--sb-filet-fort) !important; }
+.oi-page .faq__question, .oi-page .faq__question span { color: var(--sb-texte) !important; font-family: var(--font-ui); }
+.oi-page .faq__icon { color: var(--sb-texte-3) !important; }
+.oi-page .faq__answer p { color: var(--sb-texte-2) !important; }
+
+/* ── Tarifs ── */
+.rk-pricing .rk-card, .rk-pricing .rk-card--free {
+  background: var(--sb-carte) !important; border: 1px solid var(--sb-filet) !important; color: var(--sb-texte) !important;
+  box-shadow: none !important; }
+.rk-pricing .rk-card--featured {
+  background: var(--sb-carte-2) !important; border: 1px solid var(--sb-accent) !important; }
+.rk-pricing .rk-card__description, .rk-pricing .rk-card--featured .rk-card__description,
+.rk-pricing .rk-card__note, .rk-pricing .rk-card__annual { color: var(--sb-texte-2) !important; }
+.rk-pricing .rk-card__credits, .rk-pricing .rk-card--featured .rk-card__credits {
+  border-color: var(--sb-filet) !important; color: var(--sb-texte) !important; }
+.rk-pricing .rk-card__credits span { color: var(--sb-texte-2) !important; }
+.rk-pricing .rk-card__check, .rk-pricing .rk-card--featured .rk-card__check {
+  background: var(--sb-carte-2) !important; color: var(--sb-texte-2) !important; }
+.rk-pricing .rk-card__features .rk-card__excluded { color: var(--sb-texte-3) !important; }
+.rk-pricing .rk-card__badge, .rk-pricing .rk-card--featured .rk-card__badge { color: var(--sb-texte-3) !important; }
+.rk-pricing .rk-card--featured .rk-card__badge { color: var(--sb-accent) !important; }
+.rk-pricing .rk-card__button {
+  background: transparent !important; color: var(--sb-texte) !important; border: 1px solid var(--sb-filet-fort) !important; }
+.rk-pricing .rk-card__button:hover { background: var(--sb-carte-2) !important; }
+.rk-pricing .rk-card--featured .rk-card__button {
+  background: var(--sb-texte) !important; color: #0b0b0c !important; border-color: var(--sb-texte) !important; }
+.rk-pricing .rk-enterprise { background: var(--sb-carte) !important; border: 1px solid var(--sb-filet); color: var(--sb-texte) !important; }
+.rk-pricing .rk-enterprise__price { color: var(--sb-texte-3) !important; }
+.rk-pricing .rk-enterprise__description, .rk-pricing .rk-enterprise__after { color: var(--sb-texte-2) !important; }
+.rk-pricing .rk-enterprise__button { background: var(--sb-texte) !important; color: #0b0b0c !important; border-color: var(--sb-texte) !important; }
+.rk-pricing .rk-pricing__value { background: var(--sb-carte) !important; border-color: var(--sb-filet) !important; }
+.rk-pricing .rk-pricing__switch { border-color: var(--sb-filet-fort) !important; background: var(--sb-carte) !important; }
+.rk-pricing .rk-pricing__pill { background: var(--sb-texte) !important; }
+.rk-pricing .rk-pricing__switch button[aria-pressed="true"] { color: #0b0b0c !important; }
+.rk-pricing .rk-pricing__save { background: var(--sb-carte-2) !important; color: var(--sb-accent) !important; }
+.rk-pricing .rk-compare, .rk-pricing .rk-compare tbody th, .rk-pricing .rk-compare caption { color: var(--sb-texte-2) !important; }
+.rk-pricing .rk-compare th, .rk-pricing .rk-compare td { border-color: var(--sb-filet) !important; }
+.rk-pricing .rk-compare__yes { color: var(--sb-texte) !important; }
+.rk-pricing .rk-compare__no { color: var(--sb-texte-3) !important; }
+
+/* ── Pied de page ── */
+.oi-page .footer { background: var(--sb-fond) !important; border-top: 1px solid var(--sb-filet); }
+.oi-page .footer p, .oi-page .footer a, .oi-page .footer li { color: var(--sb-texte-2) !important; font-family: var(--font-ui); }
+.oi-page .footer h4 { color: var(--sb-texte-3) !important; }
+.oi-page .footer__bottom { border-top-color: var(--sb-filet) !important; }
+.oi-page .footer .btn--primary { color: #0b0b0c !important; }
+
+/* Police : plusieurs règles d'origine demandent « Inter » par son nom, qui
+   n'est pas installé ; la police chargée par next/font a un nom généré. On
+   force donc la variable partout, sauf les petites étiquettes en chasse fixe. */
+html, body, .oi-page, .oi-page h1, .oi-page h2, .oi-page h3, .oi-page h4, .oi-page p, .oi-page a,
+.oi-page li, .oi-page span, .oi-page button, .oi-page strong, .oi-page em, .oi-page summary,
+.oi-page td, .oi-page th, .oi-page div { font-family: var(--font-ui) !important; }
+.oi-page .oi-frame__title, .oi-page code { font-family: var(--font-ibm-plex), ui-monospace, monospace !important; }
+.oi-page .footer__brand p { font-style: normal !important; }
