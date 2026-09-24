@@ -5,30 +5,30 @@ import { useEffect, useState } from "react";
 
 const plans = [
   {
-    name: "Gratuit", price: 0, annual: 0, annualMonthly: 0, credits: "60 crédits offerts", recharge: 0,
+    name: "Gratuit", price: 0, annual: 0, annualMonthly: 0, credits: "60 crédits offerts",
     description: "Testez sur vos propres contenus. Sans carte bancaire.",
     features: ["2 notebooks", "5 contenus par notebook", "1 marque", "3 sources par notebook", "Posts, images, infographies et scripts", "Tournage et téléchargement du rush brut"],
     excluded: ["Carrousels illustrés", "Montage et sous-titres", "Publication et programmation", "Stockage vidéo", "Recharge de crédits"],
-    note: "Crédits offerts une seule fois, sans renouvellement.", featured: false, free: true,
+    featured: false, free: true,
   },
   {
-    name: "Replikr", price: 35, annual: 348, annualMonthly: 29, credits: "410 crédits / mois", recharge: 110,
+    name: "Replikr", price: 35, annual: 348, annualMonthly: 29, credits: "410 crédits / mois",
     description: "Créez vos contenus et téléchargez-les pour les publier vous-même.",
     features: ["10 notebooks", "30 contenus par notebook", "1 marque", "6 sources par notebook", "Tous les formats, dont les carrousels", "Montage et sous-titres des shorts", "Copier et télécharger"],
     excluded: ["Publication et programmation", "Stockage vidéo"],
-    note: "", featured: false, free: false,
+    featured: false, free: false,
   },
   {
-    name: "Replikr + publication", price: 66, annual: 660, annualMonthly: 55, credits: "660 crédits / mois", recharge: 150,
+    name: "Replikr + publication", price: 66, annual: 660, annualMonthly: 55, credits: "660 crédits / mois",
     description: "Créez, programmez et publiez depuis un seul endroit.",
     features: ["30 notebooks", "50 contenus par notebook", "1 marque", "6 sources par notebook", "Tous les formats, montage et sous-titres", "Publication directe sur vos réseaux", "Programmation dans le calendrier", "2 vidéos conservées par notebook"],
-    excluded: [], note: "", featured: true, free: false,
+    excluded: [], featured: true, free: false,
   },
   {
-    name: "Agence", price: 359, annual: 3588, annualMonthly: 299, credits: "4 470 crédits / mois", recharge: 190,
+    name: "Agence", price: 359, annual: 3588, annualMonthly: 299, credits: "4 470 crédits / mois",
     description: "Accompagnez plusieurs marques dans le même espace.",
     features: ["100 notebooks", "100 contenus par notebook", "10 marques", "6 sources par notebook", "Tous les formats, montage et sous-titres", "Publication et programmation", "2 vidéos conservées par notebook"],
-    excluded: [], note: "", featured: false, free: false, booking: true,
+    excluded: [], featured: false, free: false, booking: true,
   },
 ];
 
@@ -37,7 +37,6 @@ const plans = [
 const BOOKING_URL = "https://calendar.app.google/FMCaxhBxAvHCFKai9";
 
 const ENTERPRISE = {
-  kicker: "SUR MESURE",
   name: "Entreprise",
   price: "Sur devis",
   description: "Replikr installé pour votre organisation : votre marque, vos gabarits, vos règles éditoriales, vos canaux.",
@@ -50,7 +49,6 @@ const ENTERPRISE = {
     "Hébergement en Europe, données cloisonnées par compte",
   ],
   cta: "Prendre rendez-vous",
-  after: "Un échange de 30 minutes pour cadrer votre besoin, puis une proposition chiffrée.",
 };
 
 // Deux mois offerts : 348 € au lieu de 12 × 35 €.
@@ -108,10 +106,7 @@ export default function PricingSection() {
   return (
     <section className="section oi-cta rk-pricing" id="essai" aria-labelledby="pricing-title">
       <div className="container">
-        <span className="eyebrow">Essayez Replikr</span>
         <h2 id="pricing-title">Ajoutez votre matière.<br />Regardez ce qui en sort.</h2>
-        <p>Une vidéo, un document ou une note : commencez avec votre propre contenu et découvrez ce que Replikr vous aide à en faire.</p>
-        <p className="rk-pricing__trial"><strong>60 crédits d’essai offerts</strong><span>Sans carte bancaire et sans engagement.</span></p>
 
         <div className="rk-pricing__switch" role="group" aria-label="Période de facturation">
           {periods.map((p) => (
@@ -128,19 +123,10 @@ export default function PricingSection() {
             </button>
           ))}
         </div>
-
-        <div className="rk-pricing__value">
-          <div><strong>Replikr + publication</strong><span>Tout le parcours, de l’idée au post publié.</span></div>
-          <div><strong>+61 %</strong><span>de crédits par mois</span></div>
-          <div><strong>150 crédits</strong><span>pour une recharge de 5 €</span></div>
-          <div><strong>Publication incluse</strong><span>et programmation dans le calendrier</span></div>
-        </div>
-        <p className="rk-pricing__value-note">Comparé à Replikr : +250 crédits par mois pour {annual ? "26" : "31"} €/mois de plus.</p>
         <div className="rk-pricing__grid" aria-label="Les offres Replikr" aria-live="polite" aria-atomic="true">
           {plans.map((plan) => (
             <article key={plan.name} className={`rk-card${plan.featured ? " rk-card--featured" : ""}${plan.free ? " rk-card--free" : ""}`}>
               <div className="rk-card__head">
-                <span className="rk-card__badge">{plan.featured ? "RECOMMANDÉ · CRÉER ET PUBLIER" : plan.free ? "DÉCOUVRIR" : ""}</span>
                 <p className="rk-card__price">
                   <Amount value={annual ? plan.annualMonthly : plan.price} />
                   <span>{plan.free ? "€" : "€/mois"}</span>
@@ -151,7 +137,7 @@ export default function PricingSection() {
                 <h3>{plan.name}</h3>
                 <p className="rk-card__description">{plan.description}</p>
               </div>
-              <div className="rk-card__credits"><strong>{plan.credits}</strong>{plan.featured && <span>+250 crédits par mois · +61 %</span>}</div>
+              <div className="rk-card__credits"><strong>{plan.credits}</strong></div>
               <ul className="rk-card__features">
                 {plan.features.map((feature) => (
                   <li key={feature}><span aria-hidden="true" className="rk-card__check">✓</span>{feature}</li>
@@ -160,7 +146,6 @@ export default function PricingSection() {
                   <li key={feature} className="rk-card__excluded"><span aria-hidden="true">−</span><span>{feature}<span className="rk-sr-only"> : non inclus</span></span></li>
                 ))}
               </ul>
-              {plan.note && <p className="rk-card__note">{plan.note}</p>}
               <a className="rk-card__button" href="https://app.replikr.io"
                  aria-label={plan.free ? "Commencer gratuitement" : `Choisir ${plan.name}`}>
                 {plan.free ? "Commencer gratuitement" : plan.featured ? "Choisir Créer + Publier" : "Choisir cette offre"}<span aria-hidden="true">↗</span>
@@ -176,7 +161,6 @@ export default function PricingSection() {
         </div>
         <article className="rk-enterprise" aria-label="Offre Entreprise, sur devis">
           <div className="rk-enterprise__pitch">
-            <span className="rk-card__badge">{ENTERPRISE.kicker}</span>
             <h3>{ENTERPRISE.name}</h3>
             <p className="rk-enterprise__price">{ENTERPRISE.price}</p>
             <p className="rk-enterprise__description">{ENTERPRISE.description}</p>
@@ -184,7 +168,6 @@ export default function PricingSection() {
                target="_blank" rel="noopener noreferrer">
               {ENTERPRISE.cta}<span aria-hidden="true">↗</span>
             </a>
-            <p className="rk-enterprise__after">{ENTERPRISE.after}</p>
           </div>
           <ul className="rk-card__features rk-enterprise__features">
             {ENTERPRISE.features.map((feature) => (
@@ -226,16 +209,6 @@ export default function PricingSection() {
         </table>
           </div>
         </details>
-        <p className="rk-pricing__caption">Commencez par l’essai gratuit. Choisissez votre offre ensuite.</p>
-        <p className="rk-pricing__caption">En gratuit, filmez et téléchargez le rush brut sur votre appareil, sans montage, sous-titres ni stockage dans Replikr.</p>
-        <div className="rk-pricing__recharges" aria-label="Recharges de crédits disponibles">
-          <span className="rk-pricing__recharges-label">Recharge de crédits</span>
-          <ul className="rk-pricing__recharges-list">
-            {plans.filter((plan) => plan.recharge > 0).map((plan) => (
-              <li key={plan.name}><strong>{plan.name}</strong><span>5 € = {plan.recharge} crédits</span></li>
-            ))}
-          </ul>
-        </div>
       </div>
     </section>
   );
