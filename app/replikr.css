@@ -13,6 +13,8 @@ a:focus-visible, button:focus-visible, summary:focus-visible, [tabindex]:focus-v
 .replikr-brand { display: inline-flex; align-items: center; gap: .65rem; color: white; font-family: var(--font-ui); font-size: 1.3rem; font-weight: 600; }
 .replikr-brand img { width: 34px; height: 34px; object-fit: contain; }
 .nav__cta { margin-right: 0; }
+.oi-page #comment .oi-track { margin-top: 4.5rem; }
+@media (max-width: 620px) { .oi-page #comment .oi-track { margin-top: 3rem; } }
 /* Plus de liens ni de burger : le bouton de connexion reste visible à toutes les largeurs. */
 @media (max-width: 940px) { .nav .nav__cta { display: inline-flex; } }
 .nav__mobile[hidden] { display: none; }
