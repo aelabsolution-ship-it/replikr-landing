@@ -40,8 +40,9 @@ html, body, .oi-page { background: var(--sb-fond) !important; color: var(--sb-te
 .oi-hero .hero__bg { display: none !important; }
 
 /* ── En-tête ── */
-.oi-page .header { background: rgba(11, 11, 12, .82) !important;
-  backdrop-filter: saturate(140%) blur(14px); border-bottom: 1px solid var(--sb-filet); }
+/* Pas de barre : logo et bouton posés sur le fond noir, qui défilent avec la page. */
+.oi-page .header, .oi-page .header.scrolled { position: absolute; background: transparent !important;
+  -webkit-backdrop-filter: none; backdrop-filter: none; border-bottom: 0; box-shadow: none; }
 .oi-page .nav__links a { color: var(--sb-texte-2); font-family: var(--font-ui); }
 .oi-page .nav__links a:hover { color: var(--sb-texte); }
 .oi-page .nav__mobile { background: var(--sb-fond-2); }
@@ -88,9 +89,10 @@ html, body, .oi-page { background: var(--sb-fond) !important; color: var(--sb-te
 .oi-page .oi-track__dot { background: var(--sb-fond) !important; border-color: var(--sb-filet-fort) !important;
   box-shadow: none !important; }
 .oi-page .oi-track__label h3 { color: var(--sb-texte-3) !important; font-weight: 500;
-  transition: color .5s ease, text-shadow .5s ease; }
-.oi-page .oi-track__label.is-on h3 { color: var(--sb-accent) !important;
-  text-shadow: 0 0 22px rgba(169, 171, 232, .28); }
+  text-decoration: underline 2px transparent; text-underline-offset: .35em;
+  transition: color .5s ease, text-decoration-color .5s ease; }
+.oi-page .oi-track__label.is-on h3 { color: var(--sb-texte) !important;
+  text-decoration-color: var(--sb-accent); }
 @media (prefers-reduced-motion: reduce) { .oi-page .oi-track__label h3 { transition: none; } }
 .oi-page .oi-track__body p { color: var(--sb-texte-2); }
 .oi-page .oi-truth { border-left-color: var(--sb-accent) !important; color: var(--sb-texte-2) !important;
