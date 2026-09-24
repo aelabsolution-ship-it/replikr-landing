@@ -143,6 +143,11 @@ html, body, .oi-page { background: var(--sb-fond) !important; color: var(--sb-te
 .rk-pricing .rk-compare th, .rk-pricing .rk-compare td { border-color: var(--sb-filet) !important; }
 .rk-pricing .rk-compare__yes { color: var(--sb-texte) !important; }
 .rk-pricing .rk-compare__no { color: var(--sb-texte-3) !important; }
+.rk-pricing .rk-compare-fold > summary { color: var(--sb-texte) !important; border-color: var(--sb-filet) !important; background: var(--sb-carte) !important; }
+.rk-pricing .rk-compare-fold > summary:hover { border-color: var(--sb-filet-fort) !important; }
+.rk-pricing .rk-compare-fold__icon { color: var(--sb-texte-3) !important; }
+.rk-pricing .rk-compare-fold[open] .rk-compare-fold__icon { color: var(--sb-accent) !important; }
+.rk-pricing .rk-compare-fold__body { border-color: var(--sb-filet) !important; background: var(--sb-carte) !important; }
 
 /* ── Pied de page ── */
 .oi-page .footer { background: var(--sb-fond) !important; border-top: 1px solid var(--sb-filet); }

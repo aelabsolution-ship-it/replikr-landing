@@ -11,8 +11,8 @@ import "./sombre.css";
 const interFont = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
 const monoFont = IBM_Plex_Mono({ subsets: ["latin"], weight: ["400", "500", "600"], variable: "--font-ibm-plex", display: "swap" });
 
-const title = "Replikr · Votre notebook de création de contenu";
-const description = "Vidéos, documents et notes vocales : Replikr transforme votre matière en publications, visuels et formats courts, dans votre voix. 60 crédits d’essai offerts.";
+const title = "Replikr · La création de contenu, plus simple que jamais";
+const description = "Déposez une vidéo, un document ou une note vocale : Replikr en tire vos posts, vos carrousels et vos scripts, dans votre voix, prêts pour tous vos réseaux. 60 crédits d’essai offerts.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://replikr.io"), title, description,

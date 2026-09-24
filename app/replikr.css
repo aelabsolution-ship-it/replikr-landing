@@ -57,6 +57,18 @@ summary.faq__question::-webkit-details-marker { display: none; }
 .rk-compare tbody th { text-align: left; font-weight: 400; color: #c0c6d0; }
 .rk-compare__yes { color: #b9f2cf; font-weight: 700; }
 .rk-compare__no { color: #ffffff66; }
+/* Le tableau est replié par défaut : seul son titre reste visible tant qu'on ne l'ouvre pas. */
+.rk-compare-fold { max-width: 1060px; margin: 2.5rem auto 0; }
+.rk-compare-fold > summary { display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  padding: .9rem 1.2rem; border: 1px solid #ffffff1a; border-radius: 12px; cursor: pointer; list-style: none;
+  color: #c0c6d0; font-family: var(--font-ui); font-size: .8rem; letter-spacing: .04em; text-transform: uppercase; }
+.rk-compare-fold > summary::-webkit-details-marker { display: none; }
+.rk-compare-fold > summary:hover { border-color: #ffffff33; }
+.rk-compare-fold__icon { font-size: 1.1rem; line-height: 1; transition: transform .2s ease; }
+.rk-compare-fold[open] > summary { border-radius: 12px 12px 0 0; }
+.rk-compare-fold[open] .rk-compare-fold__icon { transform: rotate(45deg); }
+.rk-compare-fold__body { padding: .3rem 1.1rem 1rem; border: 1px solid #ffffff1a; border-top: 0; border-radius: 0 0 12px 12px; }
+.rk-compare-fold .rk-compare { margin: 0 auto; }
 @media (max-width: 760px) {
   /* Sur mobile, chaque ligne devient un bloc : le nom de l'offre passe devant
      la valeur, et rien ne déborde de l'écran. */

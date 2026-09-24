@@ -192,8 +192,14 @@ export default function PricingSection() {
             ))}
           </ul>
         </article>
+        <details className="rk-compare-fold">
+          <summary>
+            <span>Ce qui change d’une offre à l’autre</span>
+            <span className="rk-compare-fold__icon" aria-hidden="true">+</span>
+          </summary>
+          <div className="rk-compare-fold__body">
         <table className="rk-compare">
-          <caption>Ce qui change d’une offre à l’autre</caption>
+          <caption className="rk-sr-only">Ce qui change d’une offre à l’autre</caption>
           <thead>
             <tr>
               <th scope="col">&nbsp;</th>
@@ -218,6 +224,8 @@ export default function PricingSection() {
             ))}
           </tbody>
         </table>
+          </div>
+        </details>
         <p className="rk-pricing__caption">Commencez par l’essai gratuit. Choisissez votre offre ensuite.</p>
         <p className="rk-pricing__caption">En gratuit, filmez et téléchargez le rush brut sur votre appareil, sans montage, sous-titres ni stockage dans Replikr.</p>
         <div className="rk-pricing__recharges" aria-label="Recharges de crédits disponibles">
