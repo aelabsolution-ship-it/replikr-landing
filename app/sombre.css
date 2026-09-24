@@ -87,13 +87,17 @@ html, body, .oi-page { background: var(--sb-fond) !important; color: var(--sb-te
 .oi-page .oi-track__fill { background: var(--sb-texte-3) !important; }
 .oi-page .oi-track__dot { background: var(--sb-fond) !important; border-color: var(--sb-filet-fort) !important;
   box-shadow: none !important; }
-.oi-page .oi-track__label h3 { color: var(--sb-texte-3) !important; font-weight: 500; }
+.oi-page .oi-track__label h3 { color: var(--sb-texte-3) !important; font-weight: 500;
+  transition: color .5s ease, text-shadow .5s ease; }
+.oi-page .oi-track__label.is-on h3 { color: var(--sb-accent) !important;
+  text-shadow: 0 0 22px rgba(169, 171, 232, .28); }
+@media (prefers-reduced-motion: reduce) { .oi-page .oi-track__label h3 { transition: none; } }
 .oi-page .oi-track__body p { color: var(--sb-texte-2); }
 .oi-page .oi-truth { border-left-color: var(--sb-accent) !important; color: var(--sb-texte-2) !important;
   background: transparent !important; }
 .oi-page .oi-truth strong, .oi-page .oi-plus strong, .oi-page .oi-accompagnement strong { color: var(--sb-texte) !important; }
 .oi-page .oi-plus, .oi-page .oi-accompagnement { color: var(--sb-texte-2) !important; }
-.oi-page .oi-reseaux svg { filter: grayscale(1) brightness(1.7); opacity: .72; }
+.oi-page .oi-reseaux svg { opacity: .95; }
 
 /* ── Cartes (méthode, notebook, FAQ) ── */
 .oi-page .oi-meth > div, .oi-page .oi-why > div, .oi-page .oi-why {

@@ -47,7 +47,11 @@ export default function LandingEnhancements() {
         const height = Math.max(0, Math.min(rect.height, innerHeight * .34 - rect.top));
         fill.style.height = `${height}px`;
         fill.style.opacity = height > 2 ? "1" : "0";
-        rows.forEach(row => row.querySelector(".oi-track__dot")?.classList.toggle("is-on", height >= row.offsetTop + 10));
+        rows.forEach(row => {
+          const on = height >= row.offsetTop + 10;
+          row.querySelector(".oi-track__dot")?.classList.toggle("is-on", on);
+          row.querySelector(".oi-track__label")?.classList.toggle("is-on", on);
+        });
       }
     };
     const schedule = () => { if (!animation) animation = requestAnimationFrame(update); };
