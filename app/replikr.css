@@ -27,6 +27,12 @@ details.faq__item[open] .faq__answer { max-height: none; padding-bottom: 1.25rem
 details.faq__item[open] .faq__icon { transform: rotate(45deg); }
 summary.faq__question { list-style: none; cursor: pointer; }
 summary.faq__question::-webkit-details-marker { display: none; }
+/* FAQ resserrée : moins d'air autour du titre et entre les questions. */
+.oi-page #faq { padding-top: 3rem; padding-bottom: 3rem; }
+.oi-page #faq .section__header { margin-bottom: 1.75rem; }
+.oi-page #faq .faq__item { margin-bottom: .5rem; }
+.oi-page #faq .faq__question { padding-top: .8rem; padding-bottom: .8rem; }
+.oi-page #faq details.faq__item[open] .faq__answer { padding-bottom: .9rem; }
 .footer__contact a { overflow-wrap: anywhere; }
 .footer__brand > p { margin-top: 1.25rem; }
 .footer__bottom p { opacity: .75; }
@@ -103,11 +109,16 @@ summary.faq__question::-webkit-details-marker { display: none; }
   .nav__cta { display: inline-flex; margin-left: auto; }
   .nav__burger { margin-left: 0; }
 }
+/* La vidéo verticale du héro n'existe qu'au téléphone. */
+.oi-page .oi-frame__mob { display: none; }
 @media (max-width: 620px) {
   .nav { gap: .75rem; padding: 1rem; }
   .replikr-brand { font-size: 1.1rem; gap: .4rem; }
   .nav__cta { padding: .6rem .8rem; font-size: .8rem; }
   .oi-hero__frame { transform: none !important; }
+  /* Au téléphone, la vidéo verticale remplace celle au format ordinateur. */
+  .oi-page .oi-frame--mobile .oi-frame__view { display: none; }
+  .oi-page .oi-frame--mobile .oi-frame__mob { display: block; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
