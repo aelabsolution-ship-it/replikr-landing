@@ -6,27 +6,23 @@ import { useEffect, useState } from "react";
 const plans = [
   {
     name: "Gratuit", price: 0, annual: 0, annualMonthly: 0, credits: "60 crédits offerts",
-    description: "Testez sur vos propres contenus. Sans carte bancaire.",
     features: ["2 notebooks", "5 contenus par notebook", "1 marque", "3 sources par notebook", "Posts, images, infographies et scripts", "Tournage et téléchargement du rush brut"],
     excluded: ["Carrousels illustrés", "Montage et sous-titres", "Publication et programmation", "Stockage vidéo", "Recharge de crédits"],
     featured: false, free: true,
   },
   {
     name: "Replikr", price: 35, annual: 348, annualMonthly: 29, credits: "410 crédits / mois",
-    description: "Créez vos contenus et téléchargez-les pour les publier vous-même.",
     features: ["10 notebooks", "30 contenus par notebook", "1 marque", "6 sources par notebook", "Tous les formats, dont les carrousels", "Montage et sous-titres des shorts", "Copier et télécharger"],
     excluded: ["Publication et programmation", "Stockage vidéo"],
     featured: false, free: false,
   },
   {
     name: "Replikr + publication", price: 66, annual: 660, annualMonthly: 55, credits: "660 crédits / mois",
-    description: "Créez, programmez et publiez depuis un seul endroit.",
     features: ["30 notebooks", "50 contenus par notebook", "1 marque", "6 sources par notebook", "Tous les formats, montage et sous-titres", "Publication directe sur vos réseaux", "Programmation dans le calendrier", "2 vidéos conservées par notebook"],
     excluded: [], featured: true, free: false,
   },
   {
     name: "Agence", price: 359, annual: 3588, annualMonthly: 299, credits: "4 470 crédits / mois",
-    description: "Accompagnez plusieurs marques dans le même espace.",
     features: ["100 notebooks", "100 contenus par notebook", "10 marques", "6 sources par notebook", "Tous les formats, montage et sous-titres", "Publication et programmation", "2 vidéos conservées par notebook"],
     excluded: [], featured: false, free: false, booking: true,
   },
@@ -131,11 +127,10 @@ export default function PricingSection() {
                   <Amount value={annual ? plan.annualMonthly : plan.price} />
                   <span>{plan.free ? "€" : "€/mois"}</span>
                 </p>
-                <p className="rk-card__annual">
-                  {plan.free ? "Sans carte bancaire" : annual ? `${euros(plan.annual)} € facturés par an` : "Facturation mensuelle"}
-                </p>
+                {!annual && (
+                  <p className="rk-card__annual">{plan.free ? "" : "Facturation mensuelle"}</p>
+                )}
                 <h3>{plan.name}</h3>
-                <p className="rk-card__description">{plan.description}</p>
               </div>
               <div className="rk-card__credits"><strong>{plan.credits}</strong></div>
               <ul className="rk-card__features">
