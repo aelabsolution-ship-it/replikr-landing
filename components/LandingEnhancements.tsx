@@ -68,6 +68,16 @@ export default function LandingEnhancements() {
     window.addEventListener("resize", resize);
     reduce.addEventListener("change", schedule);
     views.forEach(view => { view.tabIndex = 0; view.setAttribute("aria-label", "Démonstration Replikr, défilement horizontal"); });
+    // Step videos restart when they scroll into view and pause off screen; reduced motion keeps the poster.
+    const videos = [...document.querySelectorAll<HTMLVideoElement>(".oi-step-video")];
+    const watcher = new IntersectionObserver(entries => entries.forEach(({ target, isIntersecting }) => {
+      const video = target as HTMLVideoElement;
+      if (isIntersecting && !reduce.matches) {
+        video.currentTime = 0;
+        video.play().catch(() => {});
+      } else video.pause();
+    }), { threshold: .5 });
+    videos.forEach(video => { video.pause(); watcher.observe(video); });
     resize();
     update();
     return () => {
@@ -77,6 +87,7 @@ export default function LandingEnhancements() {
       window.removeEventListener("scroll", schedule);
       window.removeEventListener("resize", resize);
       reduce.removeEventListener("change", schedule);
+      watcher.disconnect();
       cancelAnimationFrame(animation);
     };
   }, []);

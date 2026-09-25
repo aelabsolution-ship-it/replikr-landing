@@ -78,7 +78,7 @@ html, body, .oi-page { background: var(--sb-fond) !important; color: var(--sb-te
 .oi-page .oi-frame__title { color: var(--sb-texte-3) !important; }
 .oi-page .oi-frame__view--img { display: block; height: auto !important; max-height: none !important;
   overflow: visible !important; background: var(--sb-fond); }
-.oi-page .oi-frame__view--img img { display: block; width: 100%; height: auto; }
+.oi-page .oi-frame__view--img img, .oi-page .oi-frame__view--img video { display: block; width: 100%; height: auto; }
 .oi-page .oi-device { background: transparent !important; border: 0 !important; box-shadow: none !important;
   transform: none !important; padding: 0 !important; }
 .oi-page .oi-frame__hint, .oi-page .oi-mobile-demo { display: none !important; }
