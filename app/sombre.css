@@ -88,12 +88,12 @@ html, body, .oi-page { background: var(--sb-fond) !important; color: var(--sb-te
 .oi-page .oi-track__fill { background: var(--sb-texte-3) !important; }
 .oi-page .oi-track__dot { background: var(--sb-fond) !important; border-color: var(--sb-filet-fort) !important;
   box-shadow: none !important; }
-.oi-page .oi-track__label h3 { color: var(--sb-texte-3) !important; font-weight: 500;
+.oi-page .oi-track__label .oi-track__step { color: var(--sb-texte-3) !important; font-weight: 500;
   text-decoration: underline 2px transparent; text-underline-offset: .35em;
   transition: color .5s ease, text-decoration-color .5s ease; }
-.oi-page .oi-track__label.is-on h3 { color: var(--sb-texte) !important;
+.oi-page .oi-track__label.is-on .oi-track__step { color: var(--sb-texte) !important;
   text-decoration-color: var(--sb-accent); }
-@media (prefers-reduced-motion: reduce) { .oi-page .oi-track__label h3 { transition: none; } }
+@media (prefers-reduced-motion: reduce) { .oi-page .oi-track__label .oi-track__step { transition: none; } }
 .oi-page .oi-track__body p { color: var(--sb-texte-2); }
 .oi-page .oi-truth { border-left-color: var(--sb-accent) !important; color: var(--sb-texte-2) !important;
   background: transparent !important; }

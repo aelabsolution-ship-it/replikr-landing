@@ -7,7 +7,7 @@ const plans = [
   {
     name: "Gratuit", price: 0, annual: 0, annualMonthly: 0, credits: "60 crédits offerts",
     features: ["2 notebooks", "5 contenus par notebook", "1 marque", "3 sources par notebook", "Posts, images, infographies et scripts", "Tournage et téléchargement du rush brut"],
-    excluded: ["Carrousels illustrés", "Montage et sous-titres", "Publication et programmation", "Stockage vidéo", "Recharge de crédits"],
+    excluded: ["Carrousels illustrés", "Montage et sous-titres", "Publication et programmation"],
     featured: false, free: true,
     highlights: ["60 crédits offerts", "2 notebooks", "Posts, images, scripts"],
   },
@@ -15,7 +15,7 @@ const plans = [
     name: "Replikr", price: 35, annual: 348, annualMonthly: 29, credits: "410 crédits / mois",
     base: "Gratuit",
     features: ["10 notebooks, 30 contenus chacun", "6 sources par notebook", "Carrousels illustrés", "Montage et sous-titres des shorts", "Copier et télécharger", "Recharges de crédits"],
-    excluded: ["Publication et programmation", "Stockage vidéo"],
+    excluded: ["Publication et programmation"],
     featured: false, free: false,
     highlights: ["410 crédits / mois", "10 notebooks", "Carrousels et montage"],
   },
@@ -116,7 +116,7 @@ export default function PricingSection() {
   return (
     <section className="section oi-cta rk-pricing" id="essai" aria-labelledby="pricing-title">
       <div className="container">
-        <h2 id="pricing-title">Ajoutez votre matière.<br />Regardez ce qui en sort.</h2>
+        <h2 id="pricing-title">Choisissez votre rythme.</h2>
 
         <div className="rk-pricing__switch" role="group" aria-label="Période de facturation">
           {periods.map((p) => (

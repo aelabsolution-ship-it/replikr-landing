@@ -68,23 +68,39 @@ export default function LandingEnhancements() {
     window.addEventListener("resize", resize);
     reduce.addEventListener("change", schedule);
     views.forEach(view => { view.tabIndex = 0; view.setAttribute("aria-label", "Démonstration Replikr, défilement horizontal"); });
-    // Step videos restart when they scroll into view and pause off screen; reduced motion keeps the poster.
-    // Safari lit le WebM sans sa transparence : il prend directement la version MP4 posée sur le fond de la page.
-    const safari = /^((?!chrome|android|crios|fxios).)*safari/i.test(navigator.userAgent);
-    if (safari) document.querySelectorAll<HTMLSourceElement>('source[type^="video/webm"]').forEach(source => {
-      const video = source.closest("video");
-      source.remove();
-      video?.load();
-    });
+    // Videos only load and play once they scroll into view, pause off screen and keep the poster under
+    // reduced motion. A click (or Enter / Space) on a video or on the formats strip pauses it;
+    // a video the visitor paused stays paused.
+    const toggleOnPress = (el: HTMLElement, label: string, toggle: () => boolean) => {
+      el.tabIndex = 0;
+      el.setAttribute("role", "button");
+      const sync = (paused: boolean) => {
+        el.setAttribute("aria-pressed", String(paused));
+        el.setAttribute("aria-label", `${label} : ${paused ? "en pause, activer pour relancer" : "activer pour mettre en pause"}`);
+      };
+      const run = () => sync(toggle());
+      const key = (event: KeyboardEvent) => {
+        if (event.key === "Enter" || event.key === " ") { event.preventDefault(); run(); }
+      };
+      el.addEventListener("click", run);
+      el.addEventListener("keydown", key);
+      sync(false);
+      return () => { el.removeEventListener("click", run); el.removeEventListener("keydown", key); };
+    };
     const videos = [...document.querySelectorAll<HTMLVideoElement>(".oi-step-video")];
+    const held = new WeakSet<HTMLVideoElement>();
+    const cleanups = videos.map(video => toggleOnPress(video, "Animation", () => {
+      if (video.paused) { held.delete(video); video.play().catch(() => {}); return false; }
+      held.add(video); video.pause(); return true;
+    }));
     const watcher = new IntersectionObserver(entries => entries.forEach(({ target, isIntersecting }) => {
       const video = target as HTMLVideoElement;
-      if (isIntersecting && !reduce.matches) {
-        video.currentTime = 0;
-        video.play().catch(() => {});
-      } else video.pause();
-    }), { threshold: .5 });
-    videos.forEach(video => { video.pause(); watcher.observe(video); });
+      if (isIntersecting && !reduce.matches && !held.has(video)) video.play().catch(() => {});
+      else video.pause();
+    }), { threshold: .35 });
+    videos.forEach(video => { if (reduce.matches) video.pause(); watcher.observe(video); });
+    const strip = document.querySelector<HTMLElement>(".oi-formats");
+    if (strip) cleanups.push(toggleOnPress(strip, "Défilé des formats", () => strip.classList.toggle("is-paused")));
     resize();
     update();
     return () => {
@@ -95,6 +111,7 @@ export default function LandingEnhancements() {
       window.removeEventListener("resize", resize);
       reduce.removeEventListener("change", schedule);
       watcher.disconnect();
+      cleanups.forEach(cleanup => cleanup());
       cancelAnimationFrame(animation);
     };
   }, []);

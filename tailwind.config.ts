@@ -1,6 +1,7 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
+  darkMode: "class",
   content: [
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -8,6 +9,15 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
+        // Jetons shadcn, lus depuis les variables --rk-* (thème sombre de la landing).
+        border: "rgb(var(--rk-border) / <alpha-value>)",
+        muted: { DEFAULT: "rgb(var(--rk-muted) / <alpha-value>)", foreground: "rgb(var(--rk-muted-foreground) / <alpha-value>)" },
+        foreground: "rgb(var(--rk-foreground) / <alpha-value>)",
+        secondary: "rgb(var(--rk-secondary) / <alpha-value>)",
+        card: { DEFAULT: "rgb(var(--rk-card) / <alpha-value>)", foreground: "rgb(var(--rk-foreground) / <alpha-value>)" },
+        background: "rgb(var(--rk-background) / <alpha-value>)",
+        primary: { DEFAULT: "rgb(var(--rk-primary) / <alpha-value>)", foreground: "rgb(var(--rk-primary-foreground) / <alpha-value>)" },
+        ring: "rgb(var(--rk-ring) / <alpha-value>)",
         cream: "#F4EFE6",
         ink: "#1A1612",
         graphite: "#5C5249",
@@ -36,6 +46,14 @@ const config: Config = {
       maxWidth: {
         prose: "62ch",
         page: "1200px",
+      },
+      keyframes: {
+        marquee: { from: { transform: "translateX(0)" }, to: { transform: "translateX(calc(-100% - var(--gap)))" } },
+        "marquee-vertical": { from: { transform: "translateY(0)" }, to: { transform: "translateY(calc(-100% - var(--gap)))" } },
+      },
+      animation: {
+        marquee: "marquee var(--duration) infinite linear",
+        "marquee-vertical": "marquee-vertical var(--duration) linear infinite",
       },
       transitionTimingFunction: {
         "out-soft": "cubic-bezier(0.16, 1, 0.3, 1)",
