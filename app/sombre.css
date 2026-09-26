@@ -140,6 +140,10 @@ html, body, .oi-page { background: var(--sb-fond) !important; color: var(--sb-te
 .rk-pricing .rk-enterprise__price { color: var(--sb-texte-3) !important; }
 .rk-pricing .rk-enterprise__description, .rk-pricing .rk-enterprise__after { color: var(--sb-texte-2) !important; }
 .rk-pricing .rk-enterprise__button { background: var(--sb-texte) !important; color: #0b0b0c !important; border-color: var(--sb-texte) !important; }
+/* Boutons clairs (offre mise en avant, « Prendre rendez-vous ») : au survol ils
+   restent clairs, sinon le fond sombre générique rendait le texte noir illisible. */
+.rk-pricing .rk-card--featured .rk-card__button:hover, .rk-pricing .rk-enterprise__button:hover {
+  background: #ffffff !important; color: #0b0b0c !important; border-color: #ffffff !important; }
 .rk-pricing .rk-pricing__value { background: var(--sb-carte) !important; border-color: var(--sb-filet) !important; }
 .rk-pricing .rk-pricing__switch { border-color: var(--sb-filet-fort) !important; background: var(--sb-carte) !important; }
 .rk-pricing .rk-pricing__pill { background: var(--sb-texte) !important; }
