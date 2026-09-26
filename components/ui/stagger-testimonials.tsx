@@ -136,6 +136,20 @@ export const StaggerTestimonials: React.FC<{ testimonials: StaggerTestimonial[] 
     setTestimonialsList(newList);
   };
 
+  // Téléphone et tablette : on balaie du doigt vers la gauche ou la droite pour changer d'avis.
+  const touchStart = React.useRef<{ x: number; y: number } | null>(null);
+  const onTouchStart = (e: React.TouchEvent) => {
+    touchStart.current = { x: e.touches[0].clientX, y: e.touches[0].clientY };
+  };
+  const onTouchEnd = (e: React.TouchEvent) => {
+    const start = touchStart.current;
+    touchStart.current = null;
+    if (!start) return;
+    const dx = e.changedTouches[0].clientX - start.x;
+    const dy = e.changedTouches[0].clientY - start.y;
+    if (Math.abs(dx) > 40 && Math.abs(dx) > Math.abs(dy)) handleMove(dx < 0 ? 1 : -1);
+  };
+
   useEffect(() => {
     const updateSize = () => {
       const { matches } = window.matchMedia("(min-width: 640px)");
@@ -152,8 +166,9 @@ export const StaggerTestimonials: React.FC<{ testimonials: StaggerTestimonial[] 
       role="region"
       aria-roledescription="carrousel"
       aria-label="Avis d’utilisateurs de Replikr"
-      className="relative w-full overflow-hidden"
-      style={{ height: 560 }}
+      className="relative h-[430px] w-full touch-pan-y overflow-hidden lg:h-[560px]"
+      onTouchStart={onTouchStart}
+      onTouchEnd={onTouchEnd}
     >
       {testimonialsList.map((testimonial, index) => {
         const position = testimonialsList.length % 2
@@ -169,7 +184,7 @@ export const StaggerTestimonials: React.FC<{ testimonials: StaggerTestimonial[] 
           />
         );
       })}
-      <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-3">
+      <div className="absolute bottom-4 left-1/2 hidden -translate-x-1/2 gap-3 lg:flex">
         <button
           type="button"
           onClick={() => handleMove(-1)}

@@ -336,10 +336,7 @@ summary.faq__question::-webkit-details-marker { display: none; }
 .oi-page .rk-pricing { background:
   radial-gradient(1000px 420px at 50% 0%, rgba(169, 171, 232, .09), transparent 70%),
   linear-gradient(180deg, #0f0f14 0%, var(--sb-fond) 60%) !important; }
-.oi-page .oi-hero { background:
-  radial-gradient(640px 320px at 18% -6%, rgba(169, 171, 232, .075), transparent 62%),
-  radial-gradient(620px 560px at 78% 52%, rgba(139, 142, 240, .12), transparent 66%),
-  var(--sb-fond) !important; }
+/* Pas de lueur derrière la vidéo du héro : Safari lit la version MP4, posée sur un fond uni. */
 @media (min-width: 1100px) {
   .oi-page .oi-track__body > .oi-frame { box-shadow: 0 0 0 18px rgba(169, 171, 232, .13), 0 0 0 19px rgba(169, 171, 232, .22),
     0 30px 120px -20px rgba(139, 142, 240, .35), 0 40px 90px -40px rgba(0, 0, 0, .9) !important; }
@@ -372,4 +369,33 @@ summary.faq__question::-webkit-details-marker { display: none; }
 .oi-page #comment .oi-step-video { border-radius: 20px; }
 @media (min-width: 1100px) {
   .oi-page #comment .oi-track__body > .oi-frame { box-shadow: 0 30px 110px -30px rgba(139, 142, 240, .38), 0 30px 70px -40px rgba(0, 0, 0, .9) !important; }
+}
+
+/* Tablette : le héro reste empilé mais la vidéo prend de la place. */
+@media (min-width: 621px) and (max-width: 1024px) {
+  .oi-page .oi-hero { padding-bottom: 2.5rem; }
+  .oi-page .oi-hero__intro { margin-bottom: 1rem; }
+  .oi-page .oi-hero__frame { max-width: 560px; }
+}
+
+/* Téléphone : tout le héro tient dans le premier écran, dans cet ordre : titre, vidéo, bouton. */
+@media (max-width: 620px) {
+  .oi-page .oi-hero { padding: 4.9rem 0 1.5rem; }
+  .oi-page .oi-hero > .oi-wide { display: flex; flex-direction: column; }
+  .oi-page .oi-hero__intro { display: contents; }
+  .oi-page .oi-hero h1 { order: 1; margin: 0; font-size: clamp(1.7rem, 7.6vw, 2.05rem); line-height: 1.12; }
+  .oi-page .oi-hero__lead { display: none; }
+  .oi-page .oi-hero__stage { order: 2; margin-top: .4rem; }
+  /* la vidéo carrée rétrécit sur les petits écrans pour laisser le bouton visible sans défiler */
+  .oi-page .oi-hero__frame { flex: none; width: min(calc(100% + 3rem), calc(100svh - 250px)); margin: 0 auto; }
+  .oi-page .oi-hero__stage { display: flex; justify-content: center; }
+  .oi-page .oi-hero__actions { order: 3; max-width: none; margin: .6rem 0 0; }
+  .oi-page .oi-hero__actions .btn { width: 100%; }
+}
+
+/* Téléphone : une illustration carrée et simplifiée par étape, à la place de la grande vidéo. */
+.oi-page .oi-step-mob { display: none; }
+@media (max-width: 620px) {
+  .oi-page .oi-step-mob { display: block; width: 100%; height: auto; margin: .4rem 0 1rem; border-radius: 20px;
+    box-shadow: 0 24px 80px -30px rgba(139, 142, 240, .4); }
 }
