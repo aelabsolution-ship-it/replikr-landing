@@ -69,6 +69,13 @@ export default function LandingEnhancements() {
     reduce.addEventListener("change", schedule);
     views.forEach(view => { view.tabIndex = 0; view.setAttribute("aria-label", "Démonstration Replikr, défilement horizontal"); });
     // Step videos restart when they scroll into view and pause off screen; reduced motion keeps the poster.
+    // Safari lit le WebM sans sa transparence : il prend directement la version MP4 posée sur le fond de la page.
+    const safari = /^((?!chrome|android|crios|fxios).)*safari/i.test(navigator.userAgent);
+    if (safari) document.querySelectorAll<HTMLSourceElement>('source[type^="video/webm"]').forEach(source => {
+      const video = source.closest("video");
+      source.remove();
+      video?.load();
+    });
     const videos = [...document.querySelectorAll<HTMLVideoElement>(".oi-step-video")];
     const watcher = new IntersectionObserver(entries => entries.forEach(({ target, isIntersecting }) => {
       const video = target as HTMLVideoElement;

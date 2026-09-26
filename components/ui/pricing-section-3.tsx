@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, useMotionValue, useReducedMotion, useSpring, useTransform } from "framer-motion";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 const plans = [
   {
@@ -9,22 +9,29 @@ const plans = [
     features: ["2 notebooks", "5 contenus par notebook", "1 marque", "3 sources par notebook", "Posts, images, infographies et scripts", "Tournage et téléchargement du rush brut"],
     excluded: ["Carrousels illustrés", "Montage et sous-titres", "Publication et programmation", "Stockage vidéo", "Recharge de crédits"],
     featured: false, free: true,
+    highlights: ["60 crédits offerts", "2 notebooks", "Posts, images, scripts"],
   },
   {
     name: "Replikr", price: 35, annual: 348, annualMonthly: 29, credits: "410 crédits / mois",
-    features: ["10 notebooks", "30 contenus par notebook", "1 marque", "6 sources par notebook", "Tous les formats, dont les carrousels", "Montage et sous-titres des shorts", "Copier et télécharger"],
+    base: "Gratuit",
+    features: ["10 notebooks, 30 contenus chacun", "6 sources par notebook", "Carrousels illustrés", "Montage et sous-titres des shorts", "Copier et télécharger", "Recharges de crédits"],
     excluded: ["Publication et programmation", "Stockage vidéo"],
     featured: false, free: false,
+    highlights: ["410 crédits / mois", "10 notebooks", "Carrousels et montage"],
   },
   {
     name: "Replikr + publication", price: 66, annual: 660, annualMonthly: 55, credits: "660 crédits / mois",
-    features: ["30 notebooks", "50 contenus par notebook", "1 marque", "6 sources par notebook", "Tous les formats, montage et sous-titres", "Publication directe sur vos réseaux", "Programmation dans le calendrier", "2 vidéos conservées par notebook"],
+    base: "Replikr",
+    features: ["30 notebooks, 50 contenus chacun", "Publication directe sur vos réseaux", "Programmation dans le calendrier", "2 vidéos conservées par notebook"],
     excluded: [], featured: true, free: false,
+    highlights: ["660 crédits / mois", "30 notebooks", "Publication directe"],
   },
   {
     name: "Agence", price: 359, annual: 3588, annualMonthly: 299, credits: "4 470 crédits / mois",
-    features: ["100 notebooks", "100 contenus par notebook", "10 marques", "6 sources par notebook", "Tous les formats, montage et sous-titres", "Publication et programmation", "2 vidéos conservées par notebook"],
+    base: "Replikr + publication",
+    features: ["10 marques", "100 notebooks, 100 contenus chacun", "Recharge de 5 € = 190 crédits"],
     excluded: [], featured: false, free: false, booking: true,
+    highlights: ["4 470 crédits / mois", "10 marques", "100 notebooks"],
   },
 ];
 
@@ -94,6 +101,13 @@ const COMPARE: { label: string; values: Cell[] }[] = [
 
 export default function PricingSection() {
   const [annual, setAnnual] = useState(true);
+  // Au téléphone, « En savoir + » ouvre le comparatif plus bas et y descend.
+  const compare = useRef<HTMLDetailsElement>(null);
+  const showCompare = () => {
+    if (!compare.current) return;
+    compare.current.open = true;
+    compare.current.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
   const periods: { key: boolean; label: string }[] = [
     { key: false, label: "Mensuel" },
     { key: true, label: "Annuel" },
@@ -133,6 +147,10 @@ export default function PricingSection() {
                 <h3>{plan.name}</h3>
               </div>
               <div className="rk-card__credits"><strong>{plan.credits}</strong></div>
+              <ul className="rk-card__highlights">
+                {plan.highlights.map((h) => <li key={h}>{h}</li>)}
+              </ul>
+              {"base" in plan && plan.base && <p className="rk-card__base">Tout {plan.base}, plus :</p>}
               <ul className="rk-card__features">
                 {plan.features.map((feature) => (
                   <li key={feature}><span aria-hidden="true" className="rk-card__check">✓</span>{feature}</li>
@@ -143,20 +161,25 @@ export default function PricingSection() {
               </ul>
               <a className="rk-card__button" href="https://app.replikr.io"
                  aria-label={plan.free ? "Commencer gratuitement" : `Choisir ${plan.name}`}>
-                {plan.free ? "Commencer gratuitement" : plan.featured ? "Choisir Créer + Publier" : "Choisir cette offre"}<span aria-hidden="true">↗</span>
+                <span className="rk-card__label-long">{plan.free ? "Commencer gratuitement" : plan.featured ? "Choisir Créer + Publier" : "Choisir cette offre"}</span>
+                <span className="rk-card__label-short" aria-hidden="true">{plan.free ? "Essayer" : "Choisir"}</span>
+                <span aria-hidden="true">↗</span>
               </a>
               {"booking" in plan && plan.booking && (
                 <a className="rk-card__button rk-card__button--booking" href={BOOKING_URL}
                    target="_blank" rel="noopener noreferrer" aria-label={`Prendre rendez-vous pour l’offre ${plan.name}`}>
-                  Prendre rendez-vous<span aria-hidden="true">↗</span>
+                  <span className="rk-card__label-long">Prendre rendez-vous</span>
+                  <span className="rk-card__label-short" aria-hidden="true">RDV</span>
+                  <span aria-hidden="true">↗</span>
                 </a>
               )}
             </article>
           ))}
         </div>
+        <button type="button" className="rk-pricing__more" onClick={showCompare}>En savoir + sur les offres</button>
         <article className="rk-enterprise" aria-label="Offre Entreprise, sur devis">
           <div className="rk-enterprise__pitch">
-            <h3>{ENTERPRISE.name}</h3>
+            <h3><span className="rk-card__label-long">{ENTERPRISE.name}</span><span className="rk-card__label-short">Sur mesure</span></h3>
             <p className="rk-enterprise__price">{ENTERPRISE.price}</p>
             <p className="rk-enterprise__description">{ENTERPRISE.description}</p>
             <a className="rk-card__button rk-enterprise__button" href={BOOKING_URL}
@@ -170,7 +193,7 @@ export default function PricingSection() {
             ))}
           </ul>
         </article>
-        <details className="rk-compare-fold">
+        <details className="rk-compare-fold" ref={compare}>
           <summary>
             <span>Ce qui change d’une offre à l’autre</span>
             <span className="rk-compare-fold__icon" aria-hidden="true">+</span>

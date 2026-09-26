@@ -26,17 +26,10 @@
 
                 <div class="oi-hero__stage">
                     <div class="oi-hero__frame">
-                        <div class="oi-device">
-                            <div class="oi-frame oi-frame--mobile">
-                                <div class="oi-frame__bar">
-                                    <span class="oi-frame__dot"></span><span class="oi-frame__dot"></span><span class="oi-frame__dot"></span>
-                                </div>
-                                <div class="oi-frame__view oi-frame__view--img">
-                                    <video class="oi-step-video" src="/videos/hero.mp4" poster="/videos/hero.webp" width="1440" height="900" autoplay muted loop playsinline preload="auto" aria-label="Animation : des sources déposées dans Replikr deviennent 16 contenus, puis 13 publications programmées sur 7 réseaux."></video>
-                                </div>
-                                <video class="oi-frame__mob oi-step-video" src="/videos/hero_v.mp4" poster="/videos/hero_v.webp" width="1080" height="1350" muted loop playsinline preload="none" aria-label="Animation : des sources déposées dans Replikr deviennent des contenus, puis des publications programmées sur 7 réseaux."></video>
-                            </div>
-                        </div>
+                        <video class="oi-step-video oi-hero__video" poster="/videos/hero.webp" width="1080" height="1350" autoplay muted loop playsinline preload="auto" aria-label="Animation : une vidéo YouTube de Ludovic devient une série de contenus, publiés sur LinkedIn, Instagram et les autres réseaux.">
+                            <source src="/videos/hero.webm" type='video/webm; codecs="vp9"'>
+                            <source src="/videos/hero.mp4" type="video/mp4">
+                        </video>
                     </div>
                 </div>
 
@@ -54,6 +47,10 @@
                     <svg viewBox="0 0 24 24" fill="#FF0000"><title>YouTube</title><path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
                     <svg viewBox="0 0 24 24" fill="#0866FF"><title>Facebook</title><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
                 </div>
+                <div class="oi-formats" aria-label="Formats produits par Replikr">
+                    <ul class="oi-formats__track"><li><img src="/formats/post_image.png" alt="" width="28" height="28">Post LinkedIn</li><li><img src="/formats/carousel.png" alt="" width="28" height="28">Carrousel Instagram</li><li><img src="/formats/short_script.png" alt="" width="28" height="28">Script TikTok</li><li><img src="/formats/thumbnail.png" alt="" width="28" height="28">Miniature YouTube</li><li><img src="/formats/infographic.png" alt="" width="28" height="28">Infographie</li><li><img src="/formats/lead_magnet.png" alt="" width="28" height="28">Lead magnet</li><li><img src="/formats/post_image.png" alt="" width="28" height="28">Post Facebook</li><li><img src="/formats/short_script.png" alt="" width="28" height="28">Short YouTube</li><li><img src="/formats/carousel.png" alt="" width="28" height="28">Thread X</li><li><img src="/formats/post_image.png" alt="" width="28" height="28">Post Threads</li></ul>
+                    <ul class="oi-formats__track" aria-hidden="true"><li><img src="/formats/post_image.png" alt="" width="28" height="28">Post LinkedIn</li><li><img src="/formats/carousel.png" alt="" width="28" height="28">Carrousel Instagram</li><li><img src="/formats/short_script.png" alt="" width="28" height="28">Script TikTok</li><li><img src="/formats/thumbnail.png" alt="" width="28" height="28">Miniature YouTube</li><li><img src="/formats/infographic.png" alt="" width="28" height="28">Infographie</li><li><img src="/formats/lead_magnet.png" alt="" width="28" height="28">Lead magnet</li><li><img src="/formats/post_image.png" alt="" width="28" height="28">Post Facebook</li><li><img src="/formats/short_script.png" alt="" width="28" height="28">Short YouTube</li><li><img src="/formats/carousel.png" alt="" width="28" height="28">Thread X</li><li><img src="/formats/post_image.png" alt="" width="28" height="28">Post Threads</li></ul>
+                </div>
 
                 <div class="oi-track">
                     <div class="oi-track__rail" aria-hidden="true"><div class="oi-track__fill"></div></div>
@@ -66,6 +63,7 @@
                         <div class="oi-track__body">
                             <h2>Une vidéo, un document, une note vocale.</h2>
                             <p>Votre matière suffit. Vous n'avez rien à réécrire.</p>
+                            <a class="oi-step-link" href="https://app.replikr.io">Déposer ma première source <span aria-hidden="true">→</span></a>
                             <div class="oi-frame oi-frame--sans-mobile">
                                 <div class="oi-frame__bar">
                                     <span class="oi-frame__dot"></span><span class="oi-frame__dot"></span><span class="oi-frame__dot"></span>
@@ -85,6 +83,7 @@
                         <div class="oi-track__body">
                             <h2>Toute votre semaine, d'un coup.</h2>
                             <p>Posts, carrousels, scripts et visuels, écrits dans votre voix. Quelque chose ne va pas ? Dites-le au chat, il corrige sous vos yeux.</p>
+                            <a class="oi-step-link" href="https://app.replikr.io">Produire ma semaine <span aria-hidden="true">→</span></a>
                             <div class="oi-frame oi-frame--sans-mobile">
                                 <div class="oi-frame__bar">
                                     <span class="oi-frame__dot"></span><span class="oi-frame__dot"></span><span class="oi-frame__dot"></span>
@@ -104,6 +103,7 @@
                         <div class="oi-track__body">
                             <h2>Un seul calendrier pour tous vos réseaux.</h2>
                             <p>Vous relisez, vous décidez de ce qui sort. Un clic pour programmer, un glisser pour changer de jour.</p>
+                            <a class="oi-step-link" href="https://app.replikr.io">Programmer mes posts <span aria-hidden="true">→</span></a>
                             <div class="oi-frame oi-frame--sans-mobile">
                                 <div class="oi-frame__bar">
                                     <span class="oi-frame__dot"></span><span class="oi-frame__dot"></span><span class="oi-frame__dot"></span>
@@ -125,6 +125,14 @@
 <details class="faq__item"><summary class="faq__question"><span>Est-ce que les textes gardent mon ton ?</span><span class="faq__icon" aria-hidden="true">+</span></summary><div class="faq__answer"><p>Votre profil précise votre ton, vos cibles, votre signature et les tournures à éviter. Replikr s’appuie sur ces règles et sur votre matière pour préparer les textes. Vous relisez et ajustez avant de publier.</p></div></details>
 <details class="faq__item"><summary class="faq__question"><span>Comment fonctionne l’essai gratuit ?</span><span class="faq__icon" aria-hidden="true">+</span></summary><div class="faq__answer"><p>Votre compte démarre avec 60 crédits d’essai, sans carte bancaire, de quoi produire au moins un post avec son image à partir de votre propre matière. Analyser une source (vidéo, PDF, lien) ne coûte rien. Le carrousel illustré, lui, fait partie des offres payantes.</p></div></details>
 <details class="faq__item"><summary class="faq__question"><span>Combien coûte Replikr ensuite ?</span><span class="faq__icon" aria-hidden="true">+</span></summary><div class="faq__answer"><p>Trois offres sont disponibles après l’essai : Replikr à 35 €/mois ou 348 €/an (soit 29 €/mois) avec 410 crédits par mois pour créer, copier et télécharger, sans publication ; Replikr + publication à 66 €/mois ou 660 €/an (soit 55 €/mois) avec 660 crédits par mois, la publication et la programmation sur les réseaux ; Agence à 359 €/mois ou 3 588 €/an (soit 299 €/mois) pour 10 marques et 4 470 crédits par mois. Les offres annuelles sont facturées annuellement. Une recharge de 5 € ajoute 110 crédits avec Replikr, 150 avec Replikr + publication ou 190 avec Agence.</p></div></details></div></div></section>
+
+        <section class="section oi-final" id="demarrer">
+            <div class="container">
+                <h2>Vous avez déjà tout ce qu’il faut pour publier.<br><em>Alors pourquoi attendre ?</em></h2>
+                <p>Vidéos, documents, notes vocales, articles : déposez ce que vous avez déjà, Replikr fait le reste. 60 crédits offerts pour essayer.</p>
+                <a href="https://app.replikr.io" class="btn btn--primary btn--lg btn--glow">Démarrer gratuitement</a>
+            </div>
+        </section>
 
     </main>
 
