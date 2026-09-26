@@ -12,8 +12,8 @@ const interFont = Inter({ subsets: ["latin"], variable: "--font-inter", display:
 const monoFont = IBM_Plex_Mono({ subsets: ["latin"], weight: ["400", "500", "600"], variable: "--font-ibm-plex", display: "swap" });
 
 const title = "Replikr · Vos vidéos et documents deviennent une semaine de contenu";
-const promesse = "Replikr · La création de contenu, plus simple que jamais";
-const description = "Déposez une vidéo, un document ou une note vocale : Replikr en tire vos posts, vos carrousels et vos scripts, dans votre voix, prêts pour tous vos réseaux. 60 crédits d’essai offerts.";
+const promesse = "Replikr · Publier sans y passer vos soirées";
+const description = "Votre expertise existe déjà dans vos vidéos et vos documents. Replikr la transforme en contenus prêts à publier, en moins de 30 secondes. 60 crédits d’essai offerts.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://replikr.io"), title, description,

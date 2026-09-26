@@ -249,8 +249,8 @@ summary.faq__question::-webkit-details-marker { display: none; }
   .oi-page .rk-card:hover, .oi-page .rk-enterprise:hover { transform: translateY(-3px); animation: rk-halo 1.6s ease-in-out infinite; }
   .oi-page .rk-card::after { content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none; overflow: hidden;
     background: linear-gradient(100deg, transparent 0%, rgba(214, 208, 255, .16) 50%, transparent 100%) no-repeat; background-size: 40% 100%;
-    background-position: -60% 0; opacity: 0; }
-  .oi-page .rk-card:hover::after { opacity: 1; background-position: 160% 0; transition: background-position 1.1s ease, opacity .2s; }
+    background-position: -120% 0; opacity: 0; }
+  .oi-page .rk-card:hover::after { opacity: 1; background-position: 260% 0; transition: background-position 1.1s ease, opacity .2s; }
   .oi-page .btn:hover, .oi-page .oi-btn-ghost:hover, .oi-page .rk-card__button:hover, .oi-page .rk-pricing__more:hover,
   .oi-page .nav__cta:hover, .oi-page #faq .faq__item:hover { animation: rk-halo 1.6s ease-in-out infinite; }
 }

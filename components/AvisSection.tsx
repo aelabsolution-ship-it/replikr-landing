@@ -74,7 +74,7 @@ export default function AvisSection() {
   return (
     <section className="section oi-avis" id="avis" aria-labelledby="avis-title">
       <div className="container">
-        <h2 id="avis-title">Ils et elles publient avec Replikr.</h2>
+        <h2 id="avis-title">Ils publient avec Replikr.</h2>
       </div>
       <div className="dark oi-avis__stagger">
         <StaggerTestimonials testimonials={visibles} />

@@ -15,6 +15,9 @@ export default function LandingEnhancements() {
     const views = [...document.querySelectorAll<HTMLElement>(".oi-frame__view")];
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)");
     const mobile = window.matchMedia("(max-width: 620px)");
+    // Sur téléphone et tablette, l'étape s'allume dès qu'elle arrive au milieu
+    // de l'écran : au tiers haut (réglage PC), elle s'allumait trop tard.
+    const narrow = window.matchMedia("(max-width: 1000px)");
     let animation = 0;
 
     const setMenu = (open: boolean) => {
@@ -44,7 +47,7 @@ export default function LandingEnhancements() {
       }
       if (rail && fill) {
         const rect = rail.getBoundingClientRect();
-        const height = Math.max(0, Math.min(rect.height, innerHeight * .34 - rect.top));
+        const height = Math.max(0, Math.min(rect.height, innerHeight * (narrow.matches ? .6 : .34) - rect.top));
         fill.style.height = `${height}px`;
         fill.style.opacity = height > 2 ? "1" : "0";
         rows.forEach(row => {
