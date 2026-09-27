@@ -46,6 +46,15 @@ const AVIS: Avis[] = [
     testimonial: "J’aurais pu construire ce système moi-même. Mais ce n’est pas là que je veux passer mon temps. Replikr repart de ma matière, et je relance Instagram sans devenir quelqu’un d’autre.",
     imgSrc: "/avis/nadia.webp",
   },
+  {
+    // Avis réel d'Arthur (27 sept.), publication accordée. Extrait mot pour mot de son avis.
+    // Rôle à confirmer : l'avis reste masqué en production tant qu'il manque.
+    name: "Arthur",
+    role: "",
+    testimonial: "L’interface est fluide. On passe d’une étape à l’autre sans friction. Le calendrier fait la différence. Tous les posts de la semaine apparaissent d’un coup d’œil, jour par jour.",
+    imgSrc: "/avis/arthur.webp",
+    provisoire: true,
+  },
 ];
 
 const publies = AVIS.filter((avis) => !avis.provisoire || process.env.NODE_ENV !== "production");
