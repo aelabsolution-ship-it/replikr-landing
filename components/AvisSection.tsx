@@ -5,8 +5,8 @@ type Avis = StaggerTestimonial & {
   provisoire?: boolean;
 };
 
-// Avis validés : Fatimata, Maxime et François (26 sept. 2026). Catherine, Nadia et Jessica
-// sont des brouillons en attente de validation : ils n'apparaissent jamais en production.
+// Avis validés : Fatimata, Maxime et François (26 sept. 2026), Nadia (27 sept.). Catherine
+// et Jessica sont des brouillons en attente de validation : ils n'apparaissent jamais en production.
 const AVIS: Avis[] = [
   {
     name: "Fatimata",
@@ -41,12 +41,10 @@ const AVIS: Avis[] = [
     provisoire: true,
   },
   {
-    // À REMPLACER par l'avis réel de Nadia.
     name: "Nadia",
     role: "Entrepreneure IA et digital",
-    testimonial: "J’avais des dizaines de vidéos qui dormaient. Replikr en a tiré des carrousels, des posts et des scripts courts. Mon contenu travaille enfin pour moi.",
+    testimonial: "J’aurais pu construire ce système moi-même. Mais ce n’est pas là que je veux passer mon temps. Replikr repart de ma matière, et je relance Instagram sans devenir quelqu’un d’autre.",
     imgSrc: "/avis/nadia.webp",
-    provisoire: true,
   },
 ];
 
