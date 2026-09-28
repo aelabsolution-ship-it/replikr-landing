@@ -5,8 +5,8 @@ type Avis = StaggerTestimonial & {
   provisoire?: boolean;
 };
 
-// Avis validés : Fatimata, Maxime et François (26 sept. 2026), Nadia et Arthur (27 sept.). Catherine
-// et Jessica sont des brouillons en attente de validation : ils n'apparaissent jamais en production.
+// Avis validés : Fatimata, Maxime et François (26 sept. 2026), Nadia et Arthur (27 sept.), Jessica
+// (28 sept.). Catherine est un brouillon en attente de validation : il n'apparaît jamais en production.
 const AVIS: Avis[] = [
   {
     name: "Fatimata",
@@ -33,12 +33,11 @@ const AVIS: Avis[] = [
     provisoire: true,
   },
   {
-    // À REMPLACER par l'avis réel de Jessica.
+    // Avis réel de Jessica (28 sept.), extrait mot pour mot.
     name: "Jessica",
     role: "System designer",
-    testimonial: "Le calendrier a tout changé : je prépare ma semaine le lundi matin, tout est programmé, et je n’y pense plus.",
+    testimonial: "Entre le manque de temps et le manque de connaissances pour créer du contenu vraiment pertinent, ce n’est pas toujours évident de s’y tenir. C’est justement là que Replikr fait toute la différence.",
     imgSrc: "/avis/jessica.webp",
-    provisoire: true,
   },
   {
     name: "Nadia",
@@ -48,9 +47,8 @@ const AVIS: Avis[] = [
   },
   {
     // Avis réel d'Arthur (27 sept.), publication accordée. Extrait mot pour mot de son avis.
-    // Rôle pas encore connu : la carte affiche le prénom seul.
     name: "Arthur",
-    role: "",
+    role: "Conseiller en IA",
     testimonial: "L’interface est fluide. On passe d’une étape à l’autre sans friction. Le calendrier fait la différence. Tous les posts de la semaine apparaissent d’un coup d’œil, jour par jour.",
     imgSrc: "/avis/arthur.webp",
   },
