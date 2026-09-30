@@ -13,7 +13,7 @@ const monoFont = IBM_Plex_Mono({ subsets: ["latin"], weight: ["400", "500", "600
 
 const title = "Replikr : vos vidéos et documents deviennent une semaine de contenu";
 const promesse = "Replikr : publier partout sans y passer vos soirées";
-const description = "Votre expertise existe déjà dans vos vidéos et vos documents. Replikr la transforme en contenus prêts à publier, en moins de 30 secondes. 60 crédits d’essai offerts.";
+const description = "Votre expertise existe déjà dans vos vidéos et vos documents. Replikr la transforme en contenus prêts à publier, en moins de 30 secondes. 100 crédits d’essai offerts.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://replikr.io"), title, description,

@@ -5,11 +5,11 @@ import { useEffect, useRef, useState } from "react";
 
 const plans = [
   {
-    name: "Gratuit", price: 0, annual: 0, annualMonthly: 0, credits: "60 crédits offerts",
+    name: "Gratuit", price: 0, annual: 0, annualMonthly: 0, credits: "100 crédits offerts",
     features: ["2 carnets de publication", "5 contenus par carnet de publication", "1 marque", "3 sources par carnet de publication", "Posts, images, infographies et scripts", "Tournage et téléchargement du rush brut"],
     excluded: ["Carrousels illustrés", "Montage et sous-titres", "Publication et programmation"],
     featured: false, free: true,
-    highlights: ["60 crédits offerts", "2 carnets de publication", "Posts, images, scripts"],
+    highlights: ["100 crédits offerts", "2 carnets de publication", "Posts, images, scripts"],
   },
   {
     name: "Replikr", price: 35, annual: 348, annualMonthly: 29, credits: "410 crédits / mois",
