@@ -2,6 +2,8 @@
 .oi-page .af-kicker { display: inline-block; margin: 0 0 1rem; padding: .35rem .8rem; border-radius: 999px;
   background: rgba(169, 171, 232, .12); color: var(--sb-accent); font-weight: 600; font-size: .82rem; line-height: 1.2; font-family: var(--font-ui);
   letter-spacing: .02em; width: fit-content; align-self: flex-start; justify-self: start; }
+.oi-page .af-gift { margin: 0 0 1.4rem; color: var(--sb-texte); font-size: 1rem; font-family: var(--font-ui); }
+.oi-page .af-gift strong { color: var(--sb-accent); }
 .oi-page .af-hero h1 em { font-style: normal; color: var(--sb-accent); }
 .oi-page .af-hero .oi-hero__actions { display: flex; flex-wrap: wrap; gap: .8rem; align-items: center; }
 .oi-page .af-ghost { display: inline-flex; align-items: center; padding: .85rem 1.3rem; border: 1px solid var(--sb-filet-fort);

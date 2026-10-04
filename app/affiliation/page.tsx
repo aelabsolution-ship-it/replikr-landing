@@ -39,6 +39,7 @@ function Hero() {
           <p className="af-kicker">Programme d’affiliation</p>
           <h1>Recommandez Replikr.<br /><em>Touchez 20 % pendant 12 mois.</em></h1>
           <p className="oi-hero__lead">Sur chaque abonnement payé par les personnes que vous amenez, pendant leur première année. Sans plafond. Inscription immédiate.</p>
+          <p className="af-gift">Et vos clients ont <strong>-10 % pendant 12 mois.</strong></p>
           <div className="oi-hero__actions">
             <a href={APP} className="btn btn--primary btn--lg btn--glow">Devenir affilié</a>
             <a href="#regles" className="oi-btn-ghost af-ghost">Lire les règles</a>
