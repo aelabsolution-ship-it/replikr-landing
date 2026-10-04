@@ -5,8 +5,8 @@ import { useState } from "react";
 // Prix TTC des offres (mêmes valeurs que la FAQ de l'accueil). Commission :
 // 20 % du hors taxes (TVA française 20 % incluse dans les prix).
 const OFFERS = [
-  { id: "replikr", label: "Replikr", price: 35 },
-  { id: "publication", label: "Replikr + publication", price: 66 },
+  { id: "replikr", label: "Créateur", price: 35 },
+  { id: "publication", label: "Solopreneur", price: 66 },
 ];
 const COUNTS = [5, 10, 25, 50];
 const RATE = 0.2;
