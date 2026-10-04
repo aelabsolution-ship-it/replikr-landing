@@ -1,0 +1,55 @@
+/* Page /affiliation : reprend la charte sombre de l'accueil (sombre.css). */
+.oi-page .af-kicker { display: inline-block; margin: 0 0 1rem; padding: .35rem .8rem; border-radius: 999px;
+  background: rgba(169, 171, 232, .12); color: var(--sb-accent); font-weight: 600; font-size: .82rem; line-height: 1.2; font-family: var(--font-ui);
+  letter-spacing: .02em; width: fit-content; align-self: flex-start; justify-self: start; }
+.oi-page .af-hero h1 em { font-style: normal; color: var(--sb-accent); }
+.oi-page .af-hero .oi-hero__actions { display: flex; flex-wrap: wrap; gap: .8rem; align-items: center; }
+.oi-page .af-ghost { display: inline-flex; align-items: center; padding: .85rem 1.3rem; border: 1px solid var(--sb-filet-fort);
+  border-radius: 999px; color: var(--sb-texte); font-weight: 600; font-size: .95rem; line-height: 1; font-family: var(--font-ui); text-decoration: none; }
+
+/* Simulateur */
+.oi-page .af-sim { max-width: 480px; margin: 0 auto; padding: 1.6rem; border: 1px solid var(--sb-filet-fort);
+  border-radius: 20px; background: var(--sb-carte); text-align: left;
+  box-shadow: 0 0 0 14px rgba(169, 171, 232, .08), 0 40px 90px -40px rgba(0, 0, 0, .9); }
+@media (min-width: 1025px) { .oi-page .af-sim { margin: 0 0 0 auto; } }
+.oi-page .af-sim__label { margin: 0 0 1rem; color: var(--sb-texte-3); font-weight: 600; font-size: .75rem; line-height: 1; font-family: var(--font-ui);
+  letter-spacing: .1em; text-transform: uppercase; }
+.oi-page .af-seg { display: flex; flex-wrap: wrap; gap: 4px; margin: 0 0 .6rem; padding: 4px; border-radius: 12px;
+  background: var(--sb-fond-2); }
+.oi-page .af-seg button { flex: 1 1 auto; padding: .55rem .7rem; border: 0; border-radius: 9px; background: transparent;
+  color: var(--sb-texte-2); font-weight: 600; font-size: .85rem; line-height: 1.2; font-family: var(--font-ui); cursor: pointer; }
+.oi-page .af-seg button[aria-pressed="true"] { background: var(--sb-carte-2); color: var(--sb-texte);
+  box-shadow: 0 0 0 1px var(--sb-filet-fort); }
+.oi-page .af-seg button:focus-visible { outline: 2px solid var(--sb-accent); outline-offset: 1px; }
+.oi-page .af-sim__big { margin: 1.2rem 0 .1rem; color: var(--sb-texte); font-weight: 700; font-size: clamp(2.6rem, 6vw, 3.4rem); line-height: 1; font-family: var(--font-titre);
+  letter-spacing: -.03em; }
+.oi-page .af-sim__big span { margin-left: .3rem; color: var(--sb-texte-3); font-size: 1.1rem; font-weight: 600; letter-spacing: 0; }
+.oi-page .af-sim__caption { margin: 0 0 1.2rem; color: var(--sb-texte-3); font-size: .9rem; line-height: 1.4; font-family: var(--font-ui); }
+.oi-page .af-sim__row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; padding-top: 1rem; border-top: 1px solid var(--sb-filet); }
+.oi-page .af-sim__row strong { display: block; color: var(--sb-texte); font-weight: 700; font-size: 1.5rem; line-height: 1.1; font-family: var(--font-titre); }
+.oi-page .af-sim__row span { color: var(--sb-texte-3); font-size: .82rem; line-height: 1.35; font-family: var(--font-ui); }
+.oi-page .af-sim__foot { margin: 1rem 0 0; color: var(--sb-texte-3); font-size: .75rem; line-height: 1.4; font-family: var(--font-ui); }
+
+/* Étapes, cartes, règles */
+.oi-page .af-steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin: 0; padding: 0; list-style: none; }
+.oi-page .af-steps li, .oi-page .af-card { padding: 1.5rem; border: 1px solid var(--sb-filet); border-radius: 16px; background: var(--sb-carte); }
+.oi-page .af-steps__n { display: inline-grid; place-items: center; width: 2rem; height: 2rem; border-radius: 9px;
+  background: var(--sb-accent); color: #0b0b0c; font-weight: 700; font-size: .95rem; line-height: 1; font-family: var(--font-ui); }
+.oi-page .af-steps h3, .oi-page .af-card h3 { margin: .9rem 0 .4rem; color: var(--sb-texte); font-weight: 700; font-size: 1.15rem; line-height: 1.25; font-family: var(--font-titre); }
+.oi-page .af-card h3 { margin-top: 0; }
+.oi-page .af-steps p, .oi-page .af-card p { margin: 0; color: var(--sb-texte-2); font-size: .98rem; line-height: 1.55; font-family: var(--font-ui); }
+.oi-page .af-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; }
+.oi-page .af-grid--rules { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.oi-page .af-sub { margin: .6rem auto 0; max-width: 36rem; color: var(--sb-texte-2); font-family: var(--font-ui); }
+.oi-page .af-note { margin: 1.4rem 0 0; color: var(--sb-texte-3); font-size: .9rem; line-height: 1.5; font-family: var(--font-ui); text-align: center; }
+.oi-page .af-note a { color: var(--sb-accent); }
+
+@media (max-width: 1000px) {
+  .oi-page .af-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 720px) {
+  .oi-page .af-steps, .oi-page .af-grid, .oi-page .af-grid--rules { grid-template-columns: 1fr; }
+  .oi-page .af-sim { padding: 1.2rem; }
+  .oi-page .af-hero .oi-hero__actions .af-ghost { width: 100%; justify-content: center; }
+}
+@media (max-width: 620px) { .oi-page .af-nav-home { display: none; } }
