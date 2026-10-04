@@ -5,14 +5,14 @@ import { useEffect, useRef, useState } from "react";
 
 const plans = [
   {
-    name: "Gratuit", price: 0, annual: 0, annualMonthly: 0, credits: "100 crédits offerts",
+    name: "Gratuit", tagline: "Testez sans carte bancaire", price: 0, annual: 0, annualMonthly: 0, credits: "100 crédits offerts",
     features: ["2 carnets de publication", "5 contenus par carnet de publication", "1 marque", "3 sources par carnet de publication", "Posts, images, infographies et scripts", "Tournage et téléchargement du rush brut"],
     excluded: ["Carrousels illustrés", "Montage et sous-titres", "Publication et programmation"],
     featured: false, free: true,
     highlights: ["100 crédits offerts", "2 carnets de publication", "Posts, images, scripts"],
   },
   {
-    name: "Replikr", price: 35, annual: 348, annualMonthly: 29, credits: "410 crédits / mois",
+    name: "Créateur", tagline: "Créez vos contenus", price: 35, annual: 348, annualMonthly: 29, credits: "410 crédits / mois",
     base: "Gratuit",
     features: ["10 carnets de publication, 30 contenus chacun", "6 sources par carnet de publication", "Carrousels illustrés", "Montage et sous-titres des shorts", "Copier et télécharger", "Recharges de crédits"],
     excluded: ["Publication et programmation"],
@@ -20,15 +20,15 @@ const plans = [
     highlights: ["410 crédits / mois", "10 carnets de publication", "Carrousels et montage"],
   },
   {
-    name: "Replikr + publication", price: 66, annual: 660, annualMonthly: 55, credits: "660 crédits / mois",
-    base: "Replikr",
+    name: "Solopreneur", tagline: "Créez et publiez partout", price: 66, annual: 660, annualMonthly: 55, credits: "660 crédits / mois",
+    base: "Créateur",
     features: ["30 carnets de publication, 50 contenus chacun", "Publication directe sur vos réseaux", "Programmation dans le calendrier", "2 vidéos conservées par carnet de publication"],
     excluded: [], featured: true, free: false,
     highlights: ["660 crédits / mois", "30 carnets de publication", "Publication directe"],
   },
   {
-    name: "Agence", price: 359, annual: 3588, annualMonthly: 299, credits: "4 470 crédits / mois",
-    base: "Replikr + publication",
+    name: "Agence", tagline: "Gérez jusqu’à 10 marques", price: 359, annual: 3588, annualMonthly: 299, credits: "4 470 crédits / mois",
+    base: "Solopreneur",
     features: ["10 marques", "100 carnets de publication, 100 contenus chacun", "Recharge de 5 € = 190 crédits"],
     excluded: [], featured: false, free: false, booking: true,
     highlights: ["4 470 crédits / mois", "10 marques", "100 carnets de publication"],
@@ -81,7 +81,7 @@ function Amount({ value }: { value: number }) {
 
 // Ce qui distingue vraiment les offres — l'essai compris, pour qu'on voie tout
 // de suite ce qu'il permet et ce qu'il ne permet pas.
-const PLAN_NAMES = ["Gratuit", "Replikr", "+ publication", "Agence"];
+const PLAN_NAMES = ["Gratuit", "Créateur", "Solopreneur", "Agence"];
 type Cell = string | boolean;
 const COMPARE: { label: string; values: Cell[] }[] = [
   { label: "Crédits", values: ["60 une seule fois", "410 par mois", "660 par mois", "4 470 par mois"] },
@@ -145,6 +145,7 @@ export default function PricingSection() {
                   <p className="rk-card__annual">{plan.free ? "" : "Facturation mensuelle"}</p>
                 )}
                 <h3>{plan.name}</h3>
+                <p className="rk-card__tagline">{plan.tagline}</p>
               </div>
               <div className="rk-card__credits"><strong>{plan.credits}</strong></div>
               <ul className="rk-card__highlights">
@@ -205,8 +206,8 @@ export default function PricingSection() {
             <tr>
               <th scope="col">&nbsp;</th>
               <th scope="col">Gratuit · 0 €</th>
-              <th scope="col">Replikr</th>
-              <th scope="col">+ publication</th>
+              <th scope="col">Créateur</th>
+              <th scope="col">Solopreneur</th>
               <th scope="col">Agence</th>
             </tr>
           </thead>
