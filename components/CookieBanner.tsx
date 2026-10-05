@@ -40,24 +40,24 @@ export default function CookieBanner() {
 
   return (
     <div
-      className="fixed bottom-4 left-4 right-4 md:left-auto md:right-6 md:max-w-md bg-ink text-cream rounded-xl p-4 z-50 shadow-[0_24px_60px_-20px_rgba(26,22,18,0.5)]"
+      className="rk-cookie"
       role="dialog"
       aria-label="Préférences de cookies"
     >
-      <p className="text-[13px] leading-relaxed mb-3">
+      <p>
         On utilise quelques cookies pour mesurer l&apos;audience anonymement.
         Aucun tracking publicitaire.
       </p>
-      <div className="flex items-center justify-end gap-3 text-[12px]">
+      <div className="rk-cookie__actions">
         <button
           onClick={handleRefuse}
-          className="text-cream/70 hover:text-cream transition-colors"
+          className="rk-cookie__choice"
         >
           Refuser
         </button>
         <button
           onClick={handleAccept}
-          className="bg-cream text-ink px-4 py-1.5 rounded-md font-medium hover:bg-cream/90 transition-colors"
+          className="rk-cookie__choice"
         >
           Accepter
         </button>

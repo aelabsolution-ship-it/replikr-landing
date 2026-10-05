@@ -5,6 +5,22 @@ import { useEffect } from "react";
 /** Progressive enhancements; content, video controls and FAQ work without JS. */
 export default function LandingEnhancements() {
   useEffect(() => {
+    // No tracking cookie: carry the partner code and campaign only in the URL.
+    // Delegation also covers price links rerendered when changing billing period.
+    const carryAttribution = (event: MouseEvent) => {
+      const anchor = (event.target as Element).closest<HTMLAnchorElement>("a[href]");
+      if (!anchor) return;
+      const target = new URL(anchor.href, window.location.href);
+      if (target.origin !== "https://app.replikr.io") return;
+      const source = new URLSearchParams(window.location.search);
+      for (const key of ["via", "utm_source", "utm_medium", "utm_campaign", "utm_content"]) {
+        const value = source.get(key);
+        if (value && value.length <= 200) target.searchParams.set(key, value);
+      }
+      anchor.href = target.toString();
+    };
+    document.addEventListener("click", carryAttribution, true);
+    document.addEventListener("auxclick", carryAttribution, true);
     const header = document.getElementById("header");
     const burger = document.getElementById("burger");
     const menu = document.getElementById("mobile-menu");
@@ -107,6 +123,8 @@ export default function LandingEnhancements() {
     resize();
     update();
     return () => {
+      document.removeEventListener("click", carryAttribution, true);
+      document.removeEventListener("auxclick", carryAttribution, true);
       burger?.removeEventListener("click", toggleMenu);
       menu?.removeEventListener("click", closeMenu);
       document.removeEventListener("keydown", escape);
