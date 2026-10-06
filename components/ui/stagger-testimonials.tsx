@@ -99,10 +99,13 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
           <span className={isCenter ? "text-foreground/75" : "text-muted-foreground"}>{testimonial.role}</span>
         </p>
       </div>
-      <p className={cn(
-        "text-[15px] font-medium leading-snug sm:text-lg sm:leading-relaxed",
-        isCenter ? "text-foreground" : "text-foreground/70"
-      )}>
+      <p
+        aria-hidden={!isCenter}
+        className={cn(
+          "text-[15px] font-medium leading-snug transition-opacity duration-500 motion-reduce:transition-none sm:text-lg sm:leading-relaxed",
+          isCenter ? "text-foreground opacity-100" : "select-none opacity-0"
+        )}
+      >
         « {testimonial.testimonial} »
       </p>
     </div>
