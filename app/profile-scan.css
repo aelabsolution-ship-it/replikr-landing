@@ -1,0 +1,145 @@
+/* Illustration du profil, avant le parcours de création. */
+.oi-page .solo-profile { padding: 6.5rem 0; scroll-margin-top: 80px; }
+.oi-page .solo-profile__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(3rem, 6vw, 6rem);
+  max-width: 1200px;
+}
+.oi-page .solo-profile__copy { grid-column: 2; grid-row: 1; }
+.oi-page .profile-scan { grid-column: 1; grid-row: 1; }
+.oi-page .solo-profile h2 {
+  margin: 0 0 1.75rem;
+  font-size: clamp(2.25rem, 3.8vw, 3.5rem);
+  line-height: 1.12;
+  letter-spacing: -.045em;
+}
+.oi-page .solo-profile h2 em { color: var(--sb-accent); font-style: normal; }
+.oi-page .solo-profile__copy > p { max-width: 38ch; margin: 0; color: var(--sb-texte-2); font-size: 1.1875rem; line-height: 1.65; }
+.oi-page .solo-profile__copy > .solo-profile__promise { margin-top: 1.25rem; color: var(--sb-texte); font-weight: 500; }
+.oi-page .solo-profile__copy .btn { margin-top: 2rem; min-height: 58px; gap: 1rem; font-size: 1.0625rem; white-space: normal; }
+.oi-page .profile-scan {
+  --scan-duration: 14s;
+  min-width: 0;
+  width: 100%;
+  max-width: 550px;
+  margin: 0 auto;
+  padding: 0 1.5rem 1.5rem;
+  border: 1px solid rgba(169, 171, 232, .22);
+  border-radius: 24px;
+  background: linear-gradient(145deg, #1b1b26, #111114 70%);
+  box-shadow: 0 24px 80px -36px rgba(139, 132, 225, .22);
+}
+.oi-page .profile-scan__toolbar { display: flex; align-items: center; justify-content: space-between; min-height: 76px; gap: 1rem; }
+.oi-page .profile-scan__toolbar > span { display: flex; align-items: center; gap: .75rem; font-size: 1rem; font-weight: 500; }
+.oi-page .profile-scan__toolbar img { width: 24px; height: 24px; }
+.oi-page .profile-scan__card { position: relative; isolation: isolate; overflow: hidden; border: 1px solid #30303c; border-radius: 15px; background: #151519; }
+.oi-page .profile-scan__cover { height: 160px; background: linear-gradient(115deg, #37364e, #222233 75%); }
+.oi-page .profile-scan__cover--person {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  padding: 1.15rem 3.5rem 1.75rem;
+  isolation: isolate;
+  container-type: inline-size;
+  color: #f8fafc;
+  background: radial-gradient(ellipse at 4% 0, #56668570, transparent 54%), radial-gradient(ellipse at 95% 110%, #8072bc55, transparent 46%), linear-gradient(112deg, #223243, #0b131a 68%, #090e14);
+}
+.oi-page .profile-scan__cover--person::before { content: ''; position: absolute; z-index: -1; width: 180px; height: 180px; top: -115px; right: -55px; border: 1px solid #a8afcb22; border-radius: 50%; box-shadow: 0 0 0 20px #a8afcb06, 0 0 0 42px #a8afcb04; }
+.oi-page .profile-banner__monogram { position: absolute; top: 17px; left: 16px; display: grid; place-items: center; width: 35px; height: 35px; border: 1px solid #cbd5e166; border-radius: 9px; background: linear-gradient(135deg, #40536c, #1a2637); color: #f8faff; font-size: .8rem; font-weight: 750; letter-spacing: -.05em; transform: rotate(-8deg); box-shadow: 0 5px 12px #0005, inset 0 1px 1px #ffffff33; }
+.oi-page .profile-banner__monogram > span { position: absolute; bottom: -4px; right: -4px; width: 10px; height: 10px; background: #b9afe9; border: 2px solid #192533; border-radius: 50%; }
+.oi-page .profile-banner__message { position: relative; z-index: 1; display: flex; flex-direction: column; align-items: center; gap: 7px; text-align: center; }
+.oi-page .profile-banner__headline { display: block; font-size: clamp(1rem, 5.9cqw, 1.5rem); font-weight: 800; line-height: 1.05; letter-spacing: -.045em; white-space: nowrap; text-shadow: 0 2px 8px #0006; }
+.oi-page .profile-banner__highlight { display: block; margin: 0; padding: .2em .5em .26em; border: 1px solid #d1d6ff3d; border-radius: 6px; background: linear-gradient(100deg, #04070b, #131e2b); color: #fff; font-size: clamp(1.5rem, 8.8cqw, 2.25rem); font-weight: 850; letter-spacing: -.055em; line-height: 1; transform: rotate(-2deg); box-shadow: 0 0 15px #b2bff42b, 0 6px 14px #0006; }
+.oi-page .profile-banner__signature { margin-top: 2px; color: #afbccc; font-size: .5rem; font-weight: 600; line-height: 1.2; letter-spacing: .09em; }
+.oi-page .profile-banner__objects { position: absolute; right: 8px; top: 34px; width: 58px; height: 108px; }
+.oi-page .profile-banner__calendar, .oi-page .profile-banner__clock { position: absolute; display: grid; place-items: center; width: 41px; height: 46px; border-radius: 9px; border: 1px solid #c4c6e77d; background: linear-gradient(145deg, #c7c5e8, #777897); box-shadow: 4px 5px 0 #404b6555, 6px 10px 20px #0005, inset 0 1px #fff6; }
+.oi-page .profile-banner__calendar { top: 0; right: 0; transform: rotate(13deg); }
+.oi-page .profile-banner__clock { top: 52px; left: 0; width: 35px; height: 35px; border-radius: 50%; transform: rotate(-13deg); background: linear-gradient(135deg, #dce5eb, #8fa5b6); }
+.oi-page .profile-banner__objects svg { width: 31px; height: 31px; stroke: #243047; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.oi-page .profile-banner__arrow { position: absolute; bottom: 40px; left: 13px; width: 40px; height: 28px; stroke: #b0bbd4; stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; opacity: .7; transform: rotate(-20deg); }
+.oi-page .profile-scan__skeleton { position: absolute; inset: 0; }
+.oi-page .profile-scan__skeleton .profile-scan__fields { gap: 2rem; padding-top: .5rem; }
+.oi-page .profile-scan__person { position: relative; background: #151519; }
+.oi-page .profile-scan__placeholder { display: block; height: 8px; width: 75%; background: #34343e; border-radius: 4px; }
+.oi-page .profile-scan__placeholder--name { height: 20px; width: 55%; }
+.oi-page .profile-scan__identity { position: relative; display: flex; flex-direction: column; align-items: flex-start; gap: .65rem; padding: 0 1.5rem 1.25rem; }
+.oi-page .profile-scan__avatar { display: grid; place-items: center; overflow: hidden; width: 96px; height: 96px; margin-top: -43px; border: 5px solid #151519; border-radius: 50%; background: #494866; }
+.oi-page .profile-scan__avatar img { display: block; width: 100%; height: 100%; object-fit: cover; }
+.oi-page .profile-scan__avatar svg { width: 48px; height: 48px; stroke: #d3d2f1; stroke-width: 2; }
+.oi-page .profile-scan__identity strong { font-size: 1.5rem; line-height: 1.2; }
+.oi-page .profile-scan__job { color: #b4b1c3; font-size: .9375rem; line-height: 1.45; }
+.oi-page .profile-scan__fields { display: grid; gap: 1.1rem; padding: 0 1.5rem 1.5rem; }
+.oi-page .profile-scan__bio { margin: 0; color: #e0dfe7; font-size: 1rem; line-height: 1.55; }
+.oi-page .profile-scan__post { padding-top: 1rem; border-top: 1px solid #34323f; }
+.oi-page .profile-scan__post > span { color: #b6b2c6; font-size: .8125rem; }
+.oi-page .profile-scan__post p { margin: .5rem 0 0; color: #e5e2f4; font-size: 1rem; line-height: 1.55; }
+.oi-page .profile-scan__lines { display: grid; gap: 7px; }
+.oi-page .profile-scan__lines i { display: block; height: 6px; width: 88%; border-radius: 3px; background: #30303b; }
+.oi-page .profile-scan__lines i:last-child { width: 64%; }
+.oi-page .profile-scan__tags { display: flex; gap: .5rem; flex-wrap: wrap; }
+.oi-page .profile-scan__tags i { padding: .35rem .65rem; border: 1px solid #3c3b50; border-radius: 6px; font-size: .875rem; line-height: 1.3; font-style: normal; color: #c9c8df; background: #24232f; }
+.oi-page .profile-scan__beam {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(transparent 75%, rgba(175, 167, 255, .03) 83%, rgba(175, 167, 255, .18) 99%, #d1caff 100%);
+  border-bottom: 2px solid #d1caff;
+  box-shadow: 0 12px 28px -14px #b8aaff;
+  opacity: 0;
+}
+.oi-page .profile-scan__results { display: flex; justify-content: space-between; flex-wrap: wrap; gap: .75rem; padding-top: 1.25rem; }
+.oi-page .profile-scan__result { display: flex; align-items: center; gap: .45rem; font-size: .9375rem; font-weight: 500; color: #d0cef5; }
+.oi-page .profile-scan__result i { display: grid; place-items: center; width: 19px; height: 19px; border-radius: 50%; font-style: normal; font-size: .75rem; color: #d2cffb; background: #343249; }
+.oi-page .profile-scan__example { display: block; margin-top: 1rem; font-size: .8125rem; line-height: 1.5; color: #9995ac; }
+
+/* Le balayage révèle chaque repère, puis laisse le résultat visible. */
+.oi-page .profile-scan.is-enhanced .profile-scan__beam { animation: profile-scan-sweep var(--scan-duration) linear infinite; }
+.oi-page .profile-scan.is-enhanced .profile-scan__person { animation: profile-scan-reveal var(--scan-duration) linear infinite; }
+.oi-page .profile-scan.is-enhanced .profile-scan__result { animation: profile-scan-activity var(--scan-duration) linear infinite; }
+.oi-page .profile-scan.is-enhanced .profile-scan__result--topics { animation-name: profile-scan-topics; }
+.oi-page .profile-scan.is-enhanced .profile-scan__result--voice { animation-name: profile-scan-voice; }
+.oi-page .profile-scan.is-paused *, .oi-page .profile-scan.is-paused *::before { animation-play-state: paused !important; }
+@keyframes profile-scan-sweep {
+  0%, 5% { transform: translateY(-100%); opacity: 0; }
+  8% { opacity: 1; }
+  56% { transform: translateY(0); opacity: 1; }
+  59%, 100% { transform: translateY(0); opacity: 0; }
+}
+@keyframes profile-scan-reveal {
+  0%, 5% { clip-path: inset(0 0 100%); opacity: 1; }
+  56%, 90% { clip-path: inset(0); opacity: 1; }
+  96%, 100% { clip-path: inset(0); opacity: 0; }
+}
+@keyframes profile-scan-activity { 0%, 27% { opacity: .3; } 31%, 90% { opacity: 1; } 96%, 100% { opacity: .3; } }
+@keyframes profile-scan-topics { 0%, 39% { opacity: .3; } 43%, 90% { opacity: 1; } 96%, 100% { opacity: .3; } }
+@keyframes profile-scan-voice { 0%, 51% { opacity: .3; } 55%, 90% { opacity: 1; } 96%, 100% { opacity: .3; } }
+@media (max-width: 900px) {
+  .oi-page .solo-profile__layout { grid-template-columns: 1fr; gap: 3rem; }
+  .oi-page .solo-profile__copy { max-width: 600px; grid-column: 1; grid-row: 1; }
+  .oi-page .profile-scan { grid-column: 1; grid-row: 2; }
+  .oi-page .solo-profile h2 { font-size: clamp(2.25rem, 6vw, 3.5rem); }
+}
+@media (max-width: 620px) {
+  .oi-page .solo-profile { padding: 3.5rem 0; }
+  .oi-page .solo-profile h2 { font-size: clamp(2rem, 8vw, 3rem); }
+  .oi-page .solo-profile__copy .btn { width: 100%; text-align: left; }
+  .oi-page .profile-scan { padding: 0 1rem 1rem; border-radius: 20px; }
+  .oi-page .profile-scan__toolbar { min-height: 68px; }
+  .oi-page .profile-scan__identity { padding-inline: 1rem; }
+  .oi-page .profile-scan__fields { padding-inline: 1rem; }
+  .oi-page .profile-scan__results { gap: .8rem 1rem; justify-content: flex-start; }
+  .oi-page .profile-scan__cover { height: 145px; }
+  .oi-page .profile-scan__cover--person { padding-inline: 2rem; }
+  .oi-page .profile-banner__monogram { top: 10px; left: 10px; width: 27px; height: 27px; font-size: .65rem; }
+  .oi-page .profile-banner__objects { right: -15px; top: 59px; transform: scale(.72); transform-origin: right top; opacity: .65; }
+  .oi-page .profile-banner__arrow { left: 7px; bottom: 42px; width: 28px; }
+  .oi-page .profile-banner__signature { font-size: .45rem; letter-spacing: .04em; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .oi-page .profile-scan.is-enhanced * { animation: none !important; }
+  .oi-page .profile-scan__beam { display: none; }
+}

@@ -1,0 +1,254 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8">
+<style>@font-face{font-family:Inter;src:url(/fonts/Inter-latin.woff2) format("woff2");font-weight:100 900;font-display:swap}</style><style>
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { width:1080px; height:1080px; overflow:hidden; background:#f5f2ec; }
+body { font-family:'Inter', 'Inter', system-ui, sans-serif; color:#0a1428;
+  -webkit-font-smoothing:antialiased; }
+.canvas { position:relative; width:1080px; height:1080px; overflow:hidden;
+  display:flex; flex-direction:column; padding:86px;
+  gap:28px;
+  background:
+    radial-gradient(circle at 88% 8%, #e7e5e9 0%, transparent 46%),
+    #f5f2ec; }
+.canvas::after { content:''; position:absolute; inset:0; pointer-events:none;
+  background-image:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxNjAiIGhlaWdodD0iMTYwIj48ZmlsdGVyIGlkPSJuIj48ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iMC45IiBudW1PY3RhdmVzPSIyIiBzdGl0Y2hUaWxlcz0ic3RpdGNoIi8+PGZlQ29sb3JNYXRyaXggdmFsdWVzPSIwIDAgMCAwIDAgIDAgMCAwIDAgMCAgMCAwIDAgMCAwICAwIDAgMCAwLjIyIDAiLz48L2ZpbHRlcj48cmVjdCB3aWR0aD0iMTYwIiBoZWlnaHQ9IjE2MCIgZmlsdGVyPSJ1cmwoI24pIi8+PC9zdmc+"); opacity:.5; mix-blend-mode:overlay; }
+.serif { font-family:'Inter', 'Gentium Plus', Georgia, serif; }
+.grow { flex:1 1 auto; min-height:0; display:flex; flex-direction:column; overflow:hidden; }
+.grow.end { justify-content:flex-end; }
+.grow.center { justify-content:center; }
+.inner { display:flex; flex-direction:column; gap:26px; }
+.fit { overflow-wrap:break-word; }
+.sig { display:flex;align-items:center;gap:14px; }
+.footer-avatar { width:64px;height:64px;border-radius:50%;object-fit:cover;flex-shrink:0; }
+.hook { font-weight:700; line-height:1.06; letter-spacing:-0.012em; }
+.kicker { font-size:30px; font-weight:700; letter-spacing:.14em;
+  text-transform:uppercase; color:#8082d4; }
+.bar { width:132px; height:9px; border-radius:99px;
+  background:#8082d4; flex-shrink:0; }
+.mark { font-size:360px; line-height:1; height:170px; margin-top:-20px;
+  color:#8082d4; flex-shrink:0; font-weight:700; }
+.quote { font-style:italic; line-height:1.16; }
+.sign { display:flex; align-items:center; gap:22px; font-size:34px;
+  font-weight:600; color:#5a5f6b; flex-shrink:0; }
+.avatar { width:84px; height:84px; border-radius:50%; object-fit:cover;
+  border:4px solid #8082d4; }
+.value { font-weight:700; line-height:.9; color:#8082d4; white-space:nowrap;
+  letter-spacing:-0.03em; }
+.label { font-weight:700; line-height:1.12; letter-spacing:-0.01em; }
+.context { line-height:1.35; color:#5a5f6b; max-width:94%; }
+.ba { gap:24px; }
+.ba.row { flex-direction:row; }
+.ba .col { flex:1 1 0; min-height:0; min-width:0; border-radius:28px;
+  padding:40px 46px; display:flex; flex-direction:column;
+  justify-content:center; overflow:hidden; }
+.ba .before { background:transparent; box-shadow:inset 0 0 0 3px #d4d3d1; }
+.ba .after { background:#e7e5e9; box-shadow:inset 0 0 0 4px #8082d4; }
+.chip { font-size:28px; font-weight:800; letter-spacing:.14em; text-transform:uppercase;
+  color:#5a5f6b; flex-shrink:0; }
+.after .chip { color:#8082d4; }
+ul { list-style:none; }
+.ba ul { display:flex; flex-direction:column; gap:.4em; font-weight:700; line-height:1.15; }
+.ba li, .points li { display:flex; gap:.55em; align-items:baseline; }
+.ba .g { color:#5a5f6b; font-weight:800; }
+.after .g { color:#8082d4; }
+.before li span:last-child { color:#5a5f6b; }
+.title { font-weight:700; line-height:1.08; letter-spacing:-0.01em; }
+.points { display:flex; flex-direction:column; gap:.7em; font-weight:600; line-height:1.18;
+  margin-top:24px; }
+.points .n { color:#8082d4; font-weight:700; font-size:1.5em; line-height:.9;
+  min-width:1.1em; }
+.photo { flex:0 0 60%; background-size:cover; background-position:50% 22%; }
+.photo.empty { background:#e7e5e9; }
+.band { flex:1 1 auto; min-height:0; display:flex; flex-direction:column; justify-content:center;
+  padding:50px 86px 69px; overflow:hidden; }
+/* Logo du profil : la bande basse lui est réservée, rien ne passe dessous. */
+.canvas.has-logo { padding-bottom:170px; }
+.has-logo .band { padding-bottom:153px; }
+.logo { position:absolute; right:69px; bottom:47px;
+  height:64px; max-width:220px; object-fit:contain; z-index:2; }
+.sig { position:absolute; left:69px; bottom:47px; z-index:2;
+  height:64px; display:flex; align-items:center; font-size:28px;
+  font-weight:700; letter-spacing:.01em; color:#0a1428; opacity:.85;
+  text-shadow:0 1px 6px rgba(0,0,0,.25); max-width:60%; white-space:nowrap; overflow:hidden;
+  text-overflow:ellipsis; }
+
+</style></head>
+<body><div class="canvas has-logo">
+<div class="kicker">Création de contenu</div>
+<div class="grow end" data-box><div class="inner">
+  <div class="serif hook fit" data-fit="150.0">Des heures de travail.
+Un seul post ?</div>
+</div></div>
+<div class="bar"></div><div class="sig">Ludovic Nédélec</div></div>
+<script>
+(function(){
+  // Mesure du texte SUR UNE LIGNE : `scrollWidth` ne dépasse pas `clientWidth`
+  // quand le texte est en `nowrap` (il déborde en peinture, pas en défilement),
+  // donc un grand chiffre était rogné sans jamais être réduit.
+  var probe = null;
+  function textWidth(el){
+    if (!probe) { probe = document.createElement('span');
+      probe.style.cssText = 'position:absolute;left:-9999px;top:0;white-space:pre;visibility:hidden';
+      document.body.appendChild(probe); }
+    var cs = getComputedStyle(el);
+    ['fontFamily','fontSize','fontWeight','fontStyle','letterSpacing','textTransform',
+     'fontVariantNumeric'].forEach(function(k){ probe.style[k] = cs[k]; });
+    probe.textContent = el.textContent || '';
+    return probe.getBoundingClientRect().width;
+  }
+  function wider(el){
+    var ws = getComputedStyle(el).whiteSpace;
+    if (ws === 'nowrap' || ws === 'pre') return textWidth(el) > el.clientWidth - 1;
+    return el.scrollWidth > el.clientWidth + el._s * 0.08;
+  }
+  function fitBox(box){
+    var inner = box.querySelector('.inner') || box;
+    var fits = Array.prototype.slice.call(box.querySelectorAll('[data-fit]'))
+      .filter(function(el){return el.closest('[data-box]') === box;});
+    // Plancher relevé de 38 % à 62 % de la taille de base : en dessous, le
+    // texte devient illisible sur un visuel (retour Ludovic, 20 sept. :
+    // « c'est écrit trop petit »). Ce qui ne tient toujours pas est COUPÉ
+    // proprement par `trimToFit`, jamais rogné par le cadre.
+    // Plancher : 62 % de la taille de base, et JAMAIS sous 22 px sur une image
+    // de 1080 px de large (retour Ludovic, 20 sept. : « c'est écrit trop
+    // petit »). Ce qui ne rentre toujours pas est raccourci par `trimToFit` :
+    // moins de mots, mais lisibles, jamais rognés par le cadre.
+    // La carte de post garde sa liste entière : elle a le droit de descendre
+    // jusqu'au plancher absolu de 22 px avant de refuser le rendu.
+    // Mode serré (body[data-dense]) : second essai d'une infographie trop
+    // dense, avant tout raccourci (cf. infographic_templates.render_to_file).
+    var dense = document.body.hasAttribute('data-dense');
+    var plancher = box.classList.contains('tw') ? 0.40 : (dense ? 0.46 : 0.62);
+    var absolu = dense ? 17 : 22;
+    // Les accroches partent très grand (90-150 px) : elles ont le droit de
+    // descendre bien plus bas avant qu'on les raccourcisse (retour bêta,
+    // 23 sept. 2026 : « les hooks sont parfois trop longs et coupés »).
+    // Mode serré : le plancher `data-min` des explications (28 px) descend à
+    // 24 px, dernier recours d'une infographie après la relecture par l'IA.
+    fits.forEach(function(el){ el._s = parseFloat(el.getAttribute('data-fit'));
+                               var p = /(^|[ -])hook/.test(el.className) ? Math.min(plancher, 0.38) : plancher;
+                               var dmin = parseFloat(el.dataset.min || '0');
+                               if (dense) dmin = Math.min(dmin, 24);
+                               el._min = Math.max(dmin, el._s * p, Math.min(absolu, el._s));
+                               el.style.fontSize = el._s + 'px'; });
+    var cs = getComputedStyle(box);
+    var room = box.clientHeight - parseFloat(cs.paddingTop) - parseFloat(cs.paddingBottom);
+    // Case ronde (data-round, le sujet central de la carte mentale) : chaque
+    // ligne de texte doit tenir DANS le disque, coins compris. Le carré inscrit
+    // seul laissait un mot long sortir du rond (retour banc d'essai, 29 sept. 2026).
+    var round = box.hasAttribute('data-round');
+    function outOfRound(){
+      var bb = box.getBoundingClientRect(), R = bb.width / 2 - 4;
+      var cx = bb.left + bb.width / 2, cy = bb.top + bb.height / 2;
+      return fits.some(function(el){
+        var rg = document.createRange(); rg.selectNodeContents(el);
+        return Array.prototype.some.call(rg.getClientRects(), function(q){
+          return [[q.left, q.top], [q.right, q.top], [q.left, q.bottom], [q.right, q.bottom]]
+            .some(function(p){ return Math.hypot(p[0] - cx, p[1] - cy) > R; });
+        });
+      });
+    }
+    function over(){
+      if (inner !== box && inner.offsetHeight > room + 1) return true;
+      if (round && outOfRound()) return true;
+      return fits.some(wider);
+    }
+    // Peu de texte : on l'AGRANDIT pour remplir la place (retour bêta,
+    // 23 sept. 2026 : « texte trop petit avec trop d'espace non rempli »),
+    // jusqu'à 1,6 fois la taille de base, puis on revient d'un cran si ça
+    // déborde.
+    if (!box.classList.contains('tw') && !over()) {
+      var g = 0;
+      while (!over() && g < 12) {
+        fits.forEach(function(el){ el._s = el._s * 1.04; el.style.fontSize = el._s + 'px'; });
+        g++;
+        if (fits.some(function(el){ return el._s > parseFloat(el.getAttribute('data-fit')) * 1.6; })) break;
+      }
+      if (over()) fits.forEach(function(el){ el._s = el._s / 1.04; el.style.fontSize = el._s + 'px'; });
+    }
+    var guard = 0;
+    while (over() && guard < 80) {
+      var moved = false;
+      fits.forEach(function(el){
+        if (el._s > el._min) { el._s = Math.max(el._min, el._s * 0.95); el.style.fontSize = el._s + 'px'; moved = true; }
+      });
+      if (!moved) break;
+      guard++;
+    }
+    // Toujours trop long à la taille plancher : on raccourcit le TEXTE, mot à
+    // mot, avec une ellipse. Un mot en moins vaut mieux qu'un mot coupe.
+    if (over() && (box.classList.contains('tw') || box.closest('[data-preserve-text]'))) {
+      // Une liste sociale ne doit jamais perdre ses derniers éléments.
+      // Texte préservé : rien n'est coupé, on MESURE le débord (place qu'il
+      // faudrait / place disponible) pour que l'appelant fasse reformuler
+      // les textes de cette case (infographic_templates, relecture par l'IA).
+      box.dataset.overflow = '1';
+      var fill = (inner !== box && room > 0) ? inner.offsetHeight / room : 1;
+      fits.forEach(function(el){
+        if (!wider(el) || el.clientWidth <= 0) return;
+        var ws = getComputedStyle(el).whiteSpace;
+        var w = (ws === 'nowrap' || ws === 'pre') ? textWidth(el) : el.scrollWidth;
+        fill = Math.max(fill, w / el.clientWidth);
+      });
+      box.dataset.fill = Math.max(fill, 1.05).toFixed(3);
+    } else if (over()) trimToFit(box, fits, over);
+  }
+
+  function trimToFit(box, fits, over){
+    var cible = fits.slice().sort(function(a, b){
+      return (b.textContent || '').length - (a.textContent || '').length; })[0];
+    if (!cible) return;
+    var mots = (cible.textContent || '').trim().split(/ +/);
+    var guard = 0;
+    // Signalé à l'utilisateur : un texte raccourci ne l'est jamais en silence.
+    if (over()) document.body.setAttribute('data-trimmed', '1');
+    while (over() && mots.length > 2 && guard < 60) {
+      mots.pop();
+      cible.textContent = mots.join(' ').replace(/[ ,;:.…-]+$/, '') + '…';
+      guard++;
+    }
+  }
+  // Cases voisines de même type (cartes d'une grille, branches d'une carte
+  // mentale…) : chaque case réglait sa taille seule, un titre sortait deux fois
+  // plus petit que son voisin (retour Ludovic, 27 sept. 2026). Tout le groupe prend
+  // le rapport (taille / taille de base) de sa case la plus serrée : la hiérarchie
+  // titre > texte est gardée, et réduire ne fait jamais déborder.
+  function harmonize(){
+    var groups = new Map();
+    // Même parent ET même type de case : la zone du titre et celle du contenu sont
+    // voisines, mais le titre ne doit jamais suivre la taille du contenu.
+    var ids = new Map();
+    document.querySelectorAll('[data-box]').forEach(function(box){
+      if (!ids.has(box.parentElement)) ids.set(box.parentElement, ids.size);
+      var key = ids.get(box.parentElement) + '|' + box.className;
+      if (!groups.has(key)) groups.set(key, []);
+      groups.get(key).push(box);
+    });
+    function own(box){
+      return Array.prototype.slice.call(box.querySelectorAll('[data-fit]'))
+        .filter(function(el){ return el.closest('[data-box]') === box && parseFloat(el.style.fontSize); });
+    }
+    groups.forEach(function(boxes){
+      if (boxes.length < 2) return;
+      var f = Infinity;
+      boxes.forEach(function(box){ own(box).forEach(function(el){
+        f = Math.min(f, parseFloat(el.style.fontSize) / parseFloat(el.getAttribute('data-fit'))); }); });
+      if (!isFinite(f)) return;
+      boxes.forEach(function(box){ own(box).forEach(function(el){
+        var cur = parseFloat(el.style.fontSize);
+        var target = Math.max(parseFloat(el.getAttribute('data-fit')) * f, el._min || 0);
+        el.style.fontSize = Math.min(cur, target) + 'px'; }); });
+    });
+  }
+  function run(){
+    document.querySelectorAll('[data-box]').forEach(fitBox);
+    harmonize();
+    document.body.setAttribute('data-ready', '1');
+  }
+  if (document.fonts && document.fonts.ready) {
+    Promise.race([document.fonts.ready,
+                  new Promise(function(r){ setTimeout(r, 2500); })]).then(run);
+  } else { run(); }
+})();
+</script>
+</body></html>

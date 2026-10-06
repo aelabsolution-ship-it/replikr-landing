@@ -6,14 +6,19 @@ import "../public/reference/styles/lofi-tokens.css";
 import "../public/reference/replikr.css";
 import "./replikr.css";
 import "./sombre.css";
+import "./solo.css";
+import "./profile-scan.css";
+import "./document-demo.css";
+import "./proof.css";
+import "./hero-motion.css";
 
 // Typographie façon Raycast : Inter partout (titres, texte, interface).
 const interFont = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
 const monoFont = IBM_Plex_Mono({ subsets: ["latin"], weight: ["400", "500", "600"], variable: "--font-ibm-plex", display: "swap" });
 
-const title = "Replikr : vos vidéos et documents deviennent une semaine de contenu";
-const promesse = "Replikr : publier partout sans y passer vos soirées";
-const description = "Transformez vos vidéos et documents en posts, images et scripts dans votre carnet de publication. Relisez, copiez et téléchargez vos contenus. 100 crédits d’essai sans carte bancaire.";
+const title = "Replikr : faites connaître votre expertise";
+const promesse = "Vos futurs clients sont sur les réseaux. Vous, vous n’avez pas le temps d’y être.";
+const description = "Replikr transforme votre expertise en posts et en images pour attirer vos futurs clients. Partez de vos documents, vidéos ou notes vocales.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://replikr.io"), title, description,

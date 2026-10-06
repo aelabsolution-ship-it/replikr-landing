@@ -1,0 +1,40 @@
+/* La réassurance montre l’éditeur et invite à essayer avec sa propre matière. */
+.oi-page .solo-proof { padding: 5.5rem 0 6rem; border-top: 1px solid var(--sb-filet); background: #101013; scroll-margin-top: 80px; }
+.oi-page .solo-proof > .oi-wide { max-width: 1280px; }
+.oi-page .solo-proof__intro { margin: 0 auto 3rem; max-width: 920px; text-align: center; }
+.oi-page .solo-proof h2 { margin: 0; color: var(--sb-texte); font-size: clamp(2.2rem, 3.8vw, 3.5rem); letter-spacing: -.045em; line-height: 1.12; text-wrap: balance; }
+.oi-page .solo-proof h2 em { font-style: normal; color: var(--sb-accent); }
+.oi-page .solo-proof__intro > p { margin: 1.5rem auto 0; max-width: 58ch; color: #b5b1c0; font-size: 1.1875rem; line-height: 1.6; }
+.oi-page .solo-proof__layout { display: grid; grid-template-columns: minmax(0, 1.8fr) minmax(0, 1fr); gap: clamp(2rem, 3.5vw, 3.5rem); align-items: center; }
+.oi-page .solo-proof__screen { margin: 0; min-width: 0; }
+.oi-page .solo-proof__screen > a { display: block; overflow: hidden; border: 1px solid #454051; border-radius: 16px; background: #19171e; box-shadow: 0 24px 60px -30px #000; }
+.oi-page .solo-proof__screen > a:focus-visible { outline: 2px solid var(--sb-accent); outline-offset: 5px; }
+.oi-page .solo-proof__screen-bar { display: flex; justify-content: space-between; gap: 1rem; align-items: center; padding: 1rem 1.1rem; color: #cbc5db; font-size: .875rem; }
+.oi-page .solo-proof__screen-bar > span:first-child { display: flex; align-items: center; gap: .6rem; }
+.oi-page .solo-proof__screen-bar > span:last-child { flex-shrink: 0; }
+.oi-page .solo-proof__screen-bar img { width: 22px; height: 22px; }
+.oi-page .solo-proof__capture { display: block; width: 100%; height: auto; }
+.oi-page .solo-proof__screen figcaption { margin-top: .9rem; font-size: .8125rem; color: #9c97a9; line-height: 1.5; }
+.oi-page .solo-proof__facts article { display: flex; align-items: baseline; gap: 1rem; padding: 1.35rem 0; border-bottom: 1px solid #35313f; }
+.oi-page .solo-proof__facts article:first-child { padding-top: 0; }
+.oi-page .solo-proof__number { flex: 0 0 22px; color: var(--sb-accent); font-size: .8125rem; }
+.oi-page .solo-proof__facts h3 { margin: 0 0 .65rem; color: #eeebf6; font-size: 1.375rem; line-height: 1.25; letter-spacing: -.025em; }
+.oi-page .solo-proof__facts p { margin: 0; color: #afa9bc; font-size: 1.0625rem; line-height: 1.6; }
+.oi-page .solo-proof__facts .btn { display: flex; justify-content: space-between; gap: 1rem; margin-top: 1.75rem; min-height: 58px; font-size: 1.0625rem; white-space: normal; }
+.oi-page #faq .section__header h2 { font-size: clamp(2rem, 3vw, 2.75rem); line-height: 1.2; }
+.oi-page #faq .faq__question { font-size: 1.125rem; padding-block: 1.15rem; line-height: 1.4; }
+.oi-page #faq .faq__answer p { max-width: 66ch; font-size: 1.0625rem; line-height: 1.7; }
+@media (max-width: 950px) {
+  .oi-page .solo-proof__layout { grid-template-columns: 1fr; }
+  .oi-page .solo-proof__facts { max-width: 650px; }
+}
+@media (max-width: 620px) {
+  .oi-page .solo-proof { padding: 3rem 0; }
+  .oi-page .solo-proof h2 { font-size: 2rem; }
+  .oi-page .solo-proof__intro { margin-bottom: 2rem; }
+  .oi-page .solo-proof__intro > p { font-size: 1.0625rem; }
+  .oi-page .solo-proof__screen-bar { padding: .8rem; font-size: .8125rem; }
+  .oi-page .solo-proof__screen-bar > span:first-child { gap: .4rem; }
+  .oi-page .solo-proof__facts h3 { font-size: 1.25rem; }
+  .oi-page .solo-proof__facts .btn { text-align: left; }
+}

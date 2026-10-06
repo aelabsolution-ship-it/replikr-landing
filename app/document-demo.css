@@ -1,0 +1,99 @@
+/* Un seul exemple : le même conseil passe du document au post illustré. */
+.oi-page .solo-documents { padding: 5rem 0; scroll-margin-top: 80px; }
+.oi-page .solo-documents__intro { max-width: 900px; margin: 0 auto; text-align: center; }
+.oi-page .solo-documents h2 { font-size: clamp(2.2rem, 3.7vw, 3.5rem); line-height: 1.15; }
+.oi-page .solo-documents h2 em { font-style: normal; color: var(--sb-accent); }
+.oi-page .solo-documents__intro > p { max-width: 60ch; margin: 1.25rem auto 0; }
+.oi-page .document-demo { margin: 2.75rem auto 0; max-width: 1080px; scroll-margin-top: 100px; }
+.oi-page .document-demo__stage { display: grid; grid-template-columns: minmax(0, .78fr) 90px minmax(0, 1.22fr); align-items: center; }
+.oi-page .document-demo__source, .oi-page .document-demo__output { min-width: 0; }
+.oi-page .document-demo h3.document-demo__label { display: flex; align-items: center; gap: .65rem; margin: 0 0 1.1rem; color: #eeebf6; font-size: 1.1875rem; font-weight: 550; line-height: 1.3; letter-spacing: -.02em; }
+.oi-page .document-demo__label > span { display: grid; place-items: center; flex: 0 0 28px; height: 28px; border-radius: 50%; color: #c4b8ef; border: 1px solid #605374; background: #26212f; font-size: .875rem; }
+.oi-page .document-demo__paper { min-height: 350px; padding: 1.75rem; border: 1px solid #4c465c; border-radius: 14px; background: linear-gradient(145deg, #302a3b, #201e27); }
+.oi-page .document-demo__file { display: flex; align-items: center; gap: .7rem; color: #c0b9d1; font-size: .875rem; line-height: 1.45; overflow-wrap: anywhere; }
+.oi-page .document-demo__file .solo-document-icon { flex-basis: 24px; height: 30px; }
+.oi-page .document-demo__file .solo-document-icon::after { inset: 9px 5px auto; box-shadow: 0 5px 0 var(--sb-accent), 0 10px 0 var(--sb-accent); }
+.oi-page .document-demo__paper h4 { margin: 1.5rem 0 1.2rem; font-size: 1.5rem; letter-spacing: -.025em; line-height: 1.25; color: #f1edf7; }
+.oi-page .document-demo__paper p { margin: 0; color: #d1cadc; font-size: 1.0625rem; line-height: 1.65; }
+.oi-page .document-demo__paper .document-demo__signature { margin-top: 1.4rem; color: #aba2bc; font-size: .875rem; line-height: 1.6; }
+.oi-page .document-demo mark { padding: .08em .15em; border-radius: 3px; box-decoration-break: clone; -webkit-box-decoration-break: clone; }
+.oi-page .document-demo__paper mark { color: #eee7ff; background: #66528580; }
+.oi-page .document-demo__bridge { display: flex; align-items: center; margin-top: 2.5rem; }
+.oi-page .document-demo__wire { position: relative; flex: 1; height: 1px; overflow: hidden; background: #4c4163; }
+.oi-page .document-demo__wire::after { content: ''; position: absolute; inset: -1px 0; background: #c5b6ff; transform: translateX(-110%); }
+.oi-page .document-demo__engine { display: flex; flex-direction: column; align-items: center; justify-content: center; flex: 0 0 50px; width: 50px; height: 64px; border: 1px solid #65537f; border-radius: 13px; background: #262030; box-shadow: 0 0 32px #a080f028; }
+.oi-page .document-demo__engine img { width: 28px; height: 28px; }
+.oi-page .document-demo__engine > span { color: #c8b9f1; font-size: 1.4rem; line-height: 1; }
+.oi-page .document-demo__post { overflow: hidden; border: 1px solid #d5d5d5; border-radius: 9px; background: #fff; color: #191919; font-family: Arial, Helvetica, sans-serif; box-shadow: 0 24px 65px -25px #0009; }
+.oi-page .document-demo__post-header { display: flex; align-items: flex-start; gap: .65rem; padding: 1rem 1rem .75rem; }
+.oi-page .document-demo__avatar { width: 48px; height: 48px; flex: 0 0 48px; object-fit: cover; border-radius: 50%; }
+.oi-page .document-demo__author { display: flex; flex: 1; min-width: 0; flex-direction: column; gap: .15rem; line-height: 1.35; }
+.oi-page .document-demo__author strong { font-size: 1rem; font-weight: 600; color: #191919; }
+.oi-page .document-demo__author > span { color: #666; font-size: .8125rem; }
+.oi-page .document-demo__author .document-demo__timestamp { display: flex; align-items: center; gap: .3rem; font-size: .75rem; }
+.oi-page .document-demo__timestamp svg { width: 13px; height: 13px; fill: none; stroke: currentColor; stroke-width: 1.5; }
+.oi-page .document-demo__post-menu { display: flex; gap: .8rem; color: #666; padding-top: .15rem; }
+.oi-page .document-demo__post-menu svg { width: 20px; height: 20px; fill: currentColor; }
+.oi-page .document-demo__post-menu svg + svg { fill: none; stroke: currentColor; stroke-width: 1.8; }
+.oi-page .document-demo__post-copy { padding: 0 1rem 1rem; }
+.oi-page .document-demo__post-copy p { margin: 0; color: #191919; font-size: .9375rem; line-height: 1.5; }
+.oi-page .document-demo__post-copy p + p { margin-top: .75rem; }
+.oi-page .document-demo__visual { position: relative; overflow: hidden; display: flex; flex-direction: column; gap: 1.5rem; padding: 1.75rem 2rem 1.25rem; background: radial-gradient(ellipse at 100% 0, #e0d4f4, transparent 65%), #c0b2e2; color: #302046; }
+.oi-page .document-demo__visual::after { content: ''; position: absolute; width: 210px; height: 210px; border: 1px solid #6d518b22; border-radius: 50%; right: -100px; top: 15px; box-shadow: 0 0 0 28px #6d518b09, 0 0 0 58px #6d518b06; pointer-events: none; }
+.oi-page .document-demo__visual-heading { position: relative; display: flex; align-items: center; gap: 1.5rem; z-index: 1; }
+.oi-page .document-demo__visual-count { font-size: 8.75rem; font-weight: 700; letter-spacing: -.085em; line-height: .85; color: #57406f; }
+.oi-page .document-demo__visual-heading > strong { color: #302046; font-size: clamp(1.65rem, 2.5vw, 2.25rem); font-weight: 700; line-height: 1.05; letter-spacing: -.04em; }
+.oi-page .document-demo__visual-checklist { display: flex; flex-direction: column; gap: .55rem; font-size: .9375rem; line-height: 1.3; }
+.oi-page .document-demo__visual-checklist > span { display: flex; align-items: center; gap: .6rem; }
+.oi-page .document-demo__visual-checklist i { display: grid; place-items: center; width: 18px; height: 18px; flex: 0 0 18px; border-radius: 50%; background: #57406f; color: #f3ecff; font-size: .6875rem; font-style: normal; }
+.oi-page .document-demo__visual-signature { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .4rem 1rem; border-top: 1px solid #57406f33; padding-top: .85rem; font-size: .625rem; letter-spacing: .09em; font-weight: 600; }
+.oi-page .document-demo__visual-signature > span { letter-spacing: 0; font-weight: 400; font-size: .75rem; }
+.oi-page .document-demo__post-actions { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .2rem; padding: .85rem .5rem; border-top: 1px solid #ebebeb; }
+.oi-page .document-demo__post-actions > span { display: flex; align-items: center; justify-content: center; gap: .4rem; color: #666; font-size: .75rem; font-weight: 600; white-space: nowrap; }
+.oi-page .document-demo__post-actions svg { flex: 0 0 21px; width: 21px; height: 21px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.oi-page .document-demo__footer { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: .75rem 2rem; margin-top: 1.2rem; }
+.oi-page .document-demo__footer > p { margin: 0; color: #96919f; font-size: .8125rem; line-height: 1.5; }
+.oi-page .solo-documents__action { text-align: center; margin-top: 2.25rem; }
+.oi-page .solo-documents__action .btn { font-size: 1.125rem; min-height: 60px; gap: 1rem; }
+.oi-page .solo-documents__action > p { max-width: 62ch; margin: 1.25rem auto 0; color: #b8b2c5; font-size: 1rem; line-height: 1.6; }
+.oi-page .document-demo.is-animating .document-demo__paper { animation: document-source-in .6s ease both; }
+.oi-page .document-demo.is-animating .document-demo__wire::after { animation: document-flow 1s .4s ease-in-out both; }
+.oi-page .document-demo.is-animating .document-demo__engine { animation: document-engine 1.7s .3s ease both; }
+.oi-page .document-demo.is-animating .document-demo__post { animation: document-post-in .9s .9s cubic-bezier(.16, 1, .3, 1) both; }
+.oi-page .document-demo.is-paused *, .oi-page .document-demo.is-paused *::after { animation-play-state: paused !important; }
+@keyframes document-source-in { from { opacity: .4; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+@keyframes document-flow { from { transform: translateX(-110%); } to { transform: translateX(110%); } }
+@keyframes document-engine { 0%, 100% { transform: scale(1); box-shadow: 0 0 32px #a080f028; } 45% { transform: scale(1.1); box-shadow: 0 0 46px #a080f088; } }
+@keyframes document-post-in { from { opacity: 0; transform: translateX(-18px); } to { opacity: 1; transform: none; } }
+@media (max-width: 1050px) {
+  .oi-page .document-demo__stage { grid-template-columns: minmax(0, .78fr) 64px minmax(0, 1.22fr); }
+  .oi-page .document-demo__paper { padding: 1.25rem; }
+  .oi-page .document-demo__paper h4 { font-size: 1.3rem; }
+  .oi-page .document-demo__post-actions > span { flex-direction: column; gap: .35rem; }
+}
+@media (max-width: 900px) {
+  .oi-page .document-demo__stage { grid-template-columns: 1fr; max-width: 580px; margin-inline: auto; }
+  .oi-page .document-demo__paper { min-height: 0; padding: 1.5rem; }
+  .oi-page .document-demo__bridge { height: 90px; width: 64px; margin: 1rem auto; transform: rotate(90deg); }
+  .oi-page .document-demo__engine img { transform: rotate(-90deg); }
+  .oi-page .document-demo__footer { max-width: 580px; margin-inline: auto; }
+  .oi-page .document-demo__visual-heading > strong { font-size: 2.25rem; }
+}
+@media (max-width: 620px) {
+  .oi-page .solo-documents { padding: 3.5rem 0; }
+  .oi-page .solo-documents h2 { font-size: clamp(2rem, 7.5vw, 2.75rem); }
+  .oi-page .solo-documents__intro > p { font-size: 1.0625rem; }
+  .oi-page .document-demo__post-header { gap: .5rem; }
+  .oi-page .document-demo__post-menu { gap: .3rem; }
+  .oi-page .document-demo__post-menu svg + svg { display: none; }
+  .oi-page .document-demo__visual { padding: 1.5rem; }
+  .oi-page .document-demo__visual-heading { gap: 1rem; }
+  .oi-page .document-demo__visual-heading > strong { font-size: clamp(1.5rem, 6vw, 2.25rem); }
+  .oi-page .document-demo__visual-count { font-size: 7.5rem; }
+  .oi-page .document-demo__post-actions > span { font-size: .6875rem; }
+  .oi-page .document-demo__footer { justify-content: center; text-align: center; }
+  .oi-page .solo-documents__action .btn { width: 100%; white-space: normal; justify-content: space-between; text-align: left; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .oi-page .document-demo.is-animating *, .oi-page .document-demo.is-animating *::after { animation: none !important; }
+}

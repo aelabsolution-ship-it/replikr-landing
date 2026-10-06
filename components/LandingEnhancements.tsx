@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 
-/** Progressive enhancements; content, video controls and FAQ work without JS. */
+/** Progressive enhancements; content and FAQ remain available without JS. */
 export default function LandingEnhancements() {
   useEffect(() => {
     // No tracking cookie: carry the partner code and campaign only in the URL.
@@ -87,39 +87,99 @@ export default function LandingEnhancements() {
     window.addEventListener("resize", resize);
     reduce.addEventListener("change", schedule);
     views.forEach(view => { view.tabIndex = 0; view.setAttribute("aria-label", "Démonstration Replikr, défilement horizontal"); });
-    // Videos only load and play once they scroll into view, pause off screen and keep the poster under
-    // reduced motion. A click (or Enter / Space) on a video or on the formats strip pauses it;
-    // a video the visitor paused stays paused.
-    const toggleOnPress = (el: HTMLElement, label: string, toggle: () => boolean) => {
-      el.tabIndex = 0;
-      el.setAttribute("role", "button");
-      const sync = (paused: boolean) => {
-        el.setAttribute("aria-pressed", String(paused));
-        el.setAttribute("aria-label", `${label} : ${paused ? "en pause, activer pour relancer" : "activer pour mettre en pause"}`);
-      };
-      const run = () => sync(toggle());
-      const key = (event: KeyboardEvent) => {
-        if (event.key === "Enter" || event.key === " ") { event.preventDefault(); run(); }
-      };
-      el.addEventListener("click", run);
-      el.addEventListener("keydown", key);
-      sync(false);
-      return () => { el.removeEventListener("click", run); el.removeEventListener("keydown", key); };
-    };
+    // Muted demos play automatically in view, without manual playback controls.
+    // Pause off screen, in a background tab, or when reduced motion is requested.
+    const cleanups: Array<() => void> = [];
     const videos = [...document.querySelectorAll<HTMLVideoElement>(".oi-step-video")];
-    const held = new WeakSet<HTMLVideoElement>();
-    const cleanups = videos.map(video => toggleOnPress(video, "Animation", () => {
-      if (video.paused) { held.delete(video); video.play().catch(() => {}); return false; }
-      held.add(video); video.pause(); return true;
-    }));
-    const watcher = new IntersectionObserver(entries => entries.forEach(({ target, isIntersecting }) => {
-      const video = target as HTMLVideoElement;
-      if (isIntersecting && !reduce.matches && !held.has(video)) video.play().catch(() => {});
+    const visibleVideos = new Set<HTMLVideoElement>();
+    const syncVideos = () => videos.forEach(video => {
+      if (visibleVideos.has(video) && !reduce.matches && !document.hidden) video.play().catch(() => {});
       else video.pause();
-    }), { threshold: .35 });
-    videos.forEach(video => { if (reduce.matches) video.pause(); watcher.observe(video); });
-    const strip = document.querySelector<HTMLElement>(".oi-formats");
-    if (strip) cleanups.push(toggleOnPress(strip, "Défilé des formats", () => strip.classList.toggle("is-paused")));
+    });
+    const watcher = new IntersectionObserver(entries => {
+      entries.forEach(({ target, isIntersecting }) => {
+        const video = target as HTMLVideoElement;
+        if (isIntersecting) visibleVideos.add(video);
+        else visibleVideos.delete(video);
+      });
+      syncVideos();
+    }, { threshold: .35 });
+    videos.forEach(video => { video.controls = false; video.muted = true; watcher.observe(video); });
+    reduce.addEventListener("change", syncVideos);
+    document.addEventListener("visibilitychange", syncVideos);
+    syncVideos();
+    cleanups.push(() => {
+      reduce.removeEventListener("change", syncVideos);
+      document.removeEventListener("visibilitychange", syncVideos);
+      videos.forEach(video => video.pause());
+    });
+
+    // This is a local illustration only: no profile is fetched from the landing.
+    const profileScan = document.querySelector<HTMLElement>(".profile-scan");
+    if (profileScan) {
+      let scanVisible = false;
+      const syncScan = () => {
+        profileScan.classList.toggle("is-paused", !scanVisible || reduce.matches || document.hidden);
+      };
+      const scanWatcher = new IntersectionObserver(entries => {
+        scanVisible = entries.some(entry => entry.isIntersecting);
+        syncScan();
+      }, { threshold: .25 });
+      profileScan.classList.add("is-enhanced");
+      reduce.addEventListener("change", syncScan);
+      document.addEventListener("visibilitychange", syncScan);
+      scanWatcher.observe(profileScan);
+      syncScan();
+      cleanups.push(() => {
+        scanWatcher.disconnect();
+        reduce.removeEventListener("change", syncScan);
+        document.removeEventListener("visibilitychange", syncScan);
+        profileScan.classList.remove("is-enhanced");
+      });
+    }
+    const documentDemo = document.querySelector<HTMLElement>(".document-demo");
+    if (documentDemo) {
+      let visible = false;
+      let played = false;
+      let replayFrame = 0;
+      const syncDemo = () => {
+        documentDemo.classList.toggle("is-paused", !visible || reduce.matches || document.hidden);
+        if (reduce.matches) documentDemo.classList.remove("is-animating");
+      };
+      const replayDemo = () => {
+        if (reduce.matches) return;
+        played = true;
+        cancelAnimationFrame(replayFrame);
+        documentDemo.classList.remove("is-animating");
+        replayFrame = requestAnimationFrame(() => {
+          replayFrame = requestAnimationFrame(() => {
+            documentDemo.classList.add("is-animating");
+            syncDemo();
+          });
+        });
+      };
+      const onDemoEnd = (event: AnimationEvent) => {
+        if (event.animationName === "document-post-in") documentDemo.classList.remove("is-animating");
+      };
+      const demoWatcher = new IntersectionObserver(entries => {
+        visible = entries.some(entry => entry.isIntersecting);
+        syncDemo();
+        if (visible && !played) replayDemo();
+      }, { threshold: .2 });
+      documentDemo.addEventListener("animationend", onDemoEnd);
+      reduce.addEventListener("change", syncDemo);
+      document.addEventListener("visibilitychange", syncDemo);
+      demoWatcher.observe(documentDemo);
+      syncDemo();
+      cleanups.push(() => {
+        cancelAnimationFrame(replayFrame);
+        demoWatcher.disconnect();
+        documentDemo.removeEventListener("animationend", onDemoEnd);
+        reduce.removeEventListener("change", syncDemo);
+        document.removeEventListener("visibilitychange", syncDemo);
+        documentDemo.classList.remove("is-animating");
+      });
+    }
     resize();
     update();
     return () => {

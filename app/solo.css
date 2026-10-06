@@ -1,0 +1,157 @@
+/* Version éditoriale pour les entrepreneurs solo. */
+.oi-page .oi-hero h1 { text-wrap: balance; }
+.oi-page .oi-hero__lead { max-width: 43ch; }
+.oi-page .oi-hero__actions .btn { gap: 1rem; }
+.oi-page .solo-trial {
+  margin: 1rem 0 0;
+  color: var(--sb-texte-2);
+  font-size: .8rem;
+  line-height: 1.5;
+}
+
+/* Le poids de la recherche de clients, raconté en trois scènes du quotidien. */
+.oi-page .solo-pains {
+  padding: 5.5rem 0;
+  border-block: 1px solid var(--sb-filet);
+  background: var(--sb-fond-2);
+  scroll-margin-top: 80px;
+}
+.oi-page .solo-pains__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  align-items: center;
+  gap: clamp(3rem, 7vw, 7rem);
+  max-width: 1200px;
+}
+.oi-page .solo-pains h2 {
+  margin: 0 0 2.5rem;
+  font-size: clamp(2.5rem, 4.4vw, 4rem);
+  line-height: 1.09;
+  letter-spacing: -.045em;
+}
+.oi-page .solo-documents h2 {
+  margin: 0;
+  font-size: clamp(2rem, 3.4vw, 3.25rem);
+  line-height: 1.15;
+  letter-spacing: -.035em;
+  text-wrap: balance;
+}
+.oi-page .solo-pains h2 em { color: var(--sb-accent); font-style: normal; }
+.oi-page .solo-pains__situations article { padding: 1.75rem 0; }
+.oi-page .solo-pains__situations article:first-child { padding-top: 0; }
+.oi-page .solo-pains__situations article:last-child { padding-bottom: 0; }
+.oi-page .solo-pains__situations article + article { border-top: 1px solid var(--sb-filet); }
+.oi-page .solo-pains__situations h3 {
+  margin: 0 0 .8rem;
+  font-size: clamp(1.35rem, 2vw, 1.65rem);
+  line-height: 1.25;
+  letter-spacing: -.025em;
+}
+.oi-page .solo-pains__situations p {
+  margin: 0;
+  max-width: 43ch;
+  color: var(--sb-texte-2);
+  font-size: 1.125rem;
+  line-height: 1.65;
+}
+.oi-page .solo-pains .btn,
+.oi-page .solo-documents .btn { gap: 1rem; flex-shrink: 0; font-size: 1.0625rem; min-height: 56px; }
+
+/* Des étapes et des boutons assez présents pour guider la lecture. */
+.oi-page #comment { padding-top: 2.5rem; }
+.oi-page .oi-track__label .oi-track__step {
+  font-size: clamp(1.5rem, 2.5vw, 2rem);
+  font-weight: 600;
+}
+.oi-page .solo-step-copy { min-width: 0; margin-bottom: 1.5rem; }
+.oi-page .solo-step-copy h2 { font-size: clamp(1.75rem, 2.7vw, 2.5rem); line-height: 1.18; text-wrap: balance; }
+.oi-page .solo-step-copy > p { margin: 1rem 0; font-size: 1.125rem; line-height: 1.6; }
+.oi-page .solo-step-copy .oi-step-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  max-width: 100%;
+  min-height: 58px;
+  margin: .75rem 0 0;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--sb-accent);
+  border-radius: 12px;
+  background: rgba(169, 171, 232, .09);
+  color: var(--sb-texte);
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.35;
+  transition: background .2s ease, border-color .2s ease;
+}
+.oi-page .solo-step-copy .oi-step-link:hover { background: rgba(169, 171, 232, .2); border-color: var(--sb-texte); }
+.oi-page .solo-step-copy .oi-step-link span { flex-shrink: 0; font-size: 1.4rem; color: var(--sb-accent); }
+.oi-page .oi-track__body .solo-plan-note { margin: 1rem 0 0; font-size: .875rem; color: var(--sb-texte-2); }
+
+/* Exemples illustratifs : un document du quotidien, une idée de publication. */
+.oi-page .solo-documents { padding: 5rem 0; border-block: 1px solid var(--sb-filet); background: var(--sb-fond-2); }
+.oi-page .solo-documents__intro { max-width: 850px; }
+.oi-page .solo-documents__intro > p { max-width: 55ch; margin: 1.5rem 0 0; font-size: 1.1875rem; line-height: 1.6; color: var(--sb-texte-2); }
+.oi-page .solo-documents__examples { margin: 2.5rem 0; }
+.oi-page .solo-documents__examples article {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1.2fr);
+  align-items: center;
+  gap: 2rem;
+  padding: 1.75rem 0;
+  border-bottom: 1px solid var(--sb-filet);
+}
+.oi-page .solo-documents__source { display: flex; align-items: center; gap: 1.25rem; }
+.oi-page .solo-documents__source h3 { margin: 0; font-size: 1.375rem; line-height: 1.3; }
+.oi-page .solo-document-icon { position: relative; flex: 0 0 34px; height: 42px; border: 1.5px solid var(--sb-accent); border-radius: 5px; background: rgba(169, 171, 232, .06); }
+.oi-page .solo-document-icon::after { content: ''; position: absolute; inset: 13px 7px auto; height: 1px; background: var(--sb-accent); box-shadow: 0 6px 0 var(--sb-accent), 0 12px 0 var(--sb-accent); opacity: .65; }
+.oi-page .solo-documents__arrow { color: var(--sb-accent); font-size: 1.75rem; }
+.oi-page .solo-documents__examples article > p { margin: 0; color: var(--sb-accent); font-size: 1.375rem; line-height: 1.45; }
+
+/* Trois offres visibles ; les quotas détaillés restent dans le comparatif. */
+.oi-page .rk-pricing .rk-pricing__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); max-width: 1120px; }
+.oi-page .rk-pricing .rk-card__tagline { margin-bottom: .75rem; font-size: 1rem; line-height: 1.5; }
+.oi-page .rk-pricing .rk-card__credits { min-height: 0; }
+.oi-page .rk-pricing .rk-card__features { flex: 1; }
+.oi-page .rk-pricing .rk-card__features li { font-size: 1rem; }
+.oi-page .rk-pricing .rk-card__button { font-size: 1rem; }
+.oi-page .rk-pricing .solo-pricing-explanation { margin: 1.25rem 0; font-size: 1rem; line-height: 1.6; color: var(--sb-texte-2); text-align: left; }
+.oi-page .oi-final .solo-trial { font-size: .8rem; margin-top: 1rem; }
+
+@media (min-width: 1001px) {
+  .oi-page .oi-track__row { grid-template-columns: 1fr; gap: 1.5rem; }
+  .oi-page .oi-track__label { position: static; }
+  .oi-page .oi-track__body { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); gap: 3rem; align-items: center; margin-left: calc(40px + 1.1rem); }
+  .oi-page .solo-step-copy { grid-column: 1; grid-row: 1; margin: 0; }
+  .oi-page .oi-track__body > .oi-frame { grid-column: 2; grid-row: 1; margin: 0; }
+}
+@media (min-width: 1025px) {
+  .oi-page .oi-hero h1 { font-size: clamp(2.4rem, 3.65vw, 3.65rem); }
+}
+@media (max-width: 1024px) {
+  .oi-page .oi-hero__lead { margin-inline: auto; }
+}
+@media (max-width: 800px) {
+  .oi-page .solo-pains__layout { grid-template-columns: 1fr; gap: 2.75rem; }
+  .oi-page .solo-pains h2 { font-size: clamp(2.5rem, 6vw, 3.5rem); }
+  .oi-page .solo-documents__examples article { grid-template-columns: 1fr; gap: 1rem; }
+  .oi-page .solo-documents__arrow { display: none; }
+  .oi-page .solo-documents__examples article > p { margin-left: calc(34px + 1.25rem); }
+}
+@media (max-width: 720px) {
+  .oi-page .rk-pricing .rk-pricing__grid { grid-template-columns: 1fr; max-width: 440px; }
+  .oi-page .rk-pricing .rk-compare tr { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 620px) {
+  .oi-page .oi-hero h1 { font-size: clamp(1.55rem, 7.2vw, 2.4rem); }
+  .oi-page .oi-hero__lead { font-size: .95rem; }
+  .oi-page .oi-hero__actions { width: 100%; }
+  .oi-page .oi-hero__actions .btn { padding-inline: 1rem; font-size: .9rem; }
+  .oi-page .oi-hero__intro > .solo-trial { order: 3; margin-top: .65rem; }
+  .oi-page .solo-pains, .oi-page .solo-documents { padding: 3rem 0; }
+  .oi-page .solo-documents h2 { font-size: 1.875rem; }
+  .oi-page .solo-pains h2 { font-size: clamp(2rem, 8.7vw, 3rem); }
+  .oi-page .solo-pains .btn, .oi-page .solo-documents .btn { width: 100%; white-space: normal; text-align: left; }
+  .oi-page .solo-step-copy .oi-step-link { width: 100%; font-size: 1.0625rem; }
+  .oi-page .solo-documents__source h3, .oi-page .solo-documents__examples article > p { font-size: 1.1875rem; }
+}

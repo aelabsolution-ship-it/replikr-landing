@@ -6,25 +6,25 @@ import { useEffect, useRef, useState } from "react";
 const plans = [
   {
     id: "freemium", name: "Gratuit", tagline: "Testez sans carte bancaire", price: 0, annual: 0, annualMonthly: 0, credits: "100 crédits offerts",
-    features: ["2 carnets de publication", "5 contenus par carnet de publication", "1 marque", "3 sources par carnet de publication", "Posts, images, infographies et scripts", "Tournage et téléchargement du rush brut"],
+    features: ["Créez à partir de vos documents, liens ou vidéos", "Textes, images et infographies", "Textes pour vos vidéos", "Filmez et téléchargez vos vidéos brutes"],
     excluded: ["Carrousels illustrés", "Montage et sous-titres", "Publication et programmation"],
     featured: false, free: true,
-    highlights: ["100 crédits offerts", "2 carnets de publication", "Posts, images, scripts"],
+    highlights: ["100 crédits offerts", "Vos documents comme point de départ", "Textes, images, infographies"],
   },
   {
     id: "power", name: "Créateur", tagline: "Créez vos contenus", price: 35, annual: 348, annualMonthly: 29, credits: "410 crédits / mois",
     base: "Gratuit",
-    features: ["10 carnets de publication, 30 contenus chacun", "6 sources par carnet de publication", "Carrousels illustrés", "Montage et sous-titres des shorts", "Copier et télécharger", "Recharges de crédits"],
+    features: ["Organisez vos publications par sujet", "Croisez plusieurs documents pour enrichir vos publications", "Carrousels illustrés", "Montage et sous-titres des vidéos courtes", "Copiez vos textes et téléchargez vos images", "Crédits supplémentaires à la demande"],
     excluded: ["Publication et programmation"],
     featured: false, free: false,
-    highlights: ["410 crédits / mois", "10 carnets de publication", "Carrousels et montage"],
+    highlights: ["410 crédits / mois", "Vos publications organisées par sujet", "Carrousels et montage"],
   },
   {
     id: "power_pub", name: "Solopreneur", tagline: "Créez et publiez partout", price: 66, annual: 660, annualMonthly: 55, credits: "660 crédits / mois",
     base: "Créateur",
-    features: ["30 carnets de publication, 50 contenus chacun", "Publication directe sur vos réseaux", "Programmation dans le calendrier", "2 vidéos conservées par carnet de publication"],
+    features: ["Préparez vos publications à l’avance", "Publiez directement sur vos réseaux", "Choisissez le jour et l’heure de publication", "Retrouvez vos vidéos avec les publications du même sujet"],
     excluded: [], featured: true, free: false,
-    highlights: ["660 crédits / mois", "30 carnets de publication", "Publication directe"],
+    highlights: ["660 crédits / mois", "Vos publications programmées", "Publication directe"],
   },
   {
     id: "community_manager", name: "Agence", tagline: "Gérez jusqu’à 10 marques", price: 359, annual: 3588, annualMonthly: 299, credits: "4 470 crédits / mois",
@@ -34,6 +34,11 @@ const plans = [
     highlights: ["4 470 crédits / mois", "10 marques", "100 carnets de publication"],
   },
 ];
+
+// Une même sélection alimente les cartes et le comparatif de cette landing.
+const landingPlans = plans
+  .map((plan, index) => ({ plan, index }))
+  .filter(({ plan }) => plan.id !== "community_manager");
 
 // Agenda de Ludovic : l'Agence peut en parler avant de payer, l'Entreprise
 // commence toujours par là (22 sept. 2026).
@@ -81,20 +86,19 @@ function Amount({ value }: { value: number }) {
 
 // Ce qui distingue vraiment les offres — l'essai compris, pour qu'on voie tout
 // de suite ce qu'il permet et ce qu'il ne permet pas.
-const PLAN_NAMES = ["Gratuit", "Créateur", "Solopreneur", "Agence"];
 type Cell = string | boolean;
 const COMPARE: { label: string; values: Cell[] }[] = [
   { label: "Crédits", values: [plans[0].credits + " · une seule fois", "410 par mois", "660 par mois", "4 470 par mois"] },
   { label: "Recharge de 5 €", values: [false, "110 crédits", "150 crédits", "190 crédits"] },
-  { label: "Carnets de publication conservés", values: ["2", "10", "30", "100"] },
-  { label: "Contenus par carnet de publication", values: ["5", "30", "50", "100"] },
-  { label: "Sources par carnet de publication", values: ["3", "6", "6", "6"] },
-  { label: "Analyser une source", values: [true, true, true, true] },
+  { label: "Sujets de publication conservés", values: ["2", "10", "30", "100"] },
+  { label: "Contenus conservés par sujet", values: ["5", "30", "50", "100"] },
+  { label: "Documents, liens ou vidéos par sujet", values: ["3", "6", "6", "6"] },
+  { label: "Créer à partir de vos documents", values: [true, true, true, true] },
   { label: "Post avec image, infographie, script", values: [true, true, true, true] },
   { label: "Carrousel illustré", values: [false, true, true, true] },
-  { label: "Filmer et télécharger le rush brut", values: [true, true, true, true] },
-  { label: "Montage et sous-titres des shorts", values: [false, true, true, true] },
-  { label: "Vidéos conservées par carnet de publication", values: ["Aucune", "Aucune", "2", "2"] },
+  { label: "Filmer et télécharger vos vidéos brutes", values: [true, true, true, true] },
+  { label: "Montage et sous-titres des vidéos courtes", values: [false, true, true, true] },
+  { label: "Vidéos conservées par sujet", values: ["Aucune", "Aucune", "2", "2"] },
   { label: "Publier et programmer", values: [false, false, true, true] },
   { label: "Marques", values: ["1", "1", "1", "10"] },
 ];
@@ -134,7 +138,7 @@ export default function PricingSection() {
           ))}
         </div>
         <div className="rk-pricing__grid" aria-label="Les offres Replikr" aria-live="polite" aria-atomic="true">
-          {plans.map((plan) => (
+          {landingPlans.map(({ plan }) => (
             <article key={plan.name} className={`rk-card${plan.featured ? " rk-card--featured" : ""}${plan.free ? " rk-card--free" : ""}`}>
               <div className="rk-card__head">
                 <p className="rk-card__price">
@@ -162,7 +166,7 @@ export default function PricingSection() {
               </ul>
               <a className="rk-card__button" href={plan.free ? "https://app.replikr.io" : `https://app.replikr.io/billing?plan=${plan.id}&period=${annual ? "year" : "month"}`}
                  aria-label={plan.free ? "Commencer gratuitement" : `Choisir ${plan.name}`}>
-                <span className="rk-card__label-long">{plan.free ? "Commencer gratuitement" : plan.featured ? "Choisir Créer + Publier" : "Choisir cette offre"}</span>
+                <span className="rk-card__label-long">{plan.free ? "Commencer gratuitement" : `Choisir ${plan.name}`}</span>
                 <span className="rk-card__label-short" aria-hidden="true">{plan.free ? "Essayer" : "Choisir"}</span>
                 <span aria-hidden="true">↗</span>
               </a>
@@ -200,28 +204,28 @@ export default function PricingSection() {
             <span className="rk-compare-fold__icon" aria-hidden="true">+</span>
           </summary>
           <div className="rk-compare-fold__body">
+        <p className="solo-pricing-explanation">Un sujet regroupe vos documents et les contenus créés à partir d’eux : une offre, une méthode, une question fréquente. Dans Replikr, cet espace s’appelle un carnet de publication.</p>
+        <p className="solo-pricing-explanation">Les limites ci-dessous indiquent ce que vous pouvez conserver. Chaque création utilise des crédits ; le nombre de créations dépend des formats choisis.</p>
         <table className="rk-compare">
           <caption className="rk-sr-only">Ce qui change d’une offre à l’autre</caption>
           <thead>
             <tr>
               <th scope="col">&nbsp;</th>
-              <th scope="col">Gratuit · 0 €</th>
-              <th scope="col">Créateur</th>
-              <th scope="col">Solopreneur</th>
-              <th scope="col">Agence</th>
+              {landingPlans.map(({ plan }) => <th key={plan.id} scope="col">{plan.free ? "Gratuit · 0 €" : plan.name}</th>)}
             </tr>
           </thead>
           <tbody>
             {COMPARE.map((row) => (
               <tr key={row.label}>
                 <th scope="row">{row.label}</th>
-                {row.values.map((v, i) => (
-                  <td key={i} data-plan={PLAN_NAMES[i]}>
+                {landingPlans.map(({ plan, index }) => {
+                  const v = row.values[index];
+                  return <td key={plan.id} data-plan={plan.name}>
                     {v === true ? <span className="rk-compare__yes" aria-label="Inclus">✓</span>
                      : v === false ? <span className="rk-compare__no" aria-label="Non inclus">—</span>
                      : v}
-                  </td>
-                ))}
+                  </td>;
+                })}
               </tr>
             ))}
           </tbody>
