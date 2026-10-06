@@ -55,6 +55,9 @@
     100% { transform: translate(0, 0); }
 }
 
+/* Les styles par défaut restent sous les utilitaires Tailwind 4 :
+   le reset ne doit pas annuler les espacements et la typographie des composants. */
+@layer base {
 /* --- Reset --- */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; }
@@ -83,6 +86,7 @@ h2 { font-size: clamp(1.8rem, 3.5vw, 2.75rem); }
 h3 { font-size: clamp(1.1rem, 1.8vw, 1.3rem); }
 p { font-size: 1rem; line-height: 1.78; font-family: var(--font-corps); }
 strong { font-family: var(--font-corps); font-weight: 600; }
+}
 
 .gradient-text {
     background: linear-gradient(135deg, var(--bleu-violet) 20%, #b88aff 100%);
