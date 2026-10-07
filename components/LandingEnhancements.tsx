@@ -180,6 +180,54 @@ export default function LandingEnhancements() {
         documentDemo.classList.remove("is-animating");
       });
     }
+    // Feed carousels advance on their own while visible; a swipe still works (native scroll).
+    document.querySelectorAll<HTMLElement>("[data-carousel]").forEach(carousel => {
+      const track = carousel.querySelector<HTMLElement>(".feed__track");
+      const index = carousel.querySelector<HTMLElement>("[data-carousel-index]");
+      if (!track || !index) return;
+      const count = track.children.length;
+      const current = () => Math.round(track.scrollLeft / track.clientWidth);
+      const sync = () => {
+        const i = current();
+        index.textContent = String(i + 1);
+        carousel.style.setProperty("--slide", String(i + 1));
+      };
+      const advance = () => track.scrollTo({
+        left: ((current() + 1) % count) * track.clientWidth,
+        behavior: reduce.matches ? "auto" : "smooth",
+      });
+      let timer = 0;
+      let kick = 0;
+      let visible = false;
+      // Starts as soon as the phone enters the screen: a quick first turn, then every 2.8 s.
+      const syncPlay = () => {
+        window.clearInterval(timer);
+        window.clearTimeout(kick);
+        timer = 0;
+        if (!visible || reduce.matches || document.hidden) return;
+        kick = window.setTimeout(() => {
+          advance();
+          timer = window.setInterval(advance, 2800);
+        }, 1000);
+      };
+      const playWatcher = new IntersectionObserver(entries => {
+        visible = entries.some(entry => entry.isIntersecting);
+        syncPlay();
+      }, { threshold: .15 });
+      track.addEventListener("scroll", sync, { passive: true });
+      document.addEventListener("visibilitychange", syncPlay);
+      reduce.addEventListener("change", syncPlay);
+      playWatcher.observe(carousel);
+      sync();
+      cleanups.push(() => {
+        window.clearInterval(timer);
+        window.clearTimeout(kick);
+        playWatcher.disconnect();
+        track.removeEventListener("scroll", sync);
+        document.removeEventListener("visibilitychange", syncPlay);
+        reduce.removeEventListener("change", syncPlay);
+      });
+    });
     resize();
     update();
     return () => {

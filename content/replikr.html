@@ -17,7 +17,7 @@
             <div class="oi-wide">
                 <div class="oi-hero__intro">
                     <h1>Vos futurs clients sont sur les réseaux.<br><em>Vous, vous n’avez pas le temps d’y être.</em></h1>
-                    <p class="oi-hero__lead">Un document suffit. Replikr fait le reste.</p>
+                    <p class="oi-hero__lead">Déposez une vidéo, un PDF ou vos notes. <strong>Replikr écrit vos posts, crée les visuels et les adapte à chaque réseau.</strong> Vous relisez, vous publiez.</p>
                     <div class="oi-hero__actions">
                         <a href="https://app.replikr.io" class="btn btn--primary btn--lg btn--glow">Créer mes premières publications <span aria-hidden="true">→</span></a>
                     </div>
@@ -34,56 +34,89 @@
         </section>
 
         <section class="solo-proof" id="du-concret" aria-labelledby="solo-proof-title">
-            <div class="oi-wide">
-                <div class="solo-proof__intro">
+            <svg class="ph-sprite" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><defs>
+                    <symbol id="ph-like" viewBox="0 0 24 24"><path d="M7 11v10H3V11h4zm0 0 4-8a2.5 2.5 0 0 1 2.5 2.5V9h5.6a2 2 0 0 1 2 2.3l-1.3 8A2 2 0 0 1 17.8 21H7"/></symbol>
+                    <symbol id="ph-comment" viewBox="0 0 24 24"><path d="M20.5 11.5a8.5 8.5 0 0 1-12.6 7.4L3.5 20.5l1.6-4.2A8.5 8.5 0 1 1 20.5 11.5z"/></symbol>
+                    <symbol id="ph-repost" viewBox="0 0 24 24"><path d="M17 3l3.5 3.5L17 10M3.5 11V9a2.5 2.5 0 0 1 2.5-2.5h14.5M7 21l-3.5-3.5L7 14m13.5-1v2a2.5 2.5 0 0 1-2.5 2.5H3.5"/></symbol>
+                    <symbol id="ph-send" viewBox="0 0 24 24"><path d="M21.5 2.5 10 14M21.5 2.5 14.5 21.5 10 14 2.5 9.5z"/></symbol>
+                    <symbol id="ph-heart" viewBox="0 0 24 24"><path d="M12 20.5S3 15 3 8.8A4.8 4.8 0 0 1 12 6.3a4.8 4.8 0 0 1 9 2.5C21 15 12 20.5 12 20.5z"/></symbol>
+                    <symbol id="ph-save" viewBox="0 0 24 24"><path d="M6 3h12v18l-6-4.5L6 21z"/></symbol>
+                    <symbol id="ph-share" viewBox="0 0 24 24"><path d="M14 4l7 7-7 7v-4c-5 0-8.5 1.5-11 5 1-5 4-10 11-11z"/></symbol>
+                    <symbol id="ph-home" viewBox="0 0 24 24"><path d="M3 11 12 3l9 8v10h-6v-6H9v6H3z"/></symbol>
+                    <symbol id="ph-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></symbol>
+                    <symbol id="ph-plus" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><path d="M12 8v8M8 12h8"/></symbol>
+                    <symbol id="ph-people" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c.5-4 3-6 6.5-6s6 2 6.5 6M16 4.5a3.5 3.5 0 0 1 0 7M18 14c2 .7 3.3 2.7 3.5 6"/></symbol>
+                    <symbol id="ph-bell" viewBox="0 0 24 24"><path d="M6 16V11a6 6 0 0 1 12 0v5l2 2H4zM10 21h4"/></symbol>
+                    <symbol id="ph-reel" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5"/><path d="M3 8h18M8 3l3 5M14 3l3 5M10 12v6l5-3z"/></symbol>
+                    <symbol id="ph-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+                    <symbol id="ph-dots" viewBox="0 0 24 24"><circle cx="5" cy="12" r="1.3"/><circle cx="12" cy="12" r="1.3"/><circle cx="19" cy="12" r="1.3"/></symbol>
+                </defs></svg>
+            <div class="oi-wide proof-grid">
+                <div class="proof-copy">
                     <h2 id="solo-proof-title">Jugez sur <em>ce qu’il produit.</em></h2>
-                    <p><strong>Vous connaissez votre contenu mieux que personne.</strong> C’est pour ça que vous êtes le seul à pouvoir juger le résultat.</p>
-                </div>
-                <div class="solo-proof__layout">
-                    <div class="solo-proof__gallery" role="list" aria-label="Exemples de contenus créés par Replikr">
-                        <figure role="listitem"><img src="/demo/hero/carousel.webp" width="421" height="526" loading="lazy" alt="Première slide d’un carrousel : « J’ai donné le même prompt à l’IA. Un post a flop, l’autre a cartonné. »"><figcaption>Carrousel</figcaption></figure>
-                        <figure role="listitem"><img src="/demo/hero/infographie-tournage.webp" width="1080" height="1350" loading="lazy" alt="Infographie « Tourner sans improviser » : trois réflexes avant et après."><figcaption>Infographie</figcaption></figure>
-                        <figure role="listitem"><img src="/demo/hero/post.webp" width="339" height="424" loading="lazy" alt="Image de post avec photo de l’auteur et trois étapes : idéation, rédaction, vérification."><figcaption>Post + image</figcaption></figure>
-                        <figure role="listitem"><img src="/demo/hero/infographic.webp" width="418" height="523" loading="lazy" alt="Infographie « Créer du contenu régulier » en cinq étapes."><figcaption>Fiche méthode</figcaption></figure>
+                    <p><strong>La fiche que vous envoyez déjà à vos clients ou à vos apprenants suffit.</strong> Replikr en tire un carrousel pour LinkedIn, une infographie pour Instagram, une autre pour Facebook.</p>
+                    <div class="proof-flow" aria-label="Une fiche PDF passe dans Replikr et devient trois posts : LinkedIn, Instagram et Facebook.">
+<div class="pdf-card" aria-hidden="true">
+                            <div class="pdf-card__page">
+                                <span class="pdf-card__badge">PDF</span>
+                                <small>FICHE MÉTHODE</small>
+                                <strong>Ne plus laisser les petites demandes clients décider de votre journée</strong>
+                                <span class="pdf-card__rule"></span>
+                                <span class="pdf-card__lines"><i></i><i></i><i></i><i></i><i></i></span>
+                                <span class="pdf-card__h">La méthode</span>
+                                <span class="pdf-card__lines"><i></i><i></i><i></i></span>
+                            </div>
+                            <div class="pdf-card__meta"><b>fiche-demandes-clients.pdf</b><small>Fiche méthode · 2 pages</small></div>
+                        </div>
+                        <span class="proof-flow__node" aria-hidden="true"><img src="/logo.png" alt="" width="30" height="30">Replikr écrit, illustre et adapte<svg class="proof-flow__arrow" viewBox="0 0 60 16"><path d="M0 8h54M47 2l7 6-7 6"/></svg></span>
                     </div>
-                    <div class="solo-proof__facts">
-                        <article>
-                            <span class="solo-proof__number" aria-hidden="true">01</span>
-                            <div><h3>Vos documents donnent le fond.</h3><p>Vos explications, vos méthodes et vos exemples servent de point de départ.</p></div>
-                        </article>
-                        <article>
-                            <span class="solo-proof__number" aria-hidden="true">02</span>
-                            <div><h3>Vous gardez le dernier mot.</h3><p>Relisez les textes. Ajustez les images. Choisissez ce que vous publiez.</p></div>
-                        </article>
-                        <article>
-                            <span class="solo-proof__number" aria-hidden="true">03</span>
-                            <div><h3>Votre premier post en un clic.</h3><p>Déposez votre document. Replikr crée le texte et l’image de votre post.</p></div>
-                        </article>
-                        <a href="https://app.replikr.io" class="btn btn--primary btn--lg">Essayer sur mon document <span aria-hidden="true">→</span></a>
-                    </div>
+                    <a href="https://app.replikr.io" class="btn btn--primary btn--lg proof-cta">Essayer avec mon document <span aria-hidden="true">→</span></a>
                 </div>
-            </div>
-        </section>
-
-        <section class="solo-pains" id="quotidien" aria-labelledby="solo-pains-title">
-            <div class="oi-wide solo-pains__layout">
-                <div class="solo-pains__intro">
-                    <h2 id="solo-pains-title">Trouver les clients,<br><em>c’est le travail qu’on fait après le travail.</em></h2>
-                    <a href="https://app.replikr.io" class="btn btn--primary btn--lg">Faire connaître mon expertise <span aria-hidden="true">→</span></a>
-                </div>
-                <div class="solo-pains__situations">
-                    <article>
-                        <h3>La mission se termine.</h3>
-                        <p><strong>Le dernier jour d’une mission</strong> devrait être une bonne journée. C’est celle où le stress recommence.</p>
-                    </article>
-                    <article>
-                        <h3>Vous publiez. Aucun message.</h3>
-                        <p><strong>Le post a mis une heure à être écrit.</strong> Il a disparu du fil en trois.</p>
-                    </article>
-                    <article>
-                        <h3>21&nbsp;h. Page blanche.</h3>
-                        <p>Vous savez tout sur votre métier. Rien ne sort.</p>
-                    </article>
+                <div class="proof-phones">
+                    <figure class="phone phone--instagram">
+                        <div class="phone__screen" role="img" aria-label="Post Instagram : une infographie « Avant de dire oui à une petite demande », cinq points à vérifier.">
+                            <div class="phone__status"><b>9:41</b><span class="phone__icons" aria-hidden="true"><i></i><i></i><i></i><em></em></span></div>
+                            <div class="app-bar"><span class="ig-logo">Instagram</span><svg><use href="#ph-heart"/></svg><svg><use href="#ph-send"/></svg></div>
+                            <div class="post-head"><span class="ig-ring"><img src="/profil_ludo.png" alt=""></span><b>ludovic.nedelec</b><svg class="post-head__more"><use href="#ph-dots"/></svg></div>
+                            <img class="post-media post-media--portrait" src="/demo/proof/infographie-checklist.webp" width="864" height="1080" loading="lazy" alt="">
+                            <div class="ig-actions"><svg><use href="#ph-heart"/></svg><svg><use href="#ph-comment"/></svg><svg><use href="#ph-send"/></svg><svg class="ig-actions__save"><use href="#ph-save"/></svg></div>
+                            <p class="post-text post-text--ig"><b>ludovic.nedelec</b> Cinq points à vérifier avant de dire oui à une petite demande. À garder sous la main.</p>
+                            <div class="tab-bar"><svg><use href="#ph-home"/></svg><svg><use href="#ph-search"/></svg><svg><use href="#ph-plus"/></svg><svg><use href="#ph-reel"/></svg><img src="/profil_ludo.png" alt=""></div>
+                        </div>
+                    </figure>
+                    <figure class="phone phone--linkedin">
+                        <div class="phone__screen">
+                            <div class="phone__status"><b>9:41</b><span class="phone__icons" aria-hidden="true"><i></i><i></i><i></i><em></em></span></div>
+                            <div class="app-bar app-bar--li"><img src="/profil_ludo.png" alt=""><span class="li-search"><svg><use href="#ph-search"/></svg>Rechercher</span><svg><use href="#ph-comment"/></svg></div>
+                            <div class="post-head post-head--li"><img src="/profil_ludo.png" alt=""><span><b>Ludovic Nédélec</b><small>Formateur IA</small><small>1 h · 🌐</small></span></div>
+                            <p class="post-text"><b>« Tu peux regarder ça vite fait&#8239;?&#8239;»</b> Une demande courte n’est pas une demande rapide. Voici comment la clarifier avant de dire oui. <span class="post-more">…plus</span></p>
+                            <div class="li-doc" data-carousel data-autoplay aria-label="Carrousel LinkedIn de 6 pages, défilement automatique">
+                                <div class="feed__track" tabindex="0">
+                                    <img src="/demo/proof/carrousel-1.webp" width="864" height="1080" alt="Page 1 : « Tu peux regarder ça vite fait ? » La petite demande qui décide de votre journée.">
+                                    <img src="/demo/proof/carrousel-2.webp" width="864" height="1080" loading="lazy" alt="Page 2 : Une demande courte n’est pas une demande rapide.">
+                                    <img src="/demo/proof/carrousel-3.webp" width="864" height="1080" loading="lazy" alt="Page 3 : Rassemblez les demandes au même endroit.">
+                                    <img src="/demo/proof/carrousel-4.webp" width="864" height="1080" loading="lazy" alt="Page 4 : Remplacez « vite fait » par un accord clair.">
+                                    <img src="/demo/proof/carrousel-5.webp" width="864" height="1080" loading="lazy" alt="Page 5 : Confirmez le périmètre, puis réservez le créneau.">
+                                    <img src="/demo/proof/carrousel-6.webp" width="864" height="1080" loading="lazy" alt="Page 6 : Reprenez une demande en cours aujourd’hui.">
+                                </div>
+                                <span class="feed__count"><span data-carousel-index>1</span> / 6</span>
+                                <span class="li-doc__progress" aria-hidden="true"><i></i></span>
+                            </div>
+                            <div class="li-reactions"><span class="li-reactions__icons" aria-hidden="true"><i class="r-like">👍</i><i class="r-love">❤</i><i class="r-idea">💡</i></span></div>
+                            <div class="li-actions"><span><svg><use href="#ph-like"/></svg>J’aime</span><span><svg><use href="#ph-comment"/></svg>Commenter</span><span><svg><use href="#ph-repost"/></svg>Republier</span><span><svg><use href="#ph-send"/></svg>Envoyer</span></div>
+                        </div>
+                    </figure>
+                    <figure class="phone phone--facebook">
+                        <div class="phone__screen" role="img" aria-label="Post Facebook : une infographie avant / après, une demande floue et la même demande clarifiée.">
+                            <div class="phone__status"><b>9:41</b><span class="phone__icons" aria-hidden="true"><i></i><i></i><i></i><em></em></span></div>
+                            <div class="app-bar app-bar--fb"><span class="fb-logo">facebook</span><span class="fb-round"><svg><use href="#ph-plus"/></svg></span><span class="fb-round"><svg><use href="#ph-search"/></svg></span><span class="fb-round"><svg><use href="#ph-menu"/></svg></span></div>
+                            <div class="post-head post-head--fb"><img src="/profil_ludo.png" alt=""><span><b>Ludovic Nédélec</b><small>2 h · 🌐</small></span><svg class="post-head__more"><use href="#ph-dots"/></svg></div>
+                            <p class="post-text">« Vite fait » n’est pas une échéance. Avant de dire oui, reformulez la demande&nbsp;: à gauche la version floue, à droite la version claire. <span class="post-more">Voir plus</span></p>
+                            <img class="post-media post-media--portrait" src="/demo/proof/infographie-avant-apres.webp" width="864" height="1080" loading="lazy" alt="">
+                            <div class="fb-actions"><span><svg><use href="#ph-like"/></svg>J’aime</span><span><svg><use href="#ph-comment"/></svg>Commenter</span><span><svg><use href="#ph-share"/></svg>Partager</span></div>
+                            <div class="tab-bar tab-bar--fb"><svg class="is-on"><use href="#ph-home"/></svg><svg><use href="#ph-reel"/></svg><svg><use href="#ph-people"/></svg><svg><use href="#ph-bell"/></svg><svg><use href="#ph-menu"/></svg></div>
+                        </div>
+                    </figure>
                 </div>
             </div>
         </section>
@@ -115,7 +148,7 @@
                         <div class="oi-track__body">
                             <div class="solo-step-copy">
                             <h2>Un fichier. N’importe lequel.</h2>
-                            <p>Celui que vous envoyez à vos clients fera l’affaire.</p>
+                            <p>Vidéo YouTube, PDF, note vocale, lien ou texte collé. Celui que vous envoyez à vos clients fera l’affaire.</p>
                             <a class="oi-step-link" href="https://app.replikr.io">Déposer mon premier document <span aria-hidden="true">→</span></a>
                             </div>
                             <div class="oi-frame oi-frame--sans-mobile">
@@ -177,6 +210,25 @@
                         </div>
                     </div>
 
+                </div>
+            </div>
+        </section>
+
+        <section class="solo-for" id="pour-qui" aria-labelledby="solo-for-title">
+            <div class="oi-wide">
+                <h2 id="solo-for-title">Conçu pour ceux qui vendent <em>leur savoir-faire.</em></h2>
+                <div class="solo-for__layout">
+                    <ul class="solo-for__tiles">
+                        <li><span class="solo-for__icon solo-for__icon--a"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 13h18"/></svg></span>Consultants et experts indépendants</li>
+                        <li><span class="solo-for__icon solo-for__icon--b"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M12 16v4M8 20h8M7 9h6M7 12h9"/></svg></span>Formateurs et enseignants</li>
+                        <li><span class="solo-for__icon solo-for__icon--c"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16v11H9l-5 4z"/><path d="M8 9h8M8 12h5"/></svg></span>Coachs et accompagnants</li>
+                        <li><span class="solo-for__icon solo-for__icon--d"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10 12 4l9 6M5 10v10h14V10M10 20v-5h4v5"/></svg></span>Dirigeants de TPE</li>
+                    </ul>
+                    <figure class="solo-for__quote">
+                        <blockquote>« J’aurais pu construire ce système moi-même. Mais ce n’est pas là que je veux passer mon temps. Replikr repart de ma matière, et je relance Instagram sans devenir quelqu’un d’autre. »</blockquote>
+                        <figcaption><img src="/avis/nadia.webp" alt="" width="48" height="48"><span><b>Nadia</b>Entrepreneure IA et digital</span></figcaption>
+                        <a href="https://app.replikr.io" class="solo-for__btn">Essayer Replikr</a>
+                    </figure>
                 </div>
             </div>
         </section>
@@ -269,9 +321,9 @@
             <div class="container">
                 <h2>Un document. Cinq minutes.<br><em>Vous verrez.</em></h2>
                 <p>Testez avec votre propre document.</p>
-                <a href="https://app.replikr.io" class="btn btn--primary btn--lg btn--glow">Essayer sur mon document <span aria-hidden="true">→</span></a>
                 <p class="solo-trial">100 crédits offerts · Sans carte bancaire</p>
             </div>
+            <a href="https://app.replikr.io" class="mega-cta"><span>Commencer <span class="mega-cta__arrow" aria-hidden="true">→</span></span><img src="/logo-512.png" alt="" width="512" height="512" aria-hidden="true"></a>
         </section>
 
     </main>

@@ -1,6 +1,7 @@
 /* Version éditoriale pour les entrepreneurs solo. */
 .oi-page .oi-hero h1 { text-wrap: balance; }
-.oi-page .oi-hero__lead { max-width: 43ch; }
+.oi-page .oi-hero__lead { max-width: 46ch; }
+.oi-page .oi-hero__lead strong { color: var(--sb-texte); font-weight: 600; }
 .oi-page .oi-hero__actions .btn { gap: 1rem; }
 .oi-page .solo-trial {
   margin: 1rem 0 0;
@@ -9,26 +10,6 @@
   line-height: 1.5;
 }
 
-/* Le poids de la recherche de clients, raconté en trois scènes du quotidien. */
-.oi-page .solo-pains {
-  padding: 5.5rem 0;
-  border-block: 1px solid var(--sb-filet);
-  background: var(--sb-fond-2);
-  scroll-margin-top: 80px;
-}
-.oi-page .solo-pains__layout {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  align-items: center;
-  gap: clamp(3rem, 7vw, 7rem);
-  max-width: var(--landing-width, 1200px);
-}
-.oi-page .solo-pains h2 {
-  margin: 0 0 2.5rem;
-  font-size: clamp(2.5rem, 4.4vw, 4rem);
-  line-height: 1.09;
-  letter-spacing: -.045em;
-}
 .oi-page .solo-documents h2 {
   margin: 0;
   font-size: clamp(2rem, 3.4vw, 3.25rem);
@@ -36,25 +17,6 @@
   letter-spacing: -.035em;
   text-wrap: balance;
 }
-.oi-page .solo-pains h2 em { color: var(--sb-accent); font-style: normal; }
-.oi-page .solo-pains__situations article { padding: 1.75rem 0; }
-.oi-page .solo-pains__situations article:first-child { padding-top: 0; }
-.oi-page .solo-pains__situations article:last-child { padding-bottom: 0; }
-.oi-page .solo-pains__situations article + article { border-top: 1px solid var(--sb-filet); }
-.oi-page .solo-pains__situations h3 {
-  margin: 0 0 .8rem;
-  font-size: clamp(1.35rem, 2vw, 1.65rem);
-  line-height: 1.25;
-  letter-spacing: -.025em;
-}
-.oi-page .solo-pains__situations p {
-  margin: 0;
-  max-width: 43ch;
-  color: var(--sb-texte-2);
-  font-size: 1.125rem;
-  line-height: 1.65;
-}
-.oi-page .solo-pains .btn,
 .oi-page .solo-documents .btn { gap: 1rem; flex-shrink: 0; font-size: 1.0625rem; min-height: 56px; }
 
 /* Des étapes et des boutons assez présents pour guider la lecture. */
@@ -135,8 +97,6 @@
   .oi-page .oi-hero__lead { margin-inline: auto; }
 }
 @media (max-width: 800px) {
-  .oi-page .solo-pains__layout { grid-template-columns: 1fr; gap: 2.75rem; }
-  .oi-page .solo-pains h2 { font-size: clamp(2.5rem, 6vw, 3.5rem); }
   .oi-page .solo-documents__examples article { grid-template-columns: 1fr; gap: 1rem; }
   .oi-page .solo-documents__arrow { display: none; }
   .oi-page .solo-documents__examples article > p { margin-left: calc(34px + 1.25rem); }
@@ -151,10 +111,48 @@
   .oi-page .oi-hero__actions { width: 100%; }
   .oi-page .oi-hero__actions .btn { padding-inline: 1rem; font-size: .9rem; }
   .oi-page .oi-hero__intro > .solo-trial { order: 3; margin-top: .65rem; }
-  .oi-page .solo-pains, .oi-page .solo-documents { padding: 3rem 0; }
+  .oi-page .solo-documents { padding: 3rem 0; }
   .oi-page .solo-documents h2 { font-size: 1.875rem; }
-  .oi-page .solo-pains h2 { font-size: clamp(2rem, 8.7vw, 3rem); }
-  .oi-page .solo-pains .btn, .oi-page .solo-documents .btn { width: 100%; white-space: normal; text-align: left; }
+  .oi-page .solo-documents .btn { width: 100%; white-space: normal; text-align: left; }
   .oi-page .solo-step-copy .oi-step-link { width: 100%; font-size: 1.0625rem; }
   .oi-page .solo-documents__source h3, .oi-page .solo-documents__examples article > p { font-size: 1.1875rem; }
 }
+
+/* Pour qui : le principe de Castmagic (tuiles + avis), aux couleurs de la landing. */
+.oi-page .solo-for { padding: 6rem 0; border-top: 1px solid var(--sb-filet); }
+.oi-page .solo-for h2 { max-width: 22ch; margin: 0 auto 3.5rem; text-align: center; font-size: clamp(2.25rem, 4.2vw, 4rem); line-height: 1.1; letter-spacing: -.045em; }
+.oi-page .solo-for h2 em { color: var(--sb-accent); font-style: normal; white-space: nowrap; }
+.oi-page .solo-for__layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(2rem, 5vw, 5rem); align-items: center; max-width: 1200px; margin: 0 auto; }
+.oi-page .solo-for__tiles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.5rem 2rem; margin: 0; padding: 0; list-style: none; }
+.oi-page .solo-for__tiles li { color: #eeebf6; font-size: 1.1875rem; font-weight: 500; line-height: 1.4; }
+.oi-page .solo-for__icon { display: grid; place-items: center; width: 84px; height: 84px; margin-bottom: 1.1rem; border: 1px solid rgba(169, 171, 232, .28); border-radius: 22px; background: rgba(169, 171, 232, .1); color: #c9cbf2; box-shadow: 0 18px 40px -24px rgba(139, 142, 240, .6); }
+.oi-page .solo-for__icon svg { width: 34px; height: 34px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.oi-page .solo-for__icon--a { background: linear-gradient(145deg, rgba(169, 171, 232, .22), rgba(169, 171, 232, .06)); }
+.oi-page .solo-for__icon--b { background: linear-gradient(145deg, rgba(128, 130, 212, .26), rgba(128, 130, 212, .06)); }
+.oi-page .solo-for__icon--c { background: linear-gradient(145deg, rgba(185, 175, 233, .22), rgba(185, 175, 233, .05)); }
+.oi-page .solo-for__icon--d { background: linear-gradient(145deg, rgba(150, 160, 230, .2), rgba(150, 160, 230, .05)); }
+.oi-page .solo-for__quote { margin: 0; padding: clamp(1.75rem, 3vw, 2.5rem); border: 1px solid rgba(169, 171, 232, .25); border-radius: 24px; background: linear-gradient(145deg, #1d1b29, #141319); box-shadow: 0 30px 80px -40px rgba(139, 142, 240, .45); }
+.oi-page .solo-for__quote blockquote { margin: 0; color: #eeebf6; font-size: clamp(1.125rem, 1.6vw, 1.375rem); line-height: 1.55; }
+.oi-page .solo-for__quote figcaption { display: flex; align-items: center; gap: .85rem; margin-top: 1.5rem; }
+.oi-page .solo-for__quote figcaption img { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; }
+.oi-page .solo-for__quote figcaption span { display: flex; flex-direction: column; color: #9d98ab; font-size: .9375rem; }
+.oi-page .solo-for__quote figcaption b { color: #eeebf6; font-size: 1rem; }
+.oi-page .solo-for__btn { display: inline-flex; align-items: center; min-height: 52px; margin-top: 1.75rem; padding: 0 1.75rem; border-radius: 12px; background: #a9abe8; color: #0f0d14; font-weight: 600; text-decoration: none; transition: transform .2s; }
+.oi-page .solo-for__btn:hover { transform: translateY(-2px); }
+@media (max-width: 900px) { .oi-page .solo-for__layout { grid-template-columns: 1fr; } }
+@media (max-width: 620px) {
+  .oi-page .solo-for { padding: 3.5rem 0; }
+  .oi-page .solo-for__tiles { gap: 1.75rem 1rem; }
+  .oi-page .solo-for__tiles li { font-size: 1rem; }
+  .oi-page .solo-for__icon { width: 68px; height: 68px; border-radius: 18px; }
+}
+
+/* Méga-bouton final : tout le bandeau est cliquable. */
+.oi-page .oi-final { padding-bottom: 0; }
+.oi-page .mega-cta { position: relative; display: flex; align-items: center; overflow: hidden; min-height: clamp(150px, 16vw, 230px); margin-top: 4rem; padding-inline: max(1.5rem, calc((100vw - var(--landing-width, 1200px)) / 2 + 2.5rem)); background: #a9abe8; color: #0f0d14; text-decoration: none; }
+.oi-page .mega-cta > span { position: relative; z-index: 1; font-size: clamp(3rem, 8vw, 7.5rem); font-weight: 700; letter-spacing: -.045em; line-height: 1; }
+.oi-page .mega-cta__arrow { display: inline-block; transition: transform .3s; }
+.oi-page .mega-cta:hover .mega-cta__arrow { transform: translateX(.25em); }
+.oi-page .mega-cta:focus-visible { outline: 3px solid #fff; outline-offset: -6px; }
+.oi-page .mega-cta > img { position: absolute; right: -4%; top: 50%; width: clamp(220px, 30vw, 460px); height: auto; translate: 0 -50%; filter: brightness(0); opacity: .9; }
+@media (max-width: 620px) { .oi-page .mega-cta > img { right: -30%; opacity: .25; } }
