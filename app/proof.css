@@ -30,90 +30,59 @@
 @media (prefers-reduced-motion: reduce) { .oi-page .proof-flow__arrow { animation: none; } }
 .oi-page .proof-copy .proof-cta { margin: 1.75rem 0 0; }
 .oi-page .ph-sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
+/* Les vraies interfaces mobiles (captures nettoyées, 693 px de large) et les publications
+   Replikr posées dessus aux mêmes coordonnées. --k : échelle de la capture dans le téléphone. */
 .oi-page .proof-phones { display: flex; justify-content: center; align-items: center; }
-/* LinkedIn au premier plan ; Instagram et Facebook passent légèrement derrière. */
-.oi-page .phone { position: relative; z-index: 1; flex: 0 0 224px; min-width: 0; margin: 0; }
-.oi-page .phone--instagram { margin-right: -22px; }
-.oi-page .phone--facebook { margin-left: -22px; }
-.oi-page .phone--instagram .tab-bar { display: none; }
-/* Facebook : sans la rangée d’onglets, la publication tient entière. */
-.oi-page .phone--facebook .tab-bar--fb { display: none; }
-.oi-page .phone--facebook .post-head--fb { margin-top: 0; }
-.oi-page .phone--linkedin { z-index: 2; flex-basis: 272px; }
-.oi-page .phone--linkedin .phone__screen { height: 590px; box-shadow: 0 0 0 1px #3a3844, 0 40px 90px -20px #000, 0 0 70px -20px rgba(139, 142, 240, .35); }
-.oi-page .phone.phone--linkedin .post-text, .oi-page .phone.phone--facebook .post-text { -webkit-line-clamp: 2; }
-.oi-page .phone--facebook .post-head b { white-space: nowrap; font-size: 13px; }
-.oi-page .phone--facebook .post-head img { width: 32px; height: 32px; }
-.oi-page .phone__screen { position: relative; height: 500px; overflow: hidden; border: 10px solid #121216; border-radius: 46px; background: #fff; color: #1d1d1f; box-shadow: 0 0 0 1px #3a3844, 0 40px 80px -30px #000, 0 0 60px -20px rgba(139, 142, 240, .25); font: 400 13px/1.4 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; font-variant-ligatures: none; text-align: left; }
-.oi-page .phone__screen svg { width: 22px; height: 22px; flex: none; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
-.oi-page .phone__screen img { display: block; }
-.oi-page .phone__status { display: flex; justify-content: space-between; align-items: center; height: 30px; padding: 4px 22px 0; font-size: 13px; }
-.oi-page .phone__icons { display: flex; align-items: flex-end; gap: 2px; }
-.oi-page .phone__icons i { width: 3px; border-radius: 1px; background: #1d1d1f; }
-.oi-page .phone__icons i:nth-child(1) { height: 4px; }
-.oi-page .phone__icons i:nth-child(2) { height: 7px; }
-.oi-page .phone__icons i:nth-child(3) { height: 10px; }
-.oi-page .phone__icons em { width: 20px; height: 10px; margin-left: 5px; border: 1.5px solid #1d1d1f; border-radius: 3px; background: linear-gradient(90deg, #1d1d1f 70%, transparent 70%) no-repeat 1px 1px / calc(100% - 2px) calc(100% - 2px); }
-.oi-page .app-bar { display: flex; align-items: center; gap: 16px; height: 44px; padding: 0 14px; }
-.oi-page .post-head { display: flex; align-items: center; gap: 9px; padding: 8px 12px; }
-.oi-page .post-head img { width: 36px; height: 36px; border-radius: 50%; object-fit: cover; }
-.oi-page .post-head > span { display: flex; flex-direction: column; min-width: 0; line-height: 1.25; }
-.oi-page .post-head b { font-size: 13.5px; font-weight: 600; }
-.oi-page .post-head small { font-size: 11.5px; color: #666; }
-.oi-page .post-head__more { margin-left: auto; color: #555; }
-.oi-page .phone .post-text { margin: 0; padding: 0 12px; border-bottom: 10px solid transparent; color: #1d1d1f; font-size: 13px; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; max-width: none; }
-.oi-page .post-more { color: #666; }
-.oi-page .post-media { width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; }
-.oi-page .post-media--portrait { aspect-ratio: 4 / 5; }
-.oi-page .tab-bar { position: absolute; left: 0; right: 0; bottom: 0; display: flex; justify-content: space-around; align-items: center; height: 52px; padding-bottom: 6px; border-top: 1px solid #ececec; background: #fff; }
-.oi-page .tab-bar img { width: 24px; height: 24px; border-radius: 50%; object-fit: cover; }
-/* Instagram */
-.oi-page .ig-logo { margin-right: auto; font: 400 26px/1 "Snell Roundhand", "Segoe Script", "Brush Script MT", cursive; letter-spacing: -.5px; }
-.oi-page .ig-ring { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; background: conic-gradient(#feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5, #feda75); }
-.oi-page .ig-ring img { width: 31px; height: 31px; border: 2px solid #fff; }
-.oi-page .phone--instagram .post-head b { font-size: 13px; }
-.oi-page .ig-actions { display: flex; gap: 14px; padding: 10px 12px 6px; }
-.oi-page .ig-actions__save { margin-left: auto; }
-.oi-page .phone .post-text--ig { padding-top: 0; }
-.oi-page .ig-tag { color: #00376b; }
-/* LinkedIn */
-.oi-page .phone--linkedin .phone__screen { background: #f4f2ee; }
-.oi-page .app-bar--li { gap: 10px; background: #fff; color: #666; }
-.oi-page .app-bar--li > img { width: 28px; height: 28px; border-radius: 50%; object-fit: cover; }
-.oi-page .li-search { flex: 1; display: flex; align-items: center; gap: 6px; height: 30px; padding: 0 10px; border-radius: 4px; background: #edf3f8; color: #555; font-size: 13px; }
-.oi-page .li-search svg { width: 16px; height: 16px; }
-.oi-page .post-head--li, .oi-page .li-reactions, .oi-page .li-actions { background: #fff; }
-.oi-page .phone--linkedin .post-text { background: #fff; border-bottom-color: #fff; }
-.oi-page .post-head--li { margin-top: 6px; align-items: flex-start; }
-.oi-page .post-head--li img { width: 40px; height: 40px; }
-.oi-page .li-doc { position: relative; background: #fff; }
-.oi-page .li-doc .feed__track { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; overscroll-behavior-x: contain; }
-.oi-page .li-doc .feed__track::-webkit-scrollbar { display: none; }
-.oi-page .li-doc .feed__track:focus-visible { outline: 3px solid #0a66c2; outline-offset: -3px; }
-.oi-page .li-doc .feed__track > img { flex: 0 0 100%; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; scroll-snap-align: start; }
-.oi-page .li-doc .feed__count { position: absolute; top: 8px; right: 8px; padding: 2px 8px; border-radius: 999px; background: #000000a6; color: #fff; font-size: 11px; font-weight: 600; }
-.oi-page .li-doc__progress { position: absolute; left: 0; right: 0; bottom: 0; height: 3px; background: #ffffff33; }
-.oi-page .li-doc__progress > i { display: block; height: 100%; width: calc(var(--slide, 1) / 8 * 100%); background: #fff; transition: width .4s; }
-.oi-page .li-reactions { display: flex; align-items: center; padding: 7px 12px 5px; }
-.oi-page .li-reactions__icons { display: flex; }
-.oi-page .li-reactions__icons i { display: grid; place-items: center; width: 17px; height: 17px; margin-right: -4px; border: 1.5px solid #fff; border-radius: 50%; font-size: 9px; font-style: normal; }
+.oi-page .phone { --k: .3175; --h: 1420; position: relative; z-index: 1; flex: none; min-width: 0; margin: 0; }
+.oi-page .phone--instagram { margin-right: -12px; }
+.oi-page .phone--facebook { --h: 1400; margin-left: -12px; }
+.oi-page .phone--linkedin { --k: .375; --h: 1435; z-index: 2; }
+.oi-page .phone__screen { position: relative; overflow: hidden; width: calc(693px * var(--k)); height: calc(var(--h) * 1px * var(--k)); box-sizing: content-box; border: 10px solid #121216; border-radius: 38px; background: #fff; box-shadow: 0 0 0 1px #3a3844, 0 40px 80px -30px #000, 0 0 60px -20px rgba(139, 142, 240, .25); }
+.oi-page .phone--linkedin .phone__screen { box-shadow: 0 0 0 1px #3a3844, 0 40px 90px -20px #000, 0 0 70px -20px rgba(139, 142, 240, .35); }
+.oi-page .shot { position: absolute; left: 0; top: 0; width: 693px; height: calc(var(--h) * 1px); transform: scale(var(--k)); transform-origin: 0 0; background: #fff no-repeat 0 0 / 693px auto; color: #191919; font: 400 22px/1.42 Roboto, "Segoe UI", Arial, sans-serif; font-variant-ligatures: none; text-align: left; }
+.oi-page .shot--linkedin { background-image: url(/demo/proof/ui/linkedin.webp); }
+.oi-page .shot--instagram { background-image: url(/demo/proof/ui/instagram.webp); }
+.oi-page .shot--facebook { background-image: url(/demo/proof/ui/facebook.webp); color: #050505; }
+.oi-page .shot > * { position: absolute; margin: 0; }
+.oi-page .shot img { display: block; }
+.oi-page .shot svg { fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.oi-page .shot__name { color: inherit; font-size: 25px; font-weight: 700; white-space: nowrap; }
+.oi-page .shot__meta { color: #666; font-size: 19px; white-space: nowrap; }
+.oi-page .shot--facebook .shot__meta { color: #65676b; }
+.oi-page .shot__avatar { border-radius: 50%; object-fit: cover; }
+.oi-page .shot .shot__text { left: 20px; right: 20px; max-width: none; color: inherit; font-size: 22px; line-height: 1.42; }
+.oi-page .shot__text > span { color: #666; }
+.oi-page .shot__media { left: 0; width: 693px; object-fit: cover; }
+.oi-page .shot__reactions { display: flex; }
+.oi-page .shot__reactions i { display: grid; place-items: center; width: 30px; height: 30px; margin-right: -7px; border: 2px solid #fff; border-radius: 50%; font-size: 15px; font-style: normal; }
 .oi-page .r-like { background: #378fe9; }
 .oi-page .r-love { background: #df704d; color: #fff; }
 .oi-page .r-idea { background: #f5bb5c; }
-.oi-page .li-actions { display: flex; justify-content: space-around; padding: 4px 4px 10px; border-top: 1px solid #ebebeb; color: #555; }
-.oi-page .li-actions > span { display: flex; flex-direction: column; align-items: center; gap: 2px; font-size: 10.5px; font-weight: 600; }
-.oi-page .li-actions svg { width: 19px; height: 19px; }
-/* Facebook */
-.oi-page .app-bar--fb { gap: 8px; }
-.oi-page .fb-logo { margin-right: auto; color: #0866ff; font-size: 23px; font-weight: 800; letter-spacing: -1.2px; }
-.oi-page .fb-round { display: grid; place-items: center; width: 28px; height: 28px; border-radius: 50%; background: #f0f2f5; }
-.oi-page .fb-round svg { width: 18px; height: 18px; }
-.oi-page .post-head--fb { border-top: 6px solid #e4e6eb; padding-top: 10px; }
-.oi-page .fb-actions { display: flex; justify-content: space-around; padding: 9px 4px; color: #65676b; font-size: 12.5px; font-weight: 600; }
-.oi-page .fb-actions > span { display: flex; align-items: center; gap: 5px; }
-.oi-page .fb-actions svg { width: 18px; height: 18px; }
-.oi-page .tab-bar--fb { position: absolute; top: 74px; bottom: auto; height: 42px; padding: 0; border-top: 0; border-bottom: 1px solid #e4e6eb; color: #65676b; }
-.oi-page .tab-bar--fb .is-on { color: #0866ff; }
+/* LinkedIn */
+.oi-page .shot__li-top { left: 20px; right: 20px; display: flex; align-items: center; gap: 18px; height: 56px; color: #666; }
+.oi-page .shot__li-top img { width: 52px; height: 52px; border-radius: 50%; object-fit: cover; }
+.oi-page .shot__li-top span { flex: 1; display: flex; align-items: center; gap: 12px; height: 52px; padding: 0 18px; border-radius: 6px; background: #edf3f8; font-size: 24px; }
+.oi-page .shot__li-top svg { width: 30px; height: 30px; }
+.oi-page .shot__doc { left: 0; width: 693px; }
+.oi-page .li-doc { position: relative; background: #fff; }
+.oi-page .li-doc .feed__track { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; overscroll-behavior-x: contain; }
+.oi-page .li-doc .feed__track::-webkit-scrollbar { display: none; }
+.oi-page .li-doc .feed__track:focus-visible { outline: 6px solid #0a66c2; outline-offset: -6px; }
+.oi-page .li-doc .feed__track > img { flex: 0 0 100%; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; scroll-snap-align: start; }
+.oi-page .li-doc .feed__count { position: absolute; top: 18px; right: 18px; padding: 4px 16px; border-radius: 999px; background: #000000a6; color: #fff; font-size: 22px; font-weight: 600; }
+.oi-page .li-doc__progress { position: absolute; left: 0; right: 0; bottom: 0; height: 6px; background: #ffffff33; }
+.oi-page .li-doc__progress > i { display: block; height: 100%; width: calc(var(--slide, 1) / 6 * 100%); background: #fff; transition: width .4s; }
+/* Instagram */
+.oi-page .shot__ring { display: grid; place-items: center; width: 64px; height: 64px; border-radius: 50%; background: conic-gradient(#feda75, #fa7e1e, #d62976, #962fbf, #4f5bd5, #feda75); }
+.oi-page .shot__ring img { width: 56px; height: 56px; border: 3px solid #fff; border-radius: 50%; object-fit: cover; }
+.oi-page .shot--instagram .shot__name { font-size: 24px; }
+.oi-page .shot__ig-actions { left: 20px; right: 22px; display: flex; gap: 34px; color: #000; }
+.oi-page .shot__ig-actions svg { width: 40px; height: 40px; stroke-width: 1.7; }
+.oi-page .shot__ig-save { margin-left: auto; }
+.oi-page .shot--instagram .shot__text { color: #000; }
+.oi-page .shot__text b { font-weight: 700; }
+.oi-page .shot--instagram .shot__text > span, .oi-page .shot__date { color: #737373; }
+.oi-page .shot__date { left: 20px; font-size: 19px; }
 .oi-page #faq .section__header h2 { font-size: clamp(2rem, 3vw, 2.75rem); line-height: 1.2; }
 .oi-page #faq .faq__question { font-size: 1.125rem; padding-block: 1.15rem; line-height: 1.4; }
 .oi-page #faq .faq__answer p { max-width: 66ch; font-size: 1.0625rem; line-height: 1.7; }
@@ -128,13 +97,11 @@
 @media (max-width: 760px) {
   .oi-page .proof-phones { justify-content: flex-start; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; margin-inline: -1.5rem; padding: 1.5rem 1.5rem .5rem; gap: 1rem; }
   .oi-page .proof-phones::-webkit-scrollbar { display: none; }
-  .oi-page .phone, .oi-page .phone--linkedin { flex-basis: min(270px, 78vw); margin: 0; scroll-snap-align: center; }
+  .oi-page .phone, .oi-page .phone--linkedin { --k: .36; margin: 0; scroll-snap-align: center; }
   .oi-page .phone--linkedin { order: -1; }
-  .oi-page .phone--linkedin .phone__screen { height: 610px; }
   .oi-page .phone--facebook { display: block; }
   .oi-page .proof-copy .proof-cta { display: none; }
   .oi-page .proof-flow__arrow { rotate: 90deg; width: 30px; }
-  .oi-page .phone__screen { height: 610px; }
 }
 @media (max-width: 620px) {
   .oi-page .solo-proof { padding: 3rem 0; }

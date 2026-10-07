@@ -40,9 +40,12 @@ html, body, .oi-page { background: var(--sb-fond) !important; color: var(--sb-te
 .oi-hero .hero__bg { display: none !important; }
 
 /* ── En-tête ── */
-/* Pas de barre : logo et bouton posés sur le fond noir, qui défilent avec la page. */
-.oi-page .header, .oi-page .header.scrolled { position: absolute; background: transparent !important;
-  -webkit-backdrop-filter: none; backdrop-filter: none; border-bottom: 0; box-shadow: none; }
+/* L'en-tête reste en haut de l'écran : transparent sur le héros, fond sombre dès qu'on défile. */
+.oi-page .header { position: fixed; background: transparent !important;
+  -webkit-backdrop-filter: none; backdrop-filter: none; border-bottom: 1px solid transparent; box-shadow: none; }
+.oi-page .header.scrolled { background: rgba(12, 12, 16, .86) !important; -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
+  border-bottom-color: var(--sb-filet); }
+.oi-page .header .nav { padding-block: .65rem; }
 .oi-page .nav__links a { color: var(--sb-texte-2); font-family: var(--font-ui); }
 .oi-page .nav__links a:hover { color: var(--sb-texte); }
 .oi-page .nav__mobile { background: var(--sb-fond-2); }

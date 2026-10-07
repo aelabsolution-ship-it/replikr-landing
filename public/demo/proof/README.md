@@ -11,3 +11,8 @@ Les textes ont été écrits à partir de la fiche. Les espaces insécables fran
 Export 1080 × 1350 réduit à 864 × 1080, WebP qualité 90.
 
 Reproduction : `work/build-proof-visuals.py <dossier> tuto,pastel,quadrille` (depuis le dépôt de l’app), puis `work/shoot-proof-visuals.js <dossier>`.
+
+## Interfaces des téléphones (`ui/`)
+
+`ui/linkedin.webp`, `ui/instagram.webp`, `ui/facebook.webp` : interfaces Android réelles (captures de Ludovic, 693 px de large), nettoyées. Seuls restent la barre d'état, les barres d'outils, les rangées d'actions et la navigation : toutes les zones qui montraient les publications d'autres personnes sont repeintes. Les publications Replikr sont posées par-dessus en HTML, aux coordonnées de la capture (classe `.shot`, échelle `--k`). Aucun compteur de réactions n'est affiché.
+Reproduction : `work/build-proof-chrome.js <dossier>` (les captures d'origine ne sont pas dans le dépôt).

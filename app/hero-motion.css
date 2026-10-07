@@ -2,7 +2,8 @@
    Fixed application frame, live text and artwork from the product's renderer. */
 /* Hero: copy on the left, the full application window on the right. */
 @media (min-width:1025px) {
-  .oi-page .oi-hero { min-height:100svh; display:flex; flex-direction:column; justify-content:center; padding-block:6rem 3rem; }
+  /* Plein écran retiré : moitié moins de vide au-dessus et en dessous du texte. */
+  .oi-page .oi-hero { padding-block:calc(62px + 5.5rem) 5.5rem; }
   .oi-page .oi-hero > .oi-wide { width:100%; }
 }
 .oi-page .oi-hero > .oi-wide { display:grid; grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr); align-items:center; gap:3rem; text-align:left; }
