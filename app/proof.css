@@ -102,6 +102,8 @@
   .oi-page .phone--facebook { display: block; }
   .oi-page .proof-copy .proof-cta { display: none; }
   .oi-page .proof-flow__arrow { rotate: 90deg; width: 30px; }
+  .oi-page .proof-flow__node { margin-top: .75rem; }
+  .oi-page .proof-phones { padding-top: .25rem; }
 }
 @media (max-width: 620px) {
   .oi-page .solo-proof { padding: 3rem 0; }
