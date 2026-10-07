@@ -5,6 +5,20 @@
   --font-ui: var(--font-dm-sans), system-ui, sans-serif;
   --font-mono: var(--font-ibm-plex), monospace;
 }
+/* Use more of large desktop screens while keeping comfortable outer gutters. */
+@media (min-width: 1400px) {
+  .oi-page { --landing-width: 1520px; }
+  .oi-page .oi-wide,
+  .oi-page .rk-pricing > .container {
+    max-width: var(--landing-width);
+    padding-inline: 2.5rem;
+  }
+  .oi-page #comment .oi-track,
+  .oi-page #comment .oi-formats { max-width: none; }
+  .oi-page .rk-pricing .rk-enterprise,
+  .oi-page .rk-pricing .rk-compare-fold { max-width: 1320px; }
+  .oi-page #faq .faq__list { max-width: 960px; }
+}
 section[id] { scroll-margin-top: 90px; }
 a:focus-visible, button:focus-visible, summary:focus-visible, [tabindex]:focus-visible {
   outline: 3px solid var(--bleu-violet);

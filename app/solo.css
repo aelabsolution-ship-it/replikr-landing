@@ -21,7 +21,7 @@
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   align-items: center;
   gap: clamp(3rem, 7vw, 7rem);
-  max-width: 1200px;
+  max-width: var(--landing-width, 1200px);
 }
 .oi-page .solo-pains h2 {
   margin: 0 0 2.5rem;
@@ -110,6 +110,9 @@
 
 /* Trois offres visibles ; les quotas détaillés restent dans le comparatif. */
 .oi-page .rk-pricing .rk-pricing__grid { grid-template-columns: repeat(3, minmax(0, 1fr)); max-width: 1120px; }
+@media (min-width: 1400px) {
+  .oi-page .rk-pricing .rk-pricing__grid { max-width: 1320px; gap: 20px; }
+}
 .oi-page .rk-pricing .rk-card__tagline { margin-bottom: .75rem; font-size: 1rem; line-height: 1.5; }
 .oi-page .rk-pricing .rk-card__credits { min-height: 0; }
 .oi-page .rk-pricing .rk-card__features { flex: 1; }

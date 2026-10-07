@@ -5,7 +5,7 @@
   grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   align-items: center;
   gap: clamp(3rem, 6vw, 6rem);
-  max-width: 1200px;
+  max-width: var(--landing-width, 1200px);
 }
 .oi-page .solo-profile__copy { grid-column: 2; grid-row: 1; }
 .oi-page .profile-scan { grid-column: 1; grid-row: 1; }
@@ -96,27 +96,32 @@
 .oi-page .profile-scan__result i { display: grid; place-items: center; width: 19px; height: 19px; border-radius: 50%; font-style: normal; font-size: .75rem; color: #d2cffb; background: #343249; }
 .oi-page .profile-scan__example { display: block; margin-top: 1rem; font-size: .8125rem; line-height: 1.5; color: #9995ac; }
 
-/* Le balayage révèle chaque repère, puis laisse le résultat visible. */
+/* One downward sweep. The profile is revealed exactly under the beam: the same keyframes
+   drive the beam position and the clip of the filled profile, so text appears as the line crosses it.
+   Each check lights when the beam passes the matching block, then the profile holds. */
 .oi-page .profile-scan.is-enhanced .profile-scan__beam { animation: profile-scan-sweep var(--scan-duration) linear infinite; }
-.oi-page .profile-scan.is-enhanced .profile-scan__person { animation: profile-scan-reveal var(--scan-duration) linear infinite; }
+.oi-page .profile-scan.is-enhanced .profile-scan__person { position: relative; z-index: 0; clip-path: inset(0 0 100% 0); animation: profile-scan-reveal var(--scan-duration) linear infinite; }
 .oi-page .profile-scan.is-enhanced .profile-scan__result { animation: profile-scan-activity var(--scan-duration) linear infinite; }
 .oi-page .profile-scan.is-enhanced .profile-scan__result--topics { animation-name: profile-scan-topics; }
-.oi-page .profile-scan.is-enhanced .profile-scan__result--voice { animation-name: profile-scan-voice; }
+.oi-page .profile-scan.is-enhanced .profile-scan__result--voice { animation-name: profile-scan-voice-result; }
 .oi-page .profile-scan.is-paused *, .oi-page .profile-scan.is-paused *::before { animation-play-state: paused !important; }
+/* 14 s loop: sweep 3%→43% (5.6 s), hold, fade out 88%→95%, restart. */
 @keyframes profile-scan-sweep {
-  0%, 5% { transform: translateY(-100%); opacity: 0; }
-  8% { opacity: 1; }
-  56% { transform: translateY(0); opacity: 1; }
-  59%, 100% { transform: translateY(0); opacity: 0; }
+  0% { transform:translateY(-100%); opacity:0; }
+  3% { transform:translateY(-100%); opacity:1; }
+  43% { transform:translateY(0); opacity:1; }
+  48%,100% { transform:translateY(0); opacity:0; }
 }
 @keyframes profile-scan-reveal {
-  0%, 5% { clip-path: inset(0 0 100%); opacity: 1; }
-  56%, 90% { clip-path: inset(0); opacity: 1; }
-  96%, 100% { clip-path: inset(0); opacity: 0; }
+  0%,3% { clip-path:inset(0 0 100% 0); opacity:1; }
+  43% { clip-path:inset(0 0 0 0); opacity:1; }
+  88% { clip-path:inset(0 0 0 0); opacity:1; }
+  95%,100% { clip-path:inset(0 0 0 0); opacity:0; }
 }
-@keyframes profile-scan-activity { 0%, 27% { opacity: .3; } 31%, 90% { opacity: 1; } 96%, 100% { opacity: .3; } }
-@keyframes profile-scan-topics { 0%, 39% { opacity: .3; } 43%, 90% { opacity: 1; } 96%, 100% { opacity: .3; } }
-@keyframes profile-scan-voice { 0%, 51% { opacity: .3; } 55%, 90% { opacity: 1; } 96%, 100% { opacity: .3; } }
+/* Beam crossing points, measured on the card: name ≈ 45%, tags ≈ 72%, post ≈ 90% of its height. */
+@keyframes profile-scan-activity { 0%,20% { opacity:.3; } 22%,90% { opacity:1; } 95%,100% { opacity:.3; } }
+@keyframes profile-scan-topics { 0%,31% { opacity:.3; } 33%,90% { opacity:1; } 95%,100% { opacity:.3; } }
+@keyframes profile-scan-voice-result { 0%,39% { opacity:.3; } 41%,90% { opacity:1; } 95%,100% { opacity:.3; } }
 @media (max-width: 900px) {
   .oi-page .solo-profile__layout { grid-template-columns: 1fr; gap: 3rem; }
   .oi-page .solo-profile__copy { max-width: 600px; grid-column: 1; grid-row: 1; }
@@ -141,5 +146,7 @@
 }
 @media (prefers-reduced-motion: reduce) {
   .oi-page .profile-scan.is-enhanced * { animation: none !important; }
+  .oi-page .profile-scan__skeleton { opacity: 0; }
   .oi-page .profile-scan__beam { display: none; }
+  .oi-page .profile-scan .profile-scan__person { clip-path: none !important; }
 }
