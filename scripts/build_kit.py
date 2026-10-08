@@ -1,7 +1,7 @@
 """Construit public/kit/replikr-kit-affiliation.zip à partir des médias du site.
 
 Le kit de partage des affiliés (bouton « Télécharger le kit » de
-app.replikr.io/affiliation). À relancer quand une vidéo ou une capture change :
+app.hybana.com/affiliation). À relancer quand une vidéo ou une capture change :
 
   python scripts/build_kit.py
 """
@@ -14,35 +14,35 @@ from PIL import Image
 PUB = Path(__file__).resolve().parent.parent / "public"
 APP_ICON = PUB / "logo-512.png"
 OUT = PUB / "kit" / "replikr-kit-affiliation.zip"
-ROOT = "Replikr - Kit affilie/"
+ROOT = "Hybana - Kit affilie/"
 
-README = """KIT AFFILIÉ REPLIKR
+README = """KIT AFFILIÉ HYBANA
 ===================
 
 Votre lien d'affiliation est dans votre espace :
-https://app.replikr.io/affiliation
+https://app.hybana.com/affiliation
 
 CE QUE CONTIENT CE DOSSIER
-- Logo : le logo Replikr en PNG (fond transparent).
+- Logo : le logo Hybana en PNG (fond transparent).
 - Vidéos : présentation (16:9), démo verticale pour Reels / TikTok / Shorts (9:16),
   animation (4:5) et les trois étapes en carré (1:1).
 - Captures : des écrans de l'application.
-- Exemple de carrousel : un carrousel créé avec Replikr.
+- Exemple de carrousel : un carrousel créé avec Hybana.
 
 LA MENTION OBLIGATOIRE
 Chaque publication qui contient votre lien doit dire que vous êtes rémunéré
 (loi n° 2023-451 du 9 juin 2023). Par exemple :
-  « Lien affilié : je touche une commission si vous vous abonnez à Replikr.
+  « Lien affilié : je touche une commission si vous vous abonnez à Hybana.
     Vous, vous avez -10 % pendant 12 mois. »
 Placez-la à côté du lien, visible sans cliquer sur « voir plus ».
 
 UTILISER LE LOGO ET LES VIDÉOS
-- Uniquement pour parler de Replikr et partager votre lien.
+- Uniquement pour parler de Hybana et partager votre lien.
 - Sans modifier le logo (couleurs, proportions, texte).
-- Sans vous présenter comme Replikr : pas de compte, de page ou de nom de
-  domaine qui reprend la marque, pas de publicité sur le mot « Replikr ».
+- Sans vous présenter comme Hybana : pas de compte, de page ou de nom de
+  domaine qui reprend la marque, pas de publicité sur le mot « Hybana ».
 
-Conditions complètes : https://app.replikr.io/legal/affiliation
+Conditions complètes : https://app.hybana.com/legal/affiliation
 Une question : ludovic.nedelec@aelabsolution.com
 """
 

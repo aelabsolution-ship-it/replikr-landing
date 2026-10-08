@@ -36,13 +36,13 @@ const AVIS: Avis[] = [
     // Avis réel de Jessica (28 sept.), extrait mot pour mot.
     name: "Jessica",
     role: "System designer",
-    testimonial: "Entre le manque de temps et le manque de connaissances pour créer du contenu vraiment pertinent, ce n’est pas toujours évident de s’y tenir. C’est justement là que Replikr fait toute la différence.",
+    testimonial: "Entre le manque de temps et le manque de connaissances pour créer du contenu vraiment pertinent, ce n’est pas toujours évident de s’y tenir. C’est justement là que Hybana fait toute la différence.",
     imgSrc: "/avis/jessica.webp",
   },
   {
     name: "Nadia",
     role: "Entrepreneure IA et digital",
-    testimonial: "J’aurais pu construire ce système moi-même. Mais ce n’est pas là que je veux passer mon temps. Replikr repart de ma matière, et je relance Instagram sans devenir quelqu’un d’autre.",
+    testimonial: "J’aurais pu construire ce système moi-même. Mais ce n’est pas là que je veux passer mon temps. Hybana repart de ma matière, et je relance Instagram sans devenir quelqu’un d’autre.",
     imgSrc: "/avis/nadia.webp",
   },
   {
@@ -78,7 +78,7 @@ export default function AvisSection() {
   return (
     <section className="section oi-avis" id="avis" aria-labelledby="avis-title">
       <div className="container">
-        <h2 id="avis-title">Ils publient avec Replikr.</h2>
+        <h2 id="avis-title">Ils publient avec Hybana.</h2>
       </div>
       <div className="dark oi-avis__stagger">
         <StaggerTestimonials testimonials={visibles} />

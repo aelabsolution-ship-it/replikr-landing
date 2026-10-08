@@ -16,14 +16,14 @@ import "./hero-motion.css";
 const interFont = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
 const monoFont = IBM_Plex_Mono({ subsets: ["latin"], weight: ["400", "500", "600"], variable: "--font-ibm-plex", display: "swap" });
 
-const title = "Replikr : faites connaître votre expertise";
+const title = "Hybana : faites connaître votre expertise";
 const promesse = "Vos futurs clients sont sur les réseaux. Vous, vous n’avez pas le temps d’y être.";
-const description = "Replikr transforme votre expertise en posts et en images pour attirer vos futurs clients. Partez de vos documents, vidéos ou notes vocales.";
+const description = "Hybana transforme votre expertise en posts et en images pour attirer vos futurs clients. Partez de vos documents, vidéos ou notes vocales.";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://replikr.io"), title, description,
+  metadataBase: new URL("https://www.hybana.com"), title, description,
   alternates: { canonical: "/" },
-  openGraph: { title: promesse, description, type: "website", locale: "fr_FR", url: "https://replikr.io", siteName: "Replikr" },
+  openGraph: { title: promesse, description, type: "website", locale: "fr_FR", url: "https://www.hybana.com", siteName: "Hybana" },
   twitter: { card: "summary", title: promesse, description },
   robots: { index: true, follow: true },
 };

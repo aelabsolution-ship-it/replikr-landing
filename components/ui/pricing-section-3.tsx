@@ -47,7 +47,7 @@ const BOOKING_URL = "https://calendar.app.google/FMCaxhBxAvHCFKai9";
 const ENTERPRISE = {
   name: "Entreprise",
   price: "Sur devis",
-  description: "Replikr installé pour votre organisation : votre marque, vos gabarits, vos règles éditoriales, vos canaux.",
+  description: "Hybana installé pour votre organisation : votre marque, vos gabarits, vos règles éditoriales, vos canaux.",
   features: [
     "Gabarits d’infographies et de carrousels dessinés à votre charte, validés avec vous",
     "Une instance à votre marque, plusieurs marques ou équipes, un accès par personne",
@@ -137,7 +137,7 @@ export default function PricingSection() {
             </button>
           ))}
         </div>
-        <div className="rk-pricing__grid" aria-label="Les offres Replikr" aria-live="polite" aria-atomic="true">
+        <div className="rk-pricing__grid" aria-label="Les offres Hybana" aria-live="polite" aria-atomic="true">
           {landingPlans.map(({ plan }) => (
             <article key={plan.name} className={`rk-card${plan.featured ? " rk-card--featured" : ""}${plan.free ? " rk-card--free" : ""}`}>
               <div className="rk-card__head">
@@ -164,7 +164,7 @@ export default function PricingSection() {
                   <li key={feature} className="rk-card__excluded"><span aria-hidden="true">−</span><span>{feature}<span className="rk-sr-only"> : non inclus</span></span></li>
                 ))}
               </ul>
-              <a className="rk-card__button" href={plan.free ? "https://app.replikr.io" : `https://app.replikr.io/billing?plan=${plan.id}&period=${annual ? "year" : "month"}`}
+              <a className="rk-card__button" href={plan.free ? "https://app.hybana.com" : `https://app.hybana.com/billing?plan=${plan.id}&period=${annual ? "year" : "month"}`}
                  aria-label={plan.free ? "Commencer gratuitement" : `Choisir ${plan.name}`}>
                 <span className="rk-card__label-long">{plan.free ? "Commencer gratuitement" : `Choisir ${plan.name}`}</span>
                 <span className="rk-card__label-short" aria-hidden="true">{plan.free ? "Essayer" : "Choisir"}</span>
@@ -204,7 +204,7 @@ export default function PricingSection() {
             <span className="rk-compare-fold__icon" aria-hidden="true">+</span>
           </summary>
           <div className="rk-compare-fold__body">
-        <p className="solo-pricing-explanation">Un sujet regroupe vos documents et les contenus créés à partir d’eux : une offre, une méthode, une question fréquente. Dans Replikr, cet espace s’appelle un carnet de publication.</p>
+        <p className="solo-pricing-explanation">Un sujet regroupe vos documents et les contenus créés à partir d’eux : une offre, une méthode, une question fréquente. Dans Hybana, cet espace s’appelle un carnet de publication.</p>
         <p className="solo-pricing-explanation">Les limites ci-dessous indiquent ce que vous pouvez conserver. Chaque création utilise des crédits ; le nombre de créations dépend des formats choisis.</p>
         <table className="rk-compare">
           <caption className="rk-sr-only">Ce qui change d’une offre à l’autre</caption>

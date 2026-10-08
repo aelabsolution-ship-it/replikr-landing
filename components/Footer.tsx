@@ -11,7 +11,7 @@ export default function Footer() {
           <div className="flex items-center gap-2.5">
             <img src="/logo.png" alt="" aria-hidden="true" className="w-7 h-7" />
             <span className="text-[15px] font-medium tracking-tight text-ink">
-              replikr
+              hybana
             </span>
             <span className="text-[12px] text-graphite ml-2">
               · Pense une fois. Publie dix fois.
@@ -21,7 +21,7 @@ export default function Footer() {
           {/* Liens utilitaires */}
           <nav aria-label="Liens utilitaires" className="flex flex-wrap gap-x-8 gap-y-2 text-[13px]">
             <a
-              href="https://app.replikr.io"
+              href="https://app.hybana.com"
               className="rk-link-underline"
             >
               Se connecter
@@ -40,7 +40,7 @@ export default function Footer() {
 
         {/* Copyright + crédit ligne fine */}
         <div className="mt-8 pt-6 border-t border-line text-[11px] text-graphite/80 flex flex-col md:flex-row md:items-center md:justify-between gap-2">
-          <span>© {new Date().getFullYear()} Replikr · Aelab Solution</span>
+          <span>© {new Date().getFullYear()} Hybana · Aelab Solution</span>
           <span className="text-[10px] tracking-[0.18em] uppercase">
             Made in France
           </span>

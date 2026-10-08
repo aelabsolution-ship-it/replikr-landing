@@ -3,7 +3,7 @@ import { FacebookIcon } from "./PlatformIcons";
 /**
  * Mockup post Facebook : format communautaire avec image. Le post porte
  * sur le carrousel LinkedIn (sujet de l'infographie `imagepost.png` que
- * Replikr aurait générée pour ce post). Layout natif Facebook : header,
+ * Hybana aurait générée pour ce post). Layout natif Facebook : header,
  * texte d'accroche, image pleine largeur (sans padding), réactions.
  */
 export default function FacebookPost() {
@@ -32,7 +32,7 @@ export default function FacebookPost() {
         <span className="text-graphite">... plus</span>
       </p>
 
-      {/* Image pleine largeur (édité par Replikr) */}
+      {/* Image pleine largeur (édité par Hybana) */}
       <div className="w-full bg-ink">
         <img
           src="/imagepost.png"

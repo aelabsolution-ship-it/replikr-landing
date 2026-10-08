@@ -11,7 +11,7 @@ export default function LandingEnhancements() {
       const anchor = (event.target as Element).closest<HTMLAnchorElement>("a[href]");
       if (!anchor) return;
       const target = new URL(anchor.href, window.location.href);
-      if (target.origin !== "https://app.replikr.io") return;
+      if (target.origin !== "https://app.hybana.com") return;
       const source = new URLSearchParams(window.location.search);
       for (const key of ["via", "utm_source", "utm_medium", "utm_campaign", "utm_content"]) {
         const value = source.get(key);
@@ -86,7 +86,7 @@ export default function LandingEnhancements() {
     window.addEventListener("scroll", schedule, { passive: true });
     window.addEventListener("resize", resize);
     reduce.addEventListener("change", schedule);
-    views.forEach(view => { view.tabIndex = 0; view.setAttribute("aria-label", "Démonstration Replikr, défilement horizontal"); });
+    views.forEach(view => { view.tabIndex = 0; view.setAttribute("aria-label", "Démonstration Hybana, défilement horizontal"); });
     // Muted demos play automatically in view, without manual playback controls.
     // Pause off screen, in a background tab, or when reduced motion is requested.
     const cleanups: Array<() => void> = [];

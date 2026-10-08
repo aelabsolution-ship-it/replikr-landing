@@ -8,13 +8,13 @@ import "../affiliation.css";
 
 export const dynamic = "force-static";
 
-const title = "Affiliation Replikr : 20 % pendant 12 mois";
-const description = "Recommandez Replikr et touchez 20 % des abonnements de vos clients pendant leur première année. Inscription immédiate, sans plafond, aucun cookie.";
+const title = "Affiliation Hybana : 20 % pendant 12 mois";
+const description = "Recommandez Hybana et touchez 20 % des abonnements de vos clients pendant leur première année. Inscription immédiate, sans plafond, aucun cookie.";
 
 export const metadata: Metadata = {
   title, description,
   alternates: { canonical: "/affiliation" },
-  openGraph: { title, description, type: "website", locale: "fr_FR", url: "https://replikr.io/affiliation", siteName: "Replikr" },
+  openGraph: { title, description, type: "website", locale: "fr_FR", url: "https://www.hybana.com/affiliation", siteName: "Hybana" },
   twitter: { card: "summary", title, description },
 };
 
@@ -25,7 +25,7 @@ if (!parts) throw new Error("Affiliation page must contain one main element");
 const [beforeHero, afterHero] = parts[2].split("<!-- hero -->");
 if (afterHero === undefined) throw new Error("Missing hero marker");
 
-const APP = "https://app.replikr.io/affiliation";
+const APP = "https://app.hybana.com/affiliation";
 
 function Hero() {
   return (
@@ -37,7 +37,7 @@ function Hero() {
       <div className="oi-wide">
         <div className="oi-hero__intro">
           <p className="af-kicker">Programme d’affiliation</p>
-          <h1>Recommandez Replikr.<br /><em>Touchez 20 % pendant 12 mois.</em></h1>
+          <h1>Recommandez Hybana.<br /><em>Touchez 20 % pendant 12 mois.</em></h1>
           <p className="oi-hero__lead">Sur chaque abonnement payé par les personnes que vous amenez, pendant leur première année. Sans plafond. Inscription immédiate.</p>
           <p className="af-gift">Et vos clients ont <strong>-10 % pendant 12 mois.</strong></p>
           <div className="oi-hero__actions">

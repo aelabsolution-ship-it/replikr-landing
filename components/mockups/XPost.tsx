@@ -27,7 +27,7 @@ export default function XPost() {
         Elle remplacera ceux qui n&apos;y touchent pas.
       </p>
       <p className="text-[12.5px] text-graphite leading-[1.5] mb-3">
-        Replikr, c&apos;est l&apos;outil pour y toucher. Présentation en
+        Hybana, c&apos;est l&apos;outil pour y toucher. Présentation en
         réponse.
       </p>
 

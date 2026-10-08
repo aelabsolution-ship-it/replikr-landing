@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
  *
  * Layout 2 colonnes (desktop) :
  *   - GAUCHE : H1 typographique + sous-titre + 3 bullets + CTA (above-the-fold).
- *   - DROITE : un SCHÉMA-PIPELINE statique « 1 vidéo YouTube → Replikr →
+ *   - DROITE : un SCHÉMA-PIPELINE statique « 1 vidéo YouTube → Hybana →
  *     6 réseaux ». But : faire capter la promesse en une seconde, sans rejouer
  *     l'animation de la section Démo (qui, elle, fait exploser des cartes posts
  *     autour de la vidéo). Ici c'est un diagramme propre, vertical, pas une
@@ -74,7 +74,7 @@ export default function HeroSection() {
             transition={{ duration: 0.6, delay: 0.95, ease: [0.16, 1, 0.3, 1] }}
             className="text-graphite text-base md:text-lg max-w-xl mb-6 leading-relaxed"
           >
-            Vous montez votre prochaine vidéo YouTube. Replikr publie l&apos;actuelle
+            Vous montez votre prochaine vidéo YouTube. Hybana publie l&apos;actuelle
             sur LinkedIn, X, Instagram, Threads, TikTok et Facebook à votre
             place. Avec votre voix. Sans vous.
           </motion.p>
@@ -86,7 +86,7 @@ export default function HeroSection() {
             className="space-y-2 mb-8 max-w-xl"
           >
             {[
-              "Replikr apprend votre style à partir de vos vidéos passées.",
+              "Hybana apprend votre style à partir de vos vidéos passées.",
               "Génère 7 posts natifs, adaptés à chaque réseau.",
               "Publie automatiquement aux meilleures heures. Validation mobile en 12 minutes, ou mode autopilot.",
             ].map((bullet, i) => (
@@ -109,7 +109,7 @@ export default function HeroSection() {
             transition={{ duration: 0.6, delay: 1.15, ease: [0.16, 1, 0.3, 1] }}
             className="flex flex-wrap items-center gap-x-5 gap-y-2"
           >
-            <a href="https://app.replikr.io" className="rk-btn-primary">
+            <a href="https://app.hybana.com" className="rk-btn-primary">
               Démarrer gratuitement <span aria-hidden="true">→</span>
             </a>
             <p className="text-[12px] text-graphite/70 leading-snug max-w-[15rem]">
@@ -152,11 +152,11 @@ export default function HeroSection() {
             </span>
           </div>
 
-          {/* Connecteur + pastille Replikr */}
+          {/* Connecteur + pastille Hybana */}
           <div className="flex flex-col items-center">
             <span className="block w-px h-3.5 bg-line" />
             <span className="px-3 py-1 rounded-full bg-violet text-cream text-[11px] font-medium tracking-wide shadow-[0_4px_12px_-4px_rgba(107,79,232,0.5)]">
-              Replikr
+              Hybana
             </span>
             <span className="block w-px h-3.5 bg-line" />
           </div>

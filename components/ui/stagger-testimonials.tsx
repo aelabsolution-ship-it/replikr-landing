@@ -9,7 +9,7 @@ import { cn } from '@/lib/utils';
  *
  * Cartes d'avis posées en quinconce ; la carte centrale est mise en
  * avant. Cliquer une carte (ou les flèches) la fait venir au centre.
- * Mécanique d'origine conservée, habillage à la charte Replikr :
+ * Mécanique d'origine conservée, habillage à la charte Hybana :
  * cartes sombres arrondies, carte centrale en dégradé violet avec un
  * liseré lavande, portraits ronds.
  * ---------------------------------------------------------------- */
@@ -165,7 +165,7 @@ export const StaggerTestimonials: React.FC<{ testimonials: StaggerTestimonial[] 
     <div
       role="region"
       aria-roledescription="carrousel"
-      aria-label="Avis d’utilisateurs de Replikr"
+      aria-label="Avis d’utilisateurs de Hybana"
       className="relative h-[430px] w-full touch-pan-y overflow-hidden lg:h-[560px]"
       onTouchStart={onTouchStart}
       onTouchEnd={onTouchEnd}

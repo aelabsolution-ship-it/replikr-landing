@@ -213,7 +213,7 @@ export default function DemoSection() {
               onPlay={() => setPlaying(true)}
               onPause={() => setPlaying(false)}
               className="w-full h-full object-cover pointer-events-none"
-              aria-label="Teaser Replikr — Pense une fois. Publie dix fois."
+              aria-label="Teaser Hybana — Pense une fois. Publie dix fois."
             />
 
             {/* Overlay clic = toggle play/pause. Couvre toute la zone

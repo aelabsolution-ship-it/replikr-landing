@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import { gsap } from "gsap";
 
-/** Staged notebook demo using Replikr's actual infographic renderer. No live AI or publishing call. */
+/** Staged notebook demo using Hybana's actual infographic renderer. No live AI or publishing call. */
 export default function HeroProductMotion() {
   useEffect(() => {
     const root = document.querySelector<HTMLElement>(".hero-motion");

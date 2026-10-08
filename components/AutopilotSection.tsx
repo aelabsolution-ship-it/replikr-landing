@@ -12,10 +12,10 @@ import {
  * Section Autopilot : insérée entre la démo et "Trois étapes".
  *
  * Promesse centrale : la publication automatique multi-réseaux. C'est la
- * feature qui différencie Replikr des outils de repurposing classiques
+ * feature qui différencie Hybana des outils de repurposing classiques
  * (Klap, OpusClip, Repurpose.io) qui s'arrêtent à la génération.
  *
- * Visuel : nœud central Replikr + 7 logos disposés en cercle autour,
+ * Visuel : nœud central Hybana + 7 logos disposés en cercle autour,
  * lignes SVG reliant chaque logo au centre. Badge "Programmé pour 18h47"
  * en orbite pour suggérer la programmation auto.
  */
@@ -50,11 +50,11 @@ export default function AutopilotSection() {
           <h2 className="font-serif text-[clamp(2.25rem,5.5vw,4.5rem)] leading-[1.05] text-ink mb-8 rk-reveal">
             Vous ne publiez plus.
             <br />
-            <span className="text-violet">Replikr publie.</span>
+            <span className="text-violet">Hybana publie.</span>
           </h2>
 
           <p className="text-graphite text-base md:text-lg leading-relaxed max-w-prose rk-reveal">
-            Connectez vos comptes une fois. Replikr programme et publie sur
+            Connectez vos comptes une fois. Hybana programme et publie sur
             les 7 réseaux aux créneaux d&apos;audience optimale, sans que vous
             ouvriez une seule app. Vous gardez la main : approbation en un
             clic depuis votre téléphone, ou publication directe en mode
@@ -106,15 +106,15 @@ export default function AutopilotSection() {
             })}
           </svg>
 
-          {/* Hub central : logo Replikr sur fond transparent + label */}
+          {/* Hub central : logo Hybana sur fond transparent + label */}
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 flex flex-col items-center gap-3">
             <img
               src="/logo.png"
-              alt="Replikr"
+              alt="Hybana"
               className="w-20 h-20 object-contain"
             />
             <span className="text-[11px] tracking-[0.18em] uppercase text-graphite text-center leading-tight">
-              Replikr
+              Hybana
               <br />
               <span className="text-violet">autopilot</span>
             </span>

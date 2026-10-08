@@ -1,7 +1,7 @@
 import { YouTubeIcon } from "./PlatformIcons";
 
 /**
- * Mockup YouTube Short : format vertical 9:16. Replikr publie le Short
+ * Mockup YouTube Short : format vertical 9:16. Hybana publie le Short
  * (extrait court de la vidéo longue), l'utilisateur garde la main sur le
  * format long. Distinct visuellement de TikTok : accent rouge YouTube,
  * bouton S'abonner, badge "Shorts" en overlay.
@@ -20,10 +20,10 @@ export default function YouTubePost() {
           <span>Shorts</span>
         </div>
 
-        {/* Texte impact centré : titre Replikr-first. */}
+        {/* Texte impact centré : titre Hybana-first. */}
         <div className="absolute inset-0 flex items-center justify-center px-4">
           <p className="font-serif italic text-cream text-xl text-center leading-tight">
-            Replikr publie
+            Hybana publie
             <br />
             pour vous sur
             <br />

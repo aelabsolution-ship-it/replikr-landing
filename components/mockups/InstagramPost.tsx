@@ -91,7 +91,7 @@ export default function InstagramPost() {
         <p className="text-[12px] text-ink leading-[1.45]">
           <span className="font-medium">ludovicnedelec</span> L&apos;IA ne va pas
           remplacer votre business. Elle va remplacer ceux qui n&apos;y touchent
-          pas. J&apos;ai construit Replikr pour ça.{" "}
+          pas. J&apos;ai construit Hybana pour ça.{" "}
           <span className="text-graphite">... plus</span>
         </p>
       </div>

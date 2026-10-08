@@ -5,8 +5,8 @@ import { TikTokIcon } from "./PlatformIcons";
 
 /**
  * Mockup TikTok — vertical 9:16. Affiche en autoplay muet/loop le teaser
- * Replikr (extrait court de la vidéo de présentation), comme s'il avait
- * été republié sur TikTok par Replikr. Les boutons d'action et la légende
+ * Hybana (extrait court de la vidéo de présentation), comme s'il avait
+ * été republié sur TikTok par Hybana. Les boutons d'action et la légende
  * sont conservés par-dessus la vidéo pour le rendu natif.
  *
  * La vidéo démarre à 30 s (le début est moins percutant) et y revient

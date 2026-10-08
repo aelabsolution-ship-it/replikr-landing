@@ -16,7 +16,7 @@ export default function ContrastSection() {
             className="font-serif text-[clamp(1.4rem,2.8vw,2.25rem)] leading-[1.2] text-ink rk-reveal"
             style={{ transitionDelay: "0ms" }}
           >
-            Avant Replikr, vous passiez vos{" "}
+            Avant Hybana, vous passiez vos{" "}
             <span className="text-graphite">vendredis</span> à découper votre
             vidéo de la semaine pour chaque réseau.
           </p>
@@ -25,7 +25,7 @@ export default function ContrastSection() {
             className="font-serif text-[clamp(1.4rem,2.8vw,2.25rem)] leading-[1.2] text-ink rk-reveal"
             style={{ transitionDelay: "200ms" }}
           >
-            Après Replikr, vous validez en{" "}
+            Après Hybana, vous validez en{" "}
             <span className="text-violet">12 minutes</span> depuis le mobile.
             Ou pas du tout, en mode autopilot.
           </p>

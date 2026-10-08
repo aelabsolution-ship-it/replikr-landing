@@ -45,7 +45,7 @@ export default function CtaSection() {
 
         <div className="rk-reveal">
           <a
-            href="https://app.replikr.io"
+            href="https://app.hybana.com"
             className="rk-btn-primary text-base md:text-lg !px-8 !py-4"
           >
             Démarrer gratuitement <span aria-hidden="true">→</span>

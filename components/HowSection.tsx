@@ -9,16 +9,16 @@ const STEPS = [
   {
     n: "01",
     title: "Vous déposez votre vidéo.",
-    sub: "YouTube, MP4, Loom, fichier local. Replikr l'accepte.",
+    sub: "YouTube, MP4, Loom, fichier local. Hybana l'accepte.",
   },
   {
     n: "02",
-    title: "Replikr apprend votre voix et génère vos posts.",
+    title: "Hybana apprend votre voix et génère vos posts.",
     sub: "Ton, accroches, signature, lead magnets : tout est respecté.",
   },
   {
     n: "03",
-    title: "Replikr publie. Vous reprenez votre vie de créateur.",
+    title: "Hybana publie. Vous reprenez votre vie de créateur.",
     sub: "Publication automatique sur 7 réseaux aux meilleurs créneaux. Mode autopilot ou validation rapide depuis le mobile. Vous ne touchez plus jamais aux interfaces natives.",
   },
 ];
