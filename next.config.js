@@ -3,6 +3,16 @@ const nextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
   compress: true,
+  // Renommage Hybana (oct. 2026) : l'ancien domaine part en 301 vers le
+  // nouveau, chemin conservé (replikr.io/confidentialite → www.hybana.com/confidentialite).
+  async redirects() {
+    return [{
+      source: "/:path*",
+      has: [{ type: "host", value: "(www\\.)?replikr\\.io" }],
+      destination: "https://www.hybana.com/:path*",
+      permanent: true,
+    }];
+  },
   async headers() {
     return [{ source: "/:path*", headers: [
       { key: "X-Content-Type-Options", value: "nosniff" },
