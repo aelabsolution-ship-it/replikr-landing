@@ -12,6 +12,7 @@ import "./document-demo.css";
 import "./proof.css";
 import "./hero-motion.css";
 import "./vsl.css";
+import "./layout-spacing.css";
 
 // Typographie façon Raycast : Inter partout (titres, texte, interface).
 const interFont = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });

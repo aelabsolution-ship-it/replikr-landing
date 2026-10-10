@@ -18,7 +18,7 @@
   border-radius: inherit;
 }
 .oi-page .hybana-hero-video:has(.hybana-vsl__play:not([hidden])) .hybana-vsl__player {
-  filter: blur(1.5px) brightness(.72);
+  filter: blur(.5px) brightness(.72);
 }
 .oi-page .hybana-vsl__play {
   position: absolute;

@@ -1,0 +1,35 @@
+/* Shared content edges across the landing, navigation and footer. */
+.oi-page {
+  --landing-width: 1360px;
+  --page-gutter: clamp(20px, 4vw, 48px);
+}
+.oi-page .oi-wide,
+.oi-page .container,
+.oi-page .oi-hero > .oi-wide,
+.oi-page .rk-pricing > .container,
+.oi-page .solo-profile__layout {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: var(--landing-width);
+  margin-inline: auto;
+  padding-inline: var(--page-gutter);
+}
+.oi-page .mega-cta {
+  padding-inline: max(var(--page-gutter), calc((100% - var(--landing-width)) / 2 + var(--page-gutter)));
+}
+.oi-page .header .nav { padding-inline: var(--page-gutter); }
+.oi-page .footer__bottom { padding-inline: 0; }
+.oi-page .oi-hero__stage,
+.oi-page .oi-hero__frame {
+  width: 100%;
+  margin-inline: 0;
+}
+@media (min-width: 1025px) {
+  .oi-page .oi-hero > .oi-wide { gap: clamp(32px, 4vw, 64px); }
+}
+@media (max-width: 1000px) {
+  .oi-page #comment .oi-track { padding-left: 0; }
+  .oi-page #comment .oi-track__label { margin-left: 0; }
+  .oi-page #comment .oi-track__body { margin-left: 0; }
+  .oi-page #comment .oi-track__body .oi-frame { margin-left: 0; width: 100%; }
+}
