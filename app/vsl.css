@@ -24,19 +24,18 @@
   transform: translate(-50%, -50%);
   display: grid;
   place-items: center;
-  width: clamp(64px, 7vw, 88px);
-  height: clamp(64px, 7vw, 88px);
-  padding: 0;
-  border: 1px solid #dedfff;
-  border-radius: 50%;
-  background: #b7b8f1;
-  color: #15141c;
-  box-shadow: 0 8px 32px #0006;
+  width: 110px;
+  height: 110px;
+  padding: 14px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: white;
   cursor: pointer;
 }
 .oi-page .hybana-vsl__play[hidden] { display: none; }
-.oi-page .hybana-vsl__play:hover { background: #d0d1ff; }
-.oi-page .hybana-vsl__play svg { width: 38%; height: 38%; margin-left: 5%; fill: currentColor; }
-.oi-page .hybana-vsl__play:focus-visible { outline: 3px solid white !important; outline-offset: 5px; border-radius: 50%; }
+.oi-page .hybana-vsl__play:hover { filter: brightness(1.15); }
+.oi-page .hybana-vsl__play svg { width: 82px; height: 82px; fill: currentColor; filter: drop-shadow(0 3px 8px #0009); }
+.oi-page .hybana-vsl__play:focus-visible { outline: 3px solid white !important; outline-offset: 5px; border-radius: 8px; }
 .oi-page .hybana-vsl__player:focus-visible { outline: 2px solid var(--sb-accent); outline-offset: 4px; }
 @media (max-width: 620px) { .oi-page .hybana-hero-video { border-radius: 10px; } }
