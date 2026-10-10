@@ -1,0 +1,53 @@
+/* The full demonstration has manual playback, separate from the muted step loops. */
+.oi-page .hybana-vsl-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .6rem;
+  min-height: 48px;
+  padding: .7rem .25rem;
+  color: var(--sb-accent);
+  font: 600 1rem/1.4 var(--font-ui);
+  text-decoration: none;
+}
+.oi-page .hybana-vsl-link:hover { color: var(--sb-texte); }
+.oi-page .hybana-vsl {
+  scroll-margin-top: 96px;
+  padding: clamp(2.5rem, 5vw, 5rem) 0;
+  border-block: 1px solid var(--sb-filet);
+  background: var(--sb-fond);
+}
+.oi-page .hybana-vsl > .oi-wide { max-width: 1120px; }
+.oi-page .hybana-vsl__heading { margin-bottom: 1.75rem; text-align: center; }
+.oi-page .hybana-vsl__heading h2 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 3.25rem);
+  line-height: 1.15;
+  letter-spacing: -.035em;
+  text-wrap: balance;
+}
+.oi-page .hybana-vsl__heading h2 em { color: var(--sb-accent); font-style: normal; }
+.oi-page .hybana-vsl__heading p {
+  margin: 1rem 0 0;
+  color: var(--sb-texte-2);
+  font-size: 1.125rem;
+  line-height: 1.55;
+}
+.oi-page .hybana-vsl__player {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  border: 1px solid var(--sb-filet);
+  border-radius: 16px;
+  background: #0b0b0c;
+  box-shadow: 0 24px 70px -34px rgba(169, 171, 232, .28);
+}
+.oi-page .hybana-vsl__player:focus-visible { outline: 2px solid var(--sb-accent); outline-offset: 4px; }
+@media (max-width: 620px) {
+  .oi-page .hybana-vsl > .oi-wide { padding-inline: 1rem; }
+  .oi-page .hybana-vsl__heading { margin-bottom: 1.25rem; }
+  .oi-page .hybana-vsl__heading p { font-size: 1rem; }
+  .oi-page .hybana-vsl__player { border-radius: 10px; }
+}
