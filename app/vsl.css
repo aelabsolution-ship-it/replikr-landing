@@ -1,37 +1,13 @@
-/* The full demonstration has manual playback, separate from the muted step loops. */
-.oi-page .hybana-vsl-link {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: .6rem;
-  min-height: 48px;
-  padding: .7rem .25rem;
-  color: var(--sb-accent);
-  font: 600 1rem/1.4 var(--font-ui);
-  text-decoration: none;
-}
-.oi-page .hybana-vsl-link:hover { color: var(--sb-texte); }
-.oi-page .hybana-vsl {
+/* The hero's full video replaces the animated application preview. */
+.oi-page .hybana-hero-video {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
   scroll-margin-top: 96px;
-  padding: clamp(2.5rem, 5vw, 5rem) 0;
-  border-block: 1px solid var(--sb-filet);
-  background: var(--sb-fond);
-}
-.oi-page .hybana-vsl > .oi-wide { max-width: 1120px; }
-.oi-page .hybana-vsl__heading { margin-bottom: 1.75rem; text-align: center; }
-.oi-page .hybana-vsl__heading h2 {
-  margin: 0;
-  font-size: clamp(2rem, 4vw, 3.25rem);
-  line-height: 1.15;
-  letter-spacing: -.035em;
-  text-wrap: balance;
-}
-.oi-page .hybana-vsl__heading h2 em { color: var(--sb-accent); font-style: normal; }
-.oi-page .hybana-vsl__heading p {
-  margin: 1rem 0 0;
-  color: var(--sb-texte-2);
-  font-size: 1.125rem;
-  line-height: 1.55;
+  border: 1px solid var(--sb-filet);
+  border-radius: 16px;
+  background: #0b0b0c;
+  isolation: isolate;
 }
 .oi-page .hybana-vsl__player {
   display: block;
@@ -39,15 +15,28 @@
   height: auto;
   aspect-ratio: 16 / 9;
   object-fit: contain;
-  border: 1px solid var(--sb-filet);
-  border-radius: 16px;
-  background: #0b0b0c;
-  box-shadow: 0 24px 70px -34px rgba(169, 171, 232, .28);
+  border-radius: inherit;
 }
+.oi-page .hybana-vsl__play {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: grid;
+  place-items: center;
+  width: clamp(64px, 7vw, 88px);
+  height: clamp(64px, 7vw, 88px);
+  padding: 0;
+  border: 1px solid #dedfff;
+  border-radius: 50%;
+  background: #b7b8f1;
+  color: #15141c;
+  box-shadow: 0 8px 32px #0006;
+  cursor: pointer;
+}
+.oi-page .hybana-vsl__play[hidden] { display: none; }
+.oi-page .hybana-vsl__play:hover { background: #d0d1ff; }
+.oi-page .hybana-vsl__play svg { width: 38%; height: 38%; margin-left: 5%; fill: currentColor; }
+.oi-page .hybana-vsl__play:focus-visible { outline: 3px solid white !important; outline-offset: 5px; border-radius: 50%; }
 .oi-page .hybana-vsl__player:focus-visible { outline: 2px solid var(--sb-accent); outline-offset: 4px; }
-@media (max-width: 620px) {
-  .oi-page .hybana-vsl > .oi-wide { padding-inline: 1rem; }
-  .oi-page .hybana-vsl__heading { margin-bottom: 1.25rem; }
-  .oi-page .hybana-vsl__heading p { font-size: 1rem; }
-  .oi-page .hybana-vsl__player { border-radius: 10px; }
-}
+@media (max-width: 620px) { .oi-page .hybana-hero-video { border-radius: 10px; } }
