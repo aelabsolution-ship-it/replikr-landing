@@ -434,6 +434,12 @@ summary.faq__question::-webkit-details-marker { display: none; }
 .oi-page .rk-cookie__actions { display: flex; gap: 12px; justify-content: flex-end; }
 .oi-page .rk-cookie__choice { padding: 10px 18px; min-height: 44px; border: 1px solid #a5a3c3; border-radius: 8px; background: #292831; color: #f4f3fa; font-size: 14px; }
 .oi-page .rk-cookie__choice:hover { background: #393744; }
+/* Bandeau « classique » (Ludovic, 10 oct. 2026) : titre, lien, deux choix de même taille. */
+.oi-page .rk-cookie__title { margin: 0 0 4px !important; font-weight: 700; font-size: 14px !important; }
+.oi-page .rk-cookie a { color: #c8c6ff; text-decoration: underline; }
+.oi-page .rk-cookie__actions .rk-cookie__choice { flex: 1; }
+.oi-page .rk-cookie__choice--accept { background: #f4f3fa; color: #19191e; border-color: #f4f3fa; font-weight: 600; }
+.oi-page .rk-cookie__choice--accept:hover { background: #dcdaf0; }
 @media (max-width: 620px) {
   .oi-page .oi-hero__lead { order: 2; margin: .9rem 0; }
   .oi-page .oi-hero__stage { order: 4; margin-top: 1rem; }

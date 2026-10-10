@@ -42,24 +42,29 @@ export default function CookieBanner() {
     <div
       className="rk-cookie"
       role="dialog"
-      aria-label="Préférences de cookies"
+      aria-labelledby="rk-cookie-title"
     >
+      <p className="rk-cookie__title" id="rk-cookie-title">Cookies</p>
       <p>
-        On utilise quelques cookies pour mesurer l&apos;audience anonymement.
-        Aucun tracking publicitaire.
+        On utilise des cookies pour mesurer l&apos;audience et améliorer le site.
+        Aucun tracking publicitaire.{" "}
+        <a
+          href="https://app.hybana.com/legal/confidentialite"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          En savoir plus
+        </a>
       </p>
       <div className="rk-cookie__actions">
-        <button
-          onClick={handleRefuse}
-          className="rk-cookie__choice"
-        >
-          Refuser
+        <button onClick={handleRefuse} className="rk-cookie__choice">
+          Tout refuser
         </button>
         <button
           onClick={handleAccept}
-          className="rk-cookie__choice"
+          className="rk-cookie__choice rk-cookie__choice--accept"
         >
-          Accepter
+          Tout accepter
         </button>
       </div>
     </div>
