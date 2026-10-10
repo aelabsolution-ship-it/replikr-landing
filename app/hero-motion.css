@@ -6,10 +6,10 @@
   .oi-page .oi-hero { padding-block:calc(62px + 5.5rem) 5.5rem; }
   .oi-page .oi-hero > .oi-wide { width:100%; }
 }
-.oi-page .oi-hero > .oi-wide { display:grid; grid-template-columns:minmax(0,.85fr) minmax(0,1.15fr); align-items:center; gap:3rem; text-align:left; }
+.oi-page .oi-hero > .oi-wide { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); align-items:center; gap:clamp(3rem,5vw,5rem); text-align:left; }
 .oi-page .oi-hero__intro { display:block; max-width:600px; margin:0; }
-.oi-page .oi-hero h1 { font-size:clamp(2.25rem,3.45vw,3.4rem); line-height:1.12; text-wrap:balance; }
-.oi-page .oi-hero__lead { max-width:46ch; margin:1.35rem 0 0; }
+.oi-page .oi-hero h1 { font-size:clamp(2.1rem,3vw,3rem); line-height:1.16; text-wrap:balance; }
+.oi-page .oi-hero__lead { max-width:46ch; margin:1.35rem 0 0; font-size:clamp(1rem,1.45vw,1.15rem); line-height:1.6; }
 .oi-page .oi-hero__actions { justify-content:flex-start; margin-top:1.7rem; }
 .oi-page .oi-hero__stage { width:100%; min-width:0; margin:0; }
 .oi-page .oi-hero__frame { width:100%; max-width:none; margin:0; border:0; box-shadow:none; background:transparent; }
