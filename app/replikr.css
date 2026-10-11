@@ -26,6 +26,8 @@ a:focus-visible, button:focus-visible, summary:focus-visible, [tabindex]:focus-v
 }
 .replikr-brand { display: inline-flex; align-items: center; gap: .65rem; color: white; font-family: var(--font-ui); font-size: 1.3rem; font-weight: 600; }
 .replikr-brand img { width: 34px; height: 34px; object-fit: contain; }
+/* Wordmark HYBANA : Figtree, capitales, un peu d'air entre les lettres (charte, 11 oct. 2026). */
+.replikr-brand .hb-wordmark { font-family: var(--font-brand), 'Figtree', sans-serif; font-weight: 800; letter-spacing: .08em; font-size: 1.12rem; }
 .nav__cta { margin-right: 0; }
 /* Les logos des réseaux suivent la vidéo du héro sans grand vide noir. */
 .oi-page #comment { padding-top: 0; }

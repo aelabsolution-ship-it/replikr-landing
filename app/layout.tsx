@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter, IBM_Plex_Mono } from "next/font/google";
+import { Figtree, Inter, IBM_Plex_Mono } from "next/font/google";
 import "./globals.css";
 import "../public/reference/styles.css";
 import "../public/reference/styles/lofi-tokens.css";
@@ -16,6 +16,8 @@ import "./layout-spacing.css";
 
 // Typographie façon Raycast : Inter partout (titres, texte, interface).
 const interFont = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
+// Le nom de marque HYBANA s'écrit en Figtree, en capitales (charte, 10 oct. 2026).
+const brandFont = Figtree({ subsets: ["latin"], weight: ["800"], variable: "--font-brand", display: "swap" });
 const monoFont = IBM_Plex_Mono({ subsets: ["latin"], weight: ["400", "500", "600"], variable: "--font-ibm-plex", display: "swap" });
 
 const title = "Hybana : faites connaître votre expertise";
@@ -31,5 +33,5 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  return <html lang="fr" className={[interFont.variable, monoFont.variable].join(" ")}><body className="oi-page">{children}</body></html>;
+  return <html lang="fr" className={[interFont.variable, brandFont.variable, monoFont.variable].join(" ")}><body className="oi-page">{children}</body></html>;
 }
