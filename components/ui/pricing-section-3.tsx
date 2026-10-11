@@ -5,7 +5,7 @@ import { useEffect, useRef, useState } from "react";
 
 const plans = [
   {
-    id: "freemium", name: "Gratuit", tagline: "Testez sans carte bancaire", price: 0, annual: 0, annualMonthly: 0, credits: "7 jours offerts",
+    id: "freemium", name: "Gratuit", tagline: "Testez sur vos contenus", price: 0, annual: 0, annualMonthly: 0, credits: "7 jours offerts",
     features: ["Créez à partir de vos documents, liens ou vidéos", "Textes, images et infographies", "Textes pour vos vidéos", "Filmez et téléchargez vos vidéos brutes"],
     excluded: ["Carrousels illustrés", "Montage et sous-titres", "Publication et programmation"],
     featured: false, free: true,
