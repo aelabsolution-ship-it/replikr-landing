@@ -5,11 +5,11 @@ import { useEffect, useRef, useState } from "react";
 
 const plans = [
   {
-    id: "freemium", name: "Gratuit", tagline: "Testez sans carte bancaire", price: 0, annual: 0, annualMonthly: 0, credits: "100 crédits offerts",
+    id: "freemium", name: "Gratuit", tagline: "Testez sur vos contenus", price: 0, annual: 0, annualMonthly: 0, credits: "7 jours offerts",
     features: ["Créez à partir de vos documents, liens ou vidéos", "Textes, images et infographies", "Textes pour vos vidéos", "Filmez et téléchargez vos vidéos brutes"],
     excluded: ["Carrousels illustrés", "Montage et sous-titres", "Publication et programmation"],
     featured: false, free: true,
-    highlights: ["100 crédits offerts", "Vos documents comme point de départ", "Textes, images, infographies"],
+    highlights: ["7 jours offerts", "5 posts, 4 visuels, 1 semaine planifiée", "Vos documents comme point de départ"],
   },
   {
     id: "power", name: "Créateur", tagline: "Créez vos contenus", price: 35, annual: 348, annualMonthly: 29, credits: "410 crédits / mois",
@@ -88,7 +88,7 @@ function Amount({ value }: { value: number }) {
 // de suite ce qu'il permet et ce qu'il ne permet pas.
 type Cell = string | boolean;
 const COMPARE: { label: string; values: Cell[] }[] = [
-  { label: "Crédits", values: [plans[0].credits + " · une seule fois", "410 par mois", "660 par mois", "4 470 par mois"] },
+  { label: "Crédits", values: ["Essai de 7 jours : 5 posts, 4 visuels", "410 par mois", "660 par mois", "4 470 par mois"] },
   { label: "Recharge de 5 €", values: [false, "110 crédits", "150 crédits", "190 crédits"] },
   { label: "Sujets de publication conservés", values: ["2", "10", "30", "100"] },
   { label: "Contenus conservés par sujet", values: ["5", "30", "50", "100"] },
