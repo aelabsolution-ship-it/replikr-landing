@@ -17,7 +17,7 @@ import "./layout-spacing.css";
 // Typographie façon Raycast : Inter partout (titres, texte, interface).
 const interFont = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
 // Le nom de marque HYBANA s'écrit en Figtree, en capitales (charte, 10 oct. 2026).
-const brandFont = Figtree({ subsets: ["latin"], weight: ["800"], variable: "--font-brand", display: "swap" });
+const brandFont = Figtree({ subsets: ["latin"], weight: ["500"], variable: "--font-brand", display: "swap" });
 const monoFont = IBM_Plex_Mono({ subsets: ["latin"], weight: ["400", "500", "600"], variable: "--font-ibm-plex", display: "swap" });
 
 const title = "Hybana : faites connaître votre expertise";

@@ -35,7 +35,7 @@ export default function Nav() {
           aria-label="Hybana · accueil"
         >
           <img src="/logo.png" alt="" aria-hidden="true" className="w-7 h-7" />
-          <span className="text-[15px] tracking-[0.08em]" style={{ fontFamily: "var(--font-brand), Figtree, sans-serif", fontWeight: 800 }}>HYBANA</span>
+          <span className="text-[15px] tracking-[0.28em] -mr-[0.28em]" style={{ fontFamily: "var(--font-brand), Figtree, sans-serif", fontWeight: 500 }}>HYBANA</span>
         </a>
 
         {/* Lien discret pour les clients existants : redirige vers l'app. */}
