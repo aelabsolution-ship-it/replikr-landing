@@ -12,7 +12,7 @@ const plans = [
     highlights: ["7 jours offerts", "5 posts, 4 visuels, 1 semaine planifiée", "Vos documents comme point de départ"],
   },
   {
-    id: "power", name: "Créateur", tagline: "Créez vos contenus", price: 35, annual: 348, annualMonthly: 29, credits: "Création\u00a0· 1\u00a0marque",
+    id: "power", name: "Créer", tagline: "Créez vos contenus", price: 35, annual: 348, annualMonthly: 29, credits: "Création\u00a0· 1\u00a0marque",
     base: "Gratuit",
     features: ["Organisez vos publications par sujet", "Croisez plusieurs documents pour enrichir vos publications", "Carrousels illustrés", "Montage et sous-titres des vidéos courtes", "Copiez vos textes et téléchargez vos images"],
     excluded: ["Publication et programmation"],
@@ -20,15 +20,15 @@ const plans = [
     highlights: ["Création\u00a0· 1\u00a0marque", "Vos publications organisées par sujet", "Carrousels et montage"],
   },
   {
-    id: "power_pub", name: "Solopreneur", tagline: "Créez et publiez partout", price: 66, annual: 660, annualMonthly: 55, credits: "Création et publication\u00a0· 1\u00a0marque",
-    base: "Créateur",
+    id: "power_pub", name: "Créer et publier", tagline: "Créez et publiez partout", price: 66, annual: 660, annualMonthly: 55, credits: "Création et publication\u00a0· 1\u00a0marque",
+    base: "Créer",
     features: ["Préparez vos publications à l’avance", "Publiez directement sur vos réseaux", "Choisissez le jour et l’heure de publication", "Retrouvez vos vidéos avec les publications du même sujet"],
     excluded: [], featured: true, free: false,
     highlights: ["Création et publication\u00a0· 1\u00a0marque", "Vos publications programmées", "Publication directe"],
   },
   {
     id: "community_manager", name: "Agence", tagline: "Gérez jusqu’à 10 marques", price: 359, annual: 3588, annualMonthly: 299, credits: "Création et publication\u00a0· 10\u00a0marques",
-    base: "Solopreneur",
+    base: "Créer et publier",
     features: ["10 marques", "100 carnets de publication, 100 contenus chacun"],
     excluded: [], featured: false, free: false, booking: true,
     highlights: ["Création et publication\u00a0· 10\u00a0marques", "100 carnets de publication"],
@@ -154,7 +154,7 @@ export default function PricingSection() {
               <ul className="rk-card__highlights">
                 {plan.highlights.map((h) => <li key={h}>{h}</li>)}
               </ul>
-              {"base" in plan && plan.base && <p className="rk-card__base">Tout {plan.base}, plus :</p>}
+              {"base" in plan && plan.base && <p className="rk-card__base">Tout « {plan.base} », plus :</p>}
               <ul className="rk-card__features">
                 {plan.features.map((feature) => (
                   <li key={feature}><span aria-hidden="true" className="rk-card__check">✓</span>{feature}</li>

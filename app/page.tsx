@@ -1,7 +1,6 @@
 import { readFileSync } from "node:fs";
 import path from "node:path";
 import LandingEnhancements from "@/components/LandingEnhancements";
-import CookieBanner from "@/components/CookieBanner";
 import PricingSection from "@/components/ui/pricing-section-3";
 import AvisSection from "@/components/AvisSection";
 import HeroVsl from "@/components/HeroVsl";
@@ -28,6 +27,6 @@ export default function HomePage() {
       <div dangerouslySetInnerHTML={{ __html: afterPricing }} />
     </main>
     <div dangerouslySetInnerHTML={{ __html: parts![3] }} />
-    <LandingEnhancements /><HeroVsl /><CookieBanner />
+    <LandingEnhancements /><HeroVsl />
   </>;
 }

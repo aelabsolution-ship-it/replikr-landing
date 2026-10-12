@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { readFileSync } from "node:fs";
 import path from "node:path";
 import LandingEnhancements from "@/components/LandingEnhancements";
-import CookieBanner from "@/components/CookieBanner";
 import AffiliationSimulator from "@/components/AffiliationSimulator";
 import "../affiliation.css";
 
@@ -60,6 +59,6 @@ export default function AffiliationPage() {
       <div dangerouslySetInnerHTML={{ __html: afterHero }} style={{ display: "contents" }} />
     </main>
     <div dangerouslySetInnerHTML={{ __html: parts![3] }} />
-    <LandingEnhancements /><CookieBanner />
+    <LandingEnhancements />
   </>;
 }
