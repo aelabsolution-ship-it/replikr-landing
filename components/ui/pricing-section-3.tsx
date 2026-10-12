@@ -45,7 +45,7 @@ const landingPlans = plans
 const BOOKING_URL = "https://calendar.app.google/FMCaxhBxAvHCFKai9";
 
 const ENTERPRISE = {
-  name: "Entreprise",
+  name: "Sur-mesure",
   price: "Sur devis",
   description: "Hybana installé pour votre organisation : votre marque, vos gabarits, vos règles éditoriales, vos canaux.",
   features: [
@@ -181,9 +181,9 @@ export default function PricingSection() {
           ))}
         </div>
         <button type="button" className="rk-pricing__more" onClick={showCompare}>En savoir + sur les offres</button>
-        <article className="rk-enterprise" aria-label="Offre Entreprise, sur devis">
+        <article className="rk-enterprise" aria-label="Offre Sur-mesure, sur devis">
           <div className="rk-enterprise__pitch">
-            <h3><span className="rk-card__label-long">{ENTERPRISE.name}</span><span className="rk-card__label-short">Sur mesure</span></h3>
+            <h3><span className="rk-card__label-long">{ENTERPRISE.name}</span><span className="rk-card__label-short">Sur-mesure</span></h3>
             <p className="rk-enterprise__price">{ENTERPRISE.price}</p>
             <p className="rk-enterprise__description">{ENTERPRISE.description}</p>
             <a className="rk-card__button rk-enterprise__button" href={BOOKING_URL}
