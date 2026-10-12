@@ -12,26 +12,26 @@ const plans = [
     highlights: ["7 jours offerts", "5 posts, 4 visuels, 1 semaine planifiée", "Vos documents comme point de départ"],
   },
   {
-    id: "power", name: "Créateur", tagline: "Créez vos contenus", price: 35, annual: 348, annualMonthly: 29, credits: "410 crédits / mois",
+    id: "power", name: "Créateur", tagline: "Créez vos contenus", price: 35, annual: 348, annualMonthly: 29, credits: "Création\u00a0· 1\u00a0marque",
     base: "Gratuit",
-    features: ["Organisez vos publications par sujet", "Croisez plusieurs documents pour enrichir vos publications", "Carrousels illustrés", "Montage et sous-titres des vidéos courtes", "Copiez vos textes et téléchargez vos images", "Crédits supplémentaires à la demande"],
+    features: ["Organisez vos publications par sujet", "Croisez plusieurs documents pour enrichir vos publications", "Carrousels illustrés", "Montage et sous-titres des vidéos courtes", "Copiez vos textes et téléchargez vos images"],
     excluded: ["Publication et programmation"],
     featured: false, free: false,
-    highlights: ["410 crédits / mois", "Vos publications organisées par sujet", "Carrousels et montage"],
+    highlights: ["Création\u00a0· 1\u00a0marque", "Vos publications organisées par sujet", "Carrousels et montage"],
   },
   {
-    id: "power_pub", name: "Solopreneur", tagline: "Créez et publiez partout", price: 66, annual: 660, annualMonthly: 55, credits: "660 crédits / mois",
+    id: "power_pub", name: "Solopreneur", tagline: "Créez et publiez partout", price: 66, annual: 660, annualMonthly: 55, credits: "Création et publication\u00a0· 1\u00a0marque",
     base: "Créateur",
     features: ["Préparez vos publications à l’avance", "Publiez directement sur vos réseaux", "Choisissez le jour et l’heure de publication", "Retrouvez vos vidéos avec les publications du même sujet"],
     excluded: [], featured: true, free: false,
-    highlights: ["660 crédits / mois", "Vos publications programmées", "Publication directe"],
+    highlights: ["Création et publication\u00a0· 1\u00a0marque", "Vos publications programmées", "Publication directe"],
   },
   {
-    id: "community_manager", name: "Agence", tagline: "Gérez jusqu’à 10 marques", price: 359, annual: 3588, annualMonthly: 299, credits: "4 470 crédits / mois",
+    id: "community_manager", name: "Agence", tagline: "Gérez jusqu’à 10 marques", price: 359, annual: 3588, annualMonthly: 299, credits: "Création et publication\u00a0· 10\u00a0marques",
     base: "Solopreneur",
-    features: ["10 marques", "100 carnets de publication, 100 contenus chacun", "Recharge de 5 € = 190 crédits"],
+    features: ["10 marques", "100 carnets de publication, 100 contenus chacun"],
     excluded: [], featured: false, free: false, booking: true,
-    highlights: ["4 470 crédits / mois", "10 marques", "100 carnets de publication"],
+    highlights: ["Création et publication\u00a0· 10\u00a0marques", "100 carnets de publication"],
   },
 ];
 
@@ -59,7 +59,7 @@ const ENTERPRISE = {
   cta: "Prendre rendez-vous",
 };
 
-// Deux mois offerts : 348 € au lieu de 12 × 35 €.
+// Deux mois offerts : 29 €/mois au lieu de 35 €. Le total annuel ne s’affiche que dans Stripe.
 const SAVING = Math.round((1 - plans[1].annual / (plans[1].price * 12)) * 100);
 
 const euros = (n: number) => Math.round(n).toLocaleString("fr-FR");
@@ -88,8 +88,7 @@ function Amount({ value }: { value: number }) {
 // de suite ce qu'il permet et ce qu'il ne permet pas.
 type Cell = string | boolean;
 const COMPARE: { label: string; values: Cell[] }[] = [
-  { label: "Crédits", values: ["Essai de 7 jours : 5 posts, 4 visuels", "410 par mois", "660 par mois", "4 470 par mois"] },
-  { label: "Recharge de 5 €", values: [false, "110 crédits", "150 crédits", "190 crédits"] },
+  { label: "Ce que vous faites", values: ["Essai de 7 jours : 5 posts, 4 visuels", "Créer", "Créer et publier", "Créer et publier"] },
   { label: "Sujets de publication conservés", values: ["2", "10", "30", "100"] },
   { label: "Contenus conservés par sujet", values: ["5", "30", "50", "100"] },
   { label: "Documents, liens ou vidéos par sujet", values: ["3", "6", "6", "6"] },
@@ -146,7 +145,7 @@ export default function PricingSection() {
                   <span>{plan.free ? "€" : "€/mois"}</span>
                 </p>
                 {!plan.free && (
-                  <p className="rk-card__annual">{annual ? `${euros(plan.annual)} € TTC facturés par an` : `${euros(plan.price)} € TTC facturés par mois`}</p>
+                  <p className="rk-card__annual">{annual ? `${euros(plan.annualMonthly)} € TTC par mois, facturés à l’année` : `${euros(plan.price)} € TTC facturés par mois`}</p>
                 )}
                 <h3>{plan.name}</h3>
                 <p className="rk-card__tagline">{plan.tagline}</p>
@@ -205,7 +204,7 @@ export default function PricingSection() {
           </summary>
           <div className="rk-compare-fold__body">
         <p className="solo-pricing-explanation">Un sujet regroupe vos documents et les contenus créés à partir d’eux : une offre, une méthode, une question fréquente. Dans Hybana, cet espace s’appelle un carnet de publication.</p>
-        <p className="solo-pricing-explanation">Les limites ci-dessous indiquent ce que vous pouvez conserver. Chaque création utilise des crédits ; le nombre de créations dépend des formats choisis.</p>
+        <p className="solo-pricing-explanation">Les limites ci-dessous indiquent ce que vous pouvez conserver.</p>
         <table className="rk-compare">
           <caption className="rk-sr-only">Ce qui change d’une offre à l’autre</caption>
           <thead>

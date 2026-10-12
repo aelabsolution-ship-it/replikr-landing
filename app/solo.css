@@ -123,7 +123,7 @@
 .oi-page .solo-for h2 em { color: var(--sb-accent); font-style: normal; white-space: nowrap; }
 .oi-page .solo-for__layout { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(2rem, 5vw, 5rem); align-items: center; max-width: 1200px; margin: 0 auto; }
 .oi-page .solo-for__tiles { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.5rem 2rem; margin: 0; padding: 0; list-style: none; }
-.oi-page .solo-for__tiles li { color: #eeebf6; font-size: 1.1875rem; font-weight: 500; line-height: 1.4; }
+.oi-page .solo-for__tiles li { display: flex; flex-direction: column; align-items: center; color: #eeebf6; font-size: 1.1875rem; font-weight: 500; line-height: 1.4; text-align: center; }
 .oi-page .solo-for__icon { display: grid; place-items: center; width: 84px; height: 84px; margin-bottom: 1.1rem; border: 1px solid rgba(169, 171, 232, .28); border-radius: 22px; background: rgba(169, 171, 232, .1); color: #c9cbf2; box-shadow: 0 18px 40px -24px rgba(139, 142, 240, .6); }
 .oi-page .solo-for__icon svg { width: 34px; height: 34px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
 .oi-page .solo-for__icon--a { background: linear-gradient(145deg, rgba(169, 171, 232, .22), rgba(169, 171, 232, .06)); }
@@ -162,9 +162,8 @@
 .oi-page #comment .solo-networks .oi-reseaux { justify-content: center; margin: 0; }
 .oi-page .solo-networks__cta { gap: 1rem; margin-top: 1rem; }
 
-/* Téléphone uniquement : profils centrés. */
+/* Téléphone uniquement : témoignage centré (les profils le sont partout). */
 @media (max-width: 620px) {
-  .oi-page .solo-for__tiles li { display: flex; flex-direction: column; align-items: center; text-align: center; }
   .oi-page .solo-for__quote { text-align: center; }
   .oi-page .solo-for__quote figcaption { justify-content: center; text-align: left; }
 }
