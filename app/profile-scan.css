@@ -18,6 +18,11 @@
 .oi-page .solo-profile h2 em { color: var(--sb-accent); font-style: normal; }
 .oi-page .solo-profile__copy > p { max-width: 38ch; margin: 0; color: var(--sb-texte-2); font-size: 1.1875rem; line-height: 1.65; }
 .oi-page .solo-profile__copy > .solo-profile__promise { margin-top: 1.25rem; color: var(--sb-texte); font-weight: 500; }
+.oi-page .solo-profile__compare { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .75rem; max-width: 34rem; margin-top: 1rem; }
+.oi-page .solo-profile__example { margin: 0; padding: 1rem 1.1rem; border: 1px solid var(--sb-filet); border-radius: 14px; background: var(--sb-carte); min-width: 0; }
+.oi-page .solo-profile__example figcaption { margin-bottom: .5rem; color: var(--sb-accent); font-family: var(--font-ui); font-size: .72rem; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; }
+.oi-page .solo-profile__example blockquote { margin: 0; color: var(--sb-texte); font-size: .98rem; line-height: 1.5; }
+.oi-page .solo-profile__copy > .solo-profile__note { margin-top: .6rem; color: var(--sb-texte-3); font-family: var(--font-ui); font-size: .8rem; }
 .oi-page .solo-profile__copy .btn { margin-top: 2rem; min-height: 58px; gap: 1rem; font-size: 1.0625rem; white-space: normal; }
 .oi-page .profile-scan {
   --scan-duration: 14s;
@@ -132,6 +137,7 @@
   .oi-page .solo-profile { padding: 3.5rem 0; }
   .oi-page .solo-profile h2 { font-size: clamp(2rem, 8vw, 3rem); }
   .oi-page .solo-profile__copy .btn { width: 100%; text-align: left; }
+  .oi-page .solo-profile__compare { grid-template-columns: 1fr; }
   .oi-page .profile-scan { padding: 0 1rem 1rem; border-radius: 20px; }
   .oi-page .profile-scan__toolbar { min-height: 68px; }
   .oi-page .profile-scan__identity { padding-inline: 1rem; }
