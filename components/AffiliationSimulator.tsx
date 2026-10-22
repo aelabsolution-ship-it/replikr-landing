@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 
-// Prix TTC des offres (mêmes valeurs que la FAQ de l'accueil). Commission :
+// Prix TTC des offres (ceux de l'app, non affichés sur le site). Commission :
 // 20 % du hors taxes (TVA française 20 % incluse dans les prix).
 const OFFERS = [
   { id: "replikr", label: "Créer", price: 35 },
@@ -28,7 +28,7 @@ export default function AffiliationSimulator() {
       <div className="af-seg" role="group" aria-label="Offre de vos clients">
         {OFFERS.map(o => (
           <button key={o.id} type="button" aria-pressed={o.id === offer.id}
-            onClick={() => setOffer(o)}>{o.label} · {o.price} €</button>
+            onClick={() => setOffer(o)}>{o.label}</button>
         ))}
       </div>
       <div className="af-seg" role="group" aria-label="Nombre de clients">
