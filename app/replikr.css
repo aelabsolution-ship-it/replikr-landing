@@ -313,7 +313,7 @@ summary.faq__question::-webkit-details-marker { display: none; }
 .oi-page .nav__login:hover { color: var(--sb-texte); }
 @media (max-width: 620px) { .oi-page .nav__actions { gap: .7rem; } .oi-page .nav__login { font-size: .8rem; } }
 .oi-page .nav__login { white-space: nowrap; }
-/* Petit téléphone : l'icône seule suffit pour laisser la place à Affiliation, Se connecter et Essai gratuit. */
+/* Petit téléphone : l'icône seule suffit pour laisser la place à Se connecter et Essai gratuit. */
 @media (max-width: 480px) {
   .oi-page .header .nav { gap: .5rem; padding-inline: .9rem; }
   .oi-page .nav__logo > span { display: none; }
