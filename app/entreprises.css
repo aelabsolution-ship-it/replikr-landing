@@ -1,0 +1,13 @@
+/* Page /entreprises : mêmes blocs que /affiliation (affiliation.css), plus ce qui suit. */
+.oi-page .af-grid--trois { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+/* Emplacements à remplir par Ludovic : bien visibles tant qu'ils sont là. */
+.oi-page .ent-todo { display: grid; place-items: center; min-height: 9rem; padding: 1.5rem; border: 2px dashed var(--sb-accent);
+  border-radius: 16px; background: rgba(169, 171, 232, .08); color: var(--sb-accent); font-weight: 600; font-size: 1rem;
+  line-height: 1.5; font-family: var(--font-ui); text-align: center; }
+.oi-page .ent-todo--visuel { min-height: 20rem; }
+@media (max-width: 1000px) { .oi-page .af-grid--trois { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 720px) {
+  .oi-page .af-grid--trois { grid-template-columns: 1fr; }
+  .oi-page .ent-todo--visuel { min-height: 12rem; }
+  .oi-page .af-hero .oi-hero__actions .af-ghost { width: 100%; justify-content: center; }
+}
