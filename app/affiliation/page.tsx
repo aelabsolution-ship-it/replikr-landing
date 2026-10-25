@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   title, description,
   alternates: { canonical: "/affiliation" },
   openGraph: { title, description, type: "website", locale: "fr_FR", url: "https://www.hybana.com/affiliation", siteName: "Hybana" },
-  twitter: { card: "summary", title, description },
+  twitter: { card: "summary_large_image", title, description },
 };
 
 // Reviewed, repository-owned HTML; read at build time, with no visitor input.

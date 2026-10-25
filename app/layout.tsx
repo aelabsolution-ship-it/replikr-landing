@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.hybana.com"), title, description,
   alternates: { canonical: "/" },
   openGraph: { title: promesse, description, type: "website", locale: "fr_FR", url: "https://www.hybana.com", siteName: "Hybana" },
-  twitter: { card: "summary", title: promesse, description },
+  twitter: { card: "summary_large_image", title: promesse, description },
   robots: { index: true, follow: true },
 };
 
