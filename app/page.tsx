@@ -3,6 +3,7 @@ import path from "node:path";
 import LandingEnhancements from "@/components/LandingEnhancements";
 import AvisSection from "@/components/AvisSection";
 import HeroVsl from "@/components/HeroVsl";
+import SoftwareJsonLd from "@/components/SoftwareJsonLd";
 
 export const dynamic = "force-static";
 
@@ -16,6 +17,7 @@ if (afterAvis === undefined) throw new Error("Missing avis section marker");
 
 export default function HomePage() {
   return <>
+    <SoftwareJsonLd />
     <div dangerouslySetInnerHTML={{ __html: parts![1] }} />
     <main>
       <div dangerouslySetInnerHTML={{ __html: beforeAvis }} />
