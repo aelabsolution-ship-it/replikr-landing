@@ -3,13 +3,14 @@ import { readFileSync } from "node:fs";
 import path from "node:path";
 import LandingEnhancements from "@/components/LandingEnhancements";
 import RevealOnScroll from "@/components/RevealOnScroll";
+import EntreprisesDemos from "@/components/EntreprisesDemos";
 import "../affiliation.css";
 import "../entreprises.css";
 
 export const dynamic = "force-static";
 
 const title = "Hybana pour les réseaux et les entreprises";
-const description = "Hybana installé pour votre réseau ou votre entreprise : vos agences déposent une info, Hybana rédige à vos couleurs, le siège valide. Sur mesure, prise de rendez-vous en ligne.";
+const description = "Hybana pour les réseaux : chaque adresse envoie une info, Hybana rédige le post aux couleurs et au ton de la marque, sur LinkedIn, Instagram, Facebook ou TikTok. Le siège valide.";
 
 export const metadata: Metadata = {
   title, description,
@@ -30,6 +31,6 @@ export default function EntreprisesPage() {
       <div dangerouslySetInnerHTML={{ __html: parts![2] }} style={{ display: "contents" }} />
     </main>
     <div dangerouslySetInnerHTML={{ __html: parts![3] }} />
-    <LandingEnhancements /><RevealOnScroll />
+    <LandingEnhancements /><RevealOnScroll /><EntreprisesDemos />
   </>;
 }
