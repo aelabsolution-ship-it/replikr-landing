@@ -3,74 +3,154 @@
     <header class="header" id="header">
   <nav class="nav container" aria-label="Navigation principale">
     <a href="/" class="nav__logo replikr-brand" aria-label="Hybana, accueil"><img src="/logo.png" alt="" width="34" height="34"><span class="hb-wordmark">HYBANA</span></a>
-    <div class="nav__actions"><a href="/" class="nav__login af-nav-home">Découvrir Hybana</a><a href="https://calendar.app.google/FMCaxhBxAvHCFKai9" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--sm nav__cta">Prendre rendez-vous</a></div>
+    <div class="nav__actions"><a href="/" class="nav__login af-nav-home">Découvrir Hybana</a><a href="#rendez-vous" class="btn btn--primary btn--sm nav__cta">Prendre rendez-vous</a></div>
   </nav>
 </header>
 
     <main>
 
-        <section class="oi-hero af-hero ent-hero" id="hero">
+        <section class="oi-hero af-hero" id="hero">
             <div class="hero__bg"></div>
             <div class="hero__orb hero__orb--1"></div>
             <div class="hero__orb hero__orb--2"></div>
             <div class="hero__grid" aria-hidden="true"></div>
             <div class="oi-wide">
                 <div class="oi-hero__intro">
-                    <p class="af-kicker">Hybana pour les entreprises</p>
-                    <h1>Hybana, installé pour votre organisation.<br><em>Votre marque, vos règles, vos canaux.</em></h1>
-                    <p class="oi-hero__lead">Vos gabarits, votre méthode éditoriale, vos équipes et vos outils. Configuré avec vous, sur mesure.</p>
+                    <p class="af-kicker">Hybana pour les réseaux et les entreprises</p>
+                    <h1>Chaque agence publie.<br><em>Le siège garde la main.</em></h1>
+                    <p class="oi-hero__lead">Hybana installé pour votre organisation : vos agences ou vos équipes déposent une info, <strong>Hybana rédige les publications à vos couleurs</strong>, et rien ne part sans validation.</p>
                     <div class="oi-hero__actions">
-                        <a href="https://calendar.app.google/FMCaxhBxAvHCFKai9" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--lg btn--glow">Prendre rendez-vous</a>
-                        <a href="#inclus" class="oi-btn-ghost af-ghost">Ce qui est adapté</a>
+                        <a href="#rendez-vous" class="btn btn--primary btn--lg btn--glow">Prendre rendez-vous</a>
+                        <a href="#comment" class="oi-btn-ghost af-ghost">Voir comment ça marche</a>
+                    </div>
+                    <p class="solo-trial">Sur mesure, sur devis</p>
+                </div>
+
+                <div class="oi-hero__stage">
+                    <figure class="ent-demo ent-flow" data-demo role="img" aria-label="Exemple fictif : une agence de Nantes envoie l’info d’un nouveau mandat, Hybana rédige un post aux couleurs de la marque, le siège le valide et il est programmé.">
+                        <div class="ent-flow__agency ent-anim ent-anim--in">
+                            <span class="ent-who"><i class="ent-avatar">N</i><span><b>Agence de Nantes</b><small>à l’instant</small></span></span>
+                            <p>Nouveau mandat : maison 5 pièces avec jardin, à deux pas du parc. Visites dès samedi.</p>
+                            <span class="ent-chips"><i>Photo · maison.jpg</i><i>Note vocale · 0:24</i></span>
+                        </div>
+                        <div class="ent-flow__link ent-anim ent-anim--link" aria-hidden="true"><span class="ent-flow__hub"><img src="/logo.png" alt="" width="26" height="26">Hybana rédige à vos couleurs</span></div>
+                        <div class="ent-flow__post ent-anim ent-anim--post">
+                            <div class="ent-brandbar"><span class="ent-logo">VOTRE MARQUE</span><small>Nantes</small></div>
+                            <div class="ent-photo"><span>Maison 5 pièces · jardin</span></div>
+                            <p><b>Une maison avec jardin, à deux pas du parc.</b> 5 pièces, de la lumière, et des visites dès samedi. On vous la fait découvrir ?</p>
+                            <div class="ent-flow__status">
+                                <span class="ent-pill ent-pill--ok ent-anim ent-anim--badge">✓ Validé par le siège</span>
+                                <span class="ent-pill ent-anim ent-anim--slot">Programmé · mardi 9 h</span>
+                            </div>
+                        </div>
+                        <figcaption class="ent-fictif">Exemple fictif</figcaption>
+                    </figure>
+                </div>
+            </div>
+        </section>
+
+        <section class="section oi-sec--papier" id="comment">
+            <div class="oi-wide">
+                <div class="section__header ent-head rk-reveal"><h2>Comment ça marche pour un réseau.</h2></div>
+                <div class="oi-track">
+                    <div class="oi-track__rail" aria-hidden="true"><div class="oi-track__fill"></div></div>
+
+                    <div class="oi-track__row">
+                        <div class="oi-track__label">
+                            <span class="oi-track__dot"></span>
+                            <p class="oi-track__step">01 · Déposer</p>
+                        </div>
+                        <div class="oi-track__body">
+                            <div class="solo-step-copy">
+                            <h2>L’agence dépose une info.</h2>
+                            <p>Une photo, une note vocale, trois lignes. Personne n’a besoin de savoir écrire un post ni d’ouvrir Canva.</p>
+                            </div>
+                            <div class="oi-frame ent-frame">
+                                <div class="oi-frame__bar"><span class="oi-frame__dot"></span><span class="oi-frame__dot"></span><span class="oi-frame__dot"></span></div>
+                                <div class="ent-demo ent-drop" data-demo role="img" aria-label="Exemple fictif : l’agence de Lyon ajoute une photo, une note vocale et un texte court, puis envoie à Hybana.">
+                                    <span class="ent-who"><i class="ent-avatar">L</i><span><b>Agence de Lyon</b><small>Nouvelle publication</small></span></span>
+                                    <div class="ent-drop__zone">
+                                        <span class="ent-file ent-anim ent-anim--f1"><i class="ent-ico ent-ico--photo"></i>vitrine-rentree.jpg</span>
+                                        <span class="ent-file ent-anim ent-anim--f2"><i class="ent-ico ent-ico--voice"></i>Note vocale · 0:31</span>
+                                        <span class="ent-file ent-anim ent-anim--f3"><i class="ent-ico ent-ico--text"></i>Portes ouvertes samedi, café offert.</span>
+                                    </div>
+                                    <span class="ent-send ent-anim ent-anim--send">Envoyer à Hybana →</span>
+                                    <span class="ent-fictif">Exemple fictif</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="oi-track__row">
+                        <div class="oi-track__label">
+                            <span class="oi-track__dot"></span>
+                            <p class="oi-track__step">02 · Rédiger</p>
+                        </div>
+                        <div class="oi-track__body">
+                            <div class="solo-step-copy">
+                            <h2>Hybana rédige à vos couleurs.</h2>
+                            <p>Vos gabarits, votre ton, votre vocabulaire, vos interdits. Chaque publication sort au format de chaque réseau, aux couleurs de la marque.</p>
+                            </div>
+                            <div class="oi-frame ent-frame">
+                                <div class="oi-frame__bar"><span class="oi-frame__dot"></span><span class="oi-frame__dot"></span><span class="oi-frame__dot"></span></div>
+                                <div class="ent-demo ent-formats" data-demo role="img" aria-label="Exemple fictif : la même info devient un post LinkedIn, un visuel Instagram et un post Facebook, tous aux couleurs de la marque.">
+                                    <div class="ent-mini ent-anim ent-anim--m1"><div class="ent-brandbar"><span class="ent-logo">VOTRE MARQUE</span><small>LinkedIn</small></div><span class="ent-lines"><i></i><i></i><i></i></span><div class="ent-photo ent-photo--sm"></div></div>
+                                    <div class="ent-mini ent-mini--carre ent-anim ent-anim--m2"><div class="ent-brandbar"><span class="ent-logo">VOTRE MARQUE</span><small>Instagram</small></div><div class="ent-visual"><b>Portes ouvertes</b><span>samedi · café offert</span></div></div>
+                                    <div class="ent-mini ent-anim ent-anim--m3"><div class="ent-brandbar"><span class="ent-logo">VOTRE MARQUE</span><small>Facebook</small></div><span class="ent-lines"><i></i><i></i></span><div class="ent-photo ent-photo--sm"></div></div>
+                                    <span class="ent-fictif">Exemple fictif</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="oi-track__row">
+                        <div class="oi-track__label">
+                            <span class="oi-track__dot"></span>
+                            <p class="oi-track__step">03 · Valider</p>
+                        </div>
+                        <div class="oi-track__body">
+                            <div class="solo-step-copy">
+                            <h2>Le siège valide, puis tout est programmé.</h2>
+                            <p>Vous relisez ce que publient vos agences avant que ça parte. Une marque cohérente partout, sans tout écrire vous-même.</p>
+                            </div>
+                            <div class="oi-frame ent-frame">
+                                <div class="oi-frame__bar"><span class="oi-frame__dot"></span><span class="oi-frame__dot"></span><span class="oi-frame__dot"></span></div>
+                                <div class="ent-demo ent-queue" data-demo role="img" aria-label="Exemple fictif : trois publications d’agences passent de « À valider » à « Validé », puis sont programmées dans la semaine.">
+                                    <p class="ent-queue__title">À valider cette semaine</p>
+                                    <div class="ent-row"><span class="ent-who"><i class="ent-avatar">N</i><span><b>Agence de Nantes</b><small>Post LinkedIn</small></span></span><span class="ent-state ent-state--1"><i>À valider</i><i>✓ Validé</i></span></div>
+                                    <div class="ent-row"><span class="ent-who"><i class="ent-avatar">L</i><span><b>Agence de Lyon</b><small>Visuel Instagram</small></span></span><span class="ent-state ent-state--2"><i>À valider</i><i>✓ Validé</i></span></div>
+                                    <div class="ent-row"><span class="ent-who"><i class="ent-avatar">B</i><span><b>Agence de Bordeaux</b><small>Post Facebook</small></span></span><span class="ent-state ent-state--3"><i>À valider</i><i>✓ Validé</i></span></div>
+                                    <p class="ent-queue__done ent-anim ent-anim--done">3 publications programmées</p>
+                                    <span class="ent-fictif">Exemple fictif</span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="section oi-sec--papier" id="inclus">
+        <section class="section" id="inclus">
             <div class="container">
-                <div class="section__header"><h2>Ce qui est adapté à votre entreprise.</h2></div>
+                <div class="section__header rk-reveal"><h2>Configuré pour votre organisation.</h2></div>
                 <div class="af-grid af-grid--trois">
-                    <div class="af-card"><h3>À votre marque</h3><p>Une instance à votre marque, plusieurs marques ou équipes, un accès par personne.</p></div>
-                    <div class="af-card"><h3>Vos gabarits</h3><p>Gabarits d’infographies et de carrousels dessinés à votre charte, validés avec vous.</p></div>
-                    <div class="af-card"><h3>Votre façon de parler</h3><p>Méthode éditoriale calée sur vos prises de parole : ton, vocabulaire, interdits.</p></div>
-                    <div class="af-card"><h3>Vos outils et vos canaux</h3><p>Intégrations à vos outils et à vos canaux, publication comprise.</p></div>
-                    <div class="af-card"><h3>Un accompagnement</h3><p>Mise en route accompagnée et un interlocuteur dédié.</p></div>
-                    <div class="af-card"><h3>Vos données en Europe</h3><p>Hébergement en Europe, données cloisonnées par compte.</p></div>
+                    <div class="af-card rk-reveal"><span class="ent-card-ico ent-ico--marque" aria-hidden="true"></span><h3>À votre marque</h3><p>Une instance à votre marque, plusieurs marques ou équipes, un accès par personne.</p></div>
+                    <div class="af-card rk-reveal" style="transition-delay:.08s"><span class="ent-card-ico ent-ico--gabarit" aria-hidden="true"></span><h3>Vos gabarits</h3><p>Gabarits d’infographies et de carrousels dessinés à votre charte, validés avec vous.</p></div>
+                    <div class="af-card rk-reveal" style="transition-delay:.16s"><span class="ent-card-ico ent-ico--ton" aria-hidden="true"></span><h3>Votre façon de parler</h3><p>Méthode éditoriale calée sur vos prises de parole : ton, vocabulaire, interdits.</p></div>
+                    <div class="af-card rk-reveal"><span class="ent-card-ico ent-ico--canaux" aria-hidden="true"></span><h3>Vos outils et vos canaux</h3><p>Intégrations à vos outils et à vos canaux, publication comprise.</p></div>
+                    <div class="af-card rk-reveal" style="transition-delay:.08s"><span class="ent-card-ico ent-ico--accomp" aria-hidden="true"></span><h3>Un accompagnement</h3><p>Mise en route accompagnée et un interlocuteur dédié.</p></div>
+                    <div class="af-card rk-reveal" style="transition-delay:.16s"><span class="ent-card-ico ent-ico--europe" aria-hidden="true"></span><h3>Vos données en Europe</h3><p>Hébergement en Europe, données cloisonnées par compte.</p></div>
                 </div>
             </div>
         </section>
 
-        <section class="section" id="comment">
+        <section class="section oi-sec--papier ent-rdv" id="rendez-vous">
             <div class="container">
-                <div class="section__header"><h2>Comment ça se passe.</h2></div>
-                <ol class="af-steps">
-                    <li>
-                        <span class="af-steps__n">1</span>
-                        <h3>Un rendez-vous</h3>
-                        <p>Vous présentez vos prises de parole, vos canaux et vos équipes.</p>
-                    </li>
-                    <li>
-                        <span class="af-steps__n">2</span>
-                        <h3>La configuration</h3>
-                        <p>Votre marque, vos gabarits et votre méthode éditoriale, validés avec vous.</p>
-                    </li>
-                    <li>
-                        <span class="af-steps__n">3</span>
-                        <h3>La mise en route</h3>
-                        <p>Accompagnée, avec un interlocuteur dédié.</p>
-                    </li>
-                </ol>
-                <p class="af-note">Tarif sur devis, après un premier échange.</p>
-            </div>
-        </section>
-
-
-        <section class="section oi-final" id="demarrer">
-            <div class="container">
-                <h2>Parlons de votre entreprise.</h2>
-                <p>Un premier échange pour voir ce qu’Hybana peut faire pour vos équipes.</p>
-                <a href="https://calendar.app.google/FMCaxhBxAvHCFKai9" target="_blank" rel="noopener noreferrer" class="btn btn--primary btn--lg btn--glow">Prendre rendez-vous</a>
+                <div class="section__header rk-reveal"><h2>Parlons de votre réseau.</h2><p class="af-sub">Choisissez un créneau. Un premier échange pour voir ce qu’Hybana peut faire pour vos équipes.</p></div>
+                <div class="ent-rdv__agenda rk-reveal">
+                    <iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2axAJQoOHljLySfom1mhsLlFtzfX6sb1SzkJaIaIxqS6T40Zkv4IrzhyHAJoxbGUlxg3OTarcu?gv=true" title="Prendre rendez-vous avec Hybana" loading="lazy"></iframe>
+                </div>
+                <p class="af-note">L’agenda ne s’affiche pas ? <a href="https://calendar.app.google/FMCaxhBxAvHCFKai9" target="_blank" rel="noopener noreferrer">Ouvrir la prise de rendez-vous dans un nouvel onglet</a></p>
             </div>
         </section>
 

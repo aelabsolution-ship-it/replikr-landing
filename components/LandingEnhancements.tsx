@@ -137,6 +137,26 @@ export default function LandingEnhancements() {
         profileScan.classList.remove("is-enhanced");
       });
     }
+    // Looping CSS demos (page /entreprises): play only while visible, never with reduced motion.
+    document.querySelectorAll<HTMLElement>("[data-demo]").forEach(demo => {
+      let visible = false;
+      const sync = () => demo.classList.toggle("is-paused", !visible || reduce.matches || document.hidden);
+      const demoWatcher = new IntersectionObserver(entries => {
+        visible = entries.some(entry => entry.isIntersecting);
+        sync();
+      }, { threshold: .25 });
+      demo.classList.add("is-enhanced");
+      reduce.addEventListener("change", sync);
+      document.addEventListener("visibilitychange", sync);
+      demoWatcher.observe(demo);
+      sync();
+      cleanups.push(() => {
+        demoWatcher.disconnect();
+        reduce.removeEventListener("change", sync);
+        document.removeEventListener("visibilitychange", sync);
+        demo.classList.remove("is-enhanced", "is-paused");
+      });
+    });
     const documentDemo = document.querySelector<HTMLElement>(".document-demo");
     if (documentDemo) {
       let visible = false;

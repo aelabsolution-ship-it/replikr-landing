@@ -444,3 +444,16 @@ summary.faq__question::-webkit-details-marker { display: none; }
 @media (max-width: 720px) {
   .oi-page .oi-hero__lead { display: block; font-size: 1rem; line-height: 1.6; }
 }
+
+/* Bande « réseaux et entreprises » sous la section Pour qui : mène à /entreprises (25 oct. 2026). */
+.oi-page .ent-band { padding: 0 0 clamp(3rem, 6vw, 5rem); }
+.oi-page .ent-band__card { display: flex; align-items: center; justify-content: space-between; gap: 2rem; padding: 1.6rem 2rem; border: 1px solid rgba(169, 171, 232, .3); border-radius: 20px;
+  background: linear-gradient(120deg, rgba(169, 171, 232, .12), rgba(169, 171, 232, .03) 60%), var(--sb-carte); color: var(--sb-texte); text-decoration: none; transition: border-color .2s, transform .2s; }
+.oi-page .ent-band__card:hover { border-color: var(--sb-accent); transform: translateY(-2px); }
+.oi-page .ent-band__copy { display: grid; gap: .35rem; font-family: var(--font-ui); }
+.oi-page .ent-band__kicker { color: var(--sb-accent); font-weight: 600; font-size: .78rem; letter-spacing: .08em; text-transform: uppercase; }
+.oi-page .ent-band__copy strong { font-family: var(--font-titre); font-weight: 700; font-size: clamp(1.2rem, 2.2vw, 1.55rem); line-height: 1.25; }
+.oi-page .ent-band__copy > span:last-child { color: var(--sb-texte-2); font-size: .98rem; line-height: 1.5; }
+.oi-page .ent-band__cta { flex: none; padding: .85rem 1.3rem; border: 1px solid var(--sb-filet-fort); border-radius: 999px; font-family: var(--font-ui); font-weight: 600; font-size: .95rem; white-space: nowrap; }
+.oi-page .ent-band__card:hover .ent-band__cta { background: var(--sb-texte); color: #0b0b0c; }
+@media (max-width: 720px) { .oi-page .ent-band__card { flex-direction: column; align-items: stretch; gap: 1.1rem; padding: 1.3rem; } .oi-page .ent-band__cta { text-align: center; } }

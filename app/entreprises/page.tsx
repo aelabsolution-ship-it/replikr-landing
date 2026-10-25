@@ -2,13 +2,14 @@ import type { Metadata } from "next";
 import { readFileSync } from "node:fs";
 import path from "node:path";
 import LandingEnhancements from "@/components/LandingEnhancements";
+import RevealOnScroll from "@/components/RevealOnScroll";
 import "../affiliation.css";
 import "../entreprises.css";
 
 export const dynamic = "force-static";
 
-const title = "Hybana pour les entreprises : sur mesure";
-const description = "Hybana installé pour votre organisation : votre marque, vos gabarits, vos règles éditoriales, vos canaux. Mise en route accompagnée.";
+const title = "Hybana pour les réseaux et les entreprises";
+const description = "Hybana installé pour votre réseau ou votre entreprise : vos agences déposent une info, Hybana rédige à vos couleurs, le siège valide. Sur mesure, prise de rendez-vous en ligne.";
 
 export const metadata: Metadata = {
   title, description,
@@ -29,6 +30,6 @@ export default function EntreprisesPage() {
       <div dangerouslySetInnerHTML={{ __html: parts![2] }} style={{ display: "contents" }} />
     </main>
     <div dangerouslySetInnerHTML={{ __html: parts![3] }} />
-    <LandingEnhancements />
+    <LandingEnhancements /><RevealOnScroll />
   </>;
 }
