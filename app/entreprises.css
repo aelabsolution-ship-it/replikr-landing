@@ -221,3 +221,16 @@
 
 /* Avatar à initiale (compte standard de l'avant / après). */
 .oi-page .ig-post__avatar--init { display: grid; place-items: center; background: #dfe3e8; color: #555; font-weight: 700; font-size: .8rem; box-shadow: none; }
+
+/* Photos produits (générées pour l'exemple fictif) sous les gabarits Maison Brioval :
+   la charte reste en surimpression, avec un fondu qui garde le texte lisible. */
+.oi-page .bv-visual[style*="--photo"] { background-size: cover; background-position: center; }
+.oi-page .bv-visual--saison[style*="--photo"] { background: linear-gradient(90deg, var(--bv-creme) 0 40%, rgba(244, 230, 207, .82) 52%, rgba(244, 230, 207, 0) 74%), var(--photo) right center / cover; }
+.oi-page .bv-visual--saison[style*="--photo"] strong, .oi-page .bv-visual--saison[style*="--photo"] .bv-sub { max-width: 62%; }
+.oi-page .bv-visual--story[style*="--photo"],
+.oi-page .bv-visual--fournil[style*="--photo"],
+.oi-page .bv-visual--avis[style*="--photo"],
+.oi-page .bv-visual--ouverture[style*="--photo"] { background: linear-gradient(0deg, rgba(36, 18, 9, .88) 0%, rgba(36, 18, 9, .45) 42%, rgba(36, 18, 9, 0) 70%), var(--photo) center / cover; color: var(--bv-creme); justify-content: flex-end; }
+.oi-page .bv-visual--avis[style*="--photo"] .bv-sub, .oi-page .bv-visual--ouverture[style*="--photo"] .bv-sub { color: rgba(244, 230, 207, .85); }
+.oi-page .bv-visual--ouverture[style*="--photo"] .bv-tag--light { background: var(--bv-terre); color: var(--bv-creme); }
+.oi-page .bv-visual--job[style*="--photo"] { background: linear-gradient(90deg, rgba(58, 34, 22, .96) 0 38%, rgba(58, 34, 22, .55) 62%, rgba(58, 34, 22, .1)), var(--photo) center / cover; }
