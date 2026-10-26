@@ -10,7 +10,7 @@ import "../entreprises.css";
 export const dynamic = "force-static";
 
 const title = "Hybana pour les réseaux et les entreprises";
-const description = "Hybana pour les réseaux : chaque adresse envoie une info, Hybana rédige le post aux couleurs et au ton de la marque, sur LinkedIn, Instagram, Facebook ou TikTok. Le siège valide.";
+const description = "Hybana pour les réseaux : chaque adresse envoie une info, Hybana rédige le post aux couleurs et au ton de la marque, dans le format de chaque réseau. Le siège valide.";
 
 export const metadata: Metadata = {
   title, description,

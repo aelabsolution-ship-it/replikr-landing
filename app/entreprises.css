@@ -218,3 +218,6 @@
 }
 /* Les cadres des réseaux restent alignés à gauche, même dans le héro centré au téléphone. */
 .oi-page .ent-msg, .oi-page .ig-post, .oi-page .li-post, .oi-page .fb-post, .oi-page .story, .oi-page .tt-video { text-align: left; }
+
+/* Avatar à initiale (compte standard de l'avant / après). */
+.oi-page .ig-post__avatar--init { display: grid; place-items: center; background: #dfe3e8; color: #555; font-weight: 700; font-size: .8rem; box-shadow: none; }
