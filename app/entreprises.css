@@ -246,3 +246,21 @@
   .oi-page .ent-gains-mini { justify-content: center; text-align: left; width: fit-content; margin-inline: auto; }
   .oi-page .ent-cta-note { width: 100%; text-align: center; }
 }
+
+/* Relecture Codex (27 oct.) : textes lisibles dans les mini-posts et sur téléphone. */
+.oi-page .oi-track__body .ent-mini p { color: #262626; }
+.oi-page .ent-rdv__direct { margin: 0 0 1rem; text-align: center; font-family: var(--font-ui); }
+.oi-page .ent-rdv__direct a { display: inline-flex; padding: .7rem 1.2rem; border: 1px solid var(--sb-filet-fort); border-radius: 999px; color: var(--sb-texte); font-weight: 600; font-size: .92rem; text-decoration: none; }
+.oi-page .ent-rdv__direct a:hover, .oi-page .ent-rdv__direct a:focus-visible { border-color: var(--sb-accent); }
+@media (max-width: 720px) {
+  /* Étape 2 : les trois formats défilent au doigt au lieu d'être tassés sur trois colonnes. */
+  .oi-page .ent-formats { display: flex; gap: .7rem; min-height: 0; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: .4rem; }
+  .oi-page .ent-formats > .ent-mini { flex: 0 0 68%; scroll-snap-align: center; }
+  .oi-page .ent-formats > .ent-fictif { position: static; flex: none; align-self: flex-end; }
+  .oi-page .ent-mini p, .oi-page .ent-mini__net { font-size: .82rem; }
+  .oi-page .ent-mini .bv-visual strong { font-size: 1.1rem; }
+  .oi-page .ent-mini--tall { aspect-ratio: auto; min-height: 16rem; }
+  /* Visuel de saison : le titre respire davantage sur petit écran. */
+  .oi-page .bv-visual--saison[style*="--photo"] { background: linear-gradient(90deg, var(--bv-creme) 0 52%, rgba(244, 230, 207, .85) 64%, rgba(244, 230, 207, 0) 86%), var(--photo) right center / cover; }
+  .oi-page .bv-visual--saison[style*="--photo"] strong { max-width: 80%; font-size: 1.25rem; }
+}
