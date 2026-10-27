@@ -234,3 +234,15 @@
 .oi-page .bv-visual--avis[style*="--photo"] .bv-sub, .oi-page .bv-visual--ouverture[style*="--photo"] .bv-sub { color: rgba(244, 230, 207, .85); }
 .oi-page .bv-visual--ouverture[style*="--photo"] .bv-tag--light { background: var(--bv-terre); color: var(--bv-creme); }
 .oi-page .bv-visual--job[style*="--photo"] { background: linear-gradient(90deg, rgba(58, 34, 22, .96) 0 38%, rgba(58, 34, 22, .55) 62%, rgba(58, 34, 22, .1)), var(--photo) center / cover; }
+
+/* v6 (clarté) : trois gains sous l'accroche, un seul appel à l'action et sa précision. */
+.oi-page .ent-gains-mini { display: grid; gap: .45rem; margin: 1rem 0 1.6rem; padding: 0; list-style: none; font-family: var(--font-ui); }
+.oi-page .ent-gains-mini li { position: relative; padding-left: 1.6rem; color: var(--sb-texte); font-size: 1rem; line-height: 1.4; }
+.oi-page .ent-gains-mini li::before { content: "✓"; position: absolute; left: 0; top: 0; color: var(--sb-accent); font-weight: 700; }
+.oi-page .ent-hero .oi-hero__actions, .oi-page .af-hero .oi-hero__actions { align-items: center; }
+.oi-page .ent-cta-note { color: var(--sb-texte-3); font-family: var(--font-ui); font-size: .88rem; }
+.oi-page .ent-ico--temps { --ico: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Ccircle cx='12' cy='12' r='9' fill='none' stroke='black' stroke-width='2'/%3E%3Cpath d='M12 7v5l3 2' fill='none' stroke='black' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E"); }
+@media (max-width: 720px) {
+  .oi-page .ent-gains-mini { justify-content: center; text-align: left; width: fit-content; margin-inline: auto; }
+  .oi-page .ent-cta-note { width: 100%; text-align: center; }
+}

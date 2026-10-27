@@ -9,8 +9,8 @@ import "../entreprises.css";
 
 export const dynamic = "force-static";
 
-const title = "Hybana pour les réseaux et les entreprises";
-const description = "Hybana pour les réseaux : chaque adresse envoie une info, Hybana rédige le post aux couleurs et au ton de la marque, dans le format de chaque réseau. Le siège valide.";
+const title = "Hybana pour les réseaux de points de vente";
+const description = "Hybana écrit les posts et stories de chacun de vos points de vente, à vos couleurs. Vos équipes envoient une info, le siège valide. Démo de 30 minutes.";
 
 export const metadata: Metadata = {
   title, description,
