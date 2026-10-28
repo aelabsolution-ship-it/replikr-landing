@@ -6,12 +6,24 @@ const nextConfig = {
   // Renommage Hybana (oct. 2026) : l'ancien domaine part en 301 vers le
   // nouveau, chemin conservé (replikr.io/confidentialite → www.hybana.com/confidentialite).
   async redirects() {
+    // Les pages légales vivent dans l'app (app.hybana.com/legal/…) : les anciens
+    // liens www.hybana.com/confidentialite & co (replikr.io compris) y mènent.
+    const legal = [
+      ["/confidentialite", "confidentialite"],
+      ["/cgv", "cgv"],
+      ["/mentions-legales", "mentions"],
+      ["/suppression-donnees", "suppression-donnees"],
+    ].map(([source, page]) => ({
+      source,
+      destination: `https://app.hybana.com/legal/${page}`,
+      permanent: false,
+    }));
     return [{
       source: "/:path*",
       has: [{ type: "host", value: "(www\\.)?replikr\\.io" }],
       destination: "https://www.hybana.com/:path*",
       permanent: true,
-    }];
+    }, ...legal];
   },
   async headers() {
     return [{ source: "/:path*", headers: [
