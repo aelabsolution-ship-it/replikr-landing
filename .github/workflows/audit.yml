@@ -1,0 +1,24 @@
+name: Audit des dépendances
+# Chaque lundi matin, et à chaque PR qui touche les dépendances : `npm audit`
+# sur les paquets livrés en prod. Un échec = une faille high ou critical
+# connue ; GitHub envoie un e-mail. Rien n'est corrigé automatiquement.
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "23 5 * * 1"
+  pull_request:
+    paths:
+      - package.json
+      - package-lock.json
+      - .github/workflows/audit.yml
+permissions:
+  contents: read
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm audit --omit=dev --audit-level=high

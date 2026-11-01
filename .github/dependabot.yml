@@ -1,0 +1,15 @@
+# Veille des failles de la landing (1er nov. 2026, demande de Ludovic : « des
+# routines de sécurité que j'ai pas à tout penser »). Dependabot propose une PR
+# quand une dépendance a une faille connue ; rien ne se fusionne seul (main =
+# prod Railway).
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: "/"
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 5
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule:
+      interval: monthly
